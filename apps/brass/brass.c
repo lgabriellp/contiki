@@ -4,25 +4,25 @@
 #include <string.h>
 
 struct pair *
-brass_pair_alloc(uint8_t len, uint8_t key_len) {
-	struct pair * pair = malloc(sizeof(struct pair) + len);
+brass_pair_alloc(uint8_t keylen, uint8_t valuelen) {
+	struct pair * pair = malloc(sizeof(struct pair) + keylen + valuelen);
 	if (!pair) {
 		printf("Failed to alloc pair\n");
 		return NULL;
 	}
 
 	pair->next = NULL;
-	pair->len = len;
+	pair->len = keylen + valuelen;
 	pair->allocd = 1;
 	pair->key = ((int8_t *)pair) + sizeof(struct pair);
-	pair->value = pair->key + key_len;
+	pair->value = pair->key + keylen;
 
 	return pair;
 }
 
 struct pair *
 brass_pair_dup(struct pair * pair) {
-	struct pair * dup = brass_pair_alloc(pair->len, brass_pair_keylen(pair));
+	struct pair * dup = brass_pair_alloc(brass_pair_keylen(pair), brass_pair_valuelen(pair));
 	if (!dup) {
 		printf("Failed to duplicate pair\n");
 		return NULL;
@@ -65,30 +65,30 @@ brass_pair_valuelen(struct pair * pair) {
 }
 
 int
-brass_pair_cmp(struct pair * pair, void * key, uint8_t len) {
+brass_pair_cmp(struct pair * pair, const void * key, uint8_t len) {
 	int diff = brass_pair_keylen(pair) - len;
 	return diff == 0 ? memcmp(pair->key, key, brass_pair_keylen(pair)) : diff;
 }
 
 void
-brass_pair_set_key(struct pair * pair, void * key) {
+brass_pair_set_key(struct pair * pair, const void * key) {
 	memcpy(pair->key, key, brass_pair_keylen(pair));
 }
 
 void
-brass_pair_set_value(struct pair * pair, void * value) {
+brass_pair_set_value(struct pair * pair, const void * value) {
 	memcpy(pair->value, value, brass_pair_valuelen(pair));
 }
 
 void
 brass_pair_print(struct pair * pair) {
 	int i;
+	printf("pair(%d, ", pair->len);
 	for (i = 0; i < pair->len; i++) {
-		if (i == 0) printf("key: ");
-		if (i == brass_pair_keylen(pair)) printf("value: ");
-		printf("%x ", pair->key[i]);
+		if (i == brass_pair_keylen(pair)) printf(", ");
+		printf("%x", pair->key[i]);
 	}
-	printf("\n");
+	printf(")\n");
 }
 
 void
@@ -112,7 +112,7 @@ brass_size(struct brass * brass) {
 }
 
 struct pair *
-brass_find(struct brass * brass, void * key, uint8_t len) {
+brass_find(struct brass * brass, const void * key, uint8_t len) {
 	void * iter = list_head(brass->reduced);
 
 	while (iter && brass_pair_cmp((struct pair *)iter, key, len) != 0) {
@@ -124,7 +124,7 @@ brass_find(struct brass * brass, void * key, uint8_t len) {
 
 uint8_t
 brass_sow(struct brass * brass, int8_t key, int8_t value) {
-	brass->map(key, value);
+	brass->map(brass, key, value);
 	return 0;
 }
 

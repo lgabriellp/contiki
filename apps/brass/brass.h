@@ -1,6 +1,10 @@
 #ifndef _BRASS_H_
 #define _BRASS_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif//__cplusplus
+
 #include <stdint.h>
 #include <lib/list.h>
 
@@ -20,14 +24,16 @@ void		 brass_pair_free(struct pair * pair);
 uint8_t brass_pair_len(struct pair * pair);
 uint8_t brass_pair_keylen(struct pair * pair);
 uint8_t brass_pair_valuelen(struct pair * pair);
-int		brass_pair_cmp(struct pair * pair, void * key, uint8_t len);
+int		brass_pair_cmp(struct pair * pair, const void * key, uint8_t len);
 
-void brass_pair_set_key(struct pair * pair, void * key);
-void brass_pair_set_value(struct pair * pair, void * value);
+void brass_pair_set_key(struct pair * pair, const void * key);
+void brass_pair_set_value(struct pair * pair, const void * value);
 void brass_pair_print(struct pair * pair);
 
-typedef void (*map_t)(int8_t key, int8_t value);
-typedef void (*reduce_t)(struct pair * result, int8_t * next);
+struct brass;
+
+typedef void (*map_t)(struct brass *, int8_t key, int8_t value);
+typedef void (*reduce_t)(struct pair * result, const int8_t * next);
 
 struct brass {
 	map_t map;
@@ -38,12 +44,16 @@ struct brass {
 void brass_init(struct brass * brass);
 void brass_clean(struct brass * brass);
 
-struct pair * brass_find(struct brass * brass, void * key, uint8_t len);
+struct pair * brass_find(struct brass * brass, const void * key, uint8_t len);
 
 uint8_t brass_size(struct brass * brass);
 uint8_t brass_sow(struct brass * brass, int8_t key, int8_t value);
 uint8_t brass_emit(struct brass * brass, struct pair * next);
 
 void brass_print(struct brass * brass);
+
+#ifdef __cplusplus
+}
+#endif//__cplusplus
 
 #endif//_BRASS_H_
