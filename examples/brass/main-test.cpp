@@ -1,6 +1,6 @@
 #include <CppUTest/CommandLineTestRunner.h>
 
-IMPORT_TEST_GROUP(brass_pair);
+IMPORT_TEST_GROUP(brass);
 
 int
 main(int argc, char * argv[]) {
