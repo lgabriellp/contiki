@@ -59,6 +59,7 @@ TEST(brass, pair_dup) {
 	BYTES_EQUAL(dup->value, dup->key + brass_pair_keylen(dup));
 
 	brass_pair_free(pair);
+	brass_pair_free(dup);
 }
 
 TEST(brass, pair_cmp) {
@@ -130,7 +131,7 @@ TEST(brass, gather_complete) {
 	brass_pair_set_value(pair, "D");
 	brass_emit(&brass, pair);
 
-	brass_print(&brass);
+	//brass_print(&brass);
 	BYTES_EQUAL(brass_gather(&brass, buffer, sizeof(buffer)), 10);
 	BYTES_EQUAL(brass_size(&brass), 0);
 
@@ -160,7 +161,7 @@ TEST(brass, gather_incomplete) {
 	brass_pair_set_value(pair, "D");
 	brass_emit(&brass, pair);
 
-	brass_print(&brass);
+	//brass_print(&brass);
 	BYTES_EQUAL(brass_gather(&brass, buffer, sizeof(buffer)), 6);
 	BYTES_EQUAL(brass_size(&brass), 1);
 
@@ -174,7 +175,7 @@ TEST(brass, gather_incomplete) {
 	brass_pair_free(pair);
 }
 
-IGNORE_TEST(brass, gather_none) {
+TEST(brass, gather_none) {
 	int8_t buffer[0];
 	pair = brass_pair_alloc(&brass, 1, 1);
 
@@ -186,9 +187,33 @@ IGNORE_TEST(brass, gather_none) {
 	brass_pair_set_value(pair, "D");
 	brass_emit(&brass, pair);
 
-	brass_print(&brass);
+	//brass_print(&brass);
 	BYTES_EQUAL(brass_gather(&brass, buffer, sizeof(buffer)), 0);
 	BYTES_EQUAL(brass_size(&brass), 2);
 
 	brass_pair_free(pair);
 }
+
+TEST(brass, feed_one) {
+	uint8_t buffer[] = { brass.id, 1, 1, 1, 'C', 'D', 0, 0 };
+	uint8_t key = 'C';
+	
+	BYTES_EQUAL(brass_feed(&brass, buffer, sizeof(buffer)), 6);
+	BYTES_EQUAL(brass_size(&brass), 1);
+	
+	BYTES_EQUAL(brass_find(&brass, &key, sizeof(key))->value[0], 'D');
+}
+
+TEST(brass, feed_many) {
+	uint8_t buffer[] = { brass.id, 2, 1, 1, 'C', 'D', 1, 1, 'A', 'B', 0, 0, 0 };
+	uint8_t key;
+	
+	BYTES_EQUAL(brass_feed(&brass, buffer, sizeof(buffer)), 10);
+	BYTES_EQUAL(brass_size(&brass), 2);
+	
+	key = 'C';
+	BYTES_EQUAL(brass_find(&brass, &key, sizeof(key))->value[0], 'D');
+	key = 'A';
+	BYTES_EQUAL(brass_find(&brass, &key, sizeof(key))->value[0], 'B');
+}
+

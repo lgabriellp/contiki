@@ -3,6 +3,9 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define BRASS_ID_INDEX 0
+#define BRASS_SIZE_INDEX 1
+
 struct pair *
 brass_pair_alloc(struct brass * brass, uint8_t keylen, uint8_t valuelen) {
 	struct pair * pair = malloc(sizeof(struct pair) + keylen + valuelen);
@@ -35,13 +38,16 @@ brass_pair_dup(struct pair * pair) {
 	return dup;
 }
 
-void
-brass_pair_init(struct pair * pair, int8_t * key, int8_t * value, uint8_t len) {
-	bzero(pair, sizeof(struct pair) + len);
-	pair->key = key;
-	pair->value = value;
-	pair->len = len;
+struct pair *
+brass_pair_init(struct brass * brass, struct pair * pair, void * key, uint8_t keylen, uint8_t valuelen) {
+	pair->next = NULL;
+	pair->brass = brass;
+	pair->key = (int8_t *)key + 2;
+	pair->value = pair->key + keylen;
+	pair->len = keylen + valuelen;
 	pair->allocd = 0;
+
+	return pair;
 }
 
 void
@@ -150,7 +156,6 @@ brass_emit(struct brass * brass, struct pair * next) {
 
 uint8_t
 brass_gather(struct brass * brass, void * ptr, uint8_t len) {
-	enum { BRASS_ID_INDEX=0, BRASS_SIZE_INDEX=1 };
 	uint8_t * buf = (uint8_t *)ptr;
 	uint8_t size = 0;
 	uint8_t i;
@@ -172,9 +177,33 @@ brass_gather(struct brass * brass, void * ptr, uint8_t len) {
 		}
 		
 		buf[BRASS_SIZE_INDEX]++;
-		iter = (struct pair *)list_pop(brass->reduced);
+		brass_pair_free((struct pair *)list_pop(brass->reduced));
 	}
 	
+	return size;
+}
+
+uint8_t
+brass_feed(struct brass * brass, const void * ptr, uint8_t len) {
+	uint8_t size = 2;
+	const uint8_t * buf = (const uint8_t *)ptr;
+	struct pair * pair;
+	uint8_t i;
+
+	for (i = 0; i < buf[BRASS_SIZE_INDEX]; i++) {
+		pair = brass_pair_alloc(brass, buf[size], buf[size + 1]);
+		size += 2;
+
+		brass_pair_set_key(pair, &buf[size]);
+		size += brass_pair_keylen(pair);
+
+		brass_pair_set_value(pair, &buf[size]);
+		size += brass_pair_valuelen(pair);
+
+		brass_emit(brass, pair);
+		brass_pair_free(pair);
+	}
+
 	return size;
 }
 

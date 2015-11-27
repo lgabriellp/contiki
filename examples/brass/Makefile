@@ -8,6 +8,7 @@ include $(CONTIKI)/Makefile.include
 
 CXXFLAGS += -I$(CONTIKI)/core
 CXXFLAGS += -I$(CONTIKI)/apps/brass
+CXXFLAGS += -g -ggdb
 CXXFLAGS += -Wall
 CXXFLAGS += -Werror
 CXXFLAGS += -lCppUTest

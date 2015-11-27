@@ -21,7 +21,6 @@ struct pair {
 
 struct pair * brass_pair_alloc(struct brass * brass, uint8_t len, uint8_t key_len);
 struct pair * brass_pair_dup(struct pair * pair);
-void		 brass_pair_init(struct pair * pair, int8_t * key, int8_t * value, uint8_t len);
 void		 brass_pair_free(struct pair * pair);
 
 uint8_t brass_pair_len(struct pair * pair);
@@ -52,6 +51,7 @@ uint8_t brass_size(struct brass * brass);
 uint8_t brass_sow(struct brass * brass, int8_t key, int8_t value);
 uint8_t brass_emit(struct brass * brass, struct pair * next);
 uint8_t	brass_gather(struct brass * brass, void * buf, uint8_t len);
+uint8_t brass_feed(struct brass * brass, const void * buf, uint8_t len);
 
 void brass_print(struct brass * brass);
 
