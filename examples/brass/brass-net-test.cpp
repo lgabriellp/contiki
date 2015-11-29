@@ -151,6 +151,23 @@ TEST(brass_net, should_discover_farther_neighbor) {
     BYTES_EQUAL(old_hops, brass_net_hops(&net));
 }
 
+TEST(brass_net, should_bind_an_app) {
+	struct brass_app app;
+	brass_app_init(&app);
+	brass_net_bind(&net, &app);
+	BYTES_EQUAL(1, brass_net_size(&net));
+}
+
+TEST(brass_net, should_unbind_app) {
+	struct  brass_app app;
+	brass_app_init(&app);
+	brass_net_bind(&net, &app);
+	BYTES_EQUAL(1, brass_net_size(&net));
+
+	brass_net_unbind(&net, &app);
+	BYTES_EQUAL(0, brass_net_size(&net));
+}
+
 /*
 TEST(brass_net, should_push_to_parent_reduced_data) {
     int16_t payload = 123;

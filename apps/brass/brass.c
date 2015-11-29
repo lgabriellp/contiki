@@ -280,6 +280,7 @@ static struct unicast_callbacks ucc = {
 
 void
 brass_net_open(struct brass_net * net, uint8_t is_sync) {
+	LIST_STRUCT_INIT(net, apps);
     neighbor_discovery_open(&net->nd,
                             128,
                             CLOCK_SECOND * 6,
@@ -304,6 +305,16 @@ brass_net_close(struct brass_net * net) {
 	unicast_close(&net->uc);
 }
 
+void
+brass_net_bind(struct brass_net * net, struct brass_app * app) {
+	list_add(net->apps, app);
+}
+
+void
+brass_net_unbind(struct brass_net * net, struct brass_app * app) {
+	list_remove(net->apps, app);
+}
+
 int
 brass_net_push(struct brass_net * net) {
 /*
@@ -325,6 +336,11 @@ brass_net_foward(struct brass_net * net, uint8_t cycle, uint8_t hops) {
 }
 
 uint8_t
+brass_net_size(const struct brass_net * net) {
+	return list_length(net->apps);
+}
+
+uint8_t
 brass_net_cycles(const struct brass_net * net) {
     return net->cycles;
 }
@@ -335,7 +351,7 @@ brass_net_hops(const struct brass_net * net) {
 }
 
 const linkaddr_t *
-brass_net_parent(struct brass_net * net) {
+brass_net_parent(const struct brass_net * net) {
     return &net->parent;
 }
 

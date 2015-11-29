@@ -12,6 +12,9 @@ extern "C" {
 #include <net/rime/neighbor-discovery.h>
 #include <net/rime/unicast.h>
 
+struct brass_app;
+struct brass_pair;
+
 struct brass_net {
 	LIST_STRUCT(apps);
     struct neighbor_discovery_conn nd;
@@ -23,19 +26,20 @@ struct brass_net {
 
 void brass_net_open(struct brass_net * net, uint8_t is_sink);
 void brass_net_close(struct brass_net * net);
+void brass_net_bind(struct brass_net * net, struct brass_app * app);
+void brass_net_unbind(struct brass_net * net, struct brass_app * app);
 
 int brass_net_push(struct brass_net * net);
 int brass_net_foward(struct brass_net * net, uint8_t cycle, uint8_t hops);
 
+uint8_t brass_net_size(const struct brass_net * net);
 uint8_t brass_net_cycles(const struct brass_net * net);
 uint8_t brass_net_hops(const struct brass_net * net);
-const linkaddr_t * brass_net_parent(struct brass_net * net);
+const linkaddr_t * brass_net_parent(const struct brass_net * net);
 
 void brass_net_set_hops(struct brass_net * net, uint8_t value);
 void brass_net_set_parent(struct brass_net * net, const linkaddr_t * value);
 
-struct brass_app;
-struct brass_pair;
 
 typedef void (*map_t)(struct brass_app *, int8_t key, int8_t value);
 typedef void (*reduce_t)(struct brass_pair * result, const int8_t * next);
