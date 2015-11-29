@@ -3,14 +3,23 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define BRASS_DEBUG 0 
 #define BRASS_ID_INDEX 0
 #define BRASS_SIZE_INDEX 1
+
+#if BRASS_DEBUG
+#include <stdio.h>
+#define PRINTF(...) printf(__VA_ARGS__);
+#else//BRASS_DEBUG
+#define PRINTF(...)
+#endif//BRASS_DEBUG
+
 
 struct brass_pair *
 brass_pair_alloc(struct brass_app * brass, uint8_t keylen, uint8_t valuelen) {
 	struct brass_pair * pair = malloc(sizeof(struct brass_pair) + keylen + valuelen);
 	if (!pair) {
-		printf("Failed to alloc pair\n");
+		PRINTF("Failed to alloc pair\n");
 		return NULL;
 	}
 
@@ -28,7 +37,7 @@ struct brass_pair *
 brass_pair_dup(struct brass_pair * pair) {
 	struct brass_pair * dup = brass_pair_alloc(pair->brass, brass_pair_keylen(pair), brass_pair_valuelen(pair));
 	if (!dup) {
-		printf("Failed to duplicate pair\n");
+		PRINTF("Failed to duplicate pair\n");
 		return NULL;
 	}
 
@@ -90,12 +99,12 @@ brass_pair_set_value(struct brass_pair * pair, const void * value) {
 void
 brass_pair_print(struct brass_pair * pair) {
 	int i;
-	printf("pair(%d, ", pair->len);
+	PRINTF("pair(%d, ", pair->len);
 	for (i = 0; i < pair->len; i++) {
-		if (i == brass_pair_keylen(pair)) printf(", ");
-		printf("%x", pair->key[i]);
+		if (i == brass_pair_keylen(pair)) PRINTF(", ");
+		PRINTF("%x", pair->key[i]);
 	}
-	printf(")\n");
+	PRINTF(")\n");
 }
 
 void
@@ -141,7 +150,7 @@ brass_app_emit(struct brass_app * brass, struct brass_pair * next) {
 	if (!acc) {
 		acc = brass_pair_dup(next);
 		if (!acc) {
-			printf("Failed to emit\n");
+			PRINTF("Failed to emit\n");
 			return -1;
 		}
 
@@ -224,3 +233,121 @@ brass_app_print(struct brass_app * brass) {
 	}	
 }
 
+static void
+neighbor_discovered(struct neighbor_discovery_conn * nd,
+                    const linkaddr_t * from,
+                    uint16_t hops) {
+    struct brass_net * net = (struct brass_net *)
+        ((char *)nd - offsetof(struct brass_net, nd));
+
+    PRINTF("hops=%d new=%d\n", brass_net_hops(net), hops);
+    if (hops >= brass_net_hops(net)) {
+        return;
+    }
+
+    brass_net_set_hops(net, hops);
+    brass_net_set_parent(net, from);
+}
+
+static void
+neighbor_query(struct neighbor_discovery_conn * nd) {
+    struct brass_net * net = (struct brass_net *)
+        ((char *)nd - offsetof(struct brass_net, nd));
+
+    net->cycles++;
+}
+
+static void
+unicast_recv(struct unicast_conn * uc, const linkaddr_t *from) {
+    //PRINTF("received from=%d\n", from->u8[0]);
+    //mapreduce_emit_reduced(packetbuf_dataptr(), packetbuf_datalen());
+}
+
+static void
+unicast_sent(struct unicast_conn * uc, int status, int num_tx) {
+
+}
+
+static const struct neighbor_discovery_callbacks ndc = {
+    neighbor_discovered,
+    neighbor_query
+};
+
+static struct unicast_callbacks ucc = {
+    unicast_recv,
+    unicast_sent
+};
+
+void
+brass_net_open(struct brass_net * net, uint8_t is_sync) {
+    neighbor_discovery_open(&net->nd,
+                            128,
+                            CLOCK_SECOND * 6,
+                            CLOCK_SECOND * 300UL,
+                            CLOCK_SECOND * 600UL,
+                            &ndc);
+
+    unicast_open(&net->uc,
+                  129,
+                  &ucc);
+    
+    linkaddr_copy(&net->parent, &linkaddr_null);
+    net->cycles = -1;
+    net->hops = is_sync ? 0 : -1;
+    
+    neighbor_discovery_start(&net->nd, is_sync ? net->hops + 1 : net->hops);
+}
+
+void
+brass_net_close(struct brass_net * net) {
+	neighbor_discovery_close(&net->nd);
+	unicast_close(&net->uc);
+}
+
+int
+brass_net_push(struct brass_net * net) {
+/*
+    uint16_t datalen = PACKETBUF_SIZE;
+    void * dataptr = packetbuf_dataptr();
+    
+    datalen = mapreduce_copy_reduced(dataptr, datalen);
+    packetbuf_set_datalen(datalen);
+
+    PRINTF("sending to=%d\n", net->parent.u8[0]);
+    return unicast_send(&net->uc, &net->parent);
+*/
+	return 0;
+}
+
+int
+brass_net_foward(struct brass_net * net, uint8_t cycle, uint8_t hops) {
+    return unicast_send(&net->uc, &net->parent);
+}
+
+uint8_t
+brass_net_cycles(const struct brass_net * net) {
+    return net->cycles;
+}
+
+uint8_t
+brass_net_hops(const struct brass_net * net) {
+    return net->hops;
+}
+
+const linkaddr_t *
+brass_net_parent(struct brass_net * net) {
+    return &net->parent;
+}
+
+void
+brass_net_set_hops(struct brass_net * net, uint8_t value) {
+    net->hops = value;
+    neighbor_discovery_set_val(&net->nd, value + 1);
+    PRINTF("hops=%d\n", value);
+}
+
+void
+brass_net_set_parent(struct brass_net * net, const linkaddr_t * value) {
+    linkaddr_copy(&net->parent, value);
+    PRINTF("parent=%d\n", value->u8[0]);
+}

@@ -265,7 +265,9 @@ typedef unsigned long clock_time_t;
 #endif /* PLATFORM_BUILD */
 
 /* Not part of C99 but actually present */
+#ifndef __cplusplus
 int strcasecmp(const char*, const char*);
+#endif//__cplusplus
 
 /* include the project config */
 /* PROJECT_CONF_H might be defined in the project Makefile */

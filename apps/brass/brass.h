@@ -8,14 +8,40 @@ extern "C" {
 #include <stdint.h>
 #include <lib/list.h>
 
+#include <net/rime/rime.h>
+#include <net/rime/neighbor-discovery.h>
+#include <net/rime/unicast.h>
+
+struct brass_net {
+	LIST_STRUCT(apps);
+    struct neighbor_discovery_conn nd;
+    struct unicast_conn uc;
+    linkaddr_t parent;
+    uint8_t cycles;
+    uint8_t hops;
+};
+
+void brass_net_open(struct brass_net * net, uint8_t is_sink);
+void brass_net_close(struct brass_net * net);
+
+int brass_net_push(struct brass_net * net);
+int brass_net_foward(struct brass_net * net, uint8_t cycle, uint8_t hops);
+
+uint8_t brass_net_cycles(const struct brass_net * net);
+uint8_t brass_net_hops(const struct brass_net * net);
+const linkaddr_t * brass_net_parent(struct brass_net * net);
+
+void brass_net_set_hops(struct brass_net * net, uint8_t value);
+void brass_net_set_parent(struct brass_net * net, const linkaddr_t * value);
+
 struct brass_app;
 struct brass_pair;
-struct brass_net;
 
 typedef void (*map_t)(struct brass_app *, int8_t key, int8_t value);
 typedef void (*reduce_t)(struct brass_pair * result, const int8_t * next);
 
 struct brass_app {
+	struct brass_app * next;
 	LIST_STRUCT(reduced);
 	map_t map;
 	reduce_t reduce;
@@ -56,8 +82,6 @@ int8_t	brass_pair_cmp(struct brass_pair * pair, const void * key, uint8_t len);
 void brass_pair_set_key(struct brass_pair * pair, const void * key);
 void brass_pair_set_value(struct brass_pair * pair, const void * value);
 void brass_pair_print(struct brass_pair * pair);
-
-//void brass_net_init(struct brass)
 
 #ifdef __cplusplus
 }
