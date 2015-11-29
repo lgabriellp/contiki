@@ -32,7 +32,7 @@ TEST_GROUP(brass_app) {
 
 	void
 	teardown() {
-		brass_app_clean(&brass);
+		brass_app_cleanup(&brass);
 	}
 };
 

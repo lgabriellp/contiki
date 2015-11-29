@@ -2,6 +2,7 @@
 
 IMPORT_TEST_GROUP(brass_app);
 IMPORT_TEST_GROUP(brass_net);
+IMPORT_TEST_GROUP(brass_collector);
 
 int
 main(int argc, char * argv[]) {

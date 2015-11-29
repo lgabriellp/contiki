@@ -108,12 +108,26 @@ brass_pair_print(struct brass_pair * pair) {
 }
 
 void
+brass_collector_init() {
+
+}
+
+void brass_collector_cleanup() {
+
+}
+
+void
+brass_collector_configure(uint8_t type, clock_time_t interval, struct brass_app * app) {
+
+}
+
+void
 brass_app_init(struct brass_app * brass) {
 	LIST_STRUCT_INIT(brass, reduced);
 }
 
 void
-brass_app_clean(struct brass_app * brass) {
+brass_app_cleanup(struct brass_app * brass) {
 	void * iter = list_pop(brass->reduced);
 
 	while (iter) {

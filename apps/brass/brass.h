@@ -12,6 +12,8 @@ extern "C" {
 #include <net/rime/neighbor-discovery.h>
 #include <net/rime/unicast.h>
 
+#include <sys/timer.h>
+
 struct brass_app;
 struct brass_pair;
 
@@ -40,6 +42,9 @@ const linkaddr_t * brass_net_parent(const struct brass_net * net);
 void brass_net_set_hops(struct brass_net * net, uint8_t value);
 void brass_net_set_parent(struct brass_net * net, const linkaddr_t * value);
 
+void brass_collector_init();
+void brass_collector_cleanup();
+void brass_collector_configure(uint8_t type, clock_time_t interval, struct brass_app * app);
 
 typedef void (*map_t)(struct brass_app *, int8_t key, int8_t value);
 typedef void (*reduce_t)(struct brass_pair * result, const int8_t * next);
@@ -53,9 +58,10 @@ struct brass_app {
 };
 
 void brass_app_init(struct brass_app * brass);
-void brass_app_clean(struct brass_app * brass);
+void brass_app_cleanup(struct brass_app * brass);
 
 struct brass_pair * brass_app_find(struct brass_app * brass, const void * key, uint8_t len);
+void brass_app_collect(struct brass_app * brass, int8_t key, clock_time_t interval);
 
 uint8_t brass_app_size(struct brass_app * brass);
 uint8_t brass_app_sow(struct brass_app * brass, int8_t key, int8_t value);
@@ -64,6 +70,7 @@ uint8_t	brass_app_gather(struct brass_app * brass, void * buf, uint8_t len);
 uint8_t brass_app_feed(struct brass_app * brass, const void * buf, uint8_t len);
 
 void brass_app_print(struct brass_app * brass);
+
 
 struct brass_pair {
 	struct brass_pair * next;
