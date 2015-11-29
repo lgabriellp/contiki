@@ -24,6 +24,7 @@ CXXFLAGS += -lCppUTestExt
 SRCS += brass-app-test.cpp
 SRCS += brass-net-test.cpp
 SRCS += brass-collector-test.cpp
+SRCS += brass-detect-test.cpp
 SRCS += main-test.cpp
 SRCS += contiki-native.a
 

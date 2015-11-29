@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define BRASS_DEBUG 0 
+#define BRASS_DEBUG 1 
 #define BRASS_ID_INDEX 0
 #define BRASS_SIZE_INDEX 1
 
@@ -101,7 +101,12 @@ brass_pair_print(struct brass_pair * pair) {
 	int i;
 	PRINTF("pair(%d, ", pair->len);
 	for (i = 0; i < pair->len; i++) {
-		if (i == brass_pair_keylen(pair)) PRINTF(", ");
+		if (i == brass_pair_keylen(pair)) {
+			PRINTF(", ");
+		} else {
+			PRINTF(" ");
+		}
+
 		PRINTF("%x", pair->key[i]);
 	}
 	PRINTF(")\n");
