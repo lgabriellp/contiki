@@ -26,7 +26,6 @@ TEST_GROUP(brass_app) {
 
 	void
 	setup() {
-		mock().disable();
 		brass_app_init(&app);
 		app.map = map0;
 		app.reduce = reduce0;
@@ -35,7 +34,6 @@ TEST_GROUP(brass_app) {
 	void
 	teardown() {
 		brass_app_cleanup(&app);
-		mock().enable();
 	}
 };
 
