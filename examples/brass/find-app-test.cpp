@@ -5,7 +5,7 @@
 
 #define PRESENCE_DETECTED_EVENT 1
 
-typedef struct {
+typedef struct __attribute__((packed)) {
 	unsigned date:16;
 	unsigned animal_id:8;
 } detect_key_t;
@@ -29,7 +29,7 @@ reduce(struct brass_pair * acc, const int8_t * next) {
 
 }
 
-TEST_GROUP(brass_detect) {
+TEST_GROUP(find_app) {
 	struct brass_app detect;
 
 	void
@@ -45,7 +45,7 @@ TEST_GROUP(brass_detect) {
 	}
 };
 
-TEST(brass_detect, list) {
+TEST(find_app, list) {
 	brass_app_sow(&detect, PRESENCE_DETECTED_EVENT, 3);
 	brass_app_sow(&detect, PRESENCE_DETECTED_EVENT, 2);
 	brass_app_sow(&detect, PRESENCE_DETECTED_EVENT, 0);
