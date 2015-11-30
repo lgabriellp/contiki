@@ -156,6 +156,7 @@ TEST(brass_net, should_bind_an_app) {
 	brass_app_init(&app);
 	brass_net_bind(&net, &app);
 	BYTES_EQUAL(1, brass_net_size(&net));
+	POINTERS_EQUAL(&net, app.net);
 }
 
 TEST(brass_net, should_unbind_app) {
@@ -166,6 +167,22 @@ TEST(brass_net, should_unbind_app) {
 
 	brass_net_unbind(&net, &app);
 	BYTES_EQUAL(0, brass_net_size(&net));
+	POINTERS_EQUAL(NULL, app.net);
+}
+
+TEST(brass_net, should_feed) {
+	struct brass_app app;
+	brass_app_init(&app);
+	brass_net_bind(&net, &app);
+
+    linkaddr_t children_addr;
+    GetAddress(&children_addr);
+	
+	uint8_t buffer[] = { app.id, 2, 1, 1, 'C', 'D', 1, 1, 'A', 'B', 0, 0, 0 };
+    packetbuf_copyfrom(buffer, sizeof(buffer));
+    ucc.recv(&net.uc, &children_addr);
+
+	BYTES_EQUAL(brass_app_size(&app), 2);
 }
 
 /*

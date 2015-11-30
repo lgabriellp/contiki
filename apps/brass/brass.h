@@ -51,6 +51,7 @@ typedef void (*reduce_t)(struct brass_pair * result, const int8_t * next);
 
 struct brass_app {
 	struct brass_app * next;
+	struct brass_net * net;
 	LIST_STRUCT(reduced);
 	map_t map;
 	reduce_t reduce;

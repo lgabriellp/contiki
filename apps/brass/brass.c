@@ -278,8 +278,14 @@ neighbor_query(struct neighbor_discovery_conn * nd) {
 
 static void
 unicast_recv(struct unicast_conn * uc, const linkaddr_t *from) {
-    //PRINTF("received from=%d\n", from->u8[0]);
-    //mapreduce_emit_reduced(packetbuf_dataptr(), packetbuf_datalen());
+    struct brass_net * net = (struct brass_net *)
+        ((char *)uc - offsetof(struct brass_net, uc));
+    PRINTF("received from=%d\n", from->u8[0]);
+	struct brass_app * app = (struct brass_app *)list_head(net->apps);
+	
+	while (app && !brass_app_feed(app, packetbuf_dataptr(), packetbuf_datalen())) {
+		app = (struct brass_app *)list_item_next(app);
+	}
 }
 
 static void
@@ -327,11 +333,13 @@ brass_net_close(struct brass_net * net) {
 void
 brass_net_bind(struct brass_net * net, struct brass_app * app) {
 	list_add(net->apps, app);
+	app->net = net;
 }
 
 void
 brass_net_unbind(struct brass_net * net, struct brass_app * app) {
 	list_remove(net->apps, app);
+	app->net = NULL;
 }
 
 int
