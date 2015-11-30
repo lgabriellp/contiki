@@ -31,8 +31,7 @@ void brass_net_close(struct brass_net * net);
 void brass_net_bind(struct brass_net * net, struct brass_app * app);
 void brass_net_unbind(struct brass_net * net, struct brass_app * app);
 
-int brass_net_push(struct brass_net * net);
-int brass_net_foward(struct brass_net * net, uint8_t cycle, uint8_t hops);
+int brass_net_flush(struct brass_net * net, struct brass_app * app);
 
 uint8_t brass_net_size(const struct brass_net * net);
 uint8_t brass_net_cycles(const struct brass_net * net);
@@ -58,31 +57,32 @@ struct brass_app {
 	uint8_t id;
 };
 
-void brass_app_init(struct brass_app * brass);
-void brass_app_cleanup(struct brass_app * brass);
+void brass_app_init(struct brass_app * app);
+void brass_app_cleanup(struct brass_app * app);
 
-struct brass_pair * brass_app_find(struct brass_app * brass, const void * key, uint8_t len);
-void brass_app_collect(struct brass_app * brass, int8_t key, clock_time_t interval);
+struct brass_pair * brass_app_find(struct brass_app * app, const void * key, uint8_t len);
+void brass_app_collect(struct brass_app * app, int8_t key, clock_time_t interval);
+void brass_app_flush(struct brass_app * app);
 
-uint8_t brass_app_size(struct brass_app * brass);
-uint8_t brass_app_sow(struct brass_app * brass, int8_t key, int8_t value);
-uint8_t brass_app_emit(struct brass_app * brass, struct brass_pair * next);
-uint8_t	brass_app_gather(struct brass_app * brass, void * buf, uint8_t len);
-uint8_t brass_app_feed(struct brass_app * brass, const void * buf, uint8_t len);
+uint8_t brass_app_size(struct brass_app * app);
+uint8_t brass_app_sow(struct brass_app * app, int8_t key, int8_t value);
+uint8_t brass_app_emit(struct brass_app * app, struct brass_pair * next);
+uint8_t	brass_app_gather(struct brass_app * app, void * buf, uint8_t len);
+uint8_t brass_app_feed(struct brass_app * app, const void * buf, uint8_t len);
 
-void brass_app_print(struct brass_app * brass);
+void brass_app_print(struct brass_app * app);
 
 
 struct brass_pair {
 	struct brass_pair * next;
-	struct brass_app * brass;
+	struct brass_app * app;
 	int8_t * key;
 	int8_t * value;
 	uint8_t allocd;
 	uint8_t len;
 };
 
-struct brass_pair * brass_pair_alloc(struct brass_app * brass, uint8_t len, uint8_t key_len);
+struct brass_pair * brass_pair_alloc(struct brass_app * app, uint8_t len, uint8_t key_len);
 struct brass_pair * brass_pair_dup(struct brass_pair * pair);
 void		 brass_pair_free(struct brass_pair * pair);
 

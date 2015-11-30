@@ -168,6 +168,26 @@ TEST(brass_net, should_unbind_app) {
 	brass_net_unbind(&net, &app);
 	BYTES_EQUAL(0, brass_net_size(&net));
 	POINTERS_EQUAL(NULL, app.net);
+	brass_app_cleanup(&app);
+}
+
+TEST(brass_net, should_flush) {
+	struct brass_app app;
+	brass_app_init(&app);
+	brass_net_bind(&net, &app);
+
+	struct brass_pair * pair = brass_pair_alloc(&app, 1, 1);
+	pair->key[0] = 5;
+	pair->value[0] = 10;
+	brass_app_emit(&app, pair);
+	brass_pair_free(pair);
+
+	mock().expectOneCall("unicast_send");
+
+	brass_app_flush(&app);
+
+	BYTES_EQUAL(brass_app_size(&app), 0);
+	brass_app_cleanup(&app);
 }
 
 TEST(brass_net, should_feed) {

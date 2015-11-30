@@ -34,6 +34,7 @@ CXXLDFLAGS += -Wl,--wrap,neighbor_discovery_close
 CXXLDFLAGS += -Wl,--wrap,neighbor_discovery_set_val
 CXXLDFLAGS += -Wl,--wrap,neighbor_discovery_start
 CXXLDFLAGS += -Wl,--wrap,unicast_open
+CXXLDFLAGS += -Wl,--wrap,unicast_send
 CXXLDFLAGS += -Wl,--wrap,unicast_close
 
 test: $(SRCS)

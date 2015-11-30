@@ -16,7 +16,7 @@
 
 
 struct brass_pair *
-brass_pair_alloc(struct brass_app * brass, uint8_t keylen, uint8_t valuelen) {
+brass_pair_alloc(struct brass_app * app, uint8_t keylen, uint8_t valuelen) {
 	struct brass_pair * pair = malloc(sizeof(struct brass_pair) + keylen + valuelen);
 	if (!pair) {
 		PRINTF("Failed to alloc pair\n");
@@ -24,7 +24,7 @@ brass_pair_alloc(struct brass_app * brass, uint8_t keylen, uint8_t valuelen) {
 	}
 
 	pair->next = NULL;
-	pair->brass = brass;
+	pair->app = app;
 	pair->key = ((int8_t *)pair) + sizeof(struct brass_pair);
 	pair->value = pair->key + keylen;
 	pair->len = keylen + valuelen;
@@ -35,7 +35,7 @@ brass_pair_alloc(struct brass_app * brass, uint8_t keylen, uint8_t valuelen) {
 
 struct brass_pair *
 brass_pair_dup(struct brass_pair * pair) {
-	struct brass_pair * dup = brass_pair_alloc(pair->brass, brass_pair_keylen(pair), brass_pair_valuelen(pair));
+	struct brass_pair * dup = brass_pair_alloc(pair->app, brass_pair_keylen(pair), brass_pair_valuelen(pair));
 	if (!dup) {
 		PRINTF("Failed to duplicate pair\n");
 		return NULL;
@@ -48,9 +48,9 @@ brass_pair_dup(struct brass_pair * pair) {
 }
 
 struct brass_pair *
-brass_pair_init(struct brass_app * brass, struct brass_pair * pair, void * key, uint8_t keylen, uint8_t valuelen) {
+brass_pair_init(struct brass_app * app, struct brass_pair * pair, void * key, uint8_t keylen, uint8_t valuelen) {
 	pair->next = NULL;
-	pair->brass = brass;
+	pair->app = app;
 	pair->key = (int8_t *)key + 2;
 	pair->value = pair->key + keylen;
 	pair->len = keylen + valuelen;
@@ -127,28 +127,28 @@ brass_collector_configure(uint8_t type, clock_time_t interval, struct brass_app 
 }
 
 void
-brass_app_init(struct brass_app * brass) {
-	LIST_STRUCT_INIT(brass, reduced);
+brass_app_init(struct brass_app * app) {
+	LIST_STRUCT_INIT(app, reduced);
 }
 
 void
-brass_app_cleanup(struct brass_app * brass) {
-	void * iter = list_pop(brass->reduced);
+brass_app_cleanup(struct brass_app * app) {
+	void * iter = list_pop(app->reduced);
 
 	while (iter) {
 		brass_pair_free((struct brass_pair *)iter);
-		iter = list_pop(brass->reduced);
+		iter = list_pop(app->reduced);
 	}
 }
 
 uint8_t
-brass_app_size(struct brass_app * brass) {
-	return list_length(brass->reduced);
+brass_app_size(struct brass_app * app) {
+	return list_length(app->reduced);
 }
 
 struct brass_pair *
-brass_app_find(struct brass_app * brass, const void * key, uint8_t len) {
-	void * iter = list_head(brass->reduced);
+brass_app_find(struct brass_app * app, const void * key, uint8_t len) {
+	void * iter = list_head(app->reduced);
 
 	while (iter && brass_pair_cmp((struct brass_pair *)iter, key, len) != 0) {
 		iter = list_item_next(iter);
@@ -157,15 +157,20 @@ brass_app_find(struct brass_app * brass, const void * key, uint8_t len) {
 	return iter;
 }
 
+void
+brass_app_flush(struct brass_app * app) {
+	brass_net_flush(app->net, app);
+}
+
 uint8_t
-brass_app_sow(struct brass_app * brass, int8_t key, int8_t value) {
-	brass->map(brass, key, value);
+brass_app_sow(struct brass_app * app, int8_t key, int8_t value) {
+	app->map(app, key, value);
 	return 0;
 }
 
 uint8_t
-brass_app_emit(struct brass_app * brass, struct brass_pair * next) {
-	struct brass_pair * acc = brass_app_find(brass, next->key, brass_pair_keylen(next));
+brass_app_emit(struct brass_app * app, struct brass_pair * next) {
+	struct brass_pair * acc = brass_app_find(app, next->key, brass_pair_keylen(next));
 	if (!acc) {
 		acc = brass_pair_dup(next);
 		if (!acc) {
@@ -173,28 +178,28 @@ brass_app_emit(struct brass_app * brass, struct brass_pair * next) {
 			return -1;
 		}
 
-		list_push(brass->reduced, acc);
+		list_push(app->reduced, acc);
 		return 0;
 	}
 
-	brass->reduce(acc, next->value);
+	app->reduce(acc, next->value);
 
 	return 1;
 }
 
 uint8_t
-brass_app_gather(struct brass_app * brass, void * ptr, uint8_t len) {
+brass_app_gather(struct brass_app * app, void * ptr, uint8_t len) {
 	uint8_t * buf = (uint8_t *)ptr;
 	uint8_t size = 0;
 	uint8_t i;
 
 	if (size + 2 >= len) return size;
-	buf[BRASS_ID_INDEX] = brass->id;
+	buf[BRASS_ID_INDEX] = app->id;
 	buf[BRASS_SIZE_INDEX] = 0;
 	size += 2;
 
 	struct brass_pair * iter;
-	while ((iter = (struct brass_pair *)list_head(brass->reduced))) {
+	while ((iter = (struct brass_pair *)list_head(app->reduced))) {
 		if (size + 2 + brass_pair_len(iter) >= len) return size;
 
 		buf[size++] = brass_pair_keylen(iter);
@@ -205,26 +210,26 @@ brass_app_gather(struct brass_app * brass, void * ptr, uint8_t len) {
 		}
 		
 		buf[BRASS_SIZE_INDEX]++;
-		brass_pair_free((struct brass_pair *)list_pop(brass->reduced));
+		brass_pair_free((struct brass_pair *)list_pop(app->reduced));
 	}
 	
 	return size;
 }
 
 uint8_t
-brass_app_feed(struct brass_app * brass, const void * ptr, uint8_t len) {
+brass_app_feed(struct brass_app * app, const void * ptr, uint8_t len) {
 	const uint8_t * buf = (const uint8_t *)ptr;
 	uint8_t size = 0;
 	struct brass_pair * pair;
 	uint8_t i;
 	
 	if (size + 2 >= len) return len;
-	if (buf[BRASS_ID_INDEX] != brass->id) return 0;
+	if (buf[BRASS_ID_INDEX] != app->id) return 0;
 	size += 2;
 
 	for (i = 0; i < buf[BRASS_SIZE_INDEX]; i++) {
 		if (size + 2 >= len) return len;
-		pair = brass_pair_alloc(brass, buf[size], buf[size + 1]);
+		pair = brass_pair_alloc(app, buf[size], buf[size + 1]);
 		size += 2;
 
 		if (size + brass_pair_len(pair) >= len) return len;
@@ -235,7 +240,7 @@ brass_app_feed(struct brass_app * brass, const void * ptr, uint8_t len) {
 		size += brass_pair_valuelen(pair);
 		if (size >= len) return len;
 
-		brass_app_emit(brass, pair);
+		brass_app_emit(app, pair);
 		brass_pair_free(pair);
 	}
 
@@ -243,8 +248,8 @@ brass_app_feed(struct brass_app * brass, const void * ptr, uint8_t len) {
 }
 
 void
-brass_app_print(struct brass_app * brass) {
-	void * iter = list_head(brass->reduced);
+brass_app_print(struct brass_app * app) {
+	void * iter = list_head(app->reduced);
 
 	while (iter) {
 		brass_pair_print((struct brass_pair *)iter);
@@ -343,22 +348,10 @@ brass_net_unbind(struct brass_net * net, struct brass_app * app) {
 }
 
 int
-brass_net_push(struct brass_net * net) {
-/*
-    uint16_t datalen = PACKETBUF_SIZE;
-    void * dataptr = packetbuf_dataptr();
-    
-    datalen = mapreduce_copy_reduced(dataptr, datalen);
-    packetbuf_set_datalen(datalen);
-
+brass_net_flush(struct brass_net * net, struct brass_app * app) {
     PRINTF("sending to=%d\n", net->parent.u8[0]);
-    return unicast_send(&net->uc, &net->parent);
-*/
-	return 0;
-}
-
-int
-brass_net_foward(struct brass_net * net, uint8_t cycle, uint8_t hops) {
+	brass_app_print(app);
+	packetbuf_set_datalen(brass_app_gather(app, packetbuf_dataptr(), PACKETBUF_SIZE));
     return unicast_send(&net->uc, &net->parent);
 }
 
