@@ -14,6 +14,9 @@ extern "C" {
 
 #include <sys/timer.h>
 
+#define BRASS_SENSOR_TEMP 1
+#define BRASS_SENSOR_HUMIDITY 2
+
 struct brass_app;
 struct brass_pair;
 

@@ -12,7 +12,9 @@ include $(CONTIKI)/Makefile.include
 CFLAGS += -I$(CONTIKI)/cpu/native
 CFLAGS += -I$(CONTIKI)/platform/native
 CFLAGS += -I$(CONTIKI)/core
+CFLAGS += -I$(CONTIKI)/sys
 CFLAGS += -I$(CONTIKI)/apps/brass
+CFLAGS += -I./collect
 
 CXXFLAGS += -I$(CPPUTEST)/include
 CXXFLAGS += -g -ggdb
@@ -24,7 +26,8 @@ CXXFLAGS += -lCppUTestExt
 SRCS += brass-app-test.cpp
 SRCS += brass-net-test.cpp
 SRCS += find-app-test.cpp
-SRCS += collect-app-test.cpp
+SRCS += collect/app.c
+SRCS += collect/test.cpp
 SRCS += detect-app-test.cpp
 SRCS += main-test.cpp
 SRCS += contiki-native.a
