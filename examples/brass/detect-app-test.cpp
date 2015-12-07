@@ -31,11 +31,21 @@ reduce(struct brass_pair * acc, const int8_t * next) {
 }
 
 TEST_GROUP(detect_app) {
+	struct brass_net net;
 	struct brass_app detect;
 
 	void
 	setup() {
+        mock().expectOneCall("neighbor_discovery_open");
+        mock().expectOneCall("neighbor_discovery_start")
+            .withParameter("val", uint8_t(-1));
+        mock().expectOneCall("unicast_open");
+        mock().expectOneCall("neighbor_discovery_close");
+        mock().expectOneCall("unicast_close");
+
 		brass_app_init(&detect);
+		brass_net_open(&net, 0);
+		brass_net_bind(&net, &detect);
 		detect.map = map;
 		detect.reduce = reduce;
 	}
@@ -43,6 +53,7 @@ TEST_GROUP(detect_app) {
 	void
 	teardown() {
 		brass_app_cleanup(&detect);
+		brass_net_close(&net);
 		mock().ignoreOtherCalls();
 		mock().checkExpectations();
 		mock().clear();
@@ -51,6 +62,8 @@ TEST_GROUP(detect_app) {
 
 TEST(detect_app, list) {
 	mock().expectNCalls(5, "unicast_send");
+	linkaddr_t parent = { { 1, 1 } };
+	brass_net_set_parent(&net, &parent);
 
 	brass_app_sow(&detect, PRESENCE_DETECTED_EVENT, 3);
 	brass_app_sow(&detect, PRESENCE_DETECTED_EVENT, 2);

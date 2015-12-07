@@ -183,12 +183,49 @@ TEST(brass_net, should_flush) {
 	brass_pair_free(pair);
 
 	mock().expectOneCall("unicast_send");
-
+	
+	linkaddr_t parent = { { 1, 1 } };
+	brass_net_set_parent(&net, &parent);
 	brass_app_flush(&app);
 
 	BYTES_EQUAL(brass_app_size(&app), 0);
 	brass_app_cleanup(&app);
 }
+
+TEST(brass_net, should_not_flush_no_net) {
+	struct brass_app app;
+	brass_app_init(&app);
+
+	struct brass_pair * pair = brass_pair_alloc(&app, 1, 1);
+	pair->key[0] = 5;
+	pair->value[0] = 10;
+	brass_app_emit(&app, pair);
+	brass_pair_free(pair);
+
+	CHECK(!brass_app_flush(&app));
+
+	BYTES_EQUAL(brass_app_size(&app), 1);
+	brass_app_cleanup(&app);
+}
+
+TEST(brass_net, should_not_flush_no_parent) {
+	struct brass_app app;
+	brass_app_init(&app);
+	brass_net_bind(&net, &app);
+
+	struct brass_pair * pair = brass_pair_alloc(&app, 1, 1);
+	pair->key[0] = 5;
+	pair->value[0] = 10;
+	brass_app_emit(&app, pair);
+	brass_pair_free(pair);
+
+	brass_net_set_parent(&net, &linkaddr_null);
+	CHECK(!brass_app_flush(&app));
+
+	BYTES_EQUAL(brass_app_size(&app), 1);
+	brass_app_cleanup(&app);
+}
+
 
 TEST(brass_net, should_feed) {
 	struct brass_app app;
@@ -198,13 +235,12 @@ TEST(brass_net, should_feed) {
     linkaddr_t children_addr;
     GetAddress(&children_addr);
 	
-	uint8_t buffer[] = { app.id, 2, 1, 1, 'C', 'D', 1, 1, 'A', 'B', 0, 0, 0 };
+	uint8_t buffer[] = { app.id, 10, 1, 1, 'C', 'D', 1, 1, 'A', 'B', 0, 0, 0 };
     packetbuf_copyfrom(buffer, sizeof(buffer));
     ucc.recv(&net.uc, &children_addr);
 
 	BYTES_EQUAL(brass_app_size(&app), 2);
 }
-
 /*
 TEST(brass_net, should_push_to_parent_reduced_data) {
     int16_t payload = 123;

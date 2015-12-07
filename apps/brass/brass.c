@@ -5,7 +5,7 @@
 
 #define BRASS_DEBUG 0 
 #define BRASS_ID_INDEX 0
-#define BRASS_SIZE_INDEX 1
+#define BRASS_LEN_INDEX 1
 
 #if BRASS_DEBUG
 #include <stdio.h>
@@ -23,6 +23,7 @@ brass_pair_alloc(struct brass_app * app, uint8_t keylen, uint8_t valuelen) {
 		return NULL;
 	}
 
+	bzero(pair, sizeof(struct brass_pair) + keylen + valuelen);
 	pair->next = NULL;
 	pair->app = app;
 	pair->key = ((int8_t *)pair) + sizeof(struct brass_pair);
@@ -107,7 +108,7 @@ brass_pair_print(struct brass_pair * pair) {
 			PRINTF(" ");
 		}
 
-		PRINTF("%x", pair->key[i]);
+		PRINTF("%d", (uint8_t)pair->key[i]);
 	}
 	PRINTF(")\n");
 }
@@ -129,6 +130,7 @@ brass_collector_configure(uint8_t type, clock_time_t interval, struct brass_app 
 void
 brass_app_init(struct brass_app * app) {
 	LIST_STRUCT_INIT(app, reduced);
+	app->net = NULL;
 }
 
 void
@@ -157,9 +159,10 @@ brass_app_find(struct brass_app * app, const void * key, uint8_t len) {
 	return iter;
 }
 
-void
+int
 brass_app_flush(struct brass_app * app) {
-	brass_net_flush(app->net, app);
+	if (!app->net) return 0;
+	return brass_net_flush(app->net, app);
 }
 
 uint8_t
@@ -178,11 +181,15 @@ brass_app_emit(struct brass_app * app, struct brass_pair * next) {
 			return -1;
 		}
 
+		PRINTF("feeded ");
+		brass_pair_print(acc);
 		list_push(app->reduced, acc);
 		return 0;
 	}
 
 	app->reduce(acc, next->value);
+	PRINTF("merged ");
+	brass_pair_print(acc);
 
 	return 1;
 }
@@ -195,7 +202,7 @@ brass_app_gather(struct brass_app * app, void * ptr, uint8_t len) {
 
 	if (size + 2 >= len) return size;
 	buf[BRASS_ID_INDEX] = app->id;
-	buf[BRASS_SIZE_INDEX] = 0;
+	buf[BRASS_LEN_INDEX] = 0;
 	size += 2;
 
 	struct brass_pair * iter;
@@ -209,36 +216,35 @@ brass_app_gather(struct brass_app * app, void * ptr, uint8_t len) {
 			buf[size++] = iter->key[i];
 		}
 		
-		buf[BRASS_SIZE_INDEX]++;
+		buf[BRASS_LEN_INDEX] = size;
 		brass_pair_free((struct brass_pair *)list_pop(app->reduced));
 	}
 	
 	return size;
 }
 
-uint8_t
+int8_t
 brass_app_feed(struct brass_app * app, const void * ptr, uint8_t len) {
 	const uint8_t * buf = (const uint8_t *)ptr;
 	uint8_t size = 0;
 	struct brass_pair * pair;
-	uint8_t i;
 	
-	if (size + 2 >= len) return len;
+	if (size + 2 > len) return -1;
+	PRINTF("received for_me=%d end=%d\n", buf[BRASS_ID_INDEX] == app->id, buf[BRASS_LEN_INDEX]);
 	if (buf[BRASS_ID_INDEX] != app->id) return 0;
+	if (buf[BRASS_LEN_INDEX] > len) return -1;
 	size += 2;
 
-	for (i = 0; i < buf[BRASS_SIZE_INDEX]; i++) {
-		if (size + 2 >= len) return len;
+	while(size < buf[BRASS_LEN_INDEX]) {
+		if (size + 2 + buf[size] + buf[size+1] > buf[BRASS_LEN_INDEX]) return -1;
 		pair = brass_pair_alloc(app, buf[size], buf[size + 1]);
 		size += 2;
 
-		if (size + brass_pair_len(pair) >= len) return len;
 		brass_pair_set_key(pair, &buf[size]);
 		size += brass_pair_keylen(pair);
 
 		brass_pair_set_value(pair, &buf[size]);
 		size += brass_pair_valuelen(pair);
-		if (size >= len) return len;
 
 		brass_app_emit(app, pair);
 		brass_pair_free(pair);
@@ -285,10 +291,16 @@ static void
 unicast_recv(struct unicast_conn * uc, const linkaddr_t *from) {
     struct brass_net * net = (struct brass_net *)
         ((char *)uc - offsetof(struct brass_net, uc));
-    PRINTF("received from=%d\n", from->u8[0]);
+    PRINTF("received from=%d len=%d\n", from->u8[0], packetbuf_datalen());
 	struct brass_app * app = (struct brass_app *)list_head(net->apps);
 	
-	while (app && !brass_app_feed(app, packetbuf_dataptr(), packetbuf_datalen())) {
+	while (app) {
+		if (brass_app_feed(app, packetbuf_dataptr(), packetbuf_datalen()) < 0) {
+			PRINTF("received bad packet!\n");
+			break;
+		}
+
+		brass_app_print(app);
 		app = (struct brass_app *)list_item_next(app);
 	}
 }
@@ -349,9 +361,13 @@ brass_net_unbind(struct brass_net * net, struct brass_app * app) {
 
 int
 brass_net_flush(struct brass_net * net, struct brass_app * app) {
-    PRINTF("sending to=%d\n", net->parent.u8[0]);
+	if (linkaddr_cmp(&net->parent, &linkaddr_null)) {
+		PRINTF("flush no parent\n");
+		return 0;
+	}
 	brass_app_print(app);
 	packetbuf_set_datalen(brass_app_gather(app, packetbuf_dataptr(), PACKETBUF_SIZE));
+    PRINTF("sending to=%d len=%d\n", net->parent.u8[0], packetbuf_datalen());
     return unicast_send(&net->uc, &net->parent);
 }
 

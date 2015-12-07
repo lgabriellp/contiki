@@ -4,6 +4,7 @@ extern "C" {
 
 #include <contiki.h>
 #include <dev/serial-line.h>
+#include <stdlib.h>
 #include <stdio.h>
 #include <app.h>
 
@@ -30,7 +31,7 @@ collect_map(struct brass_app * app, int8_t type, int8_t value) {
 	collect_key_t ckey;
 	collect_value_t cvalue;
 
-	ckey.date = clock_seconds();
+	ckey.date = clock_seconds() / 600;
 	ckey.pos_x = node_loc_x;
 	ckey.pos_y = node_loc_y;
 	ckey.type = type;
@@ -64,32 +65,43 @@ AUTOSTART_PROCESSES(&collect_process);
 
 PROCESS_THREAD(collect_process, ev, data) {
 	static struct etimer timer;
+	static struct brass_net net;
 	static struct brass_app app;
+	static int round = 0;
 
-	PROCESS_EXITHANDLER({ brass_app_cleanup(&app); })
+	PROCESS_EXITHANDLER({
+		brass_app_cleanup(&app);
+		brass_net_close(&net);   
+	});
+
 	PROCESS_BEGIN();
 	
 	app.map = collect_map;
 	app.reduce = collect_reduce;
 	app.id = 1;
 
-	while (1) {
-		PROCESS_YIELD();
-		if (ev == serial_line_event_message) {
-			char * pos = (char *)data;
-			printf("%c%c\n", pos[0], pos[1]);
-			break;
-		}
-	}
+	printf("waiting position\n");
+	PROCESS_WAIT_EVENT_UNTIL(ev == serial_line_event_message);
+	node_loc_x = atoi((char *)data);
+	PROCESS_WAIT_EVENT_UNTIL(ev == serial_line_event_message);
+	node_loc_y = atoi((char *)data);
+	printf("reply (%d, %d)\n", node_loc_x, node_loc_y);
 
 	brass_app_init(&app);
+	brass_net_open(&net, linkaddr_node_addr.u8[0] == 1);
+	brass_net_bind(&net, &app);
 
 	while(1) {
-		printf("brass_app_sow(BRASS_SENSOR_TEMP, 3)\n");
 		etimer_set(&timer, CLOCK_SECOND);
 		PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&timer));
 
-		brass_app_sow(&app, BRASS_SENSOR_TEMP, 3);
+		if (linkaddr_node_addr.u8[0] != 1) {
+			brass_app_sow(&app, BRASS_SENSOR_TEMP, 1);
+			if (round++ % 10) continue;
+
+			printf("flushing\n");
+			brass_app_flush(&app);
+		}	
 	}
 
 	PROCESS_END();
