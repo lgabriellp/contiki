@@ -14,7 +14,7 @@ CFLAGS += -I$(CONTIKI)/platform/native
 CFLAGS += -I$(CONTIKI)/core
 CFLAGS += -I$(CONTIKI)/sys
 CFLAGS += -I$(CONTIKI)/apps/brass
-CFLAGS += -I./collect
+CFLAGS += -I./
 
 CXXFLAGS += -I$(CPPUTEST)/include
 CXXFLAGS += -g -ggdb
@@ -28,7 +28,8 @@ SRCS += brass-net-test.cpp
 SRCS += find-app-test.cpp
 SRCS += collect/app.c
 SRCS += collect/test.cpp
-SRCS += detect-app-test.cpp
+SRCS += detect/app.c
+SRCS += detect/test.cpp
 SRCS += main-test.cpp
 SRCS += contiki-native.a
 

@@ -6,7 +6,7 @@ extern "C" {
 #include <dev/serial-line.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include <app.h>
+#include <collect/app.h>
 
 #ifdef __cplusplus
 }
