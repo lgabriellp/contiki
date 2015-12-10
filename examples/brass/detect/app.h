@@ -11,7 +11,7 @@ extern uint8_t node_loc_y;
 
 #define PRESENCE_DETECTED_EVENT 1
 void detect_map(struct brass_app * app, int8_t type, int8_t value);
-void detect_reduce(struct brass_pair * acc, const int8_t * next);
+void detect_reduce(struct brass_app * app, struct brass_pair * acc, const int8_t * next);
 
 #ifdef __cplusplus
 }

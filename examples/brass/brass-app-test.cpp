@@ -16,7 +16,7 @@ map0(struct brass_app * app, int8_t key, int8_t value) {
 }
 
 void
-reduce0(struct brass_pair * acc, const int8_t * next) {
+reduce0(struct brass_app * app, struct brass_pair * acc, const int8_t * next) {
 	acc->value[0] += next[0];
 }
 

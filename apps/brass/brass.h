@@ -49,7 +49,7 @@ void brass_collector_cleanup();
 void brass_collector_configure(uint8_t type, clock_time_t interval, struct brass_app * app);
 
 typedef void (*map_t)(struct brass_app *, int8_t key, int8_t value);
-typedef void (*reduce_t)(struct brass_pair * result, const int8_t * next);
+typedef void (*reduce_t)(struct brass_app *, struct brass_pair * result, const int8_t * next);
 
 struct brass_app {
 	struct brass_app * next;

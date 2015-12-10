@@ -34,7 +34,7 @@ detect_map(struct brass_app * app, int8_t type, int8_t value) {
 }
 
 void
-detect_reduce(struct brass_pair * acc, const int8_t * next) {
+detect_reduce(struct brass_app * app, struct brass_pair * acc, const int8_t * next) {
 
 }
 

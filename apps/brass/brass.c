@@ -187,7 +187,7 @@ brass_app_emit(struct brass_app * app, struct brass_pair * next) {
 		return 0;
 	}
 
-	app->reduce(acc, next->value);
+	app->reduce(app, acc, next->value);
 	PRINTF("merged ");
 	brass_pair_print(acc);
 

@@ -48,7 +48,7 @@ collect_map(struct brass_app * app, int8_t type, int8_t value) {
 }
 
 void
-collect_reduce(struct brass_pair * acc, const int8_t * next) {
+collect_reduce(struct brass_app * app, struct brass_pair * acc, const int8_t * next) {
 	collect_value_t * cacc = (collect_value_t *)acc->value;
 	collect_value_t * cnext = (collect_value_t *)next;
 
