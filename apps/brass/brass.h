@@ -80,7 +80,7 @@ struct brass_pair {
 	struct brass_app * app;
 	int8_t * key;
 	int8_t * value;
-	uint8_t allocd;
+	uint8_t flags;
 	uint8_t len;
 };
 

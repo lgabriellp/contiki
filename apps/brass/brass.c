@@ -7,13 +7,15 @@
 #define BRASS_ID_INDEX 0
 #define BRASS_LEN_INDEX 1
 
+#define BRASS_ALLOCD_FLAG (1 << 0)
+#define BRASS_URGENT_FLAG (1 << 1)
+
 #if BRASS_DEBUG
 #include <stdio.h>
 #define PRINTF(...) printf(__VA_ARGS__);
 #else//BRASS_DEBUG
 #define PRINTF(...)
 #endif//BRASS_DEBUG
-
 
 struct brass_pair *
 brass_pair_alloc(struct brass_app * app, uint8_t keylen, uint8_t valuelen) {
@@ -29,7 +31,7 @@ brass_pair_alloc(struct brass_app * app, uint8_t keylen, uint8_t valuelen) {
 	pair->key = ((int8_t *)pair) + sizeof(struct brass_pair);
 	pair->value = pair->key + keylen;
 	pair->len = keylen + valuelen;
-	pair->allocd = 1;
+	pair->flags = BRASS_ALLOCD_FLAG;
 
 	return pair;
 }
@@ -55,14 +57,14 @@ brass_pair_init(struct brass_app * app, struct brass_pair * pair, void * key, ui
 	pair->key = (int8_t *)key + 2;
 	pair->value = pair->key + keylen;
 	pair->len = keylen + valuelen;
-	pair->allocd = 0;
+	pair->flags = 0;
 
 	return pair;
 }
 
 void
 brass_pair_free(struct brass_pair * pair) {
-	if (!pair->allocd) return;
+	if (!(pair->flags & BRASS_ALLOCD_FLAG)) return;
 	free(pair);
 };
 

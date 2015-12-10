@@ -240,6 +240,7 @@ TEST(brass_net, should_feed) {
     ucc.recv(&net.uc, &children_addr);
 
 	BYTES_EQUAL(brass_app_size(&app), 2);
+	brass_app_cleanup(&app);
 }
 /*
 TEST(brass_net, should_push_to_parent_reduced_data) {
