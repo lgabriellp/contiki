@@ -4,7 +4,7 @@
 #include <CppUTest/TestHarness.h>
 #include <CppUTestExt/MockSupport.h>
 
-TEST_GROUP(collect) {
+TEST_GROUP(collect_app) {
 	struct brass_app app;
 
 	void
@@ -23,7 +23,7 @@ TEST_GROUP(collect) {
 	}
 };
 
-TEST(collect, list) {
+TEST(collect_app, list) {
 	brass_app_sow(&app, BRASS_SENSOR_TEMP, 3);
 	brass_app_sow(&app, BRASS_SENSOR_HUMIDITY, 2);
 	brass_app_sow(&app, BRASS_SENSOR_TEMP, 0);

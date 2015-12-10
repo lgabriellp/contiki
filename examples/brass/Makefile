@@ -25,7 +25,6 @@ CXXFLAGS += -lCppUTestExt
 
 SRCS += brass-app-test.cpp
 SRCS += brass-net-test.cpp
-SRCS += find-app-test.cpp
 SRCS += collect/app.c
 SRCS += collect/test.cpp
 SRCS += detect/app.c
