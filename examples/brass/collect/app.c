@@ -105,7 +105,7 @@ PROCESS_THREAD(collect_process, ev, data) {
 		if (round++ % 10) continue;
 
 		printf("flushing\n");
-		brass_net_flush(&net);
+		brass_net_flush(&net, 0);
 	}
 
 	PROCESS_END();

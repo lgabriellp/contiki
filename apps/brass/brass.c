@@ -3,12 +3,12 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define BRASS_DEBUG 0 
+#define BRASS_DEBUG 0
 #define BRASS_ID_INDEX 0
 #define BRASS_LEN_INDEX 1
 
-#define BRASS_ALLOCD_FLAG (1 << 0)
-#define BRASS_URGENT_FLAG (1 << 1)
+#define BRASS_FLAG_ALLOCD (1 << 0)
+#define BRASS_FLAG_URGENT (1 << 1)
 
 #if BRASS_DEBUG
 #include <stdio.h>
@@ -31,13 +31,13 @@ brass_pair_alloc(struct brass_app * app, uint8_t keylen, uint8_t valuelen) {
 	pair->key = ((int8_t *)pair) + sizeof(struct brass_pair);
 	pair->value = pair->key + keylen;
 	pair->len = keylen + valuelen;
-	pair->flags = BRASS_ALLOCD_FLAG;
+	pair->flags = BRASS_FLAG_ALLOCD;
 
 	return pair;
 }
 
 struct brass_pair *
-brass_pair_dup(struct brass_pair * pair) {
+brass_pair_dup(const struct brass_pair * pair) {
 	struct brass_pair * dup = brass_pair_alloc(pair->app, brass_pair_keylen(pair), brass_pair_valuelen(pair));
 	if (!dup) {
 		PRINTF("Failed to duplicate pair\n");
@@ -46,9 +46,16 @@ brass_pair_dup(struct brass_pair * pair) {
 
 	brass_pair_set_key(dup, pair->key);
 	brass_pair_set_value(dup, pair->value);
+	brass_pair_set_urgent(dup, brass_pair_urgent(pair));
 
 	return dup;
 }
+
+void
+brass_pair_free(struct brass_pair * pair) {
+	if (!(pair->flags & BRASS_FLAG_ALLOCD)) return;
+	free(pair);
+};
 
 struct brass_pair *
 brass_pair_init(struct brass_app * app, struct brass_pair * pair, void * key, uint8_t keylen, uint8_t valuelen) {
@@ -62,31 +69,36 @@ brass_pair_init(struct brass_app * app, struct brass_pair * pair, void * key, ui
 	return pair;
 }
 
-void
-brass_pair_free(struct brass_pair * pair) {
-	if (!(pair->flags & BRASS_ALLOCD_FLAG)) return;
-	free(pair);
-};
-
 uint8_t
-brass_pair_len(struct brass_pair * pair) {
+brass_pair_len(const struct brass_pair * pair) {
 	return pair->len;
 }
 
 uint8_t
-brass_pair_keylen(struct brass_pair * pair) {
+brass_pair_keylen(const struct brass_pair * pair) {
 	return pair->value - pair->key;
 }
 
 uint8_t
-brass_pair_valuelen(struct brass_pair * pair) {
+brass_pair_valuelen(const struct brass_pair * pair) {
 	return pair->len - brass_pair_keylen(pair);
 }
 
+uint8_t
+brass_pair_urgent(const struct brass_pair * pair) {
+	return (pair->flags & BRASS_FLAG_URGENT) != 0;
+}
+
 int8_t
-brass_pair_cmp(struct brass_pair * pair, const void * key, uint8_t len) {
+brass_pair_cmp(const struct brass_pair * pair, const void * key, uint8_t len) {
 	int diff = brass_pair_keylen(pair) - len;
 	return diff == 0 ? memcmp(pair->key, key, brass_pair_keylen(pair)) : diff;
+}
+
+void
+brass_pair_set_urgent(struct brass_pair * pair, int urgent) {
+	if (urgent) pair->flags |= BRASS_FLAG_URGENT;
+	else pair->flags &= ~BRASS_FLAG_URGENT;
 }
 
 void
@@ -100,9 +112,9 @@ brass_pair_set_value(struct brass_pair * pair, const void * value) {
 }
 
 void
-brass_pair_print(struct brass_pair * pair, const char * prefix) {
+brass_pair_print(const struct brass_pair * pair, const char * prefix) {
 	int i;
-	PRINTF("%spair(%d, ", prefix, pair->len);
+	PRINTF("%spair(len=%d, urgent=%d", prefix, pair->len, brass_pair_urgent(pair));
 	for (i = 0; i < pair->len; i++) {
 		if (i == brass_pair_keylen(pair)) {
 			PRINTF(", ");
@@ -168,7 +180,7 @@ brass_app_sow(struct brass_app * app, int8_t key, int8_t value) {
 }
 
 uint8_t
-brass_app_emit(struct brass_app * app, struct brass_pair * next) {
+brass_app_emit(struct brass_app * app, const struct brass_pair * next) {
 	struct brass_pair * acc = brass_app_find(app, next->key, brass_pair_keylen(next));
 	if (!acc) {
 		acc = brass_pair_dup(next);
@@ -182,13 +194,15 @@ brass_app_emit(struct brass_app * app, struct brass_pair * next) {
 	}
 
 	app->reduce(app, acc, next->value);
-	//brass_pair_print(acc, "merged  ");
+	brass_pair_print(acc, "merged  ");
 
 	return 1;
 }
 
+#include <stdio.h>
+
 uint8_t
-brass_app_gather(struct brass_app * app, void * ptr, uint8_t len) {
+brass_app_gather(struct brass_app * app, void * ptr, uint8_t len, uint8_t urgent) {
 	uint8_t * buf = (uint8_t *)ptr;
 	uint8_t size = 0;
 	uint8_t i;
@@ -198,19 +212,31 @@ brass_app_gather(struct brass_app * app, void * ptr, uint8_t len) {
 	buf[BRASS_LEN_INDEX] = 0;
 	size += 2;
 
-	struct brass_pair * iter;
-	while ((iter = (struct brass_pair *)list_head(app->reduced))) {
-		if (size + 2 + brass_pair_len(iter) >= len) return size;
+	struct brass_pair * pair = (struct brass_pair *)list_head(app->reduced);
+	struct brass_pair * temp;
 
-		buf[size++] = brass_pair_keylen(iter);
-		buf[size++] = brass_pair_valuelen(iter);
+	while (pair) {
+		printf("urgent=%d pair_urgent=%d\n", urgent, brass_pair_urgent(pair));
+		if (urgent && !brass_pair_urgent(pair)) {
+			pair = (struct brass_pair *)list_item_next(pair);
+			continue;
+		}
+
+		if (size + 2 + brass_pair_len(pair) >= len) return size;
+
+		buf[size++] = brass_pair_keylen(pair);
+		buf[size++] = brass_pair_valuelen(pair);
 		
-		for (i = 0; i < brass_pair_len(iter); i++) {
-			buf[size++] = iter->key[i];
+		for (i = 0; i < brass_pair_len(pair); i++) {
+			buf[size++] = pair->key[i];
 		}
 		
 		buf[BRASS_LEN_INDEX] = size;
-		brass_pair_free((struct brass_pair *)list_pop(app->reduced));
+
+		temp = pair;
+		pair = (struct brass_pair *)list_item_next(pair);
+		list_remove(app->reduced, temp);
+		brass_pair_free(temp);
 	}
 	
 	return size;
@@ -352,7 +378,7 @@ brass_net_unbind(struct brass_net * net, struct brass_app * app) {
 }
 
 int
-brass_net_flush(struct brass_net * net) {
+brass_net_flush(struct brass_net * net, uint8_t urgent) {
 	if (linkaddr_cmp(&net->parent, &linkaddr_null)) {
 		PRINTF("flush no parent\n");
 		return 0;
@@ -363,7 +389,7 @@ brass_net_flush(struct brass_net * net) {
 	struct brass_app * app = (struct brass_app *)list_head(net->apps);
 	
 	while (app) {
-		len += brass_app_gather(app, ptr + len, PACKETBUF_SIZE - len);
+		len += brass_app_gather(app, ptr + len, PACKETBUF_SIZE - len, urgent);
 		app = (struct brass_app *)list_item_next(app);
 	}
 

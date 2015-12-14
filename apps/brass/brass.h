@@ -34,7 +34,7 @@ void brass_net_close(struct brass_net * net);
 void brass_net_bind(struct brass_net * net, struct brass_app * app);
 void brass_net_unbind(struct brass_net * net, struct brass_app * app);
 
-int brass_net_flush(struct brass_net * net);
+int brass_net_flush(struct brass_net * net, uint8_t urgent);
 
 uint8_t brass_net_size(const struct brass_net * net);
 uint8_t brass_net_cycles(const struct brass_net * net);
@@ -68,9 +68,9 @@ void   brass_app_collect(struct brass_app * app, int8_t key, clock_time_t interv
 
 uint8_t brass_app_size(struct brass_app * app);
 uint8_t brass_app_sow(struct brass_app * app, int8_t key, int8_t value);
-uint8_t brass_app_emit(struct brass_app * app, struct brass_pair * next);
-uint8_t	brass_app_gather(struct brass_app * app, void * buf, uint8_t len);
-int8_t brass_app_feed(struct brass_app * app, const void * buf, uint8_t len);
+uint8_t brass_app_emit(struct brass_app * app, const struct brass_pair * next);
+uint8_t	brass_app_gather(struct brass_app * app, void * buf, uint8_t len, uint8_t urgent);
+int8_t  brass_app_feed(struct brass_app * app, const void * buf, uint8_t len);
 
 void brass_app_print(struct brass_app * app);
 
@@ -84,17 +84,19 @@ struct brass_pair {
 };
 
 struct brass_pair * brass_pair_alloc(struct brass_app * app, uint8_t len, uint8_t key_len);
-struct brass_pair * brass_pair_dup(struct brass_pair * pair);
-void		 brass_pair_free(struct brass_pair * pair);
+struct brass_pair * brass_pair_dup(const struct brass_pair * pair);
+void                brass_pair_free(struct brass_pair * pair);
 
-uint8_t brass_pair_len(struct brass_pair * pair);
-uint8_t brass_pair_keylen(struct brass_pair * pair);
-uint8_t brass_pair_valuelen(struct brass_pair * pair);
-int8_t	brass_pair_cmp(struct brass_pair * pair, const void * key, uint8_t len);
+uint8_t brass_pair_len(const struct brass_pair * pair);
+uint8_t brass_pair_keylen(const struct brass_pair * pair);
+uint8_t brass_pair_valuelen(const struct brass_pair * pair);
+uint8_t brass_pair_urgent(const struct brass_pair * pair);
+int8_t  brass_pair_cmp(const struct brass_pair * pair, const void * key, uint8_t len);
+void    brass_pair_print(const struct brass_pair * pair, const char * prefix);
 
+void brass_pair_set_urgent(struct brass_pair * pair, int urgent);
 void brass_pair_set_key(struct brass_pair * pair, const void * key);
 void brass_pair_set_value(struct brass_pair * pair, const void * value);
-void brass_pair_print(struct brass_pair * pair, const char * prefix);
 
 #ifdef __cplusplus
 }

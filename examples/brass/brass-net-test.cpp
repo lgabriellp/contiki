@@ -195,7 +195,7 @@ TEST(brass_net, should_flush_gather_in_batch) {
 	
 	linkaddr_t parent = { { 1, 1 } };
 	brass_net_set_parent(&net, &parent);
-	brass_net_flush(&net);
+	brass_net_flush(&net, 0);
 
 	uint8_t buf[] = { app[0].id, 6, 1, 1, 5, 10, app[1].id, 6, 1, 1, 5, 10 };
 	CHECK(memcmp(packetbuf_dataptr(), buf, sizeof(buf)) == 0);
@@ -221,7 +221,7 @@ TEST(brass_net, should_not_flush_no_parent) {
 	brass_pair_free(pair);
 
 	brass_net_set_parent(&net, &linkaddr_null);
-	CHECK(!brass_net_flush(&net));
+	CHECK(!brass_net_flush(&net, 0));
 
 	BYTES_EQUAL(brass_app_size(&app), 1);
 	brass_app_cleanup(&app);

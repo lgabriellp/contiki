@@ -23,13 +23,13 @@ detect_map(struct brass_app * app, int8_t type, int8_t value) {
 	if (!value) return;
 
 	struct brass_pair * pair = brass_pair_alloc(app, sizeof(detect_key_t), 0);
+	brass_pair_set_urgent(pair, 1);
 	detect_key_t key;
 
 	key.animal_id = value;
 	key.date = clock_seconds();
 	memcpy(pair->key, &key, sizeof(key));
 	brass_app_emit(app, pair);
-//	brass_app_flush(app);
 	brass_pair_free(pair);
 }
 
@@ -78,7 +78,7 @@ PROCESS_THREAD(detect_process, ev, data) {
 			if (round++ % 10) continue;
 
 			printf("flushing\n");
-			brass_net_flush(&net);
+			brass_net_flush(&net, 0);
 		}	
 	}
 
