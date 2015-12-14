@@ -171,41 +171,42 @@ TEST(brass_net, should_unbind_app) {
 	brass_app_cleanup(&app);
 }
 
-TEST(brass_net, should_flush) {
-	struct brass_app app;
-	brass_app_init(&app);
-	brass_net_bind(&net, &app);
+TEST(brass_net, should_flush_gather_in_batch) {
+	struct brass_app app[2];
+	struct brass_pair * pair[2];
 
-	struct brass_pair * pair = brass_pair_alloc(&app, 1, 1);
-	pair->key[0] = 5;
-	pair->value[0] = 10;
-	brass_app_emit(&app, pair);
-	brass_pair_free(pair);
+	app[0].id = 1;
+	brass_app_init(&app[0]);
+	brass_net_bind(&net, &app[0]);
+	pair[0] = brass_pair_alloc(&app[0], 1, 1);
+	pair[0]->key[0] = 5;
+	pair[0]->value[0] = 10;
+	brass_app_emit(&app[0], pair[0]);
 
+	app[1].id = 2;
+	brass_app_init(&app[1]);
+	brass_net_bind(&net, &app[1]);
+	pair[1] = brass_pair_alloc(&app[1], 1, 1);
+	pair[1]->key[0] = 5;
+	pair[1]->value[0] = 10;
+	brass_app_emit(&app[1], pair[1]);
+	
 	mock().expectOneCall("unicast_send");
 	
 	linkaddr_t parent = { { 1, 1 } };
 	brass_net_set_parent(&net, &parent);
-	brass_app_flush(&app);
+	brass_net_flush(&net);
 
-	BYTES_EQUAL(brass_app_size(&app), 0);
-	brass_app_cleanup(&app);
-}
+	uint8_t buf[] = { app[0].id, 6, 1, 1, 5, 10, app[1].id, 6, 1, 1, 5, 10 };
+	CHECK(memcmp(packetbuf_dataptr(), buf, sizeof(buf)) == 0);
+	
+	BYTES_EQUAL(brass_app_size(&app[0]), 0);
+	brass_app_cleanup(&app[0]);
+	brass_pair_free(pair[0]);
 
-TEST(brass_net, should_not_flush_no_net) {
-	struct brass_app app;
-	brass_app_init(&app);
-
-	struct brass_pair * pair = brass_pair_alloc(&app, 1, 1);
-	pair->key[0] = 5;
-	pair->value[0] = 10;
-	brass_app_emit(&app, pair);
-	brass_pair_free(pair);
-
-	CHECK(!brass_app_flush(&app));
-
-	BYTES_EQUAL(brass_app_size(&app), 1);
-	brass_app_cleanup(&app);
+	BYTES_EQUAL(brass_app_size(&app[1]), 0);
+	brass_app_cleanup(&app[1]);
+	brass_pair_free(pair[1]);
 }
 
 TEST(brass_net, should_not_flush_no_parent) {
@@ -220,76 +221,41 @@ TEST(brass_net, should_not_flush_no_parent) {
 	brass_pair_free(pair);
 
 	brass_net_set_parent(&net, &linkaddr_null);
-	CHECK(!brass_app_flush(&app));
+	CHECK(!brass_net_flush(&net));
 
 	BYTES_EQUAL(brass_app_size(&app), 1);
 	brass_app_cleanup(&app);
 }
 
+TEST(brass_net, should_recv_feed_in_batch) {
+	struct brass_app app[2];
+	uint8_t key;
+	
+	app[0].id = 1;
+	brass_app_init(&app[0]);
+	brass_net_bind(&net, &app[0]);
 
-TEST(brass_net, should_feed) {
-	struct brass_app app;
-	brass_app_init(&app);
-	brass_net_bind(&net, &app);
+	app[1].id = 2;
+	brass_app_init(&app[1]);
+	brass_net_bind(&net, &app[1]);
 
-    linkaddr_t children_addr;
+	linkaddr_t children_addr;
     GetAddress(&children_addr);
 	
-	uint8_t buffer[] = { app.id, 10, 1, 1, 'C', 'D', 1, 1, 'A', 'B', 0, 0, 0 };
+	uint8_t buffer[] = { app[1].id, 10, 1, 1, 'C', 'D', 1, 1, 'A', 'B', app[0].id, 6, 1, 1, 'E', 'F', 0, 0, 0 };
     packetbuf_copyfrom(buffer, sizeof(buffer));
     ucc.recv(&net.uc, &children_addr);
+	
+	BYTES_EQUAL(brass_app_size(&app[0]), 1);
+	key = 'E';
+	BYTES_EQUAL(brass_app_find(&app[0], &key, sizeof(key))->value[0], 'F');
+	brass_app_cleanup(&app[0]);
 
-	BYTES_EQUAL(brass_app_size(&app), 2);
-	brass_app_cleanup(&app);
-}
-/*
-TEST(brass_net, should_push_to_parent_reduced_data) {
-    int16_t payload = 123;
-    struct brass_app app;
-
-    app.id = 10;
-	brass_app_init(&app);
-
-    brass_net_register_app(&net, &app);
-
-    mock().expectOneCall("unicast_send")
-        .withParameter("to", brass_net_parent(&net));
-
-    brass_net_push(&net);
-
-    struct packet {
-        uint8_t id;
-        uint8_t size;
-        uint16_t payload;
-    } packet;
-
-    BYTES_EQUAL(packetbuf_datalen(), sizeof(packet));
-    memcpy(&packet, packetbuf_dataptr(), sizeof(packet));
-    BYTES_EQUAL(app.id, packet.id);
-    BYTES_EQUAL(app.size, packet.size);
-    BYTES_EQUAL(payload, packet.payload);
+	BYTES_EQUAL(brass_app_size(&app[1]), 2);
+	key = 'A';
+	BYTES_EQUAL(brass_app_find(&app[1], &key, sizeof(key))->value[0], 'B');
+	key = 'C';
+	BYTES_EQUAL(brass_app_find(&app[1], &key, sizeof(key))->value[0], 'D');
+	brass_app_cleanup(&app[1]);
 }
 
-IGNORE_TEST(brass_net, should_notify_children_pushed_data) {
-    struct payload2 {
-        uint8_t cycle;
-        uint8_t app;
-        uint16_t key;
-        uint16_t value;
-    } payload;
-
-    payload.cycle = 1;
-    payload.app = 2;
-    payload.key = 10;
-    payload.value = 20;
-
-    packetbuf_copyfrom(&payload, sizeof(payload));
-
-    mock().expectOneCall("mapreduce_emit")
-        .withParameter("key", payload.key);
-
-    linkaddr_t children_addr;
-    GetAddress(&children_addr);
-    fake_ucc.recv(&net.uc, &children_addr);
-}
-*/

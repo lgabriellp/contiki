@@ -198,7 +198,7 @@ TEST(brass_app, gather_incomplete) {
 
 TEST(brass_app, feed_none) {
 	uint8_t buffer[] = {};
-	BYTES_EQUAL(brass_app_feed(&app, buffer, sizeof(buffer)), -1);
+	BYTES_EQUAL(brass_app_feed(&app, buffer, sizeof(buffer)), 0);
 	BYTES_EQUAL(brass_app_size(&app), 0);
 }
 
@@ -239,6 +239,6 @@ TEST(brass_app, feed_wrong_id) {
 
 TEST(brass_app, feed_incomplete) {
 	uint8_t buffer[] = { app.id, 4, 1, 1, 0, 0 };
-	BYTES_EQUAL(brass_app_feed(&app, buffer, sizeof(buffer)), -1);
+	BYTES_EQUAL(brass_app_feed(&app, buffer, sizeof(buffer)), 4);
 	BYTES_EQUAL(brass_app_size(&app), 0);
 }

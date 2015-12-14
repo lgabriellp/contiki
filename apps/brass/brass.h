@@ -34,7 +34,7 @@ void brass_net_close(struct brass_net * net);
 void brass_net_bind(struct brass_net * net, struct brass_app * app);
 void brass_net_unbind(struct brass_net * net, struct brass_app * app);
 
-int brass_net_flush(struct brass_net * net, struct brass_app * app);
+int brass_net_flush(struct brass_net * net);
 
 uint8_t brass_net_size(const struct brass_net * net);
 uint8_t brass_net_cycles(const struct brass_net * net);
@@ -65,7 +65,6 @@ void brass_app_cleanup(struct brass_app * app);
 
 struct brass_pair * brass_app_find(struct brass_app * app, const void * key, uint8_t len);
 void   brass_app_collect(struct brass_app * app, int8_t key, clock_time_t interval);
-int	   brass_app_flush(struct brass_app * app);
 
 uint8_t brass_app_size(struct brass_app * app);
 uint8_t brass_app_sow(struct brass_app * app, int8_t key, int8_t value);

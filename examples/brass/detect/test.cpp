@@ -35,8 +35,8 @@ TEST_GROUP(detect_app) {
 	}
 };
 
-TEST(detect_app, list) {
-	mock().expectNCalls(5, "unicast_send");
+IGNORE_TEST(detect_app, list) {
+    mock().expectNCalls(5, "unicast_send");
 	linkaddr_t parent = { { 1, 1 } };
 	brass_net_set_parent(&net, &parent);
 

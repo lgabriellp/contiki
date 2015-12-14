@@ -29,7 +29,7 @@ detect_map(struct brass_app * app, int8_t type, int8_t value) {
 	key.date = clock_seconds();
 	memcpy(pair->key, &key, sizeof(key));
 	brass_app_emit(app, pair);
-	brass_app_flush(app);
+//	brass_app_flush(app);
 	brass_pair_free(pair);
 }
 
@@ -78,7 +78,7 @@ PROCESS_THREAD(detect_process, ev, data) {
 			if (round++ % 10) continue;
 
 			printf("flushing\n");
-			brass_app_flush(&app);
+			brass_net_flush(&net);
 		}	
 	}
 
