@@ -97,7 +97,7 @@ PROCESS_THREAD(collect_process, ev, data) {
 		PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&timer));
 
 		if (linkaddr_node_addr.u8[0] == 1) {
-			brass_app_print(&app);
+			brass_app_print(&app, "reduced");
 			continue;
 		}
 

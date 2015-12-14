@@ -70,9 +70,9 @@ uint8_t brass_app_size(struct brass_app * app);
 uint8_t brass_app_sow(struct brass_app * app, int8_t key, int8_t value);
 uint8_t brass_app_emit(struct brass_app * app, const struct brass_pair * next);
 uint8_t	brass_app_gather(struct brass_app * app, void * buf, uint8_t len, uint8_t urgent);
-int8_t  brass_app_feed(struct brass_app * app, const void * buf, uint8_t len);
+int8_t  brass_app_feed(struct brass_app * app, const void * buf, uint8_t len, uint8_t urgent);
 
-void brass_app_print(struct brass_app * app);
+void brass_app_print(const struct brass_app * app, const char * prefix);
 
 struct brass_pair {
 	struct brass_pair * next;

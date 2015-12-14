@@ -237,7 +237,7 @@ TEST(brass_app, gather_incomplete) {
 
 TEST(brass_app, feed_none) {
 	uint8_t buffer[] = {};
-	BYTES_EQUAL(brass_app_feed(&app, buffer, sizeof(buffer)), 0);
+	BYTES_EQUAL(brass_app_feed(&app, buffer, sizeof(buffer), 0), 0);
 	BYTES_EQUAL(brass_app_size(&app), 0);
 }
 
@@ -245,7 +245,7 @@ TEST(brass_app, feed_one) {
 	uint8_t buffer[] = { app.id, 6, 1, 1, 'C', 'D', 0, 0 };
 	uint8_t key = 'C';
 	
-	BYTES_EQUAL(brass_app_feed(&app, buffer, sizeof(buffer)), 6);
+	BYTES_EQUAL(brass_app_feed(&app, buffer, sizeof(buffer), 0), 6);
 	BYTES_EQUAL(brass_app_size(&app), 1);
 	
 	BYTES_EQUAL(brass_app_find(&app, &key, sizeof(key))->value[0], 'D');
@@ -253,7 +253,7 @@ TEST(brass_app, feed_one) {
 
 TEST(brass_app, feed_exact) {
 	uint8_t buffer[] = { app.id, 6, 1, 1, 0, 0 };
-	BYTES_EQUAL(brass_app_feed(&app, buffer, sizeof(buffer)), sizeof(buffer));
+	BYTES_EQUAL(brass_app_feed(&app, buffer, sizeof(buffer), 0), sizeof(buffer));
 	BYTES_EQUAL(brass_app_size(&app), 1);
 }
 
@@ -261,7 +261,7 @@ TEST(brass_app, feed_many) {
 	uint8_t buffer[] = { app.id, 10, 1, 1, 'C', 'D', 1, 1, 'A', 'B', 0, 0, 0 };
 	uint8_t key;
 	
-	BYTES_EQUAL(brass_app_feed(&app, buffer, sizeof(buffer)), 10);
+	BYTES_EQUAL(brass_app_feed(&app, buffer, sizeof(buffer), 0), 10);
 	BYTES_EQUAL(brass_app_size(&app), 2);
 	
 	key = 'C';
@@ -272,12 +272,12 @@ TEST(brass_app, feed_many) {
 
 TEST(brass_app, feed_wrong_id) {
 	uint8_t buffer[] = { 255, 10, 1, 1, 'C', 'D', 1, 1, 'A', 'B', 0, 0, 0 };
-	BYTES_EQUAL(brass_app_feed(&app, buffer, sizeof(buffer)), 0);
+	BYTES_EQUAL(brass_app_feed(&app, buffer, sizeof(buffer), 0), 0);
 	BYTES_EQUAL(brass_app_size(&app), 0);
 }
 
 TEST(brass_app, feed_incomplete) {
 	uint8_t buffer[] = { app.id, 4, 1, 1, 0, 0 };
-	BYTES_EQUAL(brass_app_feed(&app, buffer, sizeof(buffer)), 4);
+	BYTES_EQUAL(brass_app_feed(&app, buffer, sizeof(buffer), 0), 4);
 	BYTES_EQUAL(brass_app_size(&app), 0);
 }

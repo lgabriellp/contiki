@@ -32,7 +32,7 @@ TEST(collect_app, list) {
 	brass_app_sow(&app, BRASS_SENSOR_HUMIDITY, 1);
 	brass_app_sow(&app, BRASS_SENSOR_TEMP, 1);
 
-	brass_app_print(&app);
+	brass_app_print(&app, "reduced ");
 	BYTES_EQUAL(brass_app_size(&app), 2);
 }
 

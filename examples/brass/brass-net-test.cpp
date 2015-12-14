@@ -193,11 +193,11 @@ TEST(brass_net, should_flush_gather_in_batch) {
 	
 	mock().expectOneCall("unicast_send");
 	
-	linkaddr_t parent = { { 1, 1 } };
-	brass_net_set_parent(&net, &parent);
+	linkaddr_t parent_addr = { { 1, 1 } };
+	brass_net_set_parent(&net, &parent_addr);
 	brass_net_flush(&net, 0);
 
-	uint8_t buf[] = { app[0].id, 6, 1, 1, 5, 10, app[1].id, 6, 1, 1, 5, 10 };
+	uint8_t buf[] = { 0, app[0].id, 6, 1, 1, 5, 10, app[1].id, 6, 1, 1, 5, 10 };
 	CHECK(memcmp(packetbuf_dataptr(), buf, sizeof(buf)) == 0);
 	
 	BYTES_EQUAL(brass_app_size(&app[0]), 0);
@@ -239,16 +239,17 @@ TEST(brass_net, should_recv_feed_in_batch) {
 	brass_app_init(&app[1]);
 	brass_net_bind(&net, &app[1]);
 
-	linkaddr_t children_addr;
-    GetAddress(&children_addr);
+	linkaddr_t child_addr;
+    GetAddress(&child_addr);
 	
-	uint8_t buffer[] = { app[1].id, 10, 1, 1, 'C', 'D', 1, 1, 'A', 'B', app[0].id, 6, 1, 1, 'E', 'F', 0, 0, 0 };
+	uint8_t buffer[] = { 0, app[1].id, 10, 1, 1, 'C', 'D', 1, 1, 'A', 'B', app[0].id, 6, 1, 1, 'E', 'F', 0, 0, 0 };
     packetbuf_copyfrom(buffer, sizeof(buffer));
-    ucc.recv(&net.uc, &children_addr);
+    ucc.recv(&net.uc, &child_addr);
 	
 	BYTES_EQUAL(brass_app_size(&app[0]), 1);
 	key = 'E';
 	BYTES_EQUAL(brass_app_find(&app[0], &key, sizeof(key))->value[0], 'F');
+	CHECK(!brass_pair_urgent(brass_app_find(&app[0], &key, sizeof(key))));
 	brass_app_cleanup(&app[0]);
 
 	BYTES_EQUAL(brass_app_size(&app[1]), 2);
@@ -259,3 +260,26 @@ TEST(brass_net, should_recv_feed_in_batch) {
 	brass_app_cleanup(&app[1]);
 }
 
+TEST(brass_net, should_recv_urgent) {
+	struct brass_app app;
+
+	app.id = 2;
+	brass_app_init(&app);
+	brass_net_bind(&net, &app);
+	
+	linkaddr_t parent_addr = { { 1, 1 } };
+	brass_net_set_parent(&net, &parent_addr);
+
+	linkaddr_t child_addr;
+    GetAddress(&child_addr);
+	
+	mock().expectOneCall("unicast_send");
+	
+	uint8_t buffer[] = { 1, app.id, 6, 1, 1, 'C', 'D', 0, 0, 0 };
+    packetbuf_copyfrom(buffer, sizeof(buffer));
+    ucc.recv(&net.uc, &child_addr);
+	
+	brass_app_print(&app, "urgent-test ");
+	BYTES_EQUAL(brass_app_size(&app), 0);
+	brass_app_cleanup(&app);
+}

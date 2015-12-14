@@ -216,7 +216,6 @@ brass_app_gather(struct brass_app * app, void * ptr, uint8_t len, uint8_t urgent
 	struct brass_pair * temp;
 
 	while (pair) {
-		printf("urgent=%d pair_urgent=%d\n", urgent, brass_pair_urgent(pair));
 		if (urgent && !brass_pair_urgent(pair)) {
 			pair = (struct brass_pair *)list_item_next(pair);
 			continue;
@@ -243,7 +242,7 @@ brass_app_gather(struct brass_app * app, void * ptr, uint8_t len, uint8_t urgent
 }
 
 int8_t
-brass_app_feed(struct brass_app * app, const void * ptr, uint8_t len) {
+brass_app_feed(struct brass_app * app, const void * ptr, uint8_t len, uint8_t urgent) {
 	const uint8_t * buf = (const uint8_t *)ptr;
 	uint8_t size = 0;
 	struct brass_pair * pair;
@@ -257,6 +256,7 @@ brass_app_feed(struct brass_app * app, const void * ptr, uint8_t len) {
 	while(size < buf[BRASS_LEN_INDEX]) {
 		if (size + 2 + buf[size] + buf[size+1] > buf[BRASS_LEN_INDEX]) return buf[BRASS_LEN_INDEX];
 		pair = brass_pair_alloc(app, buf[size], buf[size + 1]);
+		brass_pair_set_urgent(pair, urgent);
 		size += 2;
 
 		brass_pair_set_key(pair, &buf[size]);
@@ -274,11 +274,11 @@ brass_app_feed(struct brass_app * app, const void * ptr, uint8_t len) {
 }
 
 void
-brass_app_print(struct brass_app * app) {
+brass_app_print(const struct brass_app * app, const char * prefix) {
 	void * iter = list_head(app->reduced);
 
 	while (iter) {
-		brass_pair_print((struct brass_pair *)iter, "reduced ");
+		brass_pair_print((struct brass_pair *)iter, prefix);
 		iter = list_item_next(iter);
 	}	
 }
@@ -314,13 +314,16 @@ unicast_recv(struct unicast_conn * uc, const linkaddr_t *from) {
     PRINTF("received from=%d len=%d\n", from->u8[0], packetbuf_datalen());
 	struct brass_app * app = (struct brass_app *)list_head(net->apps);
 	uint8_t * ptr = (uint8_t *)packetbuf_dataptr();
+	uint8_t urgent = ptr[0];
 
 	while (app) {
-		uint8_t len = 0;
+		uint8_t len = 1;
 		while ((ptr[len + BRASS_ID_INDEX] != app->id) && len < packetbuf_datalen()) len += ptr[len + BRASS_LEN_INDEX];
-		brass_app_feed(app, ptr + len, packetbuf_datalen() - len);
+		brass_app_feed(app, ptr + len, packetbuf_datalen() - len, urgent);
 		app = (struct brass_app *)list_item_next(app);
 	}
+
+	brass_net_flush(net, urgent);
 }
 
 static void
@@ -384,9 +387,10 @@ brass_net_flush(struct brass_net * net, uint8_t urgent) {
 		return 0;
 	}
 
-	uint8_t len = 0;
+	uint8_t len = 1;
 	uint8_t * ptr = (uint8_t *)packetbuf_dataptr();
 	struct brass_app * app = (struct brass_app *)list_head(net->apps);
+	ptr[0] = urgent;
 	
 	while (app) {
 		len += brass_app_gather(app, ptr + len, PACKETBUF_SIZE - len, urgent);
