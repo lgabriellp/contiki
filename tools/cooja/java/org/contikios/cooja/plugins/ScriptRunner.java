@@ -102,6 +102,7 @@ public class ScriptRunner extends VisPlugin {
   }
 
   final String[] EXAMPLE_SCRIPTS = new String[] {
+	  "brass.js", "Brass simulation script",
       "basic.js", "Various commands",
       "helloworld.js", "Wait for 'Hello, world'",
       "log_all.js", "Just log all printf()'s and timeout",
