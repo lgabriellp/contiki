@@ -95,7 +95,7 @@ int8_t	brass_pair_cmp(struct brass_pair * pair, const void * key, uint8_t len);
 
 void brass_pair_set_key(struct brass_pair * pair, const void * key);
 void brass_pair_set_value(struct brass_pair * pair, const void * value);
-void brass_pair_print(struct brass_pair * pair);
+void brass_pair_print(struct brass_pair * pair, const char * prefix);
 
 #ifdef __cplusplus
 }

@@ -43,6 +43,7 @@ collect_map(struct brass_app * app, int8_t type, int8_t value) {
 	brass_pair_set_key(pair, &ckey);
 	brass_pair_set_value(pair, &cvalue);
 
+	brass_pair_print(pair, "emited  ");
 	brass_app_emit(app, pair);
 	brass_pair_free(pair);
 }
@@ -95,13 +96,16 @@ PROCESS_THREAD(collect_process, ev, data) {
 		etimer_set(&timer, CLOCK_SECOND);
 		PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&timer));
 
-		if (linkaddr_node_addr.u8[0] != 1) {
-			brass_app_sow(&app, BRASS_SENSOR_TEMP, 1);
-			if (round++ % 10) continue;
+		if (linkaddr_node_addr.u8[0] == 1) {
+			brass_app_print(&app);
+			continue;
+		}
 
-			printf("flushing\n");
-			brass_app_flush(&app);
-		}	
+		brass_app_sow(&app, BRASS_SENSOR_TEMP, 1);
+		if (round++ % 10) continue;
+
+		printf("flushing\n");
+		brass_app_flush(&app);
 	}
 
 	PROCESS_END();

@@ -100,9 +100,9 @@ brass_pair_set_value(struct brass_pair * pair, const void * value) {
 }
 
 void
-brass_pair_print(struct brass_pair * pair) {
+brass_pair_print(struct brass_pair * pair, const char * prefix) {
 	int i;
-	PRINTF("pair(%d, ", pair->len);
+	PRINTF("%spair(%d, ", prefix, pair->len);
 	for (i = 0; i < pair->len; i++) {
 		if (i == brass_pair_keylen(pair)) {
 			PRINTF(", ");
@@ -183,15 +183,12 @@ brass_app_emit(struct brass_app * app, struct brass_pair * next) {
 			return -1;
 		}
 
-		PRINTF("feeded ");
-		brass_pair_print(acc);
 		list_push(app->reduced, acc);
 		return 0;
 	}
 
 	app->reduce(app, acc, next->value);
-	PRINTF("merged ");
-	brass_pair_print(acc);
+	//brass_pair_print(acc, "merged  ");
 
 	return 1;
 }
@@ -248,6 +245,7 @@ brass_app_feed(struct brass_app * app, const void * ptr, uint8_t len) {
 		brass_pair_set_value(pair, &buf[size]);
 		size += brass_pair_valuelen(pair);
 
+		brass_pair_print(pair, "feeded  ");
 		brass_app_emit(app, pair);
 		brass_pair_free(pair);
 	}
@@ -260,7 +258,7 @@ brass_app_print(struct brass_app * app) {
 	void * iter = list_head(app->reduced);
 
 	while (iter) {
-		brass_pair_print((struct brass_pair *)iter);
+		brass_pair_print((struct brass_pair *)iter, "reduced ");
 		iter = list_item_next(iter);
 	}	
 }
@@ -302,7 +300,6 @@ unicast_recv(struct unicast_conn * uc, const linkaddr_t *from) {
 			break;
 		}
 
-		brass_app_print(app);
 		app = (struct brass_app *)list_item_next(app);
 	}
 }
@@ -367,7 +364,7 @@ brass_net_flush(struct brass_net * net, struct brass_app * app) {
 		PRINTF("flush no parent\n");
 		return 0;
 	}
-	brass_app_print(app);
+
 	packetbuf_set_datalen(brass_app_gather(app, packetbuf_dataptr(), PACKETBUF_SIZE));
     PRINTF("sending to=%d len=%d\n", net->parent.u8[0], packetbuf_datalen());
     return unicast_send(&net->uc, &net->parent);
