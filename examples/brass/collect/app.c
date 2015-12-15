@@ -97,15 +97,14 @@ PROCESS_THREAD(collect_process, ev, data) {
 		PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&timer));
 
 		if (linkaddr_node_addr.u8[0] == 1) {
-			brass_app_print(&app, "reduced");
+			brass_app_print(&app, "reduced ");
 			continue;
 		}
 
 		brass_app_sow(&app, BRASS_SENSOR_TEMP, 1);
 		if (round++ % 10) continue;
 
-		printf("flushing\n");
-		brass_net_flush(&net, 0);
+		printf("flushing=%d\n", brass_net_flush(&net, 0));
 	}
 
 	PROCESS_END();
