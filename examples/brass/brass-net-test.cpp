@@ -223,7 +223,7 @@ TEST(brass_net, should_flush_gather_in_batch) {
 	brass_pair_free(pair[1]);
 }
 
-TEST(brass_net, should_not_flush_no_parent) {
+TEST(brass_net, should_not_flush_when_no_parent) {
 	struct brass_app app;
 	brass_app_init(&app);
 	brass_net_bind(&net, &app);
@@ -235,6 +235,26 @@ TEST(brass_net, should_not_flush_no_parent) {
 	brass_pair_free(pair);
 
 	brass_net_set_parent(&net, &linkaddr_null);
+	CHECK(!brass_net_flush(&net, 0));
+
+	BYTES_EQUAL(brass_app_size(&app), 1);
+	brass_app_cleanup(&app);
+}
+
+TEST(brass_net, should_not_flush_when_is_transmitting) {
+	struct brass_app app;
+	brass_app_init(&app);
+	brass_net_bind(&net, &app);
+
+	struct brass_pair * pair = brass_pair_alloc(&app, 1, 1);
+	pair->key[0] = 5;
+	pair->value[0] = 10;
+	brass_app_emit(&app, pair);
+	brass_pair_free(pair);
+
+	fake_rc_is_tx = 1;
+	linkaddr_t parent = { { 1, 1 } };
+	brass_net_set_parent(&net, &parent);
 	CHECK(!brass_net_flush(&net, 0));
 
 	BYTES_EQUAL(brass_app_size(&app), 1);

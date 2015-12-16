@@ -39,6 +39,7 @@ CXXLDFLAGS += -Wl,--wrap,neighbor_discovery_start
 CXXLDFLAGS += -Wl,--wrap,runicast_open
 CXXLDFLAGS += -Wl,--wrap,runicast_send
 CXXLDFLAGS += -Wl,--wrap,runicast_close
+CXXLDFLAGS += -Wl,--wrap,runicast_is_transmitting
 
 test: $(SRCS)
 	@$(CXX) -o $@ $^ $(CFLAGS) $(CXXFLAGS) $(CXXLDFLAGS)
