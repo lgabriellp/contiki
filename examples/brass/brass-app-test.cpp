@@ -55,7 +55,7 @@ TEST(brass_app, pair_set_flags) {
 	pair = brass_pair_alloc(&app, 2, 8);
 	
 	BYTES_EQUAL(brass_pair_flags(pair, BRASS_FLAG_URGENT), 0);
-	brass_pair_set_flags(pair, BRASS_FLAG_URGENT);
+	brass_pair_set_flags(pair, BRASS_FLAG_URGENT, 1);
 	BYTES_EQUAL(brass_pair_flags(pair, BRASS_FLAG_URGENT), 1);
 	
 	brass_pair_free(pair);
@@ -65,7 +65,7 @@ TEST(brass_app, pair_reset_flags) {
 	pair = brass_pair_alloc(&app, 2, 8);
 	
 	BYTES_EQUAL(brass_pair_flags(pair, BRASS_FLAG_PENDING), 1);
-	brass_pair_reset_flags(pair, BRASS_FLAG_PENDING);
+	brass_pair_set_flags(pair, BRASS_FLAG_PENDING, 0);
 	BYTES_EQUAL(brass_pair_flags(pair, BRASS_FLAG_PENDING), 0);
 	
 	brass_pair_free(pair);
@@ -208,7 +208,7 @@ TEST(brass_app, gather_urgent) {
 
 	brass_pair_set_key(pair, "C");
 	brass_pair_set_value(pair, "D");
-	brass_pair_set_flags(pair, BRASS_FLAG_URGENT);
+	brass_pair_set_flags(pair, BRASS_FLAG_URGENT, 1);
 	brass_app_emit(&app, pair);
 
 	key = 'C';

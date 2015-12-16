@@ -94,7 +94,7 @@ PROCESS_THREAD(collect_process, ev, data) {
 	brass_net_bind(&net, &app);
 
 	while(1) {
-		etimer_set(&timer, CLOCK_SECOND);
+		etimer_set(&timer, 6 * CLOCK_SECOND);
 		PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&timer));
 
 		if (linkaddr_node_addr.u8[0] == 1) {
@@ -103,7 +103,7 @@ PROCESS_THREAD(collect_process, ev, data) {
 		}
 
 		brass_app_sow(&app, BRASS_SENSOR_TEMP, 1);
-		if (random_rand() % 10) continue;
+		if (random_rand() % 24) continue;
 
 		printf("flushing=%d\n", brass_net_flush(&net, 0));
 	}

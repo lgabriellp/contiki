@@ -215,10 +215,12 @@ TEST(brass_net, should_flush_gather_in_batch) {
 	CHECK(memcmp(packetbuf_dataptr(), buf, sizeof(buf)) == 0);
 	
 	BYTES_EQUAL(brass_app_size(&app[0], BRASS_FLAG_PENDING), 0);
+	BYTES_EQUAL(brass_app_size(&app[0], BRASS_FLAG_ALL), 1);
 	brass_app_cleanup(&app[0], BRASS_FLAG_ALL);
 	brass_pair_free(pair[0]);
 
 	BYTES_EQUAL(brass_app_size(&app[1], BRASS_FLAG_PENDING), 0);
+	BYTES_EQUAL(brass_app_size(&app[1], BRASS_FLAG_ALL), 1);
 	brass_app_cleanup(&app[1], BRASS_FLAG_ALL);
 	brass_pair_free(pair[1]);
 }
@@ -238,6 +240,7 @@ TEST(brass_net, should_not_flush_when_no_parent) {
 	CHECK(!brass_net_flush(&net, 0));
 
 	BYTES_EQUAL(brass_app_size(&app, BRASS_FLAG_PENDING), 1);
+	BYTES_EQUAL(brass_app_size(&app, BRASS_FLAG_ALL), 1);
 	brass_app_cleanup(&app, BRASS_FLAG_ALL);
 }
 
@@ -258,6 +261,7 @@ TEST(brass_net, should_not_flush_when_is_transmitting) {
 	CHECK(!brass_net_flush(&net, 0));
 
 	BYTES_EQUAL(brass_app_size(&app, BRASS_FLAG_PENDING), 1);
+	BYTES_EQUAL(brass_app_size(&app, BRASS_FLAG_ALL), 1);
 	brass_app_cleanup(&app, BRASS_FLAG_ALL);
 }
 
@@ -315,5 +319,39 @@ TEST(brass_net, should_recv_urgent) {
 	
 	// brass_app_print(&app, "urgent-test ");
 	BYTES_EQUAL(brass_app_size(&app, BRASS_FLAG_PENDING), 0);
+	BYTES_EQUAL(brass_app_size(&app, BRASS_FLAG_ALL), 1);
 	brass_app_cleanup(&app, BRASS_FLAG_ALL);
+}
+
+TEST(brass_net, should_cleanup_when_sent) {
+	struct brass_app app;
+	struct brass_pair * pair;
+
+	app.id = 1;
+	brass_app_init(&app);
+	brass_net_bind(&net, &app);
+	pair = brass_pair_alloc(&app, 1, 1);
+	pair->key[0] = 5;
+	pair->value[0] = 10;
+	brass_app_emit(&app, pair);
+
+	mock().expectOneCall("unicast_send");
+	
+	linkaddr_t parent_addr = { { 1, 1 } };
+	brass_net_set_parent(&net, &parent_addr);
+	brass_net_flush(&net, 0);
+
+	uint8_t buf[] = { 0, app.id, 6, 1, 1, 5, 10 };
+	CHECK(memcmp(packetbuf_dataptr(), buf, sizeof(buf)) == 0);
+	
+	BYTES_EQUAL(brass_app_size(&app, BRASS_FLAG_PENDING), 0);
+	BYTES_EQUAL(brass_app_size(&app, BRASS_FLAG_ALL), 1);
+	
+	fake_ucc.sent(&net.uc, &parent_addr, 1);
+	
+	BYTES_EQUAL(brass_app_size(&app, BRASS_FLAG_PENDING), 0);
+	BYTES_EQUAL(brass_app_size(&app, BRASS_FLAG_ALL), 0);
+	
+	brass_app_cleanup(&app, BRASS_FLAG_ALL);
+	brass_pair_free(pair);
 }
