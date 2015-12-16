@@ -17,6 +17,11 @@ extern "C" {
 #define BRASS_SENSOR_TEMP 1
 #define BRASS_SENSOR_HUMIDITY 2
 
+#define BRASS_FLAG_ALL	   (~0)
+#define BRASS_FLAG_ALLOCD  (1 << 0)
+#define BRASS_FLAG_URGENT  (1 << 1)
+#define BRASS_FLAG_PENDING (1 << 2)
+
 struct brass_app;
 struct brass_pair;
 
@@ -61,12 +66,12 @@ struct brass_app {
 };
 
 void brass_app_init(struct brass_app * app);
-void brass_app_cleanup(struct brass_app * app);
+void brass_app_cleanup(struct brass_app * app, uint8_t filter);
 
 struct brass_pair * brass_app_find(struct brass_app * app, const void * key, uint8_t len);
 void   brass_app_collect(struct brass_app * app, int8_t key, clock_time_t interval);
 
-uint8_t brass_app_size(struct brass_app * app);
+uint8_t brass_app_size(struct brass_app * app, uint8_t filter);
 uint8_t brass_app_sow(struct brass_app * app, int8_t key, int8_t value);
 uint8_t brass_app_emit(struct brass_app * app, const struct brass_pair * next);
 uint8_t	brass_app_gather(struct brass_app * app, void * buf, uint8_t len, uint8_t urgent);
@@ -90,13 +95,13 @@ void                brass_pair_free(struct brass_pair * pair);
 uint8_t brass_pair_len(const struct brass_pair * pair);
 uint8_t brass_pair_keylen(const struct brass_pair * pair);
 uint8_t brass_pair_valuelen(const struct brass_pair * pair);
-uint8_t brass_pair_urgent(const struct brass_pair * pair);
+uint8_t brass_pair_flags(const struct brass_pair * pair, uint8_t flag);
 int8_t  brass_pair_cmp(const struct brass_pair * pair, const void * key, uint8_t len);
 void    brass_pair_print(const struct brass_pair * pair, const char * prefix);
 
-void brass_pair_set_urgent(struct brass_pair * pair, int urgent);
 void brass_pair_set_key(struct brass_pair * pair, const void * key);
 void brass_pair_set_value(struct brass_pair * pair, const void * value);
+void brass_pair_set_flags(struct brass_pair * pair, uint8_t flag, uint8_t enabled);
 
 #ifdef __cplusplus
 }
