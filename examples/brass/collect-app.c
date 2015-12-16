@@ -9,7 +9,7 @@ extern "C" {
 #include <lib/random.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include <collect/app.h>
+#include <collect-app.h>
 
 #ifdef __cplusplus
 }

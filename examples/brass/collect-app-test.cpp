@@ -1,5 +1,5 @@
 #include <brass.h>
-#include <collect/app.h>
+#include <collect-app.h>
 
 #include <CppUTest/TestHarness.h>
 #include <CppUTestExt/MockSupport.h>

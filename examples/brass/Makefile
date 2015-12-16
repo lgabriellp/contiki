@@ -25,10 +25,10 @@ CXXFLAGS += -lCppUTestExt
 
 SRCS += brass-app-test.cpp
 SRCS += brass-net-test.cpp
-SRCS += collect/app.c
-SRCS += collect/test.cpp
-SRCS += detect/app.c
-SRCS += detect/test.cpp
+SRCS += collect-app.c
+SRCS += collect-app-test.cpp
+SRCS += detect-app.c
+SRCS += detect-app-test.cpp
 SRCS += main-test.cpp
 SRCS += contiki-native.a
 
