@@ -23,7 +23,7 @@ detect_map(struct brass_app * app, int8_t type, int8_t value) {
 	if (!value) return;
 
 	struct brass_pair * pair = brass_pair_alloc(app, sizeof(detect_key_t), 0);
-	brass_pair_set_urgent(pair, 1);
+	brass_pair_set_flags(pair, BRASS_FLAG_URGENT);
 	detect_key_t key;
 
 	key.animal_id = value;
@@ -48,7 +48,7 @@ PROCESS_THREAD(detect_process, ev, data) {
 	static int round = 0;
 
 	PROCESS_EXITHANDLER({
-		brass_app_cleanup(&app);
+		brass_app_cleanup(&app, BRASS_FLAG_ALL);
 		brass_net_close(&net);   
 	});
 

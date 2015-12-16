@@ -33,7 +33,7 @@ TEST_GROUP(brass_app) {
 
 	void
 	teardown() {
-		brass_app_cleanup(&app);
+		brass_app_cleanup(&app, BRASS_FLAG_ALL);
 	}
 };
 
@@ -43,9 +43,30 @@ TEST(brass_app, pair_alloc) {
 	BYTES_EQUAL(brass_pair_len(pair), 10);
 	BYTES_EQUAL(brass_pair_keylen(pair), 2);
 	BYTES_EQUAL(brass_pair_valuelen(pair), 8);
-	BYTES_EQUAL(brass_pair_urgent(pair), 0);
 	BYTES_EQUAL(pair->key, ((int8_t *)pair) + sizeof(struct brass_pair));
 	BYTES_EQUAL(pair->value, pair->key + brass_pair_keylen(pair));
+	BYTES_EQUAL(brass_pair_flags(pair, BRASS_FLAG_PENDING), 1);
+	BYTES_EQUAL(brass_pair_flags(pair, BRASS_FLAG_URGENT), 0);
+	
+	brass_pair_free(pair);
+}
+
+TEST(brass_app, pair_set_flags) {
+	pair = brass_pair_alloc(&app, 2, 8);
+	
+	BYTES_EQUAL(brass_pair_flags(pair, BRASS_FLAG_URGENT), 0);
+	brass_pair_set_flags(pair, BRASS_FLAG_URGENT);
+	BYTES_EQUAL(brass_pair_flags(pair, BRASS_FLAG_URGENT), 1);
+	
+	brass_pair_free(pair);
+}
+
+TEST(brass_app, pair_reset_flags) {
+	pair = brass_pair_alloc(&app, 2, 8);
+	
+	BYTES_EQUAL(brass_pair_flags(pair, BRASS_FLAG_PENDING), 1);
+	brass_pair_reset_flags(pair, BRASS_FLAG_PENDING);
+	BYTES_EQUAL(brass_pair_flags(pair, BRASS_FLAG_PENDING), 0);
 	
 	brass_pair_free(pair);
 }
@@ -57,11 +78,12 @@ TEST(brass_app, pair_dup) {
 	BYTES_EQUAL(brass_pair_len(dup), 10);
 	BYTES_EQUAL(brass_pair_keylen(dup), 2);
 	BYTES_EQUAL(brass_pair_valuelen(dup), 8);
-	BYTES_EQUAL(brass_pair_urgent(dup), 0);
 	BYTES_EQUAL(dup->key, ((int8_t *)dup) + sizeof(struct brass_pair));
 	BYTES_EQUAL(dup->value, dup->key + brass_pair_keylen(dup));
 	CHECK(memcmp(pair->key, dup->key, brass_pair_keylen(pair)) == 0);
 	CHECK(memcmp(pair->value, dup->value, brass_pair_keylen(pair)) == 0);
+	BYTES_EQUAL(brass_pair_flags(dup, BRASS_FLAG_PENDING), 1);
+	BYTES_EQUAL(brass_pair_flags(dup, BRASS_FLAG_URGENT), 0);
 
 	brass_pair_free(pair);
 	brass_pair_free(dup);
@@ -89,7 +111,7 @@ TEST(brass_app, emit) {
 	}
 
 	//brass_print(&app);
-	BYTES_EQUAL(brass_app_size(&app), 4);
+	BYTES_EQUAL(brass_app_size(&app, BRASS_FLAG_ALL), 4);
 
 	key = 0;
 	BYTES_EQUAL(brass_app_find(&app, &key, sizeof(key))->value[0], 12);
@@ -112,7 +134,7 @@ TEST(brass_app, sow) {
 	}
 
 	//brass_print(&app);
-	BYTES_EQUAL(brass_app_size(&app), 2);
+	BYTES_EQUAL(brass_app_size(&app, BRASS_FLAG_PENDING), 2);
 	
 	key = 0;
 	CHECK(!brass_app_find(&app, &key, sizeof(key)));
@@ -138,11 +160,10 @@ TEST(brass_app, gather_none) {
 
 	//brass_print(&app);
 	BYTES_EQUAL(brass_app_gather(&app, buffer, sizeof(buffer), 0), 0);
-	BYTES_EQUAL(brass_app_size(&app), 2);
+	BYTES_EQUAL(brass_app_size(&app, BRASS_FLAG_PENDING), 2);
 
 	brass_pair_free(pair);
 }
-
 
 TEST(brass_app, gather_complete) {
 	int8_t buffer[12];
@@ -158,7 +179,7 @@ TEST(brass_app, gather_complete) {
 
 	//brass_print(&app);
 	BYTES_EQUAL(brass_app_gather(&app, buffer, sizeof(buffer), 0), 10);
-	BYTES_EQUAL(brass_app_size(&app), 0);
+	BYTES_EQUAL(brass_app_size(&app, BRASS_FLAG_PENDING), 0);
 
 	BYTES_EQUAL(buffer[0], app.id);
 	BYTES_EQUAL(buffer[1], 10);
@@ -183,21 +204,21 @@ TEST(brass_app, gather_urgent) {
 	brass_pair_set_value(pair, "B");
 	brass_app_emit(&app, pair);
 	key = 'A';
-	CHECK(!brass_pair_urgent(brass_app_find(&app, &key, 1)));
+	CHECK(!brass_pair_flags(brass_app_find(&app, &key, 1), BRASS_FLAG_URGENT));
 
 	brass_pair_set_key(pair, "C");
 	brass_pair_set_value(pair, "D");
-	brass_pair_set_urgent(pair, 1);
+	brass_pair_set_flags(pair, BRASS_FLAG_URGENT);
 	brass_app_emit(&app, pair);
 
 	key = 'C';
-	CHECK(brass_pair_urgent(brass_app_find(&app, &key, 1)));
+	CHECK(brass_pair_flags(brass_app_find(&app, &key, 1), BRASS_FLAG_URGENT));
 	key = 'A';
-	CHECK(!brass_pair_urgent(brass_app_find(&app, &key, 1)));
+	CHECK(!brass_pair_flags(brass_app_find(&app, &key, 1), BRASS_FLAG_URGENT));
 
 	//brass_print(&app);
 	BYTES_EQUAL(brass_app_gather(&app, buffer, sizeof(buffer), 1), 6);
-	BYTES_EQUAL(brass_app_size(&app), 1);
+	BYTES_EQUAL(brass_app_size(&app, BRASS_FLAG_PENDING), 1);
 
 	BYTES_EQUAL(buffer[0], app.id);
 	BYTES_EQUAL(buffer[1], 6);
@@ -223,7 +244,7 @@ TEST(brass_app, gather_incomplete) {
 
 	//brass_print(&app);
 	BYTES_EQUAL(brass_app_gather(&app, buffer, sizeof(buffer), 0), 6);
-	BYTES_EQUAL(brass_app_size(&app), 1);
+	BYTES_EQUAL(brass_app_size(&app, BRASS_FLAG_PENDING), 1);
 
 	BYTES_EQUAL(buffer[0], app.id);
 	BYTES_EQUAL(buffer[1], 6);
@@ -238,7 +259,7 @@ TEST(brass_app, gather_incomplete) {
 TEST(brass_app, feed_none) {
 	uint8_t buffer[] = {};
 	BYTES_EQUAL(brass_app_feed(&app, buffer, sizeof(buffer), 0), 0);
-	BYTES_EQUAL(brass_app_size(&app), 0);
+	BYTES_EQUAL(brass_app_size(&app, BRASS_FLAG_PENDING), 0);
 }
 
 TEST(brass_app, feed_one) {
@@ -246,7 +267,7 @@ TEST(brass_app, feed_one) {
 	uint8_t key = 'C';
 	
 	BYTES_EQUAL(brass_app_feed(&app, buffer, sizeof(buffer), 0), 6);
-	BYTES_EQUAL(brass_app_size(&app), 1);
+	BYTES_EQUAL(brass_app_size(&app, BRASS_FLAG_PENDING), 1);
 	
 	BYTES_EQUAL(brass_app_find(&app, &key, sizeof(key))->value[0], 'D');
 }
@@ -254,7 +275,7 @@ TEST(brass_app, feed_one) {
 TEST(brass_app, feed_exact) {
 	uint8_t buffer[] = { app.id, 6, 1, 1, 0, 0 };
 	BYTES_EQUAL(brass_app_feed(&app, buffer, sizeof(buffer), 0), sizeof(buffer));
-	BYTES_EQUAL(brass_app_size(&app), 1);
+	BYTES_EQUAL(brass_app_size(&app, BRASS_FLAG_PENDING), 1);
 }
 
 TEST(brass_app, feed_many) {
@@ -262,7 +283,7 @@ TEST(brass_app, feed_many) {
 	uint8_t key;
 	
 	BYTES_EQUAL(brass_app_feed(&app, buffer, sizeof(buffer), 0), 10);
-	BYTES_EQUAL(brass_app_size(&app), 2);
+	BYTES_EQUAL(brass_app_size(&app, BRASS_FLAG_PENDING), 2);
 	
 	key = 'C';
 	BYTES_EQUAL(brass_app_find(&app, &key, sizeof(key))->value[0], 'D');
@@ -273,11 +294,11 @@ TEST(brass_app, feed_many) {
 TEST(brass_app, feed_wrong_id) {
 	uint8_t buffer[] = { 255, 10, 1, 1, 'C', 'D', 1, 1, 'A', 'B', 0, 0, 0 };
 	BYTES_EQUAL(brass_app_feed(&app, buffer, sizeof(buffer), 0), 0);
-	BYTES_EQUAL(brass_app_size(&app), 0);
+	BYTES_EQUAL(brass_app_size(&app, BRASS_FLAG_PENDING), 0);
 }
 
 TEST(brass_app, feed_incomplete) {
 	uint8_t buffer[] = { app.id, 4, 1, 1, 0, 0 };
 	BYTES_EQUAL(brass_app_feed(&app, buffer, sizeof(buffer), 0), 4);
-	BYTES_EQUAL(brass_app_size(&app), 0);
+	BYTES_EQUAL(brass_app_size(&app, BRASS_FLAG_PENDING), 0);
 }

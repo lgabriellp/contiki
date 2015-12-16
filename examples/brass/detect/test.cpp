@@ -4,6 +4,7 @@
 #include <CppUTest/TestHarness.h>
 #include <CppUTestExt/MockSupport.h>
 
+#include <stdio.h>
 
 TEST_GROUP(detect_app) {
 	struct brass_net net;
@@ -27,7 +28,7 @@ TEST_GROUP(detect_app) {
 
 	void
 	teardown() {
-		brass_app_cleanup(&detect);
+		brass_app_cleanup(&detect, BRASS_FLAG_ALL);
 		brass_net_close(&net);
 		mock().ignoreOtherCalls();
 		mock().checkExpectations();
@@ -49,6 +50,6 @@ TEST(detect_app, list) {
 	brass_app_sow(&detect, PRESENCE_DETECTED_EVENT, 1);
 
 	brass_net_flush(&net, 1);
-	BYTES_EQUAL(brass_app_size(&detect), 0);
+	//brass_app_print(&detect, "flag ");
+	BYTES_EQUAL(brass_app_size(&detect, BRASS_FLAG_PENDING), 0);
 }
-

@@ -19,7 +19,7 @@ TEST_GROUP(collect_app) {
 
 	void
 	teardown() {
-		brass_app_cleanup(&app);
+		brass_app_cleanup(&app, BRASS_FLAG_ALL);
 	}
 };
 
@@ -32,7 +32,6 @@ TEST(collect_app, list) {
 	brass_app_sow(&app, BRASS_SENSOR_HUMIDITY, 1);
 	brass_app_sow(&app, BRASS_SENSOR_TEMP, 1);
 
-	brass_app_print(&app, "reduced ");
-	BYTES_EQUAL(brass_app_size(&app), 2);
+	// brass_app_print(&app, "reduced ");
+	BYTES_EQUAL(brass_app_size(&app, BRASS_FLAG_PENDING), 2);
 }
-

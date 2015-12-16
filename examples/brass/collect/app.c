@@ -72,7 +72,7 @@ PROCESS_THREAD(collect_process, ev, data) {
 //	static int round = 0;
 
 	PROCESS_EXITHANDLER({
-		brass_app_cleanup(&app);
+		brass_app_cleanup(&app, BRASS_FLAG_ALL);
 		brass_net_close(&net);   
 	});
 
