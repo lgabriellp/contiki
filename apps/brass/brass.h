@@ -62,6 +62,7 @@ struct brass_app {
 	LIST_STRUCT(reduced);
 	map_t map;
 	reduce_t reduce;
+	uint16_t ram;
 	uint8_t id;
 };
 
@@ -92,6 +93,7 @@ struct brass_pair * brass_pair_alloc(struct brass_app * app, uint8_t len, uint8_
 struct brass_pair * brass_pair_dup(const struct brass_pair * pair);
 void                brass_pair_free(struct brass_pair * pair);
 
+uint8_t brass_pair_sizeof(const struct brass_pair * pair);
 uint8_t brass_pair_len(const struct brass_pair * pair);
 uint8_t brass_pair_keylen(const struct brass_pair * pair);
 uint8_t brass_pair_valuelen(const struct brass_pair * pair);

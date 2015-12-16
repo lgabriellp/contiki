@@ -3,6 +3,8 @@ extern "C" {
 #endif//__cplusplus
 
 #include <contiki.h>
+#include <sys/etimer.h>
+#include <sys/stimer.h>
 #include <dev/serial-line.h>
 #include <lib/random.h>
 #include <stdlib.h>
@@ -66,7 +68,9 @@ PROCESS(collect_process, "Collect App");
 AUTOSTART_PROCESSES(&collect_process);
 
 PROCESS_THREAD(collect_process, ev, data) {
-	static struct etimer timer;
+	static struct stimer collect_timer;
+	static struct etimer flush_timer;
+
 	static struct brass_net net;
 	static struct brass_app app;
 //	static int round = 0;
@@ -92,18 +96,25 @@ PROCESS_THREAD(collect_process, ev, data) {
 	brass_app_init(&app);
 	brass_net_open(&net, linkaddr_node_addr.u8[0] == 1);
 	brass_net_bind(&net, &app);
+	
+	stimer_set(&collect_timer, 60);
 
 	while(1) {
-		etimer_set(&timer, 6 * CLOCK_SECOND);
-		PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&timer));
+		etimer_set(&flush_timer, CLOCK_SECOND);
+		PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&flush_timer));
 
 		if (linkaddr_node_addr.u8[0] == 1) {
 			brass_app_print(&app, "reduced ");
 			continue;
 		}
 
-		brass_app_sow(&app, BRASS_SENSOR_TEMP, 1);
-		if (random_rand() % 24) continue;
+		if (stimer_expired(&collect_timer)) {
+			brass_app_sow(&app, BRASS_SENSOR_TEMP, 1);
+			stimer_set(&collect_timer, 60 * 60 * 6);
+		}
+
+		printf("flushing=%d urgent\n", brass_net_flush(&net, 1));
+		if (random_rand() % 10) continue;
 
 		printf("flushing=%d\n", brass_net_flush(&net, 0));
 	}

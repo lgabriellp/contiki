@@ -49,7 +49,8 @@ TEST(detect_app, list) {
 	brass_app_sow(&detect, PRESENCE_DETECTED_EVENT, 1);
 	brass_app_sow(&detect, PRESENCE_DETECTED_EVENT, 1);
 
-	brass_net_flush(&net, 1);
-	//brass_app_print(&detect, "flag ");
-	BYTES_EQUAL(brass_app_size(&detect, BRASS_FLAG_PENDING), 0);
+	brass_net_flush(&net, 0);
+	BYTES_EQUAL(brass_app_size(&detect, BRASS_FLAG_PENDING), 3);
+	BYTES_EQUAL(brass_app_size(&detect, BRASS_FLAG_URGENT), 3);
+	BYTES_EQUAL(brass_app_size(&detect, BRASS_FLAG_ALL), 3);
 }

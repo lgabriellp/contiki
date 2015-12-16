@@ -185,7 +185,7 @@ TEST(brass_net, should_unbind_app) {
 	brass_app_cleanup(&app, BRASS_FLAG_ALL);
 }
 
-TEST(brass_net, should_flush_gather_in_batch) {
+TEST(brass_net, should_flush_in_batch) {
 	struct brass_app app[2];
 	struct brass_pair * pair[2];
 
@@ -196,6 +196,7 @@ TEST(brass_net, should_flush_gather_in_batch) {
 	pair[0]->key[0] = 5;
 	pair[0]->value[0] = 10;
 	brass_app_emit(&app[0], pair[0]);
+	brass_pair_free(pair[0]);
 
 	app[1].id = 2;
 	brass_app_init(&app[1]);
@@ -204,6 +205,7 @@ TEST(brass_net, should_flush_gather_in_batch) {
 	pair[1]->key[0] = 5;
 	pair[1]->value[0] = 10;
 	brass_app_emit(&app[1], pair[1]);
+	brass_pair_free(pair[1]);
 	
 	mock().expectOneCall("unicast_send");
 	
@@ -211,18 +213,17 @@ TEST(brass_net, should_flush_gather_in_batch) {
 	brass_net_set_parent(&net, &parent_addr);
 	brass_net_flush(&net, 0);
 
+	BYTES_EQUAL(brass_app_size(&app[0], BRASS_FLAG_PENDING), 1);
+	BYTES_EQUAL(brass_app_size(&app[0], BRASS_FLAG_ALL), 1);
+
+	BYTES_EQUAL(brass_app_size(&app[1], BRASS_FLAG_PENDING), 1);
+	BYTES_EQUAL(brass_app_size(&app[1], BRASS_FLAG_ALL), 1);
+
 	uint8_t buf[] = { 0, app[0].id, 6, 1, 1, 5, 10, app[1].id, 6, 1, 1, 5, 10 };
 	CHECK(memcmp(packetbuf_dataptr(), buf, sizeof(buf)) == 0);
-	
-	BYTES_EQUAL(brass_app_size(&app[0], BRASS_FLAG_PENDING), 0);
-	BYTES_EQUAL(brass_app_size(&app[0], BRASS_FLAG_ALL), 1);
-	brass_app_cleanup(&app[0], BRASS_FLAG_ALL);
-	brass_pair_free(pair[0]);
 
-	BYTES_EQUAL(brass_app_size(&app[1], BRASS_FLAG_PENDING), 0);
-	BYTES_EQUAL(brass_app_size(&app[1], BRASS_FLAG_ALL), 1);
+	brass_app_cleanup(&app[0], BRASS_FLAG_ALL);
 	brass_app_cleanup(&app[1], BRASS_FLAG_ALL);
-	brass_pair_free(pair[1]);
 }
 
 TEST(brass_net, should_not_flush_when_no_parent) {
@@ -239,7 +240,7 @@ TEST(brass_net, should_not_flush_when_no_parent) {
 	brass_net_set_parent(&net, &linkaddr_null);
 	CHECK(!brass_net_flush(&net, 0));
 
-	BYTES_EQUAL(brass_app_size(&app, BRASS_FLAG_PENDING), 1);
+	BYTES_EQUAL(brass_app_size(&app, BRASS_FLAG_PENDING), 0);
 	BYTES_EQUAL(brass_app_size(&app, BRASS_FLAG_ALL), 1);
 	brass_app_cleanup(&app, BRASS_FLAG_ALL);
 }
@@ -260,8 +261,22 @@ TEST(brass_net, should_not_flush_when_is_transmitting) {
 	brass_net_set_parent(&net, &parent);
 	CHECK(!brass_net_flush(&net, 0));
 
-	BYTES_EQUAL(brass_app_size(&app, BRASS_FLAG_PENDING), 1);
+	BYTES_EQUAL(brass_app_size(&app, BRASS_FLAG_PENDING), 0);
 	BYTES_EQUAL(brass_app_size(&app, BRASS_FLAG_ALL), 1);
+	brass_app_cleanup(&app, BRASS_FLAG_ALL);
+}
+
+TEST(brass_net, should_not_flush_when_no_data) {
+	struct brass_app app;
+	brass_app_init(&app);
+	brass_net_bind(&net, &app);
+
+	linkaddr_t parent = { { 1, 1 } };
+	brass_net_set_parent(&net, &parent);
+	CHECK(!brass_net_flush(&net, 0));
+	
+	BYTES_EQUAL(brass_app_size(&app, BRASS_FLAG_PENDING), 0);
+	BYTES_EQUAL(brass_app_size(&app, BRASS_FLAG_ALL), 0);
 	brass_app_cleanup(&app, BRASS_FLAG_ALL);
 }
 
@@ -284,13 +299,16 @@ TEST(brass_net, should_recv_feed_in_batch) {
     packetbuf_copyfrom(buffer, sizeof(buffer));
     fake_ucc.recv(&net.uc, &child_addr, 0);
 	
-	BYTES_EQUAL(brass_app_size(&app[0], BRASS_FLAG_PENDING), 1);
+	BYTES_EQUAL(brass_app_size(&app[0], BRASS_FLAG_PENDING), 0);
+	BYTES_EQUAL(brass_app_size(&app[0], BRASS_FLAG_ALL), 1);
+
+	BYTES_EQUAL(brass_app_size(&app[1], BRASS_FLAG_PENDING), 0);
+	BYTES_EQUAL(brass_app_size(&app[1], BRASS_FLAG_ALL), 2);
+
 	key = 'E';
 	BYTES_EQUAL(brass_app_find(&app[0], &key, sizeof(key))->value[0], 'F');
-	CHECK(!brass_pair_flags(brass_app_find(&app[0], &key, sizeof(key)), BRASS_FLAG_URGENT));
 	brass_app_cleanup(&app[0], BRASS_FLAG_ALL);
 
-	BYTES_EQUAL(brass_app_size(&app[1], BRASS_FLAG_PENDING), 2);
 	key = 'A';
 	BYTES_EQUAL(brass_app_find(&app[1], &key, sizeof(key))->value[0], 'B');
 	key = 'C';
@@ -317,41 +335,45 @@ TEST(brass_net, should_recv_urgent) {
     packetbuf_copyfrom(buffer, sizeof(buffer));
     fake_ucc.recv(&net.uc, &child_addr, 0);
 	
-	// brass_app_print(&app, "urgent-test ");
-	BYTES_EQUAL(brass_app_size(&app, BRASS_FLAG_PENDING), 0);
+	BYTES_EQUAL(brass_app_size(&app, BRASS_FLAG_PENDING), 1);
+	BYTES_EQUAL(brass_app_size(&app, BRASS_FLAG_URGENT), 1);
 	BYTES_EQUAL(brass_app_size(&app, BRASS_FLAG_ALL), 1);
 	brass_app_cleanup(&app, BRASS_FLAG_ALL);
 }
 
 TEST(brass_net, should_cleanup_when_sent) {
 	struct brass_app app;
-	struct brass_pair * pair;
-
+	
 	app.id = 1;
 	brass_app_init(&app);
 	brass_net_bind(&net, &app);
-	pair = brass_pair_alloc(&app, 1, 1);
+
+	struct brass_pair * pair = brass_pair_alloc(&app, 1, 1);
 	pair->key[0] = 5;
 	pair->value[0] = 10;
 	brass_app_emit(&app, pair);
+	brass_pair_free(pair);
 
 	mock().expectOneCall("unicast_send");
-	
+
+	BYTES_EQUAL(brass_app_size(&app, BRASS_FLAG_PENDING), 0);
+	BYTES_EQUAL(brass_app_size(&app, BRASS_FLAG_ALL), 1);
+
 	linkaddr_t parent_addr = { { 1, 1 } };
 	brass_net_set_parent(&net, &parent_addr);
 	brass_net_flush(&net, 0);
+	
+	BYTES_EQUAL(brass_app_size(&app, BRASS_FLAG_PENDING), 1);
+	BYTES_EQUAL(brass_app_size(&app, BRASS_FLAG_ALL), 1);
 
 	uint8_t buf[] = { 0, app.id, 6, 1, 1, 5, 10 };
 	CHECK(memcmp(packetbuf_dataptr(), buf, sizeof(buf)) == 0);
-	
-	BYTES_EQUAL(brass_app_size(&app, BRASS_FLAG_PENDING), 0);
-	BYTES_EQUAL(brass_app_size(&app, BRASS_FLAG_ALL), 1);
 	
 	fake_ucc.sent(&net.uc, &parent_addr, 1);
 	
 	BYTES_EQUAL(brass_app_size(&app, BRASS_FLAG_PENDING), 0);
 	BYTES_EQUAL(brass_app_size(&app, BRASS_FLAG_ALL), 0);
-	
+	CHECK_EQUAL(app.ram, 0);
+
 	brass_app_cleanup(&app, BRASS_FLAG_ALL);
-	brass_pair_free(pair);
 }
