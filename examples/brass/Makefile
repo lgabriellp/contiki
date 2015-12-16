@@ -36,9 +36,9 @@ CXXLDFLAGS += -Wl,--wrap,neighbor_discovery_open
 CXXLDFLAGS += -Wl,--wrap,neighbor_discovery_close
 CXXLDFLAGS += -Wl,--wrap,neighbor_discovery_set_val
 CXXLDFLAGS += -Wl,--wrap,neighbor_discovery_start
-CXXLDFLAGS += -Wl,--wrap,unicast_open
-CXXLDFLAGS += -Wl,--wrap,unicast_send
-CXXLDFLAGS += -Wl,--wrap,unicast_close
+CXXLDFLAGS += -Wl,--wrap,runicast_open
+CXXLDFLAGS += -Wl,--wrap,runicast_send
+CXXLDFLAGS += -Wl,--wrap,runicast_close
 
 test: $(SRCS)
 	@$(CXX) -o $@ $^ $(CFLAGS) $(CXXFLAGS) $(CXXLDFLAGS)

@@ -10,7 +10,7 @@ extern "C" {
 
 #include <net/rime/rime.h>
 #include <net/rime/neighbor-discovery.h>
-#include <net/rime/unicast.h>
+#include <net/rime/runicast.h>
 
 #include <sys/timer.h>
 
@@ -23,7 +23,7 @@ struct brass_pair;
 struct brass_net {
 	LIST_STRUCT(apps);
     struct neighbor_discovery_conn nd;
-    struct unicast_conn uc;
+    struct runicast_conn uc;
     linkaddr_t parent;
     uint8_t cycles;
     uint8_t hops;

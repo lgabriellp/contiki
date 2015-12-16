@@ -4,6 +4,7 @@ extern "C" {
 
 #include <contiki.h>
 #include <dev/serial-line.h>
+#include <lib/random.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <collect/app.h>
@@ -68,7 +69,7 @@ PROCESS_THREAD(collect_process, ev, data) {
 	static struct etimer timer;
 	static struct brass_net net;
 	static struct brass_app app;
-	static int round = 0;
+//	static int round = 0;
 
 	PROCESS_EXITHANDLER({
 		brass_app_cleanup(&app);
@@ -86,7 +87,7 @@ PROCESS_THREAD(collect_process, ev, data) {
 	node_loc_x = atoi((char *)data);
 	PROCESS_WAIT_EVENT_UNTIL(ev == serial_line_event_message);
 	node_loc_y = atoi((char *)data);
-	printf("reply (%d, %d)\n", node_loc_x, node_loc_y);
+	printf("pos (%d, %d)\n", node_loc_x, node_loc_y);
 
 	brass_app_init(&app);
 	brass_net_open(&net, linkaddr_node_addr.u8[0] == 1);
@@ -102,7 +103,7 @@ PROCESS_THREAD(collect_process, ev, data) {
 		}
 
 		brass_app_sow(&app, BRASS_SENSOR_TEMP, 1);
-		if (round++ % 10) continue;
+		if (random_rand() % 10) continue;
 
 		printf("flushing=%d\n", brass_net_flush(&net, 0));
 	}

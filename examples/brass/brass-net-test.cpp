@@ -7,46 +7,59 @@
 extern "C" {
 #endif//__cplusplus
 
-struct neighbor_discovery_callbacks ndc;
-struct unicast_callbacks ucc;
+struct neighbor_discovery_callbacks fake_ndc;
+struct runicast_callbacks fake_ucc;
+int fake_rc_is_tx;
 
-void __wrap_neighbor_discovery_open(struct neighbor_discovery_conn *c,
+void
+__wrap_neighbor_discovery_open(struct neighbor_discovery_conn *c,
 			     uint16_t channel,
 			     clock_time_t initial,
 			     clock_time_t min,
 			     clock_time_t max,
 			     const struct neighbor_discovery_callbacks *u) {
 	mock().actualCall("neighbor_discovery_open");
-	memcpy(&ndc, u, sizeof(ndc));
+	memcpy(&fake_ndc, u, sizeof(fake_ndc));
 }
 
-void __wrap_neighbor_discovery_close(struct neighbor_discovery_conn *c) {
+void
+__wrap_neighbor_discovery_close(struct neighbor_discovery_conn *c) {
 	mock().actualCall("neighbor_discovery_close");
 }
 
-void __wrap_neighbor_discovery_set_val(struct neighbor_discovery_conn *c, uint16_t val) {
+void
+__wrap_neighbor_discovery_set_val(struct neighbor_discovery_conn *c, uint16_t val) {
 	mock().actualCall("neighbor_discovery_set_val")
 		.withParameter("val", val);
 }
 
-void __wrap_neighbor_discovery_start(struct neighbor_discovery_conn *c, uint16_t val) {
+void
+__wrap_neighbor_discovery_start(struct neighbor_discovery_conn *c, uint16_t val) {
 	mock().actualCall("neighbor_discovery_start")
 		.withParameter("val", val);
 }
 
-void __wrap_unicast_open(struct unicast_conn *c, uint16_t channel,
+void
+__wrap_runicast_open(struct runicast_conn *c, uint16_t channel,
 	      const struct unicast_callbacks *u) {
 	mock().actualCall("unicast_open");
-	memcpy(&ucc, u, sizeof(ucc));
+	memcpy(&fake_ucc, u, sizeof(fake_ucc));
 }
 
-void __wrap_unicast_close(struct unicast_conn *c) {
+void
+__wrap_runicast_close(struct runicast_conn *c) {
 	mock().actualCall("unicast_close");
 }
 
-int __wrap_unicast_send(struct unicast_conn *c, const linkaddr_t *receiver) {
+int
+__wrap_runicast_send(struct runicast_conn *c, const linkaddr_t *receiver) {
 	mock().actualCall("unicast_send");
 	return 0;
+}
+
+int
+__wrap_runicast_is_transmitting(struct runicast_conn * c) {
+	return fake_rc_is_tx;
 }
 
 #ifdef __cplusplus
@@ -65,6 +78,7 @@ TEST_GROUP(brass_net) {
             .withParameter("val", uint8_t(-1));
         mock().expectOneCall("unicast_open");
 		brass_net_open(&net, 0);
+		fake_rc_is_tx = 0;
 	}
 
 	void
@@ -91,7 +105,7 @@ TEST(brass_net, should_open_neighbor_discovery) {
 }
 
 TEST(brass_net, should_start_cycle_after_neighbor_query) {
-    ndc.sent(&net.nd);
+    fake_ndc.sent(&net.nd);
     BYTES_EQUAL(brass_net_cycles(&net), 0);
 }
 
@@ -103,7 +117,7 @@ TEST(brass_net, should_discover_neighbor) {
     mock().expectOneCall("neighbor_discovery_set_val")
         .withParameter("val", hops + 1);
 
-    ndc.recv(&net.nd, &neighbor_addr, hops);
+    fake_ndc.recv(&net.nd, &neighbor_addr, hops);
     CHECK(linkaddr_cmp(brass_net_parent(&net), &neighbor_addr));
     BYTES_EQUAL(hops, brass_net_hops(&net));
 }
@@ -126,7 +140,7 @@ TEST(brass_net, should_discover_near_neighbor) {
     brass_net_set_hops(&net, old_hops);
     brass_net_set_parent(&net, &old_parent_addr);
 
-    ndc.recv(&net.nd, &neighbor_addr, hops);
+    fake_ndc.recv(&net.nd, &neighbor_addr, hops);
     CHECK(linkaddr_cmp(brass_net_parent(&net), &neighbor_addr));
     BYTES_EQUAL(hops, brass_net_hops(&net));
 }
@@ -146,7 +160,7 @@ TEST(brass_net, should_discover_farther_neighbor) {
     brass_net_set_hops(&net, old_hops);
     brass_net_set_parent(&net, &old_parent_addr);
 
-    ndc.recv(&net.nd, &neighbor_addr, hops);
+    fake_ndc.recv(&net.nd, &neighbor_addr, hops);
     CHECK(linkaddr_cmp(brass_net_parent(&net), &old_parent_addr));
     BYTES_EQUAL(old_hops, brass_net_hops(&net));
 }
@@ -244,7 +258,7 @@ TEST(brass_net, should_recv_feed_in_batch) {
 	
 	uint8_t buffer[] = { 0, app[1].id, 10, 1, 1, 'C', 'D', 1, 1, 'A', 'B', app[0].id, 6, 1, 1, 'E', 'F', 0, 0, 0 };
     packetbuf_copyfrom(buffer, sizeof(buffer));
-    ucc.recv(&net.uc, &child_addr);
+    fake_ucc.recv(&net.uc, &child_addr, 0);
 	
 	BYTES_EQUAL(brass_app_size(&app[0]), 1);
 	key = 'E';
@@ -277,7 +291,7 @@ TEST(brass_net, should_recv_urgent) {
 	
 	uint8_t buffer[] = { 1, app.id, 6, 1, 1, 'C', 'D', 0, 0, 0 };
     packetbuf_copyfrom(buffer, sizeof(buffer));
-    ucc.recv(&net.uc, &child_addr);
+    fake_ucc.recv(&net.uc, &child_addr, 0);
 	
 	brass_app_print(&app, "urgent-test ");
 	BYTES_EQUAL(brass_app_size(&app), 0);
