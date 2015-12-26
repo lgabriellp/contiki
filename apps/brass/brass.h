@@ -30,6 +30,8 @@ struct brass_net {
     struct neighbor_discovery_conn nd;
     struct runicast_conn uc;
     linkaddr_t parent;
+	uint16_t msgs_sent;
+	uint16_t msgs_recv;
     uint8_t cycles;
     uint8_t hops;
 };
