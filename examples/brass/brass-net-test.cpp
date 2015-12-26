@@ -219,7 +219,7 @@ TEST(brass_net, should_flush_in_batch) {
 	BYTES_EQUAL(brass_app_size(&app[1], BRASS_FLAG_PENDING), 1);
 	BYTES_EQUAL(brass_app_size(&app[1], BRASS_FLAG_ALL), 1);
 
-	uint8_t buf[] = { 0, app[0].id, 6, 1, 1, 5, 10, app[1].id, 6, 1, 1, 5, 10 };
+	uint8_t buf[] = { 0, 2, app[0].id, 6, 1, 1, 5, 10, app[1].id, 6, 1, 1, 5, 10 };
 	CHECK(memcmp(packetbuf_dataptr(), buf, sizeof(buf)) == 0);
 
 	brass_app_cleanup(&app[0], BRASS_FLAG_ALL);
@@ -295,7 +295,7 @@ TEST(brass_net, should_recv_feed_in_batch) {
 	linkaddr_t child_addr;
     GetAddress(&child_addr);
 	
-	uint8_t buffer[] = { 0, app[1].id, 10, 1, 1, 'C', 'D', 1, 1, 'A', 'B', app[0].id, 6, 1, 1, 'E', 'F', 0, 0, 0 };
+	uint8_t buffer[] = { 0, 2, app[1].id, 10, 1, 1, 'C', 'D', 1, 1, 'A', 'B', app[0].id, 6, 1, 1, 'E', 'F', 0, 0, 0 };
     packetbuf_copyfrom(buffer, sizeof(buffer));
     fake_ucc.recv(&net.uc, &child_addr, 0);
 	
@@ -316,6 +316,25 @@ TEST(brass_net, should_recv_feed_in_batch) {
 	brass_app_cleanup(&app[1], BRASS_FLAG_ALL);
 }
 
+TEST(brass_net, should_recv_infinite_loop_fix) {
+	struct brass_app app;
+	
+	app.id = 1;
+	brass_app_init(&app);
+	brass_net_bind(&net, &app);
+
+	linkaddr_t child_addr;
+    GetAddress(&child_addr);
+	
+	uint8_t buffer[] = { 0, 1, 5, 0, 1, 1, 'C', 'D', 1, 1, 'A', 'B' };
+    packetbuf_copyfrom(buffer, sizeof(buffer));
+    fake_ucc.recv(&net.uc, &child_addr, 0);
+	
+	BYTES_EQUAL(brass_app_size(&app, BRASS_FLAG_PENDING), 0);
+	BYTES_EQUAL(brass_app_size(&app, BRASS_FLAG_ALL), 0);
+	brass_app_cleanup(&app, BRASS_FLAG_ALL);
+}
+
 TEST(brass_net, should_recv_urgent) {
 	struct brass_app app;
 
@@ -331,7 +350,7 @@ TEST(brass_net, should_recv_urgent) {
 	
 	mock().expectOneCall("unicast_send");
 	
-	uint8_t buffer[] = { 1, app.id, 6, 1, 1, 'C', 'D', 0, 0, 0 };
+	uint8_t buffer[] = { 1, 1, app.id, 6, 1, 1, 'C', 'D', 0, 0, 0 };
     packetbuf_copyfrom(buffer, sizeof(buffer));
     fake_ucc.recv(&net.uc, &child_addr, 0);
 	
@@ -366,7 +385,7 @@ TEST(brass_net, should_cleanup_when_sent) {
 	BYTES_EQUAL(brass_app_size(&app, BRASS_FLAG_PENDING), 1);
 	BYTES_EQUAL(brass_app_size(&app, BRASS_FLAG_ALL), 1);
 
-	uint8_t buf[] = { 0, app.id, 6, 1, 1, 5, 10 };
+	uint8_t buf[] = { 0, 1, app.id, 6, 1, 1, 5, 10 };
 	CHECK(memcmp(packetbuf_dataptr(), buf, sizeof(buf)) == 0);
 	
 	fake_ucc.sent(&net.uc, &parent_addr, 1);

@@ -315,24 +315,21 @@ runicast_recv(struct runicast_conn * uc, const linkaddr_t * from, uint8_t seqno)
         ((char *)uc - offsetof(struct brass_net, uc));
     PRINTF("(%2.d,%2.d) recv msgs=%d seqno=%d len=%d\n", from->u8[0], linkaddr_node_addr.u8[0], ++net->msgs_recv, seqno, packetbuf_datalen());
 	struct brass_app * app = (struct brass_app *)list_head(net->apps);
-	uint8_t * ptr = (uint8_t *)packetbuf_dataptr();
-	uint8_t urgent = ptr[0];
+	uint8_t * buf = (uint8_t *)packetbuf_dataptr();
+	uint8_t urgent = buf[0];
+	uint8_t apps = buf[1];
 
 	while (app) {
-		uint8_t len = 1;
+		uint8_t len = 2;
 		PRINTF("runicast_recv 1\n");
-//		while ((ptr[len + BRASS_ID_INDEX] != app->id) && len < packetbuf_datalen()) len += ptr[len + BRASS_LEN_INDEX];
-		while (len + BRASS_ID_INDEX < packetbuf_datalen() && (ptr[len + BRASS_ID_INDEX] != app->id)) {
-			PRINTF("runicast_recv 1.1\n");
-			len += ptr[len + BRASS_LEN_INDEX];
-		}
+		while (apps-- && len < packetbuf_datalen() && (buf[len + BRASS_ID_INDEX] != app->id)) len += buf[len + BRASS_LEN_INDEX];
 		PRINTF("runicast_recv 2\n");
-		brass_app_feed(app, ptr + len, packetbuf_datalen() - len, urgent);
+		brass_app_feed(app, buf + len, packetbuf_datalen() - len, urgent);
 		PRINTF("runicast_recv 3\n");
 		app = (struct brass_app *)list_item_next(app);
 	}
 
-//	brass_net_flush(net, 1);
+	brass_net_flush(net, 1);
 }
 
 static void
@@ -417,23 +414,22 @@ brass_net_flush(struct brass_net * net, uint8_t urgent) {
 	}
 
 	struct channel * channel = channel_lookup(129);
-	uint8_t len = 1 + channel->hdrsize;
+	uint8_t hdrlen = (channel ? channel->hdrsize : 0);
+	uint8_t len = 2 + hdrlen;
 	uint8_t * ptr = (uint8_t *)packetbuf_dataptr();
 	struct brass_app * app = (struct brass_app *)list_head(net->apps);
 	ptr[0] = urgent;
+	ptr[1] = 0;
 	
 	while (app) {
-		len += brass_app_gather(app, ptr + len, PACKETBUF_SIZE - len, urgent);
+		uint8_t size = brass_app_gather(app, ptr + len, PACKETBUF_SIZE - len, urgent);
+		if (size) ptr[1]++;
+		len += size;
 		app = (struct brass_app *)list_item_next(app);
 	}
 	
-	if (len <= 3) {
+	if (len <= 4 + hdrlen) {
 		PRINTF("flush no data urgent=%d\n", urgent);
-		return 0;
-	}
-
-	if (len <= 3 + channel->hdrsize) {
-		PRINTF("flush only headers urgent=%d\n", urgent);
 		return 0;
 	}
 

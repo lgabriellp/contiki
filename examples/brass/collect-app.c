@@ -116,7 +116,7 @@ PROCESS_THREAD(collect_process, ev, data) {
 	
 	etimer_set(&sow_timer, COLLECT_SOW);
 	flush_period = COLLECT_FLUSH;
-	printf("sched timer %d s\n", flush_period / CLOCK_SECOND);
+	printf("sched timer %lu s\n", flush_period / CLOCK_SECOND);
 	etimer_set(&flush_timer, flush_period);
 
 	while(1) {
@@ -139,7 +139,7 @@ PROCESS_THREAD(collect_process, ev, data) {
 
 		if (etimer_expired(&flush_timer)) {
 			flush_period = COLLECT_FLUSH;
-			printf("sched timer %d s\n", flush_period / CLOCK_SECOND);
+			printf("sched timer %lu s\n", flush_period / CLOCK_SECOND);
 			etimer_set(&flush_timer, flush_period);
 			brass_net_flush(&net, 0);
 		}
