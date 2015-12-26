@@ -4,6 +4,8 @@
 #include <string.h>
 
 #define BRASS_DEBUG 1
+#define BRASS_FLAGS_INDEX 0
+#define BRASS_APPSLEN_INDEX 1
 #define BRASS_ID_INDEX 0
 #define BRASS_LEN_INDEX 1
 
@@ -285,6 +287,19 @@ brass_app_print(const struct brass_app * app, const char * prefix) {
 	}	
 }
 
+static uint8_t
+brass_app_find_appbuf_begin(const struct brass_app * app, uint8_t * buf, uint8_t size) {
+	uint8_t begin = 2;
+
+	while (buf[BRASS_APPSLEN_INDEX]-- &&
+		   begin < size &&
+		   (buf[begin + BRASS_ID_INDEX] != app->id)) {
+		begin += buf[begin + BRASS_LEN_INDEX];
+	}
+
+	return begin;
+}
+
 static void
 neighbor_discovered(struct neighbor_discovery_conn * nd,
                     const linkaddr_t * from,
@@ -316,16 +331,10 @@ runicast_recv(struct runicast_conn * uc, const linkaddr_t * from, uint8_t seqno)
     PRINTF("(%2.d,%2.d) recv msgs=%d seqno=%d len=%d\n", from->u8[0], linkaddr_node_addr.u8[0], ++net->msgs_recv, seqno, packetbuf_datalen());
 	struct brass_app * app = (struct brass_app *)list_head(net->apps);
 	uint8_t * buf = (uint8_t *)packetbuf_dataptr();
-	uint8_t urgent = buf[0];
-	uint8_t apps = buf[1];
 
 	while (app) {
-		uint8_t len = 2;
-		PRINTF("runicast_recv 1\n");
-		while (apps-- && len < packetbuf_datalen() && (buf[len + BRASS_ID_INDEX] != app->id)) len += buf[len + BRASS_LEN_INDEX];
-		PRINTF("runicast_recv 2\n");
-		brass_app_feed(app, buf + len, packetbuf_datalen() - len, urgent);
-		PRINTF("runicast_recv 3\n");
+		uint8_t begin = brass_app_find_appbuf_begin(app, buf, packetbuf_datalen());
+		brass_app_feed(app, buf + begin, packetbuf_datalen() - begin, buf[BRASS_FLAGS_INDEX]);
 		app = (struct brass_app *)list_item_next(app);
 	}
 
@@ -416,14 +425,14 @@ brass_net_flush(struct brass_net * net, uint8_t urgent) {
 	struct channel * channel = channel_lookup(129);
 	uint8_t hdrlen = (channel ? channel->hdrsize : 0);
 	uint8_t len = 2 + hdrlen;
-	uint8_t * ptr = (uint8_t *)packetbuf_dataptr();
+	uint8_t * buf = (uint8_t *)packetbuf_dataptr();
 	struct brass_app * app = (struct brass_app *)list_head(net->apps);
-	ptr[0] = urgent;
-	ptr[1] = 0;
+	buf[BRASS_FLAGS_INDEX] = urgent;
+	buf[BRASS_APPSLEN_INDEX] = 0;
 	
 	while (app) {
-		uint8_t size = brass_app_gather(app, ptr + len, PACKETBUF_SIZE - len, urgent);
-		if (size) ptr[1]++;
+		uint8_t size = brass_app_gather(app, buf + len, PACKETBUF_SIZE - len, urgent);
+		if (size) buf[BRASS_APPSLEN_INDEX]++;
 		len += size;
 		app = (struct brass_app *)list_item_next(app);
 	}
