@@ -5,6 +5,7 @@
 #include <CppUTestExt/MockSupport.h>
 
 TEST_GROUP(collect_app) {
+	struct brass_net net;
 	struct brass_app app;
 
 	void
@@ -13,6 +14,7 @@ TEST_GROUP(collect_app) {
 		node_loc_y = 20;
 
 		brass_app_init(&app);
+		app.net = &net;
 		app.map = collect_map;
 		app.reduce = collect_reduce;
 	}

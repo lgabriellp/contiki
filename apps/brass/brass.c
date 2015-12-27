@@ -20,7 +20,7 @@ struct brass_pair *
 brass_pair_alloc(struct brass_app * app, uint8_t keylen, uint8_t valuelen) {
 	struct brass_pair * pair = malloc(sizeof(struct brass_pair) + keylen + valuelen);
 	if (!pair) {
-		PRINTF("Failed to alloc pair size=%d\n", sizeof(struct brass_pair) + keylen + valuelen);
+		PRINTF("Failed to alloc pair: size=%d\n", sizeof(struct brass_pair) + keylen + valuelen);
 		return NULL;
 	}
 
@@ -31,8 +31,21 @@ brass_pair_alloc(struct brass_app * app, uint8_t keylen, uint8_t valuelen) {
 	pair->flags = BRASS_FLAG_ALLOCD;
 	pair->next = NULL;
 	pair->app = app;
-	pair->app->ram += brass_pair_sizeof(pair);
-	PRINTF("alloc app=%d ram=%d\n", pair->app->id, pair->app->ram);
+    
+    if (!pair->app) {
+		PRINTF("Failed to alloc pair: no app\n");
+		free(pair);
+		return NULL;
+	}
+
+    if (!pair->app->net) {
+		PRINTF("Failed to alloc pair: no app net\n");
+		free(pair);
+		return NULL;
+	}
+
+    pair->app->net->ram_allocd += brass_pair_sizeof(pair);
+	PRINTF("alloc app=%d ram=%d\n", pair->app->id, pair->app->net->ram_allocd);
 
 	return pair;
 }
@@ -55,8 +68,13 @@ brass_pair_dup(const struct brass_pair * pair) {
 void
 brass_pair_free(struct brass_pair * pair) {
 	if (!(pair->flags & BRASS_FLAG_ALLOCD)) return;
-	pair->app->ram -= brass_pair_sizeof(pair);
-	PRINTF("dealloc app=%d ram=%d\n", pair->app->id, pair->app->ram);
+	if (pair->app && pair->app->net) {
+		pair->app->net->ram_allocd -= brass_pair_sizeof(pair);
+		PRINTF("dealloc app=%d ram=%d\n", pair->app->id, pair->app->net->ram_allocd);
+	} else {
+		PRINTF("warn: dealloc without net\n");
+	}
+
 	free(pair);
 };
 
@@ -138,12 +156,11 @@ void
 brass_app_init(struct brass_app * app) {
 	LIST_STRUCT_INIT(app, reduced);
 	app->net = NULL;
-	app->ram = 0;
 }
 
 void
 brass_app_cleanup(struct brass_app * app, uint8_t filter) {
-	struct brass_pair * pair = (struct brass_pair *)list_pop(app->reduced);
+	struct brass_pair * pair = (struct brass_pair *)list_head(app->reduced);
 	struct brass_pair * temp;
 
 	while (pair) {
@@ -350,7 +367,7 @@ runicast_sent(struct runicast_conn * uc, const linkaddr_t * to, uint8_t retransm
 
 	while (app) {
 		brass_app_cleanup(app, BRASS_FLAG_PENDING);
-		PRINTF("cleanup node=%d ram=%d\n", linkaddr_node_addr.u8[0], app->ram);
+		PRINTF("cleanup node=%d ram=%d\n", linkaddr_node_addr.u8[0], app->net->ram_allocd);
 		app = (struct brass_app *)list_item_next(app);
 	}
 }
@@ -388,18 +405,29 @@ brass_net_open(struct brass_net * net, uint8_t is_sync) {
     net->hops = is_sync ? 0 : -1;
 	net->msgs_sent = 0;
 	net->msgs_recv = 0;
+	net->ram_allocd = 0;
     
     neighbor_discovery_start(&net->nd, is_sync ? net->hops + 1 : net->hops);
 }
 
 void
 brass_net_close(struct brass_net * net) {
+	struct brass_app * app;
+	int i = 0;
+
+	while ((app = (struct brass_app *)list_head(net->apps))) {
+		PRINTF("net_close %d app=%p\n", ++i, app);
+		brass_app_cleanup(app, BRASS_FLAG_ALL);
+		brass_net_unbind(net, app);
+	}
+
 	neighbor_discovery_close(&net->nd);
 	runicast_close(&net->uc);
 }
 
 void
 brass_net_bind(struct brass_net * net, struct brass_app * app) {
+	brass_app_init(app);
 	list_add(net->apps, app);
 	app->net = net;
 }

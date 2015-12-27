@@ -1,3 +1,4 @@
+#include <CppUTest/MemoryLeakDetectorMallocMacros.h>
 #include <CppUTest/CommandLineTestRunner.h>
 
 IMPORT_TEST_GROUP(brass_app);

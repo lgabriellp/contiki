@@ -1,3 +1,69 @@
+import sys
+import pandas as pd
+import numpy as np
+import scipy.stats as st
+import matplotlib.pyplot as plt
+
+battery_energy = 16000.
+hours_per_day = 24.
+ticks_per_second = 32768.
+seconds_per_day = 60. * 60. * 24.
+seconds_per_year = seconds_per_day * 365.
+
+trace = pd.read_csv(sys.argv[1],
+        sep=" ",
+        usecols=[3, 5, 7, 8, 9, 10],
+        names=["time", "node", "cpu", "lpm", "transmit", "listen"])
+
+power = 10**-3 * np.array([5.4, 0.0153, 58.5, 65.4])
+
+trace[["time", "cpu", "lpm", "transmit", "listen"]] /= ticks_per_second
+history = trace.pivot("time", "node").stack().dropna()
+energy_history = (power * history).sum(axis=1).unstack()
+print energy_history
+del energy_history[1] # node 1 has infinite energy
+
+energy_history_per_node = energy_history.dropna()
+energy_history_per_node.plot()
+plt.show()
+
+"""
+energy_history_max = energy_history_per_node.stack().max(level=0)
+x = energy_history_max.index
+y = energy_history_max
+
+#print energy_history_max
+
+A = np.vstack([x, np.ones(x.shape)]).T
+#print A
+
+m, c = np.linalg.lstsq(A, y)[0]
+print "A:", m, "b:", c
+print "Dias:", battery_energy / m
+plt.plot(x, m * x + c, 'o', label='Fitted line')
+"""
+
+"""
+#energy_history_per_node_intervals = st.norm.interval(.95, energy_history_per_node.mean(axis=1), energy_history_per_node.std(axis=1))
+#plt.fill_between(xrange(len(energy_history_per_node_intervals[0])), energy_history_per_node_intervals[0], energy_history_per_node_intervals[1])
+
+#plt.plot(energy_history_per_node.index, energy_history_per_node_intervals)
+
+"""
+
+
+#energy = (power * times)
+#energy.plot()
+#plt.show()
+
+#energy = (power * times).sum(level=0).sum(axis=1)
+#elapsed_seconds = times.sum(level=0).sum(axis=1)
+#duration_per_year = battery_energy / (energy / elapsed_seconds) / seconds_per_day
+
+
+#print duration_per_year.mean(), duration_per_year.quantile(.95), duration_per_year.std()
+
+"""
 import csv
 import sys
 import matplotlib.pyplot as plt
@@ -25,14 +91,6 @@ import numpy as np
 from collections import defaultdict
 nodeOverTime =  defaultdict(lambda: defaultdict(list))
 
-battery_energy = 16000.
-hours_per_day = 24.
-seconds_per_hour = 60. * 60.
-seconds_per_day = seconds_per_hour * hours_per_day
-
-ticks_per_second = 32768.
-ticks_per_hour = ticks_per_second * seconds_per_hour
-ticks_per_day = ticks_per_second * seconds_per_day
 
 with open(sys.argv[1], 'rb') as f:
     reader = csv.reader(f,delimiter=' ')
@@ -56,83 +114,24 @@ usage = np.array([[
         nodeOverTime[key][10][:size],
     ] for key in nodeOverTime.keys()]).swapaxes(0, 2).swapaxes(1, 2)
 
-energy = np.sum(power * usage, axis=2) / seconds_per_hour
-time = np.sum(usage, axis=2) / seconds_per_hour
+energy = (power * usage).sum(axis=2) / seconds_per_hour
+time = usage.sum(axis=2) / seconds_per_hour
 
 #print energy.shape, time.shape
 
-x = np.max(time, axis=1)
-y = np.max(energy, axis=1)
+x = time.max(axis=1)
+y = energy.max(axis=1)
 #print x.shape, y.shape
 
 A = np.vstack([x, np.ones(x.shape)]).T
 m, c = np.linalg.lstsq(A, y)[0]
+print "A:", m, "b:", c
 print "Dias:", 16000. / m / seconds_per_day
-
-
 
 plt.plot(time, energy)
 plt.plot(x, m * x + c, 'o', label='Fitted line')
-plt.plot(np.mean(time, axis=1), np.mean(energy, axis=1), ".")
+plt.plot(time.mean(axis=1), energy.mean(axis=1), ".")
 plt.plot(np.percentile(time, axis=1, q=50), np.percentile(energy, axis=1, q=50), "x")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+plt.legend()
+plt.show()
+"""

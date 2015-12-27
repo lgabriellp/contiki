@@ -11,7 +11,7 @@ extern "C" {
 #include <stdlib.h>
 #include <stdio.h>
 #include <collect-app.h>
-#define NUM_APPS 5
+#define NUM_APPS 1
 
 #ifdef __cplusplus
 }
@@ -21,8 +21,8 @@ extern "C" {
 //#define COLLECT_FLUSH (60 * 60)
 //#define COLLECT_SOW   (60 * 15)
 
-#define COLLECT_FLUSH		(1 * (10 + (random_rand() % 20)) * CLOCK_SECOND)
-#define COLLECT_SOW			(1 * CLOCK_SECOND)
+#define COLLECT_FLUSH		((80 + (random_rand() % 40)) * CLOCK_SECOND)
+#define COLLECT_SOW			(25 * CLOCK_SECOND)
 #define POWERTRACE_PERIOD	(10 * CLOCK_SECOND)
 
 typedef struct __attribute__ ((packed)) collect_key {
@@ -103,7 +103,7 @@ PROCESS_THREAD(collect_process, ev, data) {
 	printf("pos (%d, %d)\n", node_loc_x, node_loc_y);
 	printf("num_apps=%d\n", NUM_APPS);
 
-	powertrace_start(60 * CLOCK_SECOND);
+	powertrace_start(POWERTRACE_PERIOD);
 	brass_net_open(&net, linkaddr_node_addr.u8[0] == 1);
 
 	for (i = 0; i < NUM_APPS; i++) {

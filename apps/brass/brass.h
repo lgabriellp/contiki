@@ -32,6 +32,7 @@ struct brass_net {
     linkaddr_t parent;
 	uint16_t msgs_sent;
 	uint16_t msgs_recv;
+	uint16_t ram_allocd;
     uint8_t cycles;
     uint8_t hops;
 };
@@ -61,11 +62,14 @@ typedef void (*reduce_t)(struct brass_app *, struct brass_pair * result, const i
 struct brass_app {
 	struct brass_app * next;
 	struct brass_net * net;
-	LIST_STRUCT(reduced);
+	struct etimer flush;
+	struct etimer sow;
+	clock_time_t flush_seconds;
+	clock_time_t sow_seconds;
 	map_t map;
 	reduce_t reduce;
-	uint16_t ram;
 	uint8_t id;
+	LIST_STRUCT(reduced);
 };
 
 void brass_app_init(struct brass_app * app);

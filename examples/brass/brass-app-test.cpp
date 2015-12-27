@@ -22,11 +22,13 @@ reduce0(struct brass_app * app, struct brass_pair * acc, const int8_t * next) {
 
 TEST_GROUP(brass_app) {
 	struct brass_app app;
+	struct brass_net net;
 	struct brass_pair * pair;
 
 	void
 	setup() {
 		brass_app_init(&app);
+		app.net = &net;
 		app.map = map0;
 		app.reduce = reduce0;
 	}
@@ -41,7 +43,7 @@ TEST_GROUP(brass_app) {
 TEST(brass_app, pair_alloc) {
 	pair = brass_pair_alloc(&app, 2, 8);
 	
-	CHECK_EQUAL(app.ram, brass_pair_sizeof(pair));
+	CHECK_EQUAL(app.net->ram_allocd, brass_pair_sizeof(pair));
 	BYTES_EQUAL(brass_pair_len(pair), 10);
 	BYTES_EQUAL(brass_pair_keylen(pair), 2);
 	BYTES_EQUAL(brass_pair_valuelen(pair), 8);
@@ -50,9 +52,9 @@ TEST(brass_app, pair_alloc) {
 	BYTES_EQUAL(brass_pair_flags(pair, BRASS_FLAG_PENDING), 0);
 	BYTES_EQUAL(brass_pair_flags(pair, BRASS_FLAG_URGENT), 0);
 
-	CHECK_EQUAL(app.ram, sizeof(struct brass_pair) + brass_pair_len(pair));
+	CHECK_EQUAL(app.net->ram_allocd, sizeof(struct brass_pair) + brass_pair_len(pair));
 	brass_pair_free(pair);
-	CHECK_EQUAL(app.ram, 0);
+	CHECK_EQUAL(app.net->ram_allocd, 0);
 }
 
 TEST(brass_app, pair_set_flags) {
