@@ -7,41 +7,63 @@ import matplotlib.pyplot as plt
 battery_energy = 16000.
 hours_per_day = 24.
 ticks_per_second = 32768.
-seconds_per_day = 60. * 60. * 24.
+seconds_per_day = 60. * 60 * hours_per_day
 seconds_per_year = seconds_per_day * 365.
+powertrace_period = 60
 
 trace = pd.read_csv(sys.argv[1],
+        comment="#",
         sep=" ",
         usecols=[3, 5, 7, 8, 9, 10],
         names=["time", "node", "cpu", "lpm", "transmit", "listen"])
 
+trace.time = np.round(trace.time / 1000)
+
+# time(s) = powertrace_time(ticks in a period) / powertrace_period(s) / rtimer_second(ticks)
+trace[["cpu", "lpm", "transmit", "listen"]] /= powertrace_period * ticks_per_second
+
+# power(W) = power(mW) / 1000
 power = 10**-3 * np.array([5.4, 0.0153, 58.5, 65.4])
 
-trace[["time", "cpu", "lpm", "transmit", "listen"]] /= ticks_per_second
-history = trace.pivot("time", "node").stack().dropna()
-energy_history = (power * history).sum(axis=1).unstack()
-print energy_history
-del energy_history[1] # node 1 has infinite energy
+#energy(Joules) = power(W) * time(s)
+energy_per_node = (power * trace.set_index(["time", "node"])).sum(axis=1).unstack()
+del energy_per_node[1]
 
-energy_history_per_node = energy_history.dropna()
-energy_history_per_node.plot()
-plt.show()
-
-"""
-energy_history_max = energy_history_per_node.stack().max(level=0)
-x = energy_history_max.index
-y = energy_history_max
+energy_max = energy_per_node.max(axis=1)
+x = energy_max.index
+y = energy_max
 
 #print energy_history_max
 
 A = np.vstack([x, np.ones(x.shape)]).T
-#print A
-
 m, c = np.linalg.lstsq(A, y)[0]
 print "A:", m, "b:", c
-print "Dias:", battery_energy / m
-plt.plot(x, m * x + c, 'o', label='Fitted line')
+print "Dias:", 16000. / m / seconds_per_day
+
+energy_per_node.plot()
+plt.plot(x, m * x + c, "x", label="Fitted line")
+plt.show()
+
+
+#print A
+
+
+
+
 """
+
+history = trace.pivot("node").stack().dropna()
+energy_history = (power * history).sum(axis=0).unstack()
+del energy_history[1] # node 1 has infinite energy
+energy_history_per_node = energy_history.dropna()
+energy_history_per_node.plot()
+plt.show()
+
+
+print energy_history_per_node.stack().max(level=0)
+
+"""
+
 
 """
 #energy_history_per_node_intervals = st.norm.interval(.95, energy_history_per_node.mean(axis=1), energy_history_per_node.std(axis=1))

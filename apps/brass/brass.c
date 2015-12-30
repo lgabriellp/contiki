@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <lib/random.h>
 
 #define BRASS_DEBUG 1
 #define BRASS_FLAGS_INDEX 0
@@ -152,10 +153,26 @@ brass_pair_print(const struct brass_pair * pair, const char * prefix) {
 	PRINTF(")\n");
 }
 
+static void
+sow_timer_callback(void * arg) {
+	struct brass_app * app = (struct brass_app *)arg;
+	ctimer_reset(&app->sow_timer);
+
+	brass_app_sow(app, 1, 1);
+	PRINTF("sow app=%d\n", app->id);
+
+	brass_net_flush(app->net, 1);
+	PRINTF("flush urgent size=%d\n", brass_app_size(app, BRASS_FLAG_ALL));
+}
+
 void
 brass_app_init(struct brass_app * app) {
 	LIST_STRUCT_INIT(app, reduced);
-	app->net = NULL;
+
+	if (app->sow_period == 0 || (app->net && app->net->hops == 0)) return;
+	
+	PRINTF("sched sow app=%d period=%u\n", app->id, app->sow_period);
+	ctimer_set(&app->sow_timer, app->sow_period, sow_timer_callback, app);
 }
 
 void
@@ -243,7 +260,7 @@ brass_app_gather(struct brass_app * app, void * ptr, uint8_t len, uint8_t urgent
 		}
 
 		if (size + 2 + brass_pair_len(pair) >= len) return buf[BRASS_LEN_INDEX];
-
+		
 		buf[size + 0] = brass_pair_keylen(pair);
 		buf[size + 1] = brass_pair_valuelen(pair);
 		
@@ -253,6 +270,7 @@ brass_app_gather(struct brass_app * app, void * ptr, uint8_t len, uint8_t urgent
 		
 		size += 2 + brass_pair_len(pair);
 		buf[BRASS_LEN_INDEX] = size;
+		PRINTF("gather new len=%d\n", size);
 
 		brass_pair_set_flags(pair, BRASS_FLAG_PENDING, 1);
 		pair = (struct brass_pair *)list_item_next(pair);
@@ -352,6 +370,7 @@ runicast_recv(struct runicast_conn * uc, const linkaddr_t * from, uint8_t seqno)
 	while (app) {
 		uint8_t begin = brass_app_find_appbuf_begin(app, buf, packetbuf_datalen());
 		brass_app_feed(app, buf + begin, packetbuf_datalen() - begin, buf[BRASS_FLAGS_INDEX]);
+		PRINTF("gather urgent remaning=%d\n", brass_app_size(app, BRASS_FLAG_ALL));
 		app = (struct brass_app *)list_item_next(app);
 	}
 
@@ -411,12 +430,27 @@ brass_net_open(struct brass_net * net, uint8_t is_sync) {
 }
 
 void
+brass_net_sched_flush(struct brass_net * net) {
+	struct brass_app * app = (struct brass_app *)list_head(net->apps);
+	net->flush_period = -1;
+
+	if (net->hops == 0) return;
+
+	while (app) {
+		net->flush_period = MIN(net->flush_period, app->flush_period);
+		app = (struct brass_app *)list_item_next(app);
+	}
+
+	net->flush_period += (random_rand() % (net->flush_period / 4));
+	PRINTF("sched flush period=%u\n", net->flush_period);
+	etimer_set(&net->flush_timer, flush_period * CLOCK_SECOND);
+}
+
+void
 brass_net_close(struct brass_net * net) {
 	struct brass_app * app;
-	int i = 0;
 
 	while ((app = (struct brass_app *)list_head(net->apps))) {
-		PRINTF("net_close %d app=%p\n", ++i, app);
 		brass_app_cleanup(app, BRASS_FLAG_ALL);
 		brass_net_unbind(net, app);
 	}
@@ -427,9 +461,9 @@ brass_net_close(struct brass_net * net) {
 
 void
 brass_net_bind(struct brass_net * net, struct brass_app * app) {
+	app->net = net;
 	brass_app_init(app);
 	list_add(net->apps, app);
-	app->net = net;
 }
 
 void
@@ -440,38 +474,50 @@ brass_net_unbind(struct brass_net * net, struct brass_app * app) {
 
 int
 brass_net_flush(struct brass_net * net, uint8_t urgent) {
+	struct brass_app * app = (struct brass_app *)list_head(net->apps);
+
+	if (net->hops == 0) {
+		while (app) {
+			PRINTF("sink app size=%d\n", brass_app_size(app, BRASS_FLAG_ALL));
+			brass_app_print(app, "sink-flush ");
+			brass_app_cleanup(app, BRASS_FLAG_ALL);
+			app = (struct brass_app *)list_item_next(app);
+		}
+
+		return 0;
+	}
+
 	if (linkaddr_cmp(&net->parent, &linkaddr_null)) {
-		PRINTF("flush no parent urgent=%d\n", urgent);
+		PRINTF("flush %s no parent\n", urgent ? "urgent" : "normal");
 		return 0;
 	}
 
 	if (runicast_is_transmitting(&net->uc)) {
-		PRINTF("flush no medium urgent=%d\n", urgent);
+		PRINTF("flush %s no medium\n", urgent ? "urgent" : "normal");
 		return 0;
 	}
 
 	struct channel * channel = channel_lookup(129);
 	uint8_t hdrlen = (channel ? channel->hdrsize : 0);
-	uint8_t len = 2 + hdrlen;
+	uint8_t len = 2;
 	uint8_t * buf = (uint8_t *)packetbuf_dataptr();
-	struct brass_app * app = (struct brass_app *)list_head(net->apps);
 	buf[BRASS_FLAGS_INDEX] = urgent;
 	buf[BRASS_APPSLEN_INDEX] = 0;
 	
 	while (app) {
-		uint8_t size = brass_app_gather(app, buf + len, PACKETBUF_SIZE - len, urgent);
+		uint8_t size = brass_app_gather(app, buf + len, PACKETBUF_SIZE - len - hdrlen, urgent);
 		if (size) buf[BRASS_APPSLEN_INDEX]++;
 		len += size;
 		app = (struct brass_app *)list_item_next(app);
 	}
 	
-	if (len <= 4 + hdrlen) {
-		PRINTF("flush no data urgent=%d\n", urgent);
+	if (len < 5) {
+		PRINTF("flush %s no data\n", urgent ? "urgent" : "normal");
 		return 0;
 	}
 
 	packetbuf_set_datalen(len);
-    PRINTF("(%2.d,%2.d) send msgs=%d urgent=%d len=%d\n", linkaddr_node_addr.u8[0], net->parent.u8[0], ++net->msgs_sent, urgent, packetbuf_datalen());
+    PRINTF("(%2.d,%2.d) send msgs=%d urgent=%d apps=%d len=%d\n", linkaddr_node_addr.u8[0], net->parent.u8[0], ++net->msgs_sent, urgent, buf[BRASS_APPSLEN_INDEX], packetbuf_datalen());
 	
     return runicast_send(&net->uc, &net->parent, 3);
 }

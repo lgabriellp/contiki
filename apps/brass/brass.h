@@ -29,7 +29,9 @@ struct brass_net {
 	LIST_STRUCT(apps);
     struct neighbor_discovery_conn nd;
     struct runicast_conn uc;
+	struct etimer flush_timer;
     linkaddr_t parent;
+	uint16_t flush_period;
 	uint16_t msgs_sent;
 	uint16_t msgs_recv;
 	uint16_t ram_allocd;
@@ -38,6 +40,7 @@ struct brass_net {
 };
 
 void brass_net_open(struct brass_net * net, uint8_t is_sink);
+void brass_net_sched_flush(struct brass_net * net);
 void brass_net_close(struct brass_net * net);
 void brass_net_bind(struct brass_net * net, struct brass_app * app);
 void brass_net_unbind(struct brass_net * net, struct brass_app * app);
@@ -62,21 +65,19 @@ typedef void (*reduce_t)(struct brass_app *, struct brass_pair * result, const i
 struct brass_app {
 	struct brass_app * next;
 	struct brass_net * net;
-	struct etimer flush;
-	struct etimer sow;
-	clock_time_t flush_seconds;
-	clock_time_t sow_seconds;
+	struct ctimer sow_timer;
+	LIST_STRUCT(reduced);
 	map_t map;
 	reduce_t reduce;
+	uint16_t flush_period;
+	uint16_t sow_period;
 	uint8_t id;
-	LIST_STRUCT(reduced);
 };
 
 void brass_app_init(struct brass_app * app);
 void brass_app_cleanup(struct brass_app * app, uint8_t filter);
 
 struct brass_pair * brass_app_find(struct brass_app * app, const void * key, uint8_t len);
-void   brass_app_collect(struct brass_app * app, int8_t key, clock_time_t interval);
 
 uint8_t brass_app_size(struct brass_app * app, uint8_t filter);
 uint8_t brass_app_sow(struct brass_app * app, int8_t key, int8_t value);

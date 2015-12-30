@@ -167,9 +167,22 @@ TEST(brass_net, should_discover_farther_neighbor) {
 }
 
 TEST(brass_net, should_bind_an_app) {
+	app[0].flush_period = 10;
+
 	brass_net_bind(&net, &app[0]);
 	BYTES_EQUAL(1, brass_net_size(&net));
 	POINTERS_EQUAL(&net, app[0].net);
+}
+
+TEST(brass_net, should_sched_flushes) {
+	app[0].flush_period = 20;
+	app[1].flush_period = 10;
+
+	brass_net_bind(&net, &app[0]);
+	brass_net_bind(&net, &app[1]);
+	
+	brass_net_sched_flush(&net);
+	CHECK_EQUAL(net.flush_timer.timer.interval, 10 * CLOCK_SECOND);
 }
 
 TEST(brass_net, should_unbind_app) {
