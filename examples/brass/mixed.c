@@ -5,8 +5,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define NUM_APPS 2
+#define NUM_APPS 8
 #define POWERTRACE_PERIOD	(60)
+#define COLLECT_FLUSH		(60 * 20)
+#define COLLECT_SOW			(60 * 5)
 
 uint16_t node_loc_x = -1;
 uint16_t node_loc_y = -1;
@@ -79,7 +81,8 @@ PROCESS_THREAD(brass_process, ev, data) {
 	node_loc_y = atoi((char *)data);
 	PROCESS_WAIT_EVENT_UNTIL(ev == serial_line_event_message);
 	node_loc_r = atoi((char *)data) != 0;
-	printf("#P %2.d %3.d %3.d %1.d %3.d %u\n", NUM_APPS, node_loc_x, node_loc_y, node_loc_r, POWERTRACE_PERIOD, RTIMER_SECOND);
+//	PROCESS_YIELD();
+	printf("#P %u %u %u %u %u\n", NUM_APPS, COLLECT_FLUSH, COLLECT_SOW, POWERTRACE_PERIOD, RTIMER_SECOND);
 	
 	powertrace_start(POWERTRACE_PERIOD * CLOCK_SECOND);
 	brass_net_open(&net, linkaddr_node_addr.u8[0] == 1);
@@ -88,8 +91,8 @@ PROCESS_THREAD(brass_process, ev, data) {
 		app[i].id = i + 1;
 		app[i].map = map;
 		app[i].reduce = reduce;
-		app[i].flush_period = 20 * 60;
-		app[i].sow_period = 5 * 60;
+		app[i].flush_period = COLLECT_FLUSH;
+		app[i].sow_period = COLLECT_SOW;
 		brass_net_bind(&net, &app[i]);
 	}
 

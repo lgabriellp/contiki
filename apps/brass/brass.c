@@ -443,7 +443,7 @@ brass_net_sched_flush(struct brass_net * net) {
 
 	net->flush_period += (random_rand() % (net->flush_period / 4));
 	PRINTF("sched flush period=%u\n", net->flush_period);
-	etimer_set(&net->flush_timer, flush_period * CLOCK_SECOND);
+	etimer_set(&net->flush_timer, net->flush_period * CLOCK_SECOND);
 }
 
 void

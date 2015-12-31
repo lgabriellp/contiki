@@ -251,7 +251,7 @@
   <plugin>
     org.contikios.cooja.plugins.LogListener
     <plugin_config>
-      <filter>C 1</filter>
+      <filter>recv|timedout|sched</filter>
       <formatted_time />
       <coloring />
     </plugin_config>
@@ -302,26 +302,23 @@
     <plugin_config>
       <script>importPackage(java.io);
 var out = new FileWriter("simlog.txt");
-var motes = sim.getMotes();
 TIMEOUT(11000000)
 
-for (var i = 0; i &lt; motes.length; i++) {
-    WAIT_UNTIL(msg.equals("input"));
-    write(mote, ""+mote.getInterfaces().getPosition().getXCoordinate());
-    write(mote, ""+mote.getInterfaces().getPosition().getYCoordinate());
-    write(mote, ""+ ((id == 2 || id == 10) ? 1 : 0));
-    YIELD();
-}
-
-while (true) {
-    YIELD();
-    out.write(time + " " + id + " " + msg + "\n");
-    if (sim.getSimulationTimeMillis() &lt; 10800000) continue;
-    log.testOK();
-}
-
 try{
-    YIELD();
+	while (true) {
+        //log.log(time + " " + id + " " + msg + "\n");
+        
+	    out.write(time + " " + id + " " + msg + "\n");
+	    if (msg.equals("input")) {
+	        write(mote, ""+mote.getInterfaces().getPosition().getXCoordinate());
+	        write(mote, ""+mote.getInterfaces().getPosition().getYCoordinate());
+	        write(mote, ""+ ((id == 2 || id == 10) ? 1 : 0));
+	    }
+        
+	    YIELD();
+	    if (sim.getSimulationTimeMillis() &lt; 10800000) continue;
+	    log.testOK();
+	}
 } catch (e) {
     out.close();
     throw('test script killed');
@@ -331,8 +328,8 @@ try{
     <width>600</width>
     <z>0</z>
     <height>700</height>
-    <location_x>949</location_x>
-    <location_y>86</location_y>
+    <location_x>966</location_x>
+    <location_y>2</location_y>
   </plugin>
   <plugin>
     PowerTracker

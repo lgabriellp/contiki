@@ -32,6 +32,7 @@ struct brass_net {
 	struct etimer flush_timer;
     linkaddr_t parent;
 	uint16_t flush_period;
+	uint16_t msgs_timedout;
 	uint16_t msgs_sent;
 	uint16_t msgs_recv;
 	uint16_t ram_allocd;
