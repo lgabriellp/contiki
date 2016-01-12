@@ -117,7 +117,7 @@ powertrace_print(char *str)
 
   printf("%s %lu P %d.%d %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu (radio %d.%02d%% / %d.%02d%% tx %d.%02d%% / %d.%02d%% listen %d.%02d%% / %d.%02d%%)\n",
          str,
-         clock_time(), linkaddr_node_addr.u8[0], linkaddr_node_addr.u8[1], seqno,
+         clock_seconds(), linkaddr_node_addr.u8[0], linkaddr_node_addr.u8[1], seqno,
          all_cpu, all_lpm, all_transmit, all_listen, all_idle_transmit, all_idle_listen,
          cpu, lpm, transmit, listen, idle_transmit, idle_listen,
          (int)((100L * (all_transmit + all_listen)) / all_time),

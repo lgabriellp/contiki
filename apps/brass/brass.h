@@ -32,10 +32,15 @@ struct brass_net {
 	struct etimer flush_timer;
     linkaddr_t parent;
 	uint16_t flush_period;
-	uint16_t msgs_timedout;
 	uint16_t msgs_sent;
 	uint16_t msgs_recv;
-	uint16_t ram_allocd;
+	uint16_t msgs_timedout;
+	uint16_t map_count;
+	uint16_t emit_count;
+	uint16_t reduce_count;
+	uint16_t ram_count;
+//	uint8_t pair_count;
+//	uint8_t urgent_pair_count;
     uint8_t cycles;
     uint8_t hops;
 };
@@ -48,6 +53,7 @@ void brass_net_unbind(struct brass_net * net, struct brass_app * app);
 
 int brass_net_flush(struct brass_net * net, uint8_t urgent);
 
+void brass_net_print_stats(const struct brass_net * net);
 uint8_t brass_net_size(const struct brass_net * net);
 uint8_t brass_net_cycles(const struct brass_net * net);
 uint8_t brass_net_hops(const struct brass_net * net);

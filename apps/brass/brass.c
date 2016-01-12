@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <inttypes.h>
 #include <lib/random.h>
 
 #define BRASS_DEBUG 1
@@ -10,8 +11,8 @@
 #define BRASS_ID_INDEX 0
 #define BRASS_LEN_INDEX 1
 
-#if BRASS_DEBUG
 #include <stdio.h>
+#if BRASS_DEBUG
 #define PRINTF(...) printf(__VA_ARGS__);
 #else//BRASS_DEBUG
 #define PRINTF(...)
@@ -45,8 +46,8 @@ brass_pair_alloc(struct brass_app * app, uint8_t keylen, uint8_t valuelen) {
 		return NULL;
 	}
 
-    pair->app->net->ram_allocd += brass_pair_sizeof(pair);
-	PRINTF("alloc app=%d ram=%d\n", pair->app->id, pair->app->net->ram_allocd);
+    pair->app->net->ram_count += brass_pair_sizeof(pair);
+	PRINTF("alloc app=%d ram=%d\n", pair->app->id, pair->app->net->ram_count);
 
 	return pair;
 }
@@ -70,8 +71,8 @@ void
 brass_pair_free(struct brass_pair * pair) {
 	if (!(pair->flags & BRASS_FLAG_ALLOCD)) return;
 	if (pair->app && pair->app->net) {
-		pair->app->net->ram_allocd -= brass_pair_sizeof(pair);
-		PRINTF("dealloc app=%d ram=%d\n", pair->app->id, pair->app->net->ram_allocd);
+		pair->app->net->ram_count -= brass_pair_sizeof(pair);
+		PRINTF("dealloc app=%d ram=%d\n", pair->app->id, pair->app->net->ram_count);
 	} else {
 		PRINTF("warn: dealloc without net\n");
 	}
@@ -140,17 +141,20 @@ brass_pair_set_value(struct brass_pair * pair, const void * value) {
 void
 brass_pair_print(const struct brass_pair * pair, const char * prefix) {
 	int i;
-	PRINTF("%spair(len=%d, ", prefix, pair->len);
-   	PRINTF("urgent=%d, ", brass_pair_flags(pair, BRASS_FLAG_URGENT));
-   	PRINTF("pending=%d, ", brass_pair_flags(pair, BRASS_FLAG_PENDING));
+	PRINTF("PAIR");
+	PRINTF(" %" PRIu32, clock_seconds());
+	PRINTF(" %" PRIu8, linkaddr_node_addr.u8[0]);
+	PRINTF(" %s", prefix);
+   	PRINTF(" %" PRIu8, brass_pair_flags(pair, BRASS_FLAG_URGENT));
+   	PRINTF(" %" PRIu8, brass_pair_flags(pair, BRASS_FLAG_PENDING));
+	PRINTF(" %2.2x%2.2x", pair->app->id, pair->len);
 
 	for (i = 0; i < pair->len; i++) {
-		if (i == brass_pair_keylen(pair)) {
-			PRINTF(", ");
-		}
+		if (i == brass_pair_keylen(pair)) PRINTF(" ");
 		PRINTF("%2.2x", (uint8_t)pair->key[i]);
 	}
-	PRINTF(")\n");
+
+	PRINTF("\n");
 }
 
 static void
@@ -159,10 +163,8 @@ sow_timer_callback(void * arg) {
 	ctimer_reset(&app->sow_timer);
 
 	brass_app_sow(app, 1, 1);
-	PRINTF("sow app=%d\n", app->id);
 
 	brass_net_flush(app->net, 1);
-	PRINTF("flush urgent size=%d\n", brass_app_size(app, BRASS_FLAG_ALL));
 }
 
 void
@@ -216,12 +218,15 @@ brass_app_find(struct brass_app * app, const void * key, uint8_t len) {
 
 uint8_t
 brass_app_sow(struct brass_app * app, int8_t key, int8_t value) {
+	app->net->map_count++;
 	app->map(app, key, value);
 	return 0;
 }
 
 uint8_t
 brass_app_emit(struct brass_app * app, const struct brass_pair * next) {
+	app->net->emit_count++;
+
 	struct brass_pair * acc = brass_app_find(app, next->key, brass_pair_keylen(next));
 	if (!acc) {
 		acc = brass_pair_dup(next);
@@ -231,11 +236,12 @@ brass_app_emit(struct brass_app * app, const struct brass_pair * next) {
 		}
 
 		list_push(app->reduced, acc);
+		brass_pair_print(acc, "emited");
 		return 0;
 	}
 
+	app->net->reduce_count++;
 	app->reduce(app, acc, next->value);
-	//brass_pair_print(acc, "merged  ");
 
 	return 1;
 }
@@ -270,7 +276,7 @@ brass_app_gather(struct brass_app * app, void * ptr, uint8_t len, uint8_t urgent
 		
 		size += 2 + brass_pair_len(pair);
 		buf[BRASS_LEN_INDEX] = size;
-		PRINTF("gather new len=%d\n", size);
+		PRINTF("gather len=%d\n", size);
 
 		brass_pair_set_flags(pair, BRASS_FLAG_PENDING, 1);
 		pair = (struct brass_pair *)list_item_next(pair);
@@ -304,7 +310,6 @@ brass_app_feed(struct brass_app * app, const void * ptr, uint8_t len, uint8_t ur
 		brass_pair_set_value(pair, &buf[size]);
 		size += brass_pair_valuelen(pair);
 
-		brass_pair_print(pair, "feeded  ");
 		brass_app_emit(app, pair);
 		brass_pair_free(pair);
 	}
@@ -319,7 +324,7 @@ brass_app_print(const struct brass_app * app, const char * prefix) {
 	while (iter) {
 		brass_pair_print((struct brass_pair *)iter, prefix);
 		iter = list_item_next(iter);
-	}	
+	}
 }
 
 static uint8_t
@@ -363,7 +368,9 @@ static void
 runicast_recv(struct runicast_conn * uc, const linkaddr_t * from, uint8_t seqno) {
     struct brass_net * net = (struct brass_net *)
         ((char *)uc - offsetof(struct brass_net, uc));
-    PRINTF("(%2.d,%2.d) recv msgs=%d seqno=%d len=%d\n", from->u8[0], linkaddr_node_addr.u8[0], ++net->msgs_recv, seqno, packetbuf_datalen());
+
+	net->msgs_recv++;
+    PRINTF("(%2.d,%2.d) recv seqno=%d len=%d\n", from->u8[0], linkaddr_node_addr.u8[0], seqno, packetbuf_datalen());
 	struct brass_app * app = (struct brass_app *)list_head(net->apps);
 	uint8_t * buf = (uint8_t *)packetbuf_dataptr();
 
@@ -379,21 +386,25 @@ runicast_recv(struct runicast_conn * uc, const linkaddr_t * from, uint8_t seqno)
 
 static void
 runicast_sent(struct runicast_conn * uc, const linkaddr_t * to, uint8_t retransmissions) {
-    PRINTF("(%2.d,%2.d) sent retx=%d\n", linkaddr_node_addr.u8[0], to->u8[0], retransmissions);
     struct brass_net * net = (struct brass_net *)
         ((char *)uc - offsetof(struct brass_net, uc));
 	struct brass_app * app = (struct brass_app *)list_head(net->apps);
+    PRINTF("(%2.d,%2.d) sent retx=%d len=%d\n", linkaddr_node_addr.u8[0], to->u8[0], retransmissions, packetbuf_datalen());
+	net->msgs_sent++;
 
 	while (app) {
 		brass_app_cleanup(app, BRASS_FLAG_PENDING);
-		PRINTF("cleanup node=%d ram=%d\n", linkaddr_node_addr.u8[0], app->net->ram_allocd);
+		PRINTF("cleanup node=%d ram=%d\n", linkaddr_node_addr.u8[0], app->net->ram_count);
 		app = (struct brass_app *)list_item_next(app);
 	}
 }
 
 static void
 runicast_timedout(struct runicast_conn *uc, const linkaddr_t * to, uint8_t retransmissions) {
+    struct brass_net * net = (struct brass_net *)
+        ((char *)uc - offsetof(struct brass_net, uc));
     PRINTF("(%2.d,%2.d) timedout retx=%d\n", linkaddr_node_addr.u8[0], to->u8[0], retransmissions);
+	net->msgs_timedout++;
 }
 
 static const struct neighbor_discovery_callbacks ndc = {
@@ -410,23 +421,40 @@ static struct runicast_callbacks ucc = {
 void
 brass_net_open(struct brass_net * net, uint8_t is_sync) {
 	LIST_STRUCT_INIT(net, apps);
+/*
     neighbor_discovery_open(&net->nd,
                             128,
-                            CLOCK_SECOND * 1UL,
+                            CLOCK_SECOND / 100UL,
                             CLOCK_SECOND * 900UL,
                             CLOCK_SECOND * 900UL,
                             &ndc);
-
+*/
     runicast_open(&net->uc, 129, &ucc);
     
     linkaddr_copy(&net->parent, &linkaddr_null);
+	net->hops = 0;
+	
+	if (!is_sync) {
+		linkaddr_t parent;
+		parent.u8[0] = linkaddr_node_addr.u8[0] - 1;
+		parent.u8[1] = linkaddr_node_addr.u8[1];
+		net->hops = parent.u8[0];
+		PRINTF("open %" PRIu8 ".%" PRIu8 " %" PRIu8 "\n", parent.u8[0], parent.u8[1], net->hops);
+		linkaddr_copy(&net->parent, &parent);
+	}
+
     net->cycles = -1;
-    net->hops = is_sync ? 0 : -1;
 	net->msgs_sent = 0;
 	net->msgs_recv = 0;
-	net->ram_allocd = 0;
-    
-    neighbor_discovery_start(&net->nd, is_sync ? net->hops + 1 : net->hops);
+	net->msgs_timedout = 0;
+	net->map_count = 0;
+	net->emit_count = 0;
+	net->reduce_count = 0;
+	net->ram_count = 0;
+//	net->pair_count = 0;
+//	net->urgent_pair_count = 0;
+
+//    neighbor_discovery_start(&net->nd, is_sync ? net->hops + 1 : net->hops);
 }
 
 void
@@ -444,6 +472,39 @@ brass_net_sched_flush(struct brass_net * net) {
 	net->flush_period += (random_rand() % (net->flush_period / 4));
 	PRINTF("sched flush period=%u\n", net->flush_period);
 	etimer_set(&net->flush_timer, net->flush_period * CLOCK_SECOND);
+}
+
+void
+brass_net_print_stats(const struct brass_net * net) {
+	struct brass_app * app = (struct brass_app *)list_head(net->apps);
+	uint8_t pair_count = 0;
+	uint8_t urgent_pair_count = 0;
+
+	while (app) {
+		struct brass_pair * pair = (struct brass_pair *)list_head(app->reduced);
+
+		while (pair) {
+			pair_count++;
+			if (brass_pair_flags(pair, BRASS_FLAG_URGENT)) urgent_pair_count++;
+			pair = (struct brass_pair *)list_item_next(pair);
+		}
+
+		app = (struct brass_app *)list_item_next(app);
+	}
+	
+	printf("NET");
+	printf(" %" PRIu32, clock_seconds());
+	printf(" %" PRIu8, linkaddr_node_addr.u8[0]);
+	printf(" %" PRIu16, net->msgs_sent);
+	printf(" %" PRIu16, net->msgs_recv);
+	printf(" %" PRIu16, net->msgs_timedout);
+	printf(" %" PRIu16, net->map_count);
+	printf(" %" PRIu16, net->emit_count);
+	printf(" %" PRIu16, net->reduce_count);
+	printf(" %" PRIu16, net->ram_count);
+	printf(" %" PRIu8, pair_count);
+	printf(" %" PRIu8, urgent_pair_count);
+	printf("\n");
 }
 
 void
@@ -474,12 +535,12 @@ brass_net_unbind(struct brass_net * net, struct brass_app * app) {
 
 int
 brass_net_flush(struct brass_net * net, uint8_t urgent) {
+	brass_net_print_stats(net);
+
 	struct brass_app * app = (struct brass_app *)list_head(net->apps);
 
 	if (net->hops == 0) {
 		while (app) {
-			PRINTF("sink app size=%d\n", brass_app_size(app, BRASS_FLAG_ALL));
-			brass_app_print(app, "sink-flush ");
 			brass_app_cleanup(app, BRASS_FLAG_ALL);
 			app = (struct brass_app *)list_item_next(app);
 		}
@@ -495,6 +556,18 @@ brass_net_flush(struct brass_net * net, uint8_t urgent) {
 	if (runicast_is_transmitting(&net->uc)) {
 		PRINTF("flush %s no medium\n", urgent ? "urgent" : "normal");
 		return 0;
+	}
+
+	if (urgent && net->msgs_timedout > net->msgs_sent) {
+		uint16_t diff = MIN(MAX(net->msgs_timedout - net->msgs_sent, 0), 10);
+		if (random_rand() % (2 << diff)) {
+			PRINTF("flush %s", urgent ? "urgent" : "normal");
+		   	PRINTF(" congested diff=%" PRIu16, diff);
+			PRINTF(" %" PRIu16, net->msgs_timedout);
+			PRINTF(" %" PRIu16, net->msgs_sent);
+			PRINTF("\n");
+			return 0;
+		}
 	}
 
 	struct channel * channel = channel_lookup(129);
@@ -517,8 +590,8 @@ brass_net_flush(struct brass_net * net, uint8_t urgent) {
 	}
 
 	packetbuf_set_datalen(len);
-    PRINTF("(%2.d,%2.d) send msgs=%d urgent=%d apps=%d len=%d\n", linkaddr_node_addr.u8[0], net->parent.u8[0], ++net->msgs_sent, urgent, buf[BRASS_APPSLEN_INDEX], packetbuf_datalen());
-	
+    PRINTF("(%2.d,%2.d) send urgent=%d len=%d\n", linkaddr_node_addr.u8[0], net->parent.u8[0], urgent, packetbuf_datalen());
+
     return runicast_send(&net->uc, &net->parent, 3);
 }
 
