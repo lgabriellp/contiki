@@ -1,4 +1,5 @@
 import sys
+import glob
 import pandas as pd
 import numpy as np
 import scipy.stats as st
@@ -9,44 +10,51 @@ hours_per_day = 24.
 ticks_per_second = 32768.
 seconds_per_day = 60. * 60 * hours_per_day
 seconds_per_year = seconds_per_day * 365.
-powertrace_period = 60
+powertrace_period = 60.
 
-trace = pd.read_csv(sys.argv[1],
+def analyse_lifetime(path):
+    trace = pd.read_csv(path,
         comment="#",
         sep=" ",
-        usecols=[3, 5, 7, 8, 9, 10],
+        usecols=[1, 3, 5, 6, 7, 8],
+#        usecols=[3, 5, 13, 14, 15, 16],
         names=["time", "node", "cpu", "lpm", "transmit", "listen"])
 
-trace.time = np.round(trace.time / 1000)
+    #trace.time = np.round(trace.time / 1000)
+    #trace.time /= powertrace_period
 
-# time(s) = powertrace_time(ticks in a period) / powertrace_period(s) / rtimer_second(ticks)
-trace[["cpu", "lpm", "transmit", "listen"]] /= powertrace_period * ticks_per_second
+    # time(s) = powertrace_time(ticks in a period) / powertrace_period(s) / rtimer_second(ticks)
+    #trace[["cpu", "lpm", "transmit", "listen"]] /= powertrace_period * ticks_per_second
+    trace[["cpu", "lpm", "transmit", "listen"]] /= ticks_per_second
 
-# power(W) = power(mW) / 1000
-power = 10**-3 * np.array([5.4, 0.0153, 58.5, 65.4])
+    # power(W) = power(mW) / 1000
+    power = 10**-3 * np.array([5.4, 0.0153, 58.5, 65.4])
 
-#energy(Joules) = power(W) * time(s)
-energy_per_node = (power * trace.set_index(["time", "node"])).sum(axis=1).unstack()
-del energy_per_node[1]
+    #energy(Joules) = power(W) * time(s)
+    energy_per_node = (power * trace.set_index(["time", "node"])).sum(axis=1).unstack()
+    del energy_per_node[1]
 
-energy_max = energy_per_node.max(axis=1)
-x = energy_max.index
-y = energy_max
+    energy_max = energy_per_node.max(axis=1)
+    x = energy_max.index
+    y = energy_max
 
-#print energy_history_max
+    #print energy_history_max
 
-A = np.vstack([x, np.ones(x.shape)]).T
-m, c = np.linalg.lstsq(A, y)[0]
-print "A:", m, "b:", c
-print "Dias:", 16000. / m / seconds_per_day
+    A = np.vstack([x, np.ones(x.shape)]).T
+    m, c = np.linalg.lstsq(A, y)[0]
 
-energy_per_node.plot()
-plt.plot(x, m * x + c, "x", label="Fitted line")
-plt.show()
+    return battery_energy / m / seconds_per_day
 
 
-#print A
+paths = glob.glob("*p.csv")
+lifetime = np.array([analyse_lifetime(path) for path in paths])
 
+print lifetime
+
+mean = lifetime.mean()
+sem = st.sem(lifetime)
+lower, upper = st.t.interval(.99, len(lifetime), mean, sem)
+print mean, lower, upper, (upper - lower) / mean, (upper - lower) / 2
 
 
 
