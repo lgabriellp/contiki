@@ -8,7 +8,7 @@
 
 #define POWERTRACE_PERIOD	(60)
 #define COMMON_TIME_RANGE	(60 * 30)
-#define MIXES_RATIO_EXPERIMENT 0
+#define MIXES_RATIO_EXPERIMENT
 /*
 #define NUM_APPS 1
 #define COLLECT_FLUSH		(60 * 20)
@@ -107,7 +107,8 @@ typedef struct __attribute__((packed)) {
 
 void
 detect_normal_map(struct brass_app * app, int8_t type, int8_t value) {
-#if !MIXES_RATIO_EXPERIMENT
+#ifndef MIXES_RATIO_EXPERIMENT
+#warn MIXES_RATIO_EXPERIMENT
 	if (random_rand() % 360) return;
 #endif//!MIXES_RATIO_EXPERIMENT
 	struct brass_pair * pair = brass_pair_alloc(app, sizeof(detect_key_t), 0);
@@ -127,7 +128,8 @@ detect_normal_map(struct brass_app * app, int8_t type, int8_t value) {
 void
 detect_road_map(struct brass_app * app, int8_t type, int8_t value) {
 	if (!NODE_LOC_R) return;
-#if !MIXES_RATIO_EXPERIMENT
+#ifndef MIXES_RATIO_EXPERIMENT
+#warn MIXES_RATIO_EXPERIMENT
 	if (random_rand() % 3600) return;
 #endif//!MIXES_RATIO_EXPERIMENT
 
@@ -200,14 +202,16 @@ PROCESS_THREAD(brass_process, ev, data) {
 	PROCESS_WAIT_EVENT_UNTIL(ev == serial_line_event_message);
 	DETECT_FLUSH = atoi((char *)data);
 
-	printf("CONTEXT %" PRIu32 " %" PRIu8 " %u %u %u %u %u %u %u %u %u %u %u %u %u\n",
-			clock_seconds(), linkaddr_node_addr.u8[0],
-			APPS_SIZE, APPS_TYPE,
-			NODE_LOC_X, NODE_LOC_Y,
-			NODE_LOC_R, NODE_LOC_F,
-		   	(unsigned)COLLECT_SOW, (unsigned)COLLECT_FLUSH,
-			(unsigned)DETECT_SOW, (unsigned)DETECT_FLUSH,
-		   	POWERTRACE_PERIOD, RTIMER_SECOND);
+	printf("CONTEXT");
+   	printf(" %" PRIu32, clock_seconds());
+	printf(" %" PRIu8, linkaddr_node_addr.u8[0]);
+	printf(" %u %u", APPS_SIZE, APPS_TYPE);
+	printf(" %u %u", NODE_LOC_X, NODE_LOC_Y);
+	printf(" %u %u", NODE_LOC_R, NODE_LOC_F);
+	printf(" %u %u", (unsigned)COLLECT_SOW, (unsigned)COLLECT_FLUSH);
+	printf(" %u %u", (unsigned)DETECT_SOW, (unsigned)DETECT_FLUSH);
+	printf(" %u %u", POWERTRACE_PERIOD, RTIMER_SECOND);
+	printf("\n");
 
 	collect_normal.map = collect_normal_map;
 	collect_normal.reduce = collect_reduce;

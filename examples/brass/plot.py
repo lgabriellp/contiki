@@ -34,6 +34,9 @@ def analyse_lifetime(path):
     energy_per_node = (power * trace.set_index(["time", "node"])).sum(axis=1).unstack()
     del energy_per_node[1]
 
+    energy_per_node.plot()
+    plt.show()
+
     energy_max = energy_per_node.max(axis=1)
     x = energy_max.index
     y = energy_max
@@ -54,7 +57,7 @@ print lifetime
 mean = lifetime.mean()
 sem = st.sem(lifetime)
 lower, upper = st.t.interval(.99, len(lifetime), mean, sem)
-print mean, lower, upper, (upper - lower) / mean, (upper - lower) / 2
+print mean, lower, upper, (upper - lower) / mean, (upper - lower) / mean < 0.1, 
 
 
 
