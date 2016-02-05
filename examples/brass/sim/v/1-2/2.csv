@@ -1,0 +1,4524 @@
+Rime started with address 6.0
+Rime started with address 5.0
+MAC 06:00:00:00:00:00:00:00 Contiki-3.x-1862-g67d6ffc started. Node id is set to 6.
+MAC 05:00:00:00:00:00:00:00 Contiki-3.x-1862-g67d6ffc started. Node id is set to 5.
+nullsec CSMA ContikiMAC, channel check rate 8 Hz, radio channel 26
+Starting 'Mixed Brass'
+input
+nullsec CSMA ContikiMAC, channel check rate 8 Hz, radio channel 26
+Starting 'Mixed Brass'
+input
+CONTEXT 0 6 4 0 244 0 0 1 600 1200 600 1200 60 32768
+open 5.0 5
+app_index=0
+sched sow app=1 period=600
+app_index=1
+CONTEXT 0 5 4 0 144 0 0 0 600 1200 600 1200 60 32768
+open 4.0 4
+sched sow app=2 period=600
+app_index=0
+app_index=2
+sched sow app=1 period=600
+sched sow app=3 period=600
+app_index=1
+app_index=3
+sched sow app=2 period=600
+sched sow app=4 period=600
+app_index=2
+sched flush period=1435
+sched sow app=3 period=600
+app_index=3
+sched sow app=4 period=600
+sched flush period=1294
+Rime started with address 4.0
+MAC 04:00:00:00:00:00:00:00 Contiki-3.x-1862-g67d6ffc started. Node id is set to 4.
+nullsec CSMA ContikiMAC, channel check rate 8 Hz, radio channel 26
+Starting 'Mixed Brass'
+input
+CONTEXT 0 4 4 0 44 0 1 0 600 1200 600 1200 60 32768
+open 3.0 3
+app_index=0
+sched sow app=1 period=600
+app_index=1
+sched sow app=2 period=600
+app_index=2
+sched sow app=3 period=600
+app_index=3
+sched sow app=4 period=600
+sched flush period=1317
+Rime started with address 8.0
+Rime started with address 2.0
+MAC 08:00:00:00:00:00:00:00 Contiki-3.x-1862-g67d6ffc started. Node id is set to 8.
+MAC 02:00:00:00:00:00:00:00 Contiki-3.x-1862-g67d6ffc started. Node id is set to 2.
+nullsec CSMA ContikiMAC, channel check rate 8 Hz, radio channel 26
+Starting 'Mixed Brass'
+input
+nullsec CSMA ContikiMAC, channel check rate 8 Hz, radio channel 26
+Starting 'Mixed Brass'
+input
+CONTEXT 0 8 4 0 188 0 0 0 600 1200 600 1200 60 32768
+open 7.0 7
+app_index=0
+CONTEXT 0 2 4 0 100 0 0 0 600 1200 600 1200 60 32768
+sched sow app=1 period=600
+open 1.0 1
+app_index=1
+app_index=0
+sched sow app=2 period=600
+sched sow app=1 period=600
+app_index=2
+app_index=1
+sched sow app=3 period=600
+sched sow app=2 period=600
+app_index=3
+app_index=2
+sched sow app=4 period=600
+sched sow app=3 period=600
+app_index=3
+sched flush period=1389
+sched sow app=4 period=600
+sched flush period=1499
+Rime started with address 1.0
+MAC 01:00:00:00:00:00:00:00 Contiki-3.x-1862-g67d6ffc started. Node id is set to 1.
+Rime started with address 3.0
+nullsec CSMA ContikiMAC, channel check rate 8 Hz, radio channel 26
+Starting 'Mixed Brass'
+input
+MAC 03:00:00:00:00:00:00:00 Contiki-3.x-1862-g67d6ffc started. Node id is set to 3.
+nullsec CSMA ContikiMAC, channel check rate 8 Hz, radio channel 26
+Starting 'Mixed Brass'
+input
+CONTEXT 0 1 4 0 0 0 0 0 600 1200 600 1200 60 32768
+app_index=0
+app_index=1
+app_index=2
+app_index=3
+CONTEXT 0 3 4 0 200 0 0 1 600 1200 600 1200 60 32768
+open 2.0 2
+app_index=0
+sched sow app=1 period=600
+app_index=1
+sched sow app=2 period=600
+app_index=2
+sched sow app=3 period=600
+app_index=3
+sched sow app=4 period=600
+sched flush period=1340
+Rime started with address 7.0
+MAC 07:00:00:00:00:00:00:00 Contiki-3.x-1862-g67d6ffc started. Node id is set to 7.
+nullsec CSMA ContikiMAC, channel check rate 8 Hz, radio channel 26
+Starting 'Mixed Brass'
+input
+Rime started with address 9.0
+CONTEXT 0 7 4 0 88 0 1 0 600 1200 600 1200 60 32768
+open 6.0 6
+app_index=0
+sched sow app=1 period=600
+app_index=1
+sched sow app=2 period=600
+MAC 09:00:00:00:00:00:00:00 Contiki-3.x-1862-g67d6ffc started. Node id is set to 9.
+app_index=2
+sched sow app=3 period=600
+app_index=3
+sched sow app=4 period=600
+sched flush period=1412
+nullsec CSMA ContikiMAC, channel check rate 8 Hz, radio channel 26
+Starting 'Mixed Brass'
+input
+CONTEXT 0 9 4 0 32 0 0 1 600 1200 600 1200 60 32768
+open 8.0 8
+app_index=0
+sched sow app=1 period=600
+app_index=1
+sched sow app=2 period=600
+app_index=2
+sched sow app=3 period=600
+app_index=3
+sched sow app=4 period=600
+sched flush period=1366
+Rime started with address 10.0
+MAC 0a:00:00:00:00:00:00:00 Contiki-3.x-1862-g67d6ffc started. Node id is set to 10.
+nullsec CSMA ContikiMAC, channel check rate 8 Hz, radio channel 26
+Starting 'Mixed Brass'
+input
+CONTEXT 0 10 4 0 132 0 1 0 600 1200 600 1200 60 32768
+open 9.0 9
+app_index=0
+sched sow app=1 period=600
+app_index=1
+sched sow app=2 period=600
+app_index=2
+sched sow app=3 period=600
+app_index=3
+sched sow app=4 period=600
+sched flush period=1207
+ 60 P 6.0 0 97663 1869878 0 12454 0 12454 97663 1869878 0 12454 0 12454 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 60 P 5.0 0 97663 1869878 0 12454 0 12454 97663 1869878 0 12454 0 12454 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 60 P 4.0 0 97659 1869882 0 12454 0 12454 97659 1869882 0 12454 0 12454 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 60 P 8.0 0 97663 1869878 0 12454 0 12454 97663 1869878 0 12454 0 12454 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 60 P 2.0 0 97663 1869878 0 12454 0 12454 97663 1869878 0 12454 0 12454 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 60 P 1.0 0 62686 1904847 0 12454 0 12454 62686 1904847 0 12454 0 12454 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 60 P 3.0 0 97663 1869878 0 12454 0 12454 97663 1869878 0 12454 0 12454 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 60 P 7.0 0 97659 1869882 0 12454 0 12454 97659 1869882 0 12454 0 12454 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 60 P 9.0 0 97659 1869882 0 12454 0 12454 97659 1869882 0 12454 0 12454 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 60 P 10.0 0 97676 1869865 0 12454 0 12454 97676 1869865 0 12454 0 12454 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 120 P 6.0 1 194525 3739093 0 24934 0 24934 96859 1869215 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 120 P 5.0 1 194525 3739093 0 24934 0 24934 96859 1869215 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 120 P 4.0 1 194521 3739097 0 24934 0 24934 96859 1869215 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 120 P 8.0 1 194525 3739093 0 24934 0 24934 96859 1869215 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 120 P 2.0 1 194525 3739093 0 24934 0 24934 96859 1869215 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 120 P 1.0 1 124984 3808629 0 24934 0 24934 62295 1903782 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 120 P 3.0 1 194525 3739093 0 24934 0 24934 96859 1869215 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 120 P 7.0 1 194521 3739097 0 24934 0 24934 96859 1869215 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 120 P 9.0 1 194521 3739097 0 24934 0 24934 96859 1869215 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 120 P 10.0 1 194542 3739076 0 24934 0 24934 96863 1869211 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 180 P 6.0 2 291416 5608282 0 37414 0 37414 96888 1869189 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 180 P 5.0 2 291416 5608282 0 37414 0 37414 96888 1869189 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 180 P 4.0 2 291412 5608286 0 37414 0 37414 96888 1869189 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 180 P 8.0 2 291416 5608282 0 37414 0 37414 96888 1869189 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 180 P 2.0 2 291416 5608282 0 37414 0 37414 96888 1869189 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 180 P 1.0 2 187312 5712381 0 37414 0 37414 62325 1903752 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 180 P 3.0 2 291416 5608282 0 37414 0 37414 96888 1869189 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 180 P 7.0 2 291412 5608286 0 37414 0 37414 96888 1869189 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 180 P 9.0 2 291412 5608286 0 37414 0 37414 96888 1869189 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 180 P 10.0 2 291438 5608260 0 37414 0 37414 96893 1869184 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 240 P 6.0 3 388316 7477462 0 49894 0 49894 96897 1869180 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 240 P 5.0 3 388316 7477462 0 49894 0 49894 96897 1869180 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 240 P 4.0 3 388312 7477466 0 49894 0 49894 96897 1869180 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 240 P 8.0 3 388316 7477462 0 49894 0 49894 96897 1869180 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 240 P 2.0 3 388316 7477462 0 49894 0 49894 96897 1869180 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 240 P 1.0 3 249648 7616125 0 49894 0 49894 62333 1903744 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 240 P 3.0 3 388316 7477462 0 49894 0 49894 96897 1869180 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 240 P 7.0 3 388312 7477466 0 49894 0 49894 96897 1869180 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 240 P 9.0 3 388312 7477466 0 49894 0 49894 96897 1869180 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 240 P 10.0 3 388342 7477436 0 49894 0 49894 96901 1869176 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 300 P 6.0 4 485224 9346634 0 62374 0 62374 96905 1869172 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 300 P 5.0 4 485224 9346634 0 62374 0 62374 96905 1869172 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 300 P 4.0 4 485220 9346638 0 62374 0 62374 96905 1869172 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 300 P 8.0 4 485224 9346634 0 62374 0 62374 96905 1869172 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 300 P 2.0 4 485224 9346634 0 62374 0 62374 96905 1869172 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 300 P 1.0 4 311992 9519861 0 62374 0 62374 62341 1903736 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 300 P 3.0 4 485224 9346634 0 62374 0 62374 96905 1869172 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 300 P 7.0 4 485220 9346638 0 62374 0 62374 96905 1869172 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 300 P 9.0 4 485220 9346638 0 62374 0 62374 96905 1869172 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 300 P 10.0 4 485254 9346604 0 62374 0 62374 96909 1869168 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 360 P 6.0 5 582140 11215798 0 74854 0 74854 96913 1869164 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 360 P 5.0 5 582140 11215798 0 74854 0 74854 96913 1869164 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 360 P 4.0 5 582136 11215802 0 74854 0 74854 96913 1869164 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 360 P 8.0 5 582140 11215798 0 74854 0 74854 96913 1869164 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 360 P 2.0 5 582140 11215798 0 74854 0 74854 96913 1869164 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 360 P 1.0 5 374345 11423588 0 74854 0 74854 62350 1903727 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 360 P 3.0 5 582140 11215798 0 74854 0 74854 96913 1869164 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 360 P 7.0 5 582136 11215802 0 74854 0 74854 96913 1869164 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 360 P 9.0 5 582136 11215802 0 74854 0 74854 96913 1869164 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 360 P 10.0 5 582174 11215764 0 74854 0 74854 96917 1869160 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 420 P 6.0 6 679076 13084942 0 87334 0 87334 96933 1869144 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 420 P 5.0 6 679076 13084942 0 87334 0 87334 96933 1869144 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 420 P 4.0 6 679072 13084946 0 87334 0 87334 96933 1869144 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 420 P 8.0 6 679076 13084942 0 87334 0 87334 96933 1869144 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 420 P 2.0 6 679076 13084942 0 87334 0 87334 96933 1869144 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 420 P 1.0 6 436717 13327296 0 87334 0 87334 62369 1903708 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 420 P 3.0 6 679076 13084942 0 87334 0 87334 96933 1869144 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 420 P 7.0 6 679072 13084946 0 87334 0 87334 96933 1869144 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 420 P 9.0 6 679072 13084946 0 87334 0 87334 96933 1869144 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 420 P 10.0 6 679115 13084903 0 87334 0 87334 96938 1869139 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 480 P 6.0 7 776020 14954078 0 99814 0 99814 96941 1869136 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 480 P 5.0 7 776020 14954078 0 99814 0 99814 96941 1869136 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 480 P 4.0 7 776016 14954082 0 99814 0 99814 96941 1869136 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 480 P 8.0 7 776020 14954078 0 99814 0 99814 96941 1869136 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 480 P 2.0 7 776020 14954078 0 99814 0 99814 96941 1869136 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 480 P 1.0 7 499096 15230997 0 99814 0 99814 62376 1903701 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 480 P 3.0 7 776020 14954078 0 99814 0 99814 96941 1869136 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 480 P 7.0 7 776016 14954082 0 99814 0 99814 96941 1869136 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 480 P 9.0 7 776016 14954082 0 99814 0 99814 96941 1869136 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 480 P 10.0 7 776063 14954035 0 99814 0 99814 96945 1869132 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 540 P 6.0 8 873000 16823178 0 112294 0 112294 96977 1869100 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 540 P 5.0 8 873000 16823178 0 112294 0 112294 96977 1869100 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 540 P 4.0 8 872996 16823182 0 112294 0 112294 96977 1869100 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 540 P 8.0 8 873000 16823178 0 112294 0 112294 96977 1869100 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 540 P 2.0 8 873000 16823178 0 112294 0 112294 96977 1869100 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 540 P 1.0 8 561484 17134689 0 112294 0 112294 62385 1903692 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 540 P 3.0 8 873000 16823178 0 112294 0 112294 96977 1869100 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 540 P 7.0 8 872996 16823182 0 112294 0 112294 96977 1869100 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 540 P 9.0 8 872996 16823182 0 112294 0 112294 96977 1869100 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 540 P 10.0 8 873048 16823130 0 112294 0 112294 96982 1869095 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 600 P 6.0 9 970046 18692212 0 124774 0 124774 97043 1869034 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+NET 600 6 0 0 0 1 0 0 0 0 0
+ 600 P 5.0 9 970046 18692212 0 124774 0 124774 97043 1869034 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+flush urgent no data
+alloc app=3 ram=16
+alloc app=3 ram=32
+NET 600 5 0 0 0 1 0 0 0 0 0
+flush urgent no data
+alloc app=3 ram=16
+PAIR 600 6 emited 0 0 0306000002f40001
+alloc app=3 ram=32
+dealloc app=3 ram=16
+NET 600 6 0 0 0 2 1 0 16 1 0
+PAIR 600 5 emited 0 0 0306000002900001
+flush urgent no data
+dealloc app=3 ram=16
+fire!
+alloc app=2 ram=35
+alloc app=2 ram=54
+NET 600 5 0 0 0 2 1 0 16 1 0
+flush urgent no data
+PAIR 600 6 emited 0 0 02090a00f40001 01000101
+NET 600 5 0 0 0 3 1 0 16 1 0
+dealloc app=2 ram=35
+flush urgent no data
+alloc app=1 ram=35
+alloc app=1 ram=54
+NET 600 6 0 0 0 3 2 0 35 2 0
+flush urgent no data
+alloc app=1 ram=54
+alloc app=1 ram=73
+PAIR 600 5 emited 0 0 01090000000001 01000101
+dealloc app=1 ram=35
+PAIR 600 6 emited 0 0 01090000000001 01000101
+NET 600 5 0 0 0 4 2 0 35 2 0
+dealloc app=1 ram=54
+flush urgent no data
+NET 600 6 0 0 0 4 3 0 54 3 0
+flush urgent no data
+ 600 P 4.0 9 970042 18692216 0 124774 0 124774 97043 1869034 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+road!
+alloc app=4 ram=16
+alloc app=4 ram=32
+PAIR 600 4 emited 1 0 04060a00022c0001
+dealloc app=4 ram=16
+NET 600 4 0 0 0 1 1 0 16 1 1
+gather len=10
+( 4, 3) send urgent=1 len=12
+alloc app=3 ram=32
+alloc app=3 ram=48
+PAIR 600 4 emited 0 0 03060000022c0001
+dealloc app=3 ram=32
+NET 600 4 0 0 0 2 2 0 32 2 1
+flush urgent no medium
+NET 600 4 0 0 0 3 2 0 32 2 1
+flush urgent no medium
+alloc app=1 ram=51
+alloc app=1 ram=70
+PAIR 600 4 emited 0 0 01090000000001 01000101
+dealloc app=1 ram=51
+NET 600 4 0 0 0 4 3 0 51 3 1
+flush urgent no medium
+ 600 P 8.0 9 970046 18692212 0 124774 0 124774 97043 1869034 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 600 P 2.0 9 970046 18692212 0 124774 0 124774 97043 1869034 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+NET 600 8 0 0 0 1 0 0 0 0 0
+flush urgent no data
+alloc app=3 ram=16
+NET 600 2 0 0 0 1 0 0 0 0 0
+alloc app=3 ram=32
+flush urgent no data
+alloc app=3 ram=16
+alloc app=3 ram=32
+PAIR 600 8 emited 0 0 0306000002bc0001
+dealloc app=3 ram=16
+PAIR 600 2 emited 0 0 0306000002640001
+dealloc app=3 ram=16
+NET 600 8 0 0 0 2 1 0 16 1 0
+flush urgent no data
+NET 600 2 0 0 0 2 1 0 16 1 0
+flush urgent no data
+NET 600 8 0 0 0 3 1 0 16 1 0
+flush urgent no data
+alloc app=1 ram=35
+NET 600 2 0 0 0 3 1 0 16 1 0
+alloc app=1 ram=54
+flush urgent no data
+alloc app=1 ram=35
+alloc app=1 ram=54
+PAIR 600 8 emited 0 0 01090000000001 01000101
+dealloc app=1 ram=35
+PAIR 600 2 emited 0 0 01090000000001 01000101
+dealloc app=1 ram=35
+NET 600 8 0 0 0 4 2 0 35 2 0
+flush urgent no data
+NET 600 2 0 0 0 4 2 0 35 2 0
+flush urgent no data
+( 4, 3) recv seqno=0 len=12
+gather urgent remaning=0
+gather urgent remaning=0
+gather urgent remaning=0
+received for_me=1 end=10
+alloc app=4 ram=16
+alloc app=4 ram=32
+PAIR 599 3 emited 1 0 04060a00022c0001
+dealloc app=4 ram=16
+gather urgent remaning=1
+NET 599 3 0 1 0 0 1 0 16 1 1
+gather len=10
+( 3, 2) send urgent=1 len=12
+( 3, 2) recv seqno=0 len=12
+gather urgent remaning=1
+gather urgent remaning=0
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=51
+alloc app=4 ram=67
+PAIR 600 2 emited 1 0 04060a00022c0001
+dealloc app=4 ram=51
+( 4, 3) sent retx=1 len=0
+gather urgent remaning=1
+cleanup node=4 ram=51
+cleanup node=4 ram=51
+cleanup node=4 ram=51
+NET 600 2 0 1 0 4 3 0 51 3 1
+dealloc app=4 ram=35
+gather len=10
+cleanup node=4 ram=35
+( 2, 1) send urgent=1 len=12
+ 600 P 1.0 9 623905 19038348 0 124774 0 124774 62418 1903659 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 600 P 3.0 9 974070 18688190 1306 126041 0 124735 101067 1865012 1306 13747 0 12441 (radio 0.64% / 0.76% tx 0.00% / 0.06% listen 0.64% / 0.69%)
+NET 600 3 0 1 0 1 1 0 16 1 1
+flush urgent no medium
+alloc app=3 ram=32
+alloc app=3 ram=48
+PAIR 600 3 emited 0 0 0306000002c80001
+dealloc app=3 ram=32
+NET 600 3 0 1 0 2 2 0 32 2 1
+flush urgent no medium
+fire!
+alloc app=2 ram=51
+alloc app=2 ram=70
+PAIR 600 3 emited 0 0 02090a00c80001 01000101
+dealloc app=2 ram=51
+NET 600 3 0 1 0 3 3 0 51 3 1
+flush urgent no medium
+alloc app=1 ram=70
+alloc app=1 ram=89
+PAIR 600 3 emited 0 0 01090000000001 01000101
+dealloc app=1 ram=70
+( 2, 1) recv seqno=0 len=12
+NET 600 3 0 1 0 4 4 0 70 4 1
+gather urgent remaning=0
+flush urgent no medium
+gather urgent remaning=0
+gather urgent remaning=0
+received for_me=1 end=10
+alloc app=4 ram=16
+alloc app=4 ram=32
+( 3, 2) sent retx=1 len=0
+cleanup node=3 ram=70
+PAIR 600 1 emited 1 0 04060a00022c0001
+cleanup node=3 ram=70
+dealloc app=4 ram=16
+cleanup node=3 ram=70
+gather urgent remaning=1
+dealloc app=4 ram=54
+cleanup node=3 ram=54
+NET 600 1 0 1 0 0 1 0 16 1 1
+dealloc app=4 ram=0
+ 600 P 7.0 9 970042 18692216 0 124774 0 124774 97043 1869034 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+road!
+alloc app=4 ram=16
+alloc app=4 ram=32
+PAIR 600 7 emited 1 0 04060a0002580001
+dealloc app=4 ram=16
+NET 600 7 0 0 0 1 1 0 16 1 1
+gather len=10
+( 7, 6) send urgent=1 len=12
+alloc app=3 ram=32
+alloc app=3 ram=48
+PAIR 600 7 emited 0 0 0306000002580001
+dealloc app=3 ram=32
+NET 600 7 0 0 0 2 2 0 32 2 1
+flush urgent no medium
+NET 600 7 0 0 0 3 2 0 32 2 1
+flush urgent no medium
+ 600 P 9.0 9 970042 18692216 0 124774 0 124774 97043 1869034 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+alloc app=1 ram=51
+alloc app=1 ram=70
+NET 600 9 0 0 0 1 0 0 0 0 0
+flush urgent no data
+alloc app=3 ram=16
+PAIR 600 7 emited 0 0 01090000000001 01000101
+alloc app=3 ram=32
+dealloc app=1 ram=51
+NET 600 7 0 0 0 4 3 0 51 3 1
+PAIR 600 9 emited 0 0 0306000002200001
+flush urgent no medium
+dealloc app=3 ram=16
+NET 600 9 0 0 0 2 1 0 16 1 0
+flush urgent no data
+fire!
+alloc app=2 ram=35
+alloc app=2 ram=54
+PAIR 600 9 emited 0 0 02090a00200001 01000101
+dealloc app=2 ram=35
+NET 600 9 0 0 0 3 2 0 35 2 0
+flush urgent no data
+alloc app=1 ram=54
+( 2, 1) sent retx=1 len=0
+alloc app=1 ram=73
+cleanup node=2 ram=51
+cleanup node=2 ram=51
+cleanup node=2 ram=51
+dealloc app=4 ram=35
+PAIR 600 9 emited 0 0 01090000000001 01000101
+cleanup node=2 ram=35
+dealloc app=1 ram=54
+NET 600 9 0 0 0 4 3 0 54 3 0
+flush urgent no data
+( 7, 6) recv seqno=0 len=12
+gather urgent remaning=1
+gather urgent remaning=1
+ 600 P 10.0 9 970101 18692157 0 124774 0 124774 97050 1869027 0 12480 0 12480 (radio 0.63% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+gather urgent remaning=1
+road!
+alloc app=4 ram=16
+received for_me=1 end=10
+alloc app=4 ram=32
+alloc app=4 ram=70
+alloc app=4 ram=86
+PAIR 600 10 emited 1 0 04060a0002840001
+dealloc app=4 ram=16
+PAIR 600 6 emited 1 0 04060a0002580001
+dealloc app=4 ram=70
+gather urgent remaning=1
+NET 600 10 0 0 0 1 1 0 16 1 1
+gather len=10
+NET 600 6 0 1 0 4 4 0 70 4 1
+(10, 9) send urgent=1 len=12
+gather len=10
+alloc app=3 ram=32
+( 6, 5) send urgent=1 len=12
+alloc app=3 ram=48
+PAIR 600 10 emited 0 0 0306000002840001
+dealloc app=3 ram=32
+NET 600 10 0 0 0 2 2 0 32 2 1
+flush urgent no medium
+NET 600 10 0 0 0 3 2 0 32 2 1
+flush urgent no medium
+alloc app=1 ram=51
+alloc app=1 ram=70
+PAIR 600 10 emited 0 0 01090000000001 01000101
+dealloc app=1 ram=51
+NET 600 10 0 0 0 4 3 0 51 3 1
+flush urgent no medium
+( 6, 5) recv seqno=0 len=12
+gather urgent remaning=1
+gather urgent remaning=0
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=51
+alloc app=4 ram=67
+PAIR 601 5 emited 1 0 04060a0002580001
+dealloc app=4 ram=51
+gather urgent remaning=1
+NET 601 5 0 1 0 4 3 0 51 3 1
+gather len=10
+( 5, 4) send urgent=1 len=12
+( 7, 6) sent retx=1 len=0
+cleanup node=7 ram=51
+cleanup node=7 ram=51
+cleanup node=7 ram=51
+dealloc app=4 ram=35
+cleanup node=7 ram=35
+( 5, 4) recv seqno=0 len=12
+gather urgent remaning=1
+gather urgent remaning=0
+gather urgent remaning=1
+received for_me=1 end=10
+(10, 9) recv seqno=0 len=12
+alloc app=4 ram=51
+gather urgent remaning=1
+alloc app=4 ram=67
+gather urgent remaning=1
+gather urgent remaning=1
+received for_me=1 end=10
+PAIR 600 4 emited 1 0 04060a0002580001
+alloc app=4 ram=70
+dealloc app=4 ram=51
+alloc app=4 ram=86
+gather urgent remaning=1
+PAIR 600 9 emited 1 0 04060a0002840001
+NET 600 4 1 1 0 4 4 0 51 3 1
+gather len=10
+dealloc app=4 ram=70
+gather urgent remaning=1
+( 4, 3) send urgent=1 len=12
+NET 600 9 0 1 0 4 4 0 70 4 1
+gather len=10
+( 9, 8) send urgent=1 len=12
+( 6, 5) sent retx=1 len=0
+cleanup node=6 ram=70
+cleanup node=6 ram=70
+cleanup node=6 ram=70
+dealloc app=4 ram=54
+cleanup node=6 ram=54
+( 9, 8) recv seqno=0 len=12
+gather urgent remaning=1
+gather urgent remaning=0
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=51
+alloc app=4 ram=67
+PAIR 600 8 emited 1 0 04060a0002840001
+dealloc app=4 ram=51
+gather urgent remaning=1
+NET 600 8 0 1 0 4 3 0 51 3 1
+(10, 9) sent retx=1 len=0
+gather len=10
+cleanup node=10 ram=51
+( 8, 7) send urgent=1 len=12
+cleanup node=10 ram=51
+cleanup node=10 ram=51
+dealloc app=4 ram=35
+cleanup node=10 ram=35
+( 8, 7) recv seqno=0 len=12
+gather urgent remaning=1
+gather urgent remaning=0
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=51
+alloc app=4 ram=67
+PAIR 600 7 emited 1 0 04060a0002840001
+dealloc app=4 ram=51
+gather urgent remaning=1
+NET 600 7 1 1 0 4 4 0 51 3 1
+gather len=10
+( 7, 6) send urgent=1 len=12
+( 4, 3) recv seqno=1 len=12
+gather urgent remaning=1
+gather urgent remaning=1
+gather urgent remaning=1
+( 9, 8) sent retx=1 len=0
+received for_me=1 end=10
+cleanup node=9 ram=70
+alloc app=4 ram=70
+cleanup node=9 ram=70
+alloc app=4 ram=86
+cleanup node=9 ram=70
+dealloc app=4 ram=54
+cleanup node=9 ram=54
+PAIR 600 3 emited 1 0 04060a0002580001
+dealloc app=4 ram=70
+gather urgent remaning=1
+NET 600 3 1 2 0 4 5 0 70 4 1
+gather len=10
+( 3, 2) send urgent=1 len=12
+( 5, 4) sent retx=1 len=0
+cleanup node=5 ram=51
+cleanup node=5 ram=51
+cleanup node=5 ram=51
+dealloc app=4 ram=35
+cleanup node=5 ram=35
+( 8, 7) sent retx=1 len=0
+cleanup node=8 ram=51
+cleanup node=8 ram=51
+cleanup node=8 ram=51
+dealloc app=4 ram=35
+cleanup node=8 ram=35
+( 7, 6) recv seqno=1 len=12
+gather urgent remaning=1
+gather urgent remaning=1
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=70
+alloc app=4 ram=86
+PAIR 601 6 emited 1 0 04060a0002840001
+dealloc app=4 ram=70
+gather urgent remaning=1
+NET 601 6 1 2 0 4 5 0 70 4 1
+gather len=10
+( 6, 5) send urgent=1 len=12
+( 3, 2) recv seqno=1 len=12
+gather urgent remaning=1
+gather urgent remaning=0
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=51
+alloc app=4 ram=67
+PAIR 601 2 emited 1 0 04060a0002580001
+dealloc app=4 ram=51
+gather urgent remaning=1
+NET 601 2 1 2 0 4 4 0 51 3 1
+gather len=10
+( 2, 1) send urgent=1 len=12
+( 7, 6) sent retx=1 len=0
+cleanup node=7 ram=51
+cleanup node=7 ram=51
+cleanup node=7 ram=51
+dealloc app=4 ram=35
+cleanup node=7 ram=35
+( 2, 1) recv seqno=1 len=12
+gather urgent remaning=0
+gather urgent remaning=0
+gather urgent remaning=0
+received for_me=1 end=10
+alloc app=4 ram=16
+alloc app=4 ram=32
+( 3, 2) sent retx=1 len=0
+cleanup node=3 ram=70
+cleanup node=3 ram=70
+PAIR 601 1 emited 1 0 04060a0002580001
+cleanup node=3 ram=70
+dealloc app=4 ram=16
+dealloc app=4 ram=54
+gather urgent remaning=1
+cleanup node=3 ram=54
+NET 601 1 0 2 0 0 2 0 16 1 1
+dealloc app=4 ram=0
+( 4, 3) sent retx=1 len=0
+cleanup node=4 ram=51
+cleanup node=4 ram=51
+cleanup node=4 ram=51
+dealloc app=4 ram=35
+cleanup node=4 ram=35
+( 4, 3) recv seqno=1 len=12
+gather urgent remaning=1
+gather urgent remaning=1
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=70
+alloc app=4 ram=86
+PAIR 602 3 emited 1 0 04060a0002580001
+dealloc app=4 ram=70
+gather urgent remaning=1
+NET 602 3 2 3 0 4 6 0 70 4 1
+gather len=10
+( 3, 2) send urgent=1 len=12
+( 3, 2) recv seqno=2 len=12
+gather urgent remaning=1
+gather urgent remaning=0
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=67
+dealloc app=4 ram=51
+gather urgent remaning=1
+NET 602 2 1 3 0 4 5 1 51 3 1
+flush urgent no medium
+( 3, 2) sent retx=1 len=0
+cleanup node=3 ram=70
+cleanup node=3 ram=70
+cleanup node=3 ram=70
+dealloc app=4 ram=54
+cleanup node=3 ram=54
+( 2, 1) recv seqno=1 len=12
+gather urgent remaning=0
+gather urgent remaning=0
+gather urgent remaning=0
+received for_me=1 end=10
+alloc app=4 ram=16
+alloc app=4 ram=32
+PAIR 602 1 emited 1 0 04060a0002580001
+dealloc app=4 ram=16
+gather urgent remaning=1
+NET 602 1 0 3 0 0 3 0 16 1 1
+dealloc app=4 ram=0
+( 6, 5) recv seqno=1 len=12
+gather urgent remaning=1
+gather urgent remaning=0
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=51
+alloc app=4 ram=67
+PAIR 603 5 emited 1 0 04060a0002840001
+dealloc app=4 ram=51
+gather urgent remaning=1
+NET 603 5 1 2 0 4 4 0 51 3 1
+gather len=10
+( 5, 4) send urgent=1 len=12
+( 2, 1) sent retx=1 len=0
+cleanup node=2 ram=51
+cleanup node=2 ram=51
+cleanup node=2 ram=51
+dealloc app=4 ram=35
+cleanup node=2 ram=35
+( 5, 4) recv seqno=1 len=12
+gather urgent remaning=1
+gather urgent remaning=0
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=51
+alloc app=4 ram=67
+PAIR 603 4 emited 1 0 04060a0002840001
+dealloc app=4 ram=51
+gather urgent remaning=1
+NET 603 4 2 2 0 4 5 0 51 3 1
+gather len=10
+( 4, 3) send urgent=1 len=12
+( 6, 5) sent retx=2 len=0
+cleanup node=6 ram=70
+cleanup node=6 ram=70
+cleanup node=6 ram=70
+dealloc app=4 ram=54
+cleanup node=6 ram=54
+( 5, 4) sent retx=1 len=0
+cleanup node=5 ram=51
+cleanup node=5 ram=51
+cleanup node=5 ram=51
+dealloc app=4 ram=35
+cleanup node=5 ram=35
+( 4, 3) recv seqno=2 len=12
+gather urgent remaning=1
+gather urgent remaning=1
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=70
+alloc app=4 ram=86
+PAIR 603 3 emited 1 0 04060a0002840001
+dealloc app=4 ram=70
+gather urgent remaning=1
+NET 603 3 3 4 0 4 7 0 70 4 1
+gather len=10
+( 3, 2) send urgent=1 len=12
+( 4, 3) sent retx=2 len=0
+cleanup node=4 ram=51
+cleanup node=4 ram=51
+cleanup node=4 ram=51
+dealloc app=4 ram=35
+cleanup node=4 ram=35
+( 3, 2) recv seqno=3 len=12
+gather urgent remaning=1
+gather urgent remaning=0
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=51
+alloc app=4 ram=67
+PAIR 603 2 emited 1 0 04060a0002840001
+dealloc app=4 ram=51
+gather urgent remaning=1
+NET 603 2 2 4 0 4 6 1 51 3 1
+gather len=10
+( 2, 1) send urgent=1 len=12
+( 2, 1) recv seqno=2 len=12
+gather urgent remaning=0
+gather urgent remaning=0
+gather urgent remaning=0
+received for_me=1 end=10
+alloc app=4 ram=16
+alloc app=4 ram=32
+( 3, 2) sent retx=1 len=0
+cleanup node=3 ram=70
+PAIR 603 1 emited 1 0 04060a0002840001
+cleanup node=3 ram=70
+dealloc app=4 ram=16
+cleanup node=3 ram=70
+gather urgent remaning=1
+dealloc app=4 ram=54
+cleanup node=3 ram=54
+NET 603 1 0 4 0 0 4 0 16 1 1
+dealloc app=4 ram=0
+( 2, 1) sent retx=1 len=0
+cleanup node=2 ram=51
+cleanup node=2 ram=51
+cleanup node=2 ram=51
+dealloc app=4 ram=35
+cleanup node=2 ram=35
+ 660 P 6.0 10 1100329 20528011 15028 149006 0 137171 130280 1835799 15028 24232 0 12397 (radio 0.75% / 1.99% tx 0.06% / 0.76% listen 0.68% / 1.23%)
+ 660 P 5.0 10 1077385 20550955 2486 141651 0 138756 107336 1858743 2486 16877 0 13982 (radio 0.66% / 0.98% tx 0.01% / 0.12% listen 0.65% / 0.85%)
+ 660 P 4.0 10 1100877 20527463 14068 149431 0 137563 130832 1835247 14068 24657 0 12789 (radio 0.75% / 1.96% tx 0.06% / 0.71% listen 0.69% / 1.25%)
+ 660 P 8.0 10 1074091 20554249 1947 139266 0 137379 104042 1862037 1947 14492 0 12605 (radio 0.65% / 0.83% tx 0.00% / 0.09% listen 0.64% / 0.73%)
+ 660 P 2.0 10 1093511 20534829 9395 147045 0 138022 123462 1842617 9395 22271 0 13248 (radio 0.72% / 1.61% tx 0.04% / 0.47% listen 0.67% / 1.13%)
+ 660 P 1.0 10 708623 20919710 9575 144994 0 137033 84715 1881362 9575 20220 0 12259 (radio 0.71% / 1.51% tx 0.04% / 0.48% listen 0.67% / 1.02%)
+ 660 P 3.0 10 1109675 20518665 17556 151905 0 136983 135602 1830475 16250 25864 0 12248 (radio 0.78% / 2.14% tx 0.08% / 0.82% listen 0.70% / 1.31%)
+ 660 P 7.0 10 1080140 20548200 4610 141871 0 137931 110095 1855984 4610 17097 0 13157 (radio 0.67% / 1.10% tx 0.02% / 0.23% listen 0.65% / 0.86%)
+ 660 P 9.0 10 1073362 20554978 1269 138565 0 137202 103317 1862762 1269 13791 0 12428 (radio 0.64% / 0.76% tx 0.00% / 0.06% listen 0.64% / 0.70%)
+ 660 P 10.0 10 1073918 20554422 2358 139082 0 137202 103814 1862265 2358 14308 0 12428 (radio 0.65% / 0.84% tx 0.01% / 0.11% listen 0.64% / 0.72%)
+ 720 P 6.0 11 1197461 22396957 15028 161486 0 149651 97129 1868946 0 12480 0 12480 (radio 0.74% / 0.63% tx 0.06% / 0.00% listen 0.68% / 0.63%)
+ 720 P 5.0 11 1174490 22419928 2486 154131 0 151236 97102 1868973 0 12480 0 12480 (radio 0.66% / 0.63% tx 0.01% / 0.00% listen 0.65% / 0.63%)
+ 720 P 4.0 11 1198009 22396409 14068 161911 0 150043 97129 1868946 0 12480 0 12480 (radio 0.74% / 0.63% tx 0.05% / 0.00% listen 0.68% / 0.63%)
+ 720 P 8.0 11 1171192 22423226 1947 151746 0 149859 97098 1868977 0 12480 0 12480 (radio 0.65% / 0.63% tx 0.00% / 0.00% listen 0.64% / 0.63%)
+ 720 P 2.0 11 1190617 22403801 9395 159525 0 150502 97103 1868972 0 12480 0 12480 (radio 0.71% / 0.63% tx 0.03% / 0.00% listen 0.67% / 0.63%)
+ 720 P 1.0 11 771139 22823274 9575 157474 0 149513 62513 1903564 0 12480 0 12480 (radio 0.70% / 0.63% tx 0.04% / 0.00% listen 0.66% / 0.63%)
+ 720 P 3.0 11 1206807 22387611 17556 164385 0 149463 97129 1868946 0 12480 0 12480 (radio 0.77% / 0.63% tx 0.07% / 0.00% listen 0.69% / 0.63%)
+ 720 P 7.0 11 1177245 22417173 4610 154351 0 150411 97102 1868973 0 12480 0 12480 (radio 0.67% / 0.63% tx 0.01% / 0.00% listen 0.65% / 0.63%)
+ 720 P 9.0 11 1170464 22423954 1269 151045 0 149682 97099 1868976 0 12480 0 12480 (radio 0.64% / 0.63% tx 0.00% / 0.00% listen 0.64% / 0.63%)
+ 720 P 10.0 11 1171028 22423390 2358 151562 0 149682 97107 1868968 0 12480 0 12480 (radio 0.65% / 0.63% tx 0.00% / 0.00% listen 0.64% / 0.63%)
+ 780 P 6.0 12 1294542 24265956 15028 173966 0 162131 97078 1868999 0 12480 0 12480 (radio 0.73% / 0.63% tx 0.05% / 0.00% listen 0.68% / 0.63%)
+ 780 P 5.0 12 1271554 24288944 2486 166611 0 163716 97061 1869016 0 12480 0 12480 (radio 0.66% / 0.63% tx 0.00% / 0.00% listen 0.65% / 0.63%)
+ 780 P 4.0 12 1295090 24265408 14068 174391 0 162523 97078 1868999 0 12480 0 12480 (radio 0.73% / 0.63% tx 0.05% / 0.00% listen 0.68% / 0.63%)
+ 780 P 8.0 12 1268258 24292240 1947 164226 0 162339 97063 1869014 0 12480 0 12480 (radio 0.65% / 0.63% tx 0.00% / 0.00% listen 0.64% / 0.63%)
+ 780 P 2.0 12 1287683 24272815 9395 172005 0 162982 97063 1869014 0 12480 0 12480 (radio 0.70% / 0.63% tx 0.03% / 0.00% listen 0.67% / 0.63%)
+ 780 P 1.0 12 833632 24726861 9575 169954 0 161993 62490 1903587 0 12480 0 12480 (radio 0.70% / 0.63% tx 0.03% / 0.00% listen 0.66% / 0.63%)
+ 780 P 3.0 12 1303887 24256611 17556 176865 0 161943 97077 1869000 0 12480 0 12480 (radio 0.76% / 0.63% tx 0.06% / 0.00% listen 0.69% / 0.63%)
+ 780 P 7.0 12 1274311 24286187 4610 166831 0 162891 97063 1869014 0 12480 0 12480 (radio 0.67% / 0.63% tx 0.01% / 0.00% listen 0.65% / 0.63%)
+ 780 P 9.0 12 1267530 24292968 1269 163525 0 162162 97063 1869014 0 12480 0 12480 (radio 0.64% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 780 P 10.0 12 1268099 24292399 2358 164042 0 162162 97068 1869009 0 12480 0 12480 (radio 0.65% / 0.63% tx 0.00% / 0.00% listen 0.64% / 0.63%)
+ 840 P 6.0 13 1391630 26134948 15028 186446 0 174611 97085 1868992 0 12480 0 12480 (radio 0.73% / 0.63% tx 0.05% / 0.00% listen 0.67% / 0.63%)
+ 840 P 5.0 13 1368628 26157950 2486 179091 0 176196 97071 1869006 0 12480 0 12480 (radio 0.65% / 0.63% tx 0.00% / 0.00% listen 0.65% / 0.63%)
+ 840 P 4.0 13 1392178 26134400 14068 186871 0 175003 97085 1868992 0 12480 0 12480 (radio 0.72% / 0.63% tx 0.05% / 0.00% listen 0.67% / 0.63%)
+ 840 P 8.0 13 1365330 26161248 1947 176706 0 174819 97069 1869008 0 12480 0 12480 (radio 0.64% / 0.63% tx 0.00% / 0.00% listen 0.64% / 0.63%)
+ 840 P 2.0 13 1384755 26141823 9395 184485 0 175462 97069 1869008 0 12480 0 12480 (radio 0.70% / 0.63% tx 0.03% / 0.00% listen 0.67% / 0.63%)
+ 840 P 1.0 13 896132 26630441 9575 182434 0 174473 62497 1903580 0 12480 0 12480 (radio 0.69% / 0.63% tx 0.03% / 0.00% listen 0.66% / 0.63%)
+ 840 P 3.0 13 1400975 26125603 17556 189345 0 174423 97085 1868992 0 12480 0 12480 (radio 0.75% / 0.63% tx 0.06% / 0.00% listen 0.68% / 0.63%)
+ 840 P 7.0 13 1371385 26155193 4610 179311 0 175371 97071 1869006 0 12480 0 12480 (radio 0.66% / 0.63% tx 0.01% / 0.00% listen 0.65% / 0.63%)
+ 840 P 9.0 13 1364604 26161974 1269 176005 0 174642 97071 1869006 0 12480 0 12480 (radio 0.64% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 840 P 10.0 13 1365176 26161402 2358 176522 0 174642 97074 1869003 0 12480 0 12480 (radio 0.64% / 0.63% tx 0.00% / 0.00% listen 0.64% / 0.63%)
+ 900 P 6.0 14 1488726 28003932 15028 198926 0 187091 97093 1868984 0 12480 0 12480 (radio 0.72% / 0.63% tx 0.05% / 0.00% listen 0.67% / 0.63%)
+ 900 P 5.0 14 1465710 28026948 2486 191571 0 188676 97079 1868998 0 12480 0 12480 (radio 0.65% / 0.63% tx 0.00% / 0.00% listen 0.64% / 0.63%)
+ 900 P 4.0 14 1489274 28003384 14068 199351 0 187483 97093 1868984 0 12480 0 12480 (radio 0.72% / 0.63% tx 0.04% / 0.00% listen 0.67% / 0.63%)
+ 900 P 8.0 14 1462409 28030249 1947 189186 0 187299 97076 1869001 0 12480 0 12480 (radio 0.64% / 0.63% tx 0.00% / 0.00% listen 0.64% / 0.63%)
+ 900 P 2.0 14 1481837 28010821 9395 196965 0 187942 97079 1868998 0 12480 0 12480 (radio 0.69% / 0.63% tx 0.03% / 0.00% listen 0.66% / 0.63%)
+ 900 P 1.0 14 958639 28534014 9575 194914 0 186953 62504 1903573 0 12480 0 12480 (radio 0.69% / 0.63% tx 0.03% / 0.00% listen 0.66% / 0.63%)
+ 900 P 3.0 14 1498071 27994587 17556 201825 0 186903 97093 1868984 0 12480 0 12480 (radio 0.74% / 0.63% tx 0.05% / 0.00% listen 0.68% / 0.63%)
+ 900 P 7.0 14 1468467 28024191 4610 191791 0 187851 97079 1868998 0 12480 0 12480 (radio 0.66% / 0.63% tx 0.01% / 0.00% listen 0.65% / 0.63%)
+ 900 P 9.0 14 1461683 28030975 1269 188485 0 187122 97076 1869001 0 12480 0 12480 (radio 0.64% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 900 P 10.0 14 1462261 28030397 2358 189002 0 187122 97082 1868995 0 12480 0 12480 (radio 0.64% / 0.63% tx 0.00% / 0.00% listen 0.64% / 0.63%)
+ 960 P 6.0 15 1585830 29872908 15028 211406 0 199571 97101 1868976 0 12480 0 12480 (radio 0.71% / 0.63% tx 0.04% / 0.00% listen 0.67% / 0.63%)
+ 960 P 5.0 15 1562800 29895938 2486 204051 0 201156 97087 1868990 0 12480 0 12480 (radio 0.65% / 0.63% tx 0.00% / 0.00% listen 0.64% / 0.63%)
+ 960 P 4.0 15 1586378 29872360 14068 211831 0 199963 97101 1868976 0 12480 0 12480 (radio 0.71% / 0.63% tx 0.04% / 0.00% listen 0.67% / 0.63%)
+ 960 P 8.0 15 1559497 29899241 1947 201666 0 199779 97085 1868992 0 12480 0 12480 (radio 0.64% / 0.63% tx 0.00% / 0.00% listen 0.64% / 0.63%)
+ 960 P 2.0 15 1578927 29879811 9395 209445 0 200422 97087 1868990 0 12480 0 12480 (radio 0.69% / 0.63% tx 0.02% / 0.00% listen 0.66% / 0.63%)
+ 960 P 1.0 15 1021156 30437577 9575 207394 0 199433 62514 1903563 0 12480 0 12480 (radio 0.68% / 0.63% tx 0.03% / 0.00% listen 0.65% / 0.63%)
+ 960 P 3.0 15 1595175 29863563 17556 214305 0 199383 97101 1868976 0 12480 0 12480 (radio 0.73% / 0.63% tx 0.05% / 0.00% listen 0.68% / 0.63%)
+ 960 P 7.0 15 1565557 29893181 4610 204271 0 200331 97087 1868990 0 12480 0 12480 (radio 0.66% / 0.63% tx 0.01% / 0.00% listen 0.64% / 0.63%)
+ 960 P 9.0 15 1558773 29899965 1269 200965 0 199602 97087 1868990 0 12480 0 12480 (radio 0.64% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 960 P 10.0 15 1559356 29899382 2358 201482 0 199602 97092 1868985 0 12480 0 12480 (radio 0.64% / 0.63% tx 0.00% / 0.00% listen 0.64% / 0.63%)
+ 1020 P 6.0 16 1682943 31741875 15028 223886 0 212051 97110 1868967 0 12480 0 12480 (radio 0.71% / 0.63% tx 0.04% / 0.00% listen 0.66% / 0.63%)
+ 1020 P 5.0 16 1659898 31764920 2486 216531 0 213636 97095 1868982 0 12480 0 12480 (radio 0.65% / 0.63% tx 0.00% / 0.00% listen 0.64% / 0.63%)
+ 1020 P 4.0 16 1683491 31741327 14068 224311 0 212443 97110 1868967 0 12480 0 12480 (radio 0.71% / 0.63% tx 0.04% / 0.00% listen 0.67% / 0.63%)
+ 1020 P 8.0 16 1656595 31768223 1947 214146 0 212259 97095 1868982 0 12480 0 12480 (radio 0.64% / 0.63% tx 0.00% / 0.00% listen 0.64% / 0.63%)
+ 1020 P 2.0 16 1676025 31748793 9395 221925 0 212902 97095 1868982 0 12480 0 12480 (radio 0.69% / 0.63% tx 0.02% / 0.00% listen 0.66% / 0.63%)
+ 1020 P 1.0 16 1083690 32341123 9575 219874 0 211913 62531 1903546 0 12480 0 12480 (radio 0.68% / 0.63% tx 0.02% / 0.00% listen 0.65% / 0.63%)
+ 1020 P 3.0 16 1692288 31732530 17556 226785 0 211863 97110 1868967 0 12480 0 12480 (radio 0.73% / 0.63% tx 0.05% / 0.00% listen 0.67% / 0.63%)
+ 1020 P 7.0 16 1662655 31762163 4610 216751 0 212811 97095 1868982 0 12480 0 12480 (radio 0.66% / 0.63% tx 0.01% / 0.00% listen 0.64% / 0.63%)
+ 1020 P 9.0 16 1655871 31768947 1269 213445 0 212082 97095 1868982 0 12480 0 12480 (radio 0.64% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 1020 P 10.0 16 1656461 31768357 2358 213962 0 212082 97102 1868975 0 12480 0 12480 (radio 0.64% / 0.63% tx 0.00% / 0.00% listen 0.64% / 0.63%)
+ 1080 P 6.0 17 1780072 33610826 15028 236366 0 224531 97126 1868951 0 12480 0 12480 (radio 0.71% / 0.63% tx 0.04% / 0.00% listen 0.66% / 0.63%)
+ 1080 P 5.0 17 1757016 33633882 2486 229011 0 226116 97115 1868962 0 12480 0 12480 (radio 0.65% / 0.63% tx 0.00% / 0.00% listen 0.64% / 0.63%)
+ 1080 P 4.0 17 1780620 33610278 14068 236791 0 224923 97126 1868951 0 12480 0 12480 (radio 0.70% / 0.63% tx 0.03% / 0.00% listen 0.66% / 0.63%)
+ 1080 P 8.0 17 1753714 33637184 1947 226626 0 224739 97116 1868961 0 12480 0 12480 (radio 0.64% / 0.63% tx 0.00% / 0.00% listen 0.64% / 0.63%)
+ 1080 P 2.0 17 1773144 33617754 9395 234405 0 225382 97116 1868961 0 12480 0 12480 (radio 0.68% / 0.63% tx 0.02% / 0.00% listen 0.66% / 0.63%)
+ 1080 P 1.0 17 1146246 34244647 9575 232354 0 224393 62553 1903524 0 12480 0 12480 (radio 0.68% / 0.63% tx 0.02% / 0.00% listen 0.65% / 0.63%)
+ 1080 P 3.0 17 1789417 33601481 17556 239265 0 224343 97126 1868951 0 12480 0 12480 (radio 0.72% / 0.63% tx 0.04% / 0.00% listen 0.67% / 0.63%)
+ 1080 P 7.0 17 1759774 33631124 4610 229231 0 225291 97116 1868961 0 12480 0 12480 (radio 0.66% / 0.63% tx 0.01% / 0.00% listen 0.64% / 0.63%)
+ 1080 P 9.0 17 1752990 33637908 1269 225925 0 224562 97116 1868961 0 12480 0 12480 (radio 0.64% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 1080 P 10.0 17 1753582 33637316 2358 226442 0 224562 97118 1868959 0 12480 0 12480 (radio 0.64% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 1140 P 6.0 18 1877237 35479741 15028 248846 0 237011 97162 1868915 0 12480 0 12480 (radio 0.70% / 0.63% tx 0.04% / 0.00% listen 0.66% / 0.63%)
+ 1140 P 5.0 18 1854171 35502807 2486 241491 0 238596 97152 1868925 0 12480 0 12480 (radio 0.65% / 0.63% tx 0.00% / 0.00% listen 0.64% / 0.63%)
+ 1140 P 4.0 18 1877785 35479193 14068 249271 0 237403 97162 1868915 0 12480 0 12480 (radio 0.70% / 0.63% tx 0.03% / 0.00% listen 0.66% / 0.63%)
+ 1140 P 8.0 18 1850869 35506109 1947 239106 0 237219 97152 1868925 0 12480 0 12480 (radio 0.64% / 0.63% tx 0.00% / 0.00% listen 0.64% / 0.63%)
+ 1140 P 2.0 18 1870299 35486679 9395 246885 0 237862 97152 1868925 0 12480 0 12480 (radio 0.68% / 0.63% tx 0.02% / 0.00% listen 0.66% / 0.63%)
+ 1140 P 1.0 18 1208810 36148163 9575 244834 0 236873 62561 1903516 0 12480 0 12480 (radio 0.68% / 0.63% tx 0.02% / 0.00% listen 0.65% / 0.63%)
+ 1140 P 3.0 18 1886582 35470396 17556 251745 0 236823 97162 1868915 0 12480 0 12480 (radio 0.72% / 0.63% tx 0.04% / 0.00% listen 0.67% / 0.63%)
+ 1140 P 7.0 18 1856929 35500049 4610 241711 0 237771 97152 1868925 0 12480 0 12480 (radio 0.65% / 0.63% tx 0.01% / 0.00% listen 0.64% / 0.63%)
+ 1140 P 9.0 18 1850145 35506833 1269 238405 0 237042 97152 1868925 0 12480 0 12480 (radio 0.64% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 1140 P 10.0 18 1850740 35506238 2358 238922 0 237042 97155 1868922 0 12480 0 12480 (radio 0.64% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+ 1200 P 6.0 19 1974443 37348615 15028 261326 0 249491 97203 1868874 0 12480 0 12480 (radio 0.70% / 0.63% tx 0.03% / 0.00% listen 0.66% / 0.63%)
+alloc app=1 ram=73
+dealloc app=1 ram=54
+ 1200 P 5.0 19 1951367 37371691 2486 253971 0 251076 97193 1868884 0 12480 0 12480 (radio 0.65% / 0.63% tx 0.00% / 0.00% listen 0.64% / 0.63%)
+alloc app=1 ram=54
+NET 1200 6 2 2 0 5 6 1 54 3 0
+dealloc app=1 ram=35
+flush urgent no data
+fire!
+alloc app=2 ram=73
+alloc app=2 ram=92
+NET 1200 5 2 2 0 5 5 1 35 2 0
+flush urgent no data
+NET 1200 5 2 2 0 6 5 1 35 2 0
+PAIR 1200 6 emited 0 0 02091400f40001 01000101
+flush urgent no data
+dealloc app=2 ram=73
+alloc app=3 ram=51
+dealloc app=3 ram=35
+NET 1200 6 2 2 0 6 7 1 73 4 0
+flush urgent no data
+alloc app=3 ram=89
+NET 1200 5 2 2 0 7 6 2 35 2 0
+flush urgent no data
+dealloc app=3 ram=73
+NET 1200 6 2 2 0 7 8 2 73 4 0
+NET 1200 5 2 2 0 8 6 2 35 2 0
+flush urgent no data
+flush urgent no data
+NET 1200 6 2 2 0 8 8 2 73 4 0
+flush urgent no data
+ 1200 P 4.0 19 1974991 37348067 14068 261751 0 249883 97203 1868874 0 12480 0 12480 (radio 0.70% / 0.63% tx 0.03% / 0.00% listen 0.66% / 0.63%)
+alloc app=1 ram=54
+dealloc app=1 ram=35
+NET 1200 4 3 2 0 5 6 1 35 2 0
+flush urgent no data
+NET 1200 4 3 2 0 6 6 1 35 2 0
+flush urgent no data
+alloc app=3 ram=51
+dealloc app=3 ram=35
+NET 1200 4 3 2 0 7 7 2 35 2 0
+flush urgent no data
+road!
+alloc app=4 ram=51
+alloc app=4 ram=67
+PAIR 1200 4 emited 1 0 04061400022c0001
+dealloc app=4 ram=51
+NET 1200 4 3 2 0 8 8 2 51 3 1
+gather len=10
+( 4, 3) send urgent=1 len=12
+( 4, 3) recv seqno=3 len=12
+gather urgent remaning=1
+gather urgent remaning=1
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=70
+alloc app=4 ram=86
+PAIR 1199 3 emited 1 0 04061400022c0001
+dealloc app=4 ram=70
+gather urgent remaning=1
+NET 1199 3 4 5 0 4 8 0 70 4 1
+gather len=10
+( 3, 2) send urgent=1 len=12
+ 1200 P 8.0 19 1948065 37374993 1947 251586 0 249699 97193 1868884 0 12480 0 12480 (radio 0.64% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+alloc app=1 ram=54
+ 1200 P 2.0 19 1967496 37355562 9395 259365 0 250342 97194 1868883 0 12480 0 12480 (radio 0.68% / 0.63% tx 0.02% / 0.00% listen 0.65% / 0.63%)
+dealloc app=1 ram=35
+alloc app=1 ram=54
+dealloc app=1 ram=35
+NET 1200 8 1 1 0 5 4 1 35 2 0
+flush urgent no data
+NET 1200 2 3 4 0 5 7 2 35 2 0
+flush urgent no data
+NET 1200 8 1 1 0 6 4 1 35 2 0
+flush urgent no data
+alloc app=3 ram=51
+NET 1200 2 3 4 0 6 7 2 35 2 0
+dealloc app=3 ram=35
+flush urgent no data
+alloc app=3 ram=51
+dealloc app=3 ram=35
+NET 1200 8 1 1 0 7 5 2 35 2 0
+flush urgent no data
+NET 1200 2 3 4 0 7 8 3 35 2 0
+flush urgent no data
+NET 1200 8 1 1 0 8 5 2 35 2 0
+flush urgent no data
+NET 1200 2 3 4 0 8 8 3 35 2 0
+flush urgent no data
+( 3, 2) recv seqno=0 len=12
+gather urgent remaning=1
+gather urgent remaning=0
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=51
+alloc app=4 ram=67
+PAIR 1200 2 emited 1 0 04061400022c0001
+dealloc app=4 ram=51
+( 4, 3) sent retx=1 len=0
+gather urgent remaning=1
+cleanup node=4 ram=51
+cleanup node=4 ram=51
+cleanup node=4 ram=51
+NET 1200 2 3 5 0 8 9 3 51 3 1
+dealloc app=4 ram=35
+gather len=10
+cleanup node=4 ram=35
+( 2, 1) send urgent=1 len=12
+( 2, 1) recv seqno=3 len=12
+gather urgent remaning=0
+gather urgent remaning=0
+gather urgent remaning=0
+received for_me=1 end=10
+alloc app=4 ram=16
+alloc app=4 ram=32
+( 3, 2) sent retx=1 len=0
+cleanup node=3 ram=70
+PAIR 1200 1 emited 1 0 04061400022c0001
+cleanup node=3 ram=70
+dealloc app=4 ram=16
+cleanup node=3 ram=70
+gather urgent remaning=1
+dealloc app=4 ram=54
+cleanup node=3 ram=54
+NET 1200 1 0 5 0 0 5 0 16 1 1
+dealloc app=4 ram=0
+ 1200 P 3.0 19 1988400 37334658 18958 265629 0 249238 101815 1864262 1402 13884 0 12415 (radio 0.72% / 0.77% tx 0.04% / 0.07% listen 0.67% / 0.70%)
+alloc app=1 ram=73
+dealloc app=1 ram=54
+NET 1200 3 5 5 0 5 9 1 54 3 0
+flush urgent no data
+fire!
+alloc app=2 ram=73
+alloc app=2 ram=92
+PAIR 1200 3 emited 0 0 02091400c80001 01000101
+dealloc app=2 ram=73
+NET 1200 3 5 5 0 6 10 1 73 4 0
+flush urgent no data
+alloc app=3 ram=89
+dealloc app=3 ram=73
+NET 1200 3 5 5 0 7 11 2 73 4 0
+flush urgent no data
+NET 1200 3 5 5 0 8 11 2 73 4 0
+flush urgent no data
+( 2, 1) sent retx=1 len=0
+cleanup node=2 ram=51
+cleanup node=2 ram=51
+cleanup node=2 ram=51
+dealloc app=4 ram=35
+cleanup node=2 ram=35
+ 1200 P 1.0 19 1275212 38050889 11064 258619 0 249353 66399 1902726 1489 13785 0 12480 (radio 0.68% / 0.77% tx 0.02% / 0.07% listen 0.65% / 0.70%)
+ 1200 P 7.0 19 1954125 37368933 4610 254191 0 250251 97193 1868884 0 12480 0 12480 (radio 0.65% / 0.63% tx 0.01% / 0.00% listen 0.64% / 0.63%)
+alloc app=1 ram=54
+dealloc app=1 ram=35
+NET 1200 7 2 1 0 5 5 1 35 2 0
+flush urgent no data
+NET 1200 7 2 1 0 6 5 1 35 2 0
+flush urgent no data
+alloc app=3 ram=51
+dealloc app=3 ram=35
+NET 1200 7 2 1 0 7 6 2 35 2 0
+flush urgent no data
+road!
+alloc app=4 ram=51
+alloc app=4 ram=67
+PAIR 1200 7 emited 1 0 0406140002580001
+dealloc app=4 ram=51
+NET 1200 7 2 1 0 8 7 2 51 3 1
+gather len=10
+ 1200 P 9.0 19 1947341 37375717 1269 250885 0 249522 97193 1868884 0 12480 0 12480 (radio 0.64% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+( 7, 6) send urgent=1 len=12
+alloc app=1 ram=73
+dealloc app=1 ram=54
+NET 1200 9 1 1 0 5 5 1 54 3 0
+flush urgent no data
+fire!
+alloc app=2 ram=73
+alloc app=2 ram=92
+PAIR 1200 9 emited 0 0 02091400200001 01000101
+dealloc app=2 ram=73
+NET 1200 9 1 1 0 6 6 1 73 4 0
+flush urgent no data
+alloc app=3 ram=89
+dealloc app=3 ram=73
+NET 1200 9 1 1 0 7 7 2 73 4 0
+flush urgent no data
+NET 1200 9 1 1 0 8 7 2 73 4 0
+flush urgent no data
+( 7, 6) recv seqno=2 len=12
+gather urgent remaning=1
+gather urgent remaning=2
+ 1200 P 10.0 19 1947939 37375119 2358 251402 0 249522 97196 1868881 0 12480 0 12480 (radio 0.64% / 0.63% tx 0.00% / 0.00% listen 0.63% / 0.63%)
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=1 ram=54
+alloc app=4 ram=89
+dealloc app=1 ram=35
+alloc app=4 ram=105
+NET 1200 10 1 0 0 5 4 1 35 2 0
+flush urgent no data
+PAIR 1200 6 emited 1 0 0406140002580001
+dealloc app=4 ram=89
+gather urgent remaning=1
+NET 1200 10 1 0 0 6 4 1 35 2 0
+flush urgent no data
+NET 1200 6 2 3 0 8 9 2 89 5 1
+alloc app=3 ram=51
+gather len=10
+dealloc app=3 ram=35
+( 6, 5) send urgent=1 len=12
+NET 1200 10 1 0 0 7 5 2 35 2 0
+flush urgent no data
+road!
+alloc app=4 ram=51
+alloc app=4 ram=67
+PAIR 1200 10 emited 1 0 0406140002840001
+dealloc app=4 ram=51
+NET 1200 10 1 0 0 8 6 2 51 3 1
+gather len=10
+(10, 9) send urgent=1 len=12
+(10, 9) recv seqno=1 len=12
+gather urgent remaning=1
+gather urgent remaning=2
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=89
+alloc app=4 ram=105
+PAIR 1200 9 emited 1 0 0406140002840001
+dealloc app=4 ram=89
+gather urgent remaning=1
+NET 1200 9 1 2 0 8 8 2 89 5 1
+gather len=10
+( 9, 8) send urgent=1 len=12
+( 6, 5) recv seqno=2 len=12
+gather urgent remaning=1
+gather urgent remaning=0
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=51
+alloc app=4 ram=67
+PAIR 1201 5 emited 1 0 0406140002580001
+dealloc app=4 ram=51
+gather urgent remaning=1
+NET 1201 5 2 3 0 8 7 2 51 3 1
+gather len=10
+( 5, 4) send urgent=1 len=12
+( 5, 4) recv seqno=2 len=12
+gather urgent remaning=1
+(10, 9) sent retx=1 len=0
+gather urgent remaning=0
+cleanup node=10 ram=51
+gather urgent remaning=1
+cleanup node=10 ram=51
+received for_me=1 end=10
+cleanup node=10 ram=51
+alloc app=4 ram=51
+dealloc app=4 ram=35
+alloc app=4 ram=67
+cleanup node=10 ram=35
+PAIR 1201 4 emited 1 0 0406140002580001
+dealloc app=4 ram=51
+gather urgent remaning=1
+NET 1201 4 4 3 0 8 9 2 51 3 1
+gather len=10
+( 4, 3) send urgent=1 len=12
+( 6, 5) sent retx=1 len=0
+cleanup node=6 ram=89
+cleanup node=6 ram=89
+cleanup node=6 ram=89
+dealloc app=4 ram=73
+cleanup node=6 ram=73
+( 9, 8) recv seqno=1 len=12
+gather urgent remaning=1
+gather urgent remaning=0
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=51
+alloc app=4 ram=67
+PAIR 1201 8 emited 1 0 0406140002840001
+dealloc app=4 ram=51
+gather urgent remaning=1
+NET 1201 8 1 2 0 8 6 2 51 3 1
+( 4, 3) recv seqno=0 len=12
+gather len=10
+gather urgent remaning=1
+( 8, 7) send urgent=1 len=12
+gather urgent remaning=2
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=89
+alloc app=4 ram=105
+PAIR 1200 3 emited 1 0 0406140002580001
+dealloc app=4 ram=89
+gather urgent remaning=1
+NET 1200 3 5 6 0 8 12 2 89 5 1
+gather len=10
+( 3, 2) send urgent=1 len=12
+( 5, 4) sent retx=1 len=0
+cleanup node=5 ram=51
+cleanup node=5 ram=51
+cleanup node=5 ram=51
+dealloc app=4 ram=35
+cleanup node=5 ram=35
+( 8, 7) recv seqno=1 len=12
+gather urgent remaning=1
+gather urgent remaning=0
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=67
+alloc app=4 ram=83
+PAIR 1200 7 emited 1 0 0406140002840001
+dealloc app=4 ram=67
+gather urgent remaning=2
+NET 1200 7 2 2 0 8 8 2 67 4 2
+flush urgent no medium
+( 9, 8) sent retx=1 len=0
+cleanup node=9 ram=89
+cleanup node=9 ram=89
+cleanup node=9 ram=89
+dealloc app=4 ram=73
+cleanup node=9 ram=73
+( 4, 3) sent retx=1 len=0
+cleanup node=4 ram=51
+cleanup node=4 ram=51
+cleanup node=4 ram=51
+dealloc app=4 ram=35
+cleanup node=4 ram=35
+( 8, 7) sent retx=1 len=0
+cleanup node=8 ram=51
+cleanup node=8 ram=51
+( 3, 2) recv seqno=1 len=12
+cleanup node=8 ram=51
+gather urgent remaning=1
+dealloc app=4 ram=35
+gather urgent remaning=0
+cleanup node=8 ram=35
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=51
+alloc app=4 ram=67
+PAIR 1201 2 emited 1 0 0406140002580001
+dealloc app=4 ram=51
+gather urgent remaning=1
+NET 1201 2 4 6 0 8 10 3 51 3 1
+gather len=10
+( 2, 1) send urgent=1 len=12
+( 7, 6) recv seqno=2 len=12
+gather urgent remaning=1
+gather urgent remaning=2
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=89
+alloc app=4 ram=105
+PAIR 1201 6 emited 1 0 0406140002580001
+dealloc app=4 ram=89
+gather urgent remaning=1
+NET 1201 6 3 4 0 8 10 2 89 5 1
+gather len=10
+( 6, 5) send urgent=1 len=12
+( 2, 1) recv seqno=0 len=12
+gather urgent remaning=0
+gather urgent remaning=0
+gather urgent remaning=0
+received for_me=1 end=10
+alloc app=4 ram=16
+alloc app=4 ram=32
+( 3, 2) sent retx=1 len=0
+cleanup node=3 ram=89
+PAIR 1201 1 emited 1 0 0406140002580001
+cleanup node=3 ram=89
+dealloc app=4 ram=16
+cleanup node=3 ram=89
+gather urgent remaning=1
+dealloc app=4 ram=73
+cleanup node=3 ram=73
+NET 1201 1 0 6 0 0 6 0 16 1 1
+dealloc app=4 ram=0
+( 6, 5) recv seqno=3 len=12
+gather urgent remaning=1
+gather urgent remaning=0
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=51
+alloc app=4 ram=67
+PAIR 1202 5 emited 1 0 0406140002580001
+dealloc app=4 ram=51
+gather urgent remaning=1
+NET 1202 5 3 4 0 8 8 2 51 3 1
+gather len=10
+( 5, 4) send urgent=1 len=12
+( 7, 6) sent retx=2 len=0
+cleanup node=7 ram=67
+cleanup node=7 ram=67
+cleanup node=7 ram=67
+dealloc app=4 ram=51
+cleanup node=7 ram=51
+( 2, 1) sent retx=1 len=0
+cleanup node=2 ram=51
+cleanup node=2 ram=51
+cleanup node=2 ram=51
+dealloc app=4 ram=35
+cleanup node=2 ram=35
+( 5, 4) recv seqno=3 len=12
+gather urgent remaning=1
+gather urgent remaning=0
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=51
+alloc app=4 ram=67
+PAIR 1201 4 emited 1 0 0406140002580001
+dealloc app=4 ram=51
+gather urgent remaning=1
+NET 1201 4 5 4 0 8 10 2 51 3 1
+gather len=10
+( 4, 3) send urgent=1 len=12
+( 6, 5) sent retx=1 len=0
+cleanup node=6 ram=89
+cleanup node=6 ram=89
+cleanup node=6 ram=89
+dealloc app=4 ram=73
+cleanup node=6 ram=73
+( 4, 3) recv seqno=1 len=12
+gather urgent remaning=1
+gather urgent remaning=2
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=89
+alloc app=4 ram=105
+PAIR 1201 3 emited 1 0 0406140002580001
+dealloc app=4 ram=89
+gather urgent remaning=1
+NET 1201 3 6 7 0 8 13 2 89 5 1
+gather len=10
+( 3, 2) send urgent=1 len=12
+( 5, 4) sent retx=1 len=0
+cleanup node=5 ram=51
+cleanup node=5 ram=51
+cleanup node=5 ram=51
+dealloc app=4 ram=35
+cleanup node=5 ram=35
+( 4, 3) sent retx=1 len=0
+cleanup node=4 ram=51
+cleanup node=4 ram=51
+cleanup node=4 ram=51
+dealloc app=4 ram=35
+cleanup node=4 ram=35
+( 3, 2) recv seqno=2 len=12
+gather urgent remaning=1
+gather urgent remaning=0
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=51
+alloc app=4 ram=67
+PAIR 1202 2 emited 1 0 0406140002580001
+dealloc app=4 ram=51
+gather urgent remaning=1
+NET 1202 2 5 7 0 8 11 3 51 3 1
+gather len=10
+( 2, 1) send urgent=1 len=12
+( 2, 1) recv seqno=1 len=12
+gather urgent remaning=0
+gather urgent remaning=0
+gather urgent remaning=0
+received for_me=1 end=10
+alloc app=4 ram=16
+alloc app=4 ram=32
+( 3, 2) sent retx=1 len=0
+cleanup node=3 ram=89
+PAIR 1202 1 emited 1 0 0406140002580001
+cleanup node=3 ram=89
+dealloc app=4 ram=16
+cleanup node=3 ram=89
+gather urgent remaning=1
+dealloc app=4 ram=73
+cleanup node=3 ram=73
+NET 1202 1 0 7 0 0 7 0 16 1 1
+dealloc app=4 ram=0
+( 2, 1) sent retx=1 len=0
+cleanup node=2 ram=51
+cleanup node=2 ram=51
+cleanup node=2 ram=51
+dealloc app=4 ram=35
+cleanup node=2 ram=35
+sched flush period=1222
+NET 1207 10 2 0 0 8 6 2 35 2 0
+gather len=13
+gather len=10
+(10, 9) send urgent=0 len=25
+(10, 9) recv seqno=2 len=25
+received for_me=1 end=13
+alloc app=1 ram=92
+dealloc app=1 ram=73
+gather urgent remaning=1
+received for_me=0 end=10
+gather urgent remaning=2
+received for_me=1 end=10
+alloc app=3 ram=89
+alloc app=3 ram=105
+PAIR 1207 9 emited 0 0 0306000002840001
+dealloc app=3 ram=89
+gather urgent remaning=2
+gather urgent remaning=0
+NET 1207 9 2 3 0 8 10 3 89 5 0
+flush urgent no data
+(10, 9) sent retx=1 len=0
+dealloc app=1 ram=16
+cleanup node=10 ram=16
+cleanup node=10 ram=16
+dealloc app=3 ram=0
+cleanup node=10 ram=0
+cleanup node=10 ram=0
+ 1260 P 6.0 20 2088383 39200757 21218 279062 0 261854 113937 1852142 6190 17736 0 12363 (radio 0.72% / 1.21% tx 0.05% / 0.31% listen 0.67% / 0.90%)
+ 1260 P 5.0 20 2057773 39231367 4428 268952 0 263681 106403 1859676 1942 14981 0 12605 (radio 0.66% / 0.86% tx 0.01% / 0.09% listen 0.65% / 0.76%)
+ 1260 P 4.0 20 2085122 39204018 17409 277628 0 262208 110128 1855951 3341 15877 0 12325 (radio 0.71% / 0.97% tx 0.04% / 0.16% listen 0.67% / 0.80%)
+ 1260 P 8.0 20 2051889 39237251 3933 266535 0 262755 103821 1862258 1986 14949 0 13056 (radio 0.65% / 0.86% tx 0.00% / 0.10% listen 0.64% / 0.76%)
+ 1260 P 2.0 20 2081357 39207783 14683 277211 0 262981 113858 1852221 5288 17846 0 12639 (radio 0.70% / 1.17% tx 0.03% / 0.26% listen 0.67% / 0.90%)
+ 1260 P 1.0 20 1345804 39943329 14096 273687 0 261755 70589 1892440 3032 15068 0 12402 (radio 0.69% / 0.92% tx 0.03% / 0.15% listen 0.66% / 0.76%)
+ 1260 P 3.0 20 2102380 39186760 25001 283376 0 261680 113977 1852102 6043 17747 0 12442 (radio 0.74% / 1.21% tx 0.06% / 0.30% listen 0.68% / 0.90%)
+ 1260 P 7.0 20 2061845 39227295 8263 270379 0 262830 107717 1858362 3653 16188 0 12579 (radio 0.67% / 1.00% tx 0.02% / 0.18% listen 0.65% / 0.82%)
+ 1260 P 9.0 20 2062754 39226386 8724 269270 0 261833 115410 1850669 7455 18385 0 12311 (radio 0.67% / 1.31% tx 0.02% / 0.37% listen 0.65% / 0.93%)
+ 1260 P 10.0 20 2051148 39237993 3815 265656 0 262252 103206 1862874 1457 14254 0 12730 (radio 0.65% / 0.79% tx 0.00% / 0.07% listen 0.64% / 0.72%)
+sched flush period=1275
+NET 1294 5 4 4 0 8 8 2 35 2 0
+gather len=13
+gather len=10
+( 5, 4) send urgent=0 len=25
+( 5, 4) recv seqno=0 len=25
+received for_me=1 end=13
+alloc app=1 ram=54
+dealloc app=1 ram=35
+gather urgent remaning=1
+received for_me=0 end=10
+gather urgent remaning=0
+received for_me=1 end=10
+alloc app=3 ram=51
+alloc app=3 ram=67
+PAIR 1294 4 emited 0 0 0306000002900001
+dealloc app=3 ram=51
+gather urgent remaning=2
+gather urgent remaning=0
+NET 1294 4 6 5 0 8 12 3 51 3 0
+flush urgent no data
+( 5, 4) sent retx=1 len=0
+dealloc app=1 ram=16
+cleanup node=5 ram=16
+cleanup node=5 ram=16
+dealloc app=3 ram=0
+cleanup node=5 ram=0
+cleanup node=5 ram=0
+sched flush period=1478
+NET 1317 4 6 5 0 8 12 3 51 3 0
+gather len=13
+gather len=10
+gather len=18
+( 4, 3) send urgent=0 len=33
+( 4, 3) recv seqno=2 len=33
+received for_me=1 end=13
+alloc app=1 ram=92
+dealloc app=1 ram=73
+gather urgent remaning=1
+received for_me=0 end=18
+gather urgent remaning=2
+received for_me=1 end=18
+alloc app=3 ram=89
+alloc app=3 ram=105
+PAIR 1316 3 emited 0 0 0306000002900001
+dealloc app=3 ram=89
+alloc app=3 ram=105
+alloc app=3 ram=121
+PAIR 1316 3 emited 0 0 03060000022c0001
+dealloc app=3 ram=105
+gather urgent remaning=3
+gather urgent remaning=0
+NET 1316 3 7 8 0 8 16 3 105 6 0
+flush urgent no data
+( 4, 3) sent retx=1 len=0
+dealloc app=1 ram=32
+cleanup node=4 ram=32
+cleanup node=4 ram=32
+dealloc app=3 ram=16
+dealloc app=3 ram=0
+cleanup node=4 ram=0
+cleanup node=4 ram=0
+ 1320 P 6.0 21 2185593 41069625 21218 291719 0 274511 97207 1868868 0 12657 0 12657 (radio 0.72% / 0.64% tx 0.04% / 0.00% listen 0.67% / 0.64%)
+ 1320 P 5.0 21 2160283 41094936 6887 283302 0 276122 102507 1863569 2459 14350 0 12441 (radio 0.67% / 0.85% tx 0.01% / 0.12% listen 0.65% / 0.72%)
+ 1320 P 4.0 21 2187470 41067749 18810 291378 0 274610 102345 1863731 1401 13750 0 12402 (radio 0.71% / 0.77% tx 0.04% / 0.07% listen 0.67% / 0.69%)
+ 1320 P 8.0 21 2149083 41106135 3933 279015 0 275235 97191 1868884 0 12480 0 12480 (radio 0.65% / 0.63% tx 0.00% / 0.00% listen 0.64% / 0.63%)
+ 1320 P 2.0 21 2178567 41076651 14683 289881 0 275651 97207 1868868 0 12670 0 12670 (radio 0.70% / 0.64% tx 0.03% / 0.00% listen 0.67% / 0.64%)
+ 1320 P 1.0 21 1408437 41846776 14096 286167 0 274235 62630 1903447 0 12480 0 12480 (radio 0.69% / 0.63% tx 0.03% / 0.00% listen 0.66% / 0.63%)
+ 1320 P 3.0 21 2203690 41051528 26265 296942 0 274108 101307 1864768 1264 13566 0 12428 (radio 0.74% / 0.75% tx 0.06% / 0.06% listen 0.68% / 0.69%)
+ 1320 P 7.0 21 2159037 41096181 8263 282859 0 275310 97189 1868886 0 12480 0 12480 (radio 0.67% / 0.63% tx 0.01% / 0.00% listen 0.65% / 0.63%)
+ 1320 P 9.0 21 2159949 41095269 8724 281750 0 274313 97192 1868883 0 12480 0 12480 (radio 0.67% / 0.63% tx 0.02% / 0.00% listen 0.65% / 0.63%)
+ 1320 P 10.0 21 2148341 41106877 3815 278136 0 274732 97190 1868884 0 12480 0 12480 (radio 0.65% / 0.63% tx 0.00% / 0.00% listen 0.64% / 0.63%)
+sched flush period=1341
+NET 1340 3 7 8 0 8 16 3 105 6 0
+gather len=13
+gather len=13
+gather len=24
+gather len=10
+gather len=18
+gather len=26
+( 3, 2) send urgent=0 len=65
+( 3, 2) recv seqno=3 len=65
+received for_me=1 end=13
+alloc app=1 ram=54
+dealloc app=1 ram=35
+gather urgent remaning=1
+received for_me=1 end=24
+alloc app=2 ram=54
+alloc app=2 ram=73
+PAIR 1340 2 emited 0 0 02091400c80001 01000101
+dealloc app=2 ram=54
+alloc app=2 ram=73
+alloc app=2 ram=92
+PAIR 1340 2 emited 0 0 02090a00c80001 01000101
+dealloc app=2 ram=73
+gather urgent remaning=2
+received for_me=0 end=13
+gather urgent remaning=1
+gather urgent remaning=0
+NET 1340 2 6 8 0 8 14 4 73 4 0
+flush urgent no data
+( 3, 2) sent retx=1 len=0
+dealloc app=1 ram=86
+cleanup node=3 ram=86
+dealloc app=2 ram=67
+dealloc app=2 ram=48
+cleanup node=3 ram=48
+dealloc app=3 ram=32
+dealloc app=3 ram=16
+dealloc app=3 ram=0
+cleanup node=3 ram=0
+cleanup node=3 ram=0
+sched flush period=1274
+NET 1366 9 2 3 0 8 10 3 89 5 0
+gather len=13
+gather len=13
+gather len=24
+gather len=10
+gather len=18
+( 9, 8) send urgent=0 len=57
+( 9, 8) recv seqno=2 len=57
+received for_me=1 end=13
+alloc app=1 ram=54
+dealloc app=1 ram=35
+gather urgent remaning=1
+received for_me=1 end=24
+alloc app=2 ram=54
+alloc app=2 ram=73
+PAIR 1366 8 emited 0 0 02091400200001 01000101
+dealloc app=2 ram=54
+alloc app=2 ram=73
+alloc app=2 ram=92
+PAIR 1366 8 emited 0 0 02090a00200001 01000101
+dealloc app=2 ram=73
+gather urgent remaning=2
+received for_me=0 end=13
+gather urgent remaning=1
+gather urgent remaning=0
+NET 1366 8 2 3 0 8 9 3 73 4 0
+flush urgent no data
+( 9, 8) sent retx=1 len=0
+dealloc app=1 ram=70
+cleanup node=9 ram=70
+dealloc app=2 ram=51
+dealloc app=2 ram=32
+cleanup node=9 ram=32
+dealloc app=3 ram=16
+dealloc app=3 ram=0
+cleanup node=9 ram=0
+cleanup node=9 ram=0
+ 1380 P 6.0 22 2282762 42938536 21218 304199 0 286991 97166 1868911 0 12480 0 12480 (radio 0.71% / 0.63% tx 0.04% / 0.00% listen 0.67% / 0.63%)
+ 1380 P 5.0 22 2257486 42963812 6887 295782 0 288602 97200 1868876 0 12480 0 12480 (radio 0.66% / 0.63% tx 0.01% / 0.00% listen 0.65% / 0.63%)
+ 1380 P 4.0 22 2284686 42936612 18810 303968 0 287200 97213 1868863 0 12590 0 12590 (radio 0.71% / 0.64% tx 0.04% / 0.00% listen 0.67% / 0.64%)
+ 1380 P 8.0 22 2251311 42969987 5741 293052 0 287886 102225 1863852 1808 14037 0 12651 (radio 0.66% / 0.80% tx 0.01% / 0.09% listen 0.64% / 0.71%)
+ 1380 P 2.0 22 2280419 42940879 16264 303676 0 288079 101849 1864228 1581 13795 0 12428 (radio 0.70% / 0.78% tx 0.03% / 0.08% listen 0.67% / 0.70%)
+ 1380 P 1.0 22 1471042 43750251 14096 298837 0 286905 62602 1903475 0 12670 0 12670 (radio 0.69% / 0.64% tx 0.03% / 0.00% listen 0.66% / 0.64%)
+ 1380 P 3.0 22 2303617 42917682 27068 309897 0 286562 99924 1866154 803 12955 0 12454 (radio 0.74% / 0.69% tx 0.05% / 0.04% listen 0.68% / 0.65%)
+ 1380 P 7.0 22 2256196 42965102 8263 295516 0 287967 97156 1868921 0 12657 0 12657 (radio 0.67% / 0.64% tx 0.01% / 0.00% listen 0.65% / 0.64%)
+ 1380 P 9.0 22 2259436 42961863 9290 294684 0 286767 99484 1866594 566 12934 0 12454 (radio 0.67% / 0.68% tx 0.02% / 0.02% listen 0.65% / 0.65%)
+ 1380 P 10.0 22 2245502 42975796 3815 290616 0 287212 97158 1868919 0 12480 0 12480 (radio 0.65% / 0.63% tx 0.00% / 0.00% listen 0.64% / 0.63%)
+sched flush period=1400
+NET 1389 8 2 3 0 8 9 3 73 4 0
+gather len=13
+gather len=13
+gather len=24
+gather len=10
+( 8, 7) send urgent=0 len=49
+( 8, 7) recv seqno=2 len=49
+received for_me=1 end=13
+alloc app=1 ram=70
+dealloc app=1 ram=51
+gather urgent remaning=1
+received for_me=1 end=24
+alloc app=2 ram=70
+alloc app=2 ram=89
+PAIR 1388 7 emited 0 0 02090a00200001 01000101
+dealloc app=2 ram=70
+alloc app=2 ram=89
+alloc app=2 ram=108
+PAIR 1388 7 emited 0 0 02091400200001 01000101
+dealloc app=2 ram=89
+gather urgent remaning=2
+received for_me=0 end=13
+gather urgent remaning=1
+gather urgent remaning=1
+NET 1388 7 3 3 0 8 11 3 89 5 1
+gather len=10
+( 7, 6) send urgent=1 len=12
+( 7, 6) recv seqno=3 len=12
+gather urgent remaning=1
+gather urgent remaning=2
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=89
+alloc app=4 ram=105
+PAIR 1389 6 emited 1 0 0406140002840001
+dealloc app=4 ram=89
+gather urgent remaning=1
+NET 1389 6 4 5 0 8 11 2 89 5 1
+gather len=10
+( 6, 5) send urgent=1 len=12
+( 8, 7) sent retx=1 len=0
+dealloc app=1 ram=54
+cleanup node=8 ram=54
+dealloc app=2 ram=35
+dealloc app=2 ram=16
+cleanup node=8 ram=16
+dealloc app=3 ram=0
+cleanup node=8 ram=0
+cleanup node=8 ram=0
+( 6, 5) recv seqno=0 len=12
+gather urgent remaning=0
+gather urgent remaning=0
+gather urgent remaning=0
+received for_me=1 end=10
+alloc app=4 ram=16
+alloc app=4 ram=32
+PAIR 1389 5 emited 1 0 0406140002840001
+dealloc app=4 ram=16
+gather urgent remaning=1
+NET 1389 5 5 5 0 8 9 2 16 1 1
+gather len=10
+( 7, 6) sent retx=1 len=0
+( 5, 4) send urgent=1 len=12
+cleanup node=7 ram=89
+cleanup node=7 ram=89
+cleanup node=7 ram=89
+dealloc app=4 ram=73
+cleanup node=7 ram=73
+( 5, 4) recv seqno=1 len=12
+gather urgent remaning=0
+gather urgent remaning=0
+gather urgent remaning=0
+received for_me=1 end=10
+alloc app=4 ram=16
+alloc app=4 ram=32
+PAIR 1389 4 emited 1 0 0406140002840001
+dealloc app=4 ram=16
+gather urgent remaning=1
+NET 1389 4 7 6 0 8 13 3 16 1 1
+gather len=10
+( 4, 3) send urgent=1 len=12
+( 6, 5) sent retx=1 len=0
+cleanup node=6 ram=89
+cleanup node=6 ram=89
+cleanup node=6 ram=89
+dealloc app=4 ram=73
+cleanup node=6 ram=73
+( 5, 4) sent retx=1 len=0
+cleanup node=5 ram=16
+cleanup node=5 ram=16
+cleanup node=5 ram=16
+dealloc app=4 ram=0
+cleanup node=5 ram=0
+( 4, 3) recv seqno=3 len=12
+gather urgent remaning=0
+gather urgent remaning=0
+gather urgent remaning=0
+received for_me=1 end=10
+alloc app=4 ram=16
+alloc app=4 ram=32
+PAIR 1389 3 emited 1 0 0406140002840001
+dealloc app=4 ram=16
+gather urgent remaning=1
+NET 1389 3 8 9 0 8 17 3 16 1 1
+gather len=10
+( 3, 2) send urgent=1 len=12
+( 3, 2) recv seqno=0 len=12
+gather urgent remaning=1
+gather urgent remaning=2
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=89
+alloc app=4 ram=105
+( 4, 3) sent retx=1 len=0
+PAIR 1389 2 emited 1 0 0406140002840001
+cleanup node=4 ram=16
+dealloc app=4 ram=89
+cleanup node=4 ram=16
+gather urgent remaning=1
+cleanup node=4 ram=16
+dealloc app=4 ram=0
+cleanup node=4 ram=0
+NET 1389 2 6 9 0 8 15 4 89 5 1
+gather len=10
+( 2, 1) send urgent=1 len=12
+( 2, 1) recv seqno=2 len=12
+gather urgent remaning=0
+gather urgent remaning=0
+gather urgent remaning=0
+received for_me=1 end=10
+alloc app=4 ram=16
+alloc app=4 ram=32
+( 3, 2) sent retx=1 len=0
+cleanup node=3 ram=16
+PAIR 1389 1 emited 1 0 0406140002840001
+cleanup node=3 ram=16
+dealloc app=4 ram=16
+cleanup node=3 ram=16
+gather urgent remaning=1
+dealloc app=4 ram=0
+cleanup node=3 ram=0
+NET 1389 1 0 8 0 0 8 0 16 1 1
+dealloc app=4 ram=0
+( 2, 1) sent retx=1 len=0
+cleanup node=2 ram=89
+cleanup node=2 ram=89
+cleanup node=2 ram=89
+dealloc app=4 ram=73
+cleanup node=2 ram=73
+sched flush period=1338
+NET 1412 7 4 3 0 8 11 3 73 4 0
+gather len=13
+gather len=13
+gather len=24
+gather len=10
+( 7, 6) send urgent=0 len=49
+( 7, 6) recv seqno=0 len=49
+received for_me=1 end=13
+alloc app=1 ram=92
+dealloc app=1 ram=73
+gather urgent remaning=1
+received for_me=1 end=24
+alloc app=2 ram=92
+alloc app=2 ram=111
+PAIR 1412 6 emited 0 0 02091400200001 01000101
+dealloc app=2 ram=92
+alloc app=2 ram=111
+alloc app=2 ram=130
+PAIR 1412 6 emited 0 0 02090a00200001 01000101
+dealloc app=2 ram=111
+gather urgent remaning=4
+received for_me=0 end=13
+gather urgent remaning=1
+gather urgent remaning=0
+NET 1412 6 5 6 0 8 14 3 111 6 0
+flush urgent no data
+( 7, 6) sent retx=1 len=0
+dealloc app=1 ram=54
+cleanup node=7 ram=54
+dealloc app=2 ram=35
+dealloc app=2 ram=16
+cleanup node=7 ram=16
+dealloc app=3 ram=0
+cleanup node=7 ram=0
+cleanup node=7 ram=0
+sched flush period=1395
+NET 1435 6 5 6 0 8 14 3 111 6 0
+gather len=13
+gather len=13
+gather len=24
+gather len=35
+gather len=46
+gather len=10
+( 6, 5) send urgent=0 len=71
+( 6, 5) recv seqno=1 len=71
+received for_me=1 end=13
+alloc app=1 ram=19
+alloc app=1 ram=38
+PAIR 1435 5 emited 0 0 01090000000001 0a000a0a
+dealloc app=1 ram=19
+gather urgent remaning=1
+received for_me=1 end=46
+alloc app=2 ram=38
+alloc app=2 ram=57
+PAIR 1435 5 emited 0 0 02090a00200001 01000101
+dealloc app=2 ram=38
+alloc app=2 ram=57
+alloc app=2 ram=76
+PAIR 1435 5 emited 0 0 02091400200001 01000101
+dealloc app=2 ram=57
+alloc app=2 ram=76
+alloc app=2 ram=95
+PAIR 1435 5 emited 0 0 02091400f40001 01000101
+dealloc app=2 ram=76
+alloc app=2 ram=95
+alloc app=2 ram=114
+PAIR 1435 5 emited 0 0 02090a00f40001 01000101
+dealloc app=2 ram=95
+gather urgent remaning=4
+received for_me=0 end=13
+gather urgent remaning=0
+gather urgent remaning=0
+NET 1435 5 6 6 0 8 14 2 95 5 0
+flush urgent no data
+( 6, 5) sent retx=1 len=0
+dealloc app=1 ram=92
+cleanup node=6 ram=92
+dealloc app=2 ram=73
+dealloc app=2 ram=54
+dealloc app=2 ram=35
+dealloc app=2 ram=16
+cleanup node=6 ram=16
+dealloc app=3 ram=0
+cleanup node=6 ram=0
+cleanup node=6 ram=0
+ 1440 P 6.0 23 2393497 44793882 25903 320345 0 299354 110732 1855346 4685 16146 0 12363 (radio 0.73% / 1.05% tx 0.05% / 0.23% listen 0.67% / 0.82%)
+ 1440 P 5.0 23 2362816 44824562 8521 310448 0 301194 105327 1860750 1634 14666 0 12592 (radio 0.67% / 0.82% tx 0.01% / 0.08% listen 0.65% / 0.74%)
+ 1440 P 4.0 23 2386659 44800719 20160 317841 0 299642 101970 1864107 1350 13873 0 12442 (radio 0.71% / 0.77% tx 0.04% / 0.06% listen 0.67% / 0.70%)
+ 1440 P 8.0 23 2351398 44835981 6753 306196 0 300340 100084 1865994 1012 13144 0 12454 (radio 0.66% / 0.72% tx 0.01% / 0.05% listen 0.64% / 0.66%)
+ 1440 P 2.0 23 2382780 44804598 17979 317840 0 300494 102358 1863719 1715 14164 0 12415 (radio 0.71% / 0.80% tx 0.03% / 0.08% listen 0.67% / 0.72%)
+ 1440 P 1.0 23 1537649 45649724 15631 312613 0 299346 66604 1899473 1535 13776 0 12441 (radio 0.69% / 0.77% tx 0.03% / 0.07% listen 0.66% / 0.70%)
+ 1440 P 3.0 23 2405290 44782088 28384 323769 0 298977 101670 1864406 1316 13872 0 12415 (radio 0.74% / 0.77% tx 0.06% / 0.06% listen 0.68% / 0.70%)
+ 1440 P 7.0 23 2360462 44826917 9944 309734 0 300343 104263 1861815 1681 14218 0 12376 (radio 0.67% / 0.80% tx 0.02% / 0.08% listen 0.65% / 0.72%)
+ 1440 P 9.0 23 2356624 44830754 9290 307164 0 299247 97185 1868891 0 12480 0 12480 (radio 0.67% / 0.63% tx 0.01% / 0.00% listen 0.65% / 0.63%)
+ 1440 P 10.0 23 2342671 44844707 3815 303096 0 299692 97166 1868911 0 12480 0 12480 (radio 0.65% / 0.63% tx 0.00% / 0.00% listen 0.64% / 0.63%)
+sched flush period=1386
+NET 1499 2 7 9 0 8 15 4 73 4 0
+gather len=13
+gather len=13
+gather len=24
+gather len=10
+( 2, 1) send urgent=0 len=49
+( 2, 1) recv seqno=3 len=49
+received for_me=1 end=13
+alloc app=1 ram=19
+alloc app=1 ram=38
+PAIR 1498 1 emited 0 0 01090000000001 08000808
+dealloc app=1 ram=19
+gather urgent remaning=1
+received for_me=1 end=24
+alloc app=2 ram=38
+alloc app=2 ram=57
+PAIR 1498 1 emited 0 0 02090a00c80001 01000101
+dealloc app=2 ram=38
+alloc app=2 ram=57
+alloc app=2 ram=76
+PAIR 1498 1 emited 0 0 02091400c80001 01000101
+dealloc app=2 ram=57
+gather urgent remaning=2
+received for_me=0 end=13
+gather urgent remaning=0
+gather urgent remaning=0
+NET 1498 1 0 9 0 0 11 0 57 3 0
+dealloc app=1 ram=38
+dealloc app=2 ram=19
+dealloc app=2 ram=0
+( 2, 1) sent retx=1 len=0
+dealloc app=1 ram=54
+cleanup node=2 ram=54
+dealloc app=2 ram=35
+dealloc app=2 ram=16
+cleanup node=2 ram=16
+dealloc app=3 ram=0
+cleanup node=2 ram=0
+cleanup node=2 ram=0
+ 1500 P 6.0 24 2490729 46662729 25903 332825 0 311834 97229 1868847 0 12480 0 12480 (radio 0.72% / 0.63% tx 0.05% / 0.00% listen 0.67% / 0.63%)
+ 1500 P 5.0 24 2460033 46693425 8521 322928 0 313674 97214 1868863 0 12480 0 12480 (radio 0.67% / 0.63% tx 0.01% / 0.00% listen 0.65% / 0.63%)
+ 1500 P 4.0 24 2483891 46669567 20160 330321 0 312122 97229 1868848 0 12480 0 12480 (radio 0.71% / 0.63% tx 0.04% / 0.00% listen 0.67% / 0.63%)
+ 1500 P 8.0 24 2448615 46704843 6753 318676 0 312820 97214 1868862 0 12480 0 12480 (radio 0.66% / 0.63% tx 0.01% / 0.00% listen 0.64% / 0.63%)
+ 1500 P 2.0 24 2483518 46669941 19425 331147 0 312922 100735 1865343 1446 13307 0 12428 (radio 0.71% / 0.75% tx 0.03% / 0.07% listen 0.67% / 0.67%)
+ 1500 P 1.0 24 1604209 47549244 16489 326011 0 312003 66557 1899520 858 13398 0 12657 (radio 0.69% / 0.72% tx 0.03% / 0.04% listen 0.66% / 0.68%)
+ 1500 P 3.0 24 2502522 46650936 28384 336249 0 311457 97229 1868848 0 12480 0 12480 (radio 0.74% / 0.63% tx 0.05% / 0.00% listen 0.68% / 0.63%)
+ 1500 P 7.0 24 2457678 46695780 9944 322214 0 312823 97213 1868863 0 12480 0 12480 (radio 0.67% / 0.63% tx 0.02% / 0.00% listen 0.65% / 0.63%)
+ 1500 P 9.0 24 2453799 46699659 9290 319644 0 311727 97172 1868905 0 12480 0 12480 (radio 0.66% / 0.63% tx 0.01% / 0.00% listen 0.65% / 0.63%)
+ 1500 P 10.0 24 2439849 46713609 3815 315576 0 312172 97175 1868902 0 12480 0 12480 (radio 0.64% / 0.63% tx 0.00% / 0.00% listen 0.64% / 0.63%)
+ 1560 P 6.0 25 2587922 48531616 25903 345305 0 324314 97190 1868887 0 12480 0 12480 (radio 0.72% / 0.63% tx 0.05% / 0.00% listen 0.67% / 0.63%)
+ 1560 P 5.0 25 2557216 48562322 8521 335408 0 326154 97180 1868897 0 12480 0 12480 (radio 0.67% / 0.63% tx 0.01% / 0.00% listen 0.65% / 0.63%)
+ 1560 P 4.0 25 2581084 48538454 20160 342801 0 324602 97190 1868887 0 12480 0 12480 (radio 0.71% / 0.63% tx 0.03% / 0.00% listen 0.67% / 0.63%)
+ 1560 P 8.0 25 2545798 48573740 6753 331156 0 325300 97180 1868897 0 12480 0 12480 (radio 0.66% / 0.63% tx 0.01% / 0.00% listen 0.64% / 0.63%)
+ 1560 P 2.0 25 2580758 48538780 19425 343627 0 325402 97237 1868839 0 12480 0 12480 (radio 0.71% / 0.63% tx 0.03% / 0.00% listen 0.67% / 0.63%)
+ 1560 P 1.0 25 1666862 49452671 16489 338491 0 324483 62650 1903427 0 12480 0 12480 (radio 0.69% / 0.63% tx 0.03% / 0.00% listen 0.66% / 0.63%)
+ 1560 P 3.0 25 2599715 48519823 28384 348729 0 323937 97190 1868887 0 12480 0 12480 (radio 0.73% / 0.63% tx 0.05% / 0.00% listen 0.68% / 0.63%)
+ 1560 P 7.0 25 2554861 48564677 9944 334694 0 325303 97180 1868897 0 12480 0 12480 (radio 0.67% / 0.63% tx 0.01% / 0.00% listen 0.65% / 0.63%)
+ 1560 P 9.0 25 2550983 48568555 9290 332124 0 324207 97181 1868896 0 12480 0 12480 (radio 0.66% / 0.63% tx 0.01% / 0.00% listen 0.64% / 0.63%)
+ 1560 P 10.0 25 2537035 48582503 3815 328056 0 324652 97183 1868894 0 12480 0 12480 (radio 0.64% / 0.63% tx 0.00% / 0.00% listen 0.64% / 0.63%)
+ 1620 P 6.0 26 2685123 50400495 25903 357785 0 336794 97198 1868879 0 12480 0 12480 (radio 0.72% / 0.63% tx 0.04% / 0.00% listen 0.67% / 0.63%)
+ 1620 P 5.0 26 2654408 50431210 8521 347888 0 338634 97189 1868888 0 12480 0 12480 (radio 0.67% / 0.63% tx 0.01% / 0.00% listen 0.65% / 0.63%)
+ 1620 P 4.0 26 2678284 50407334 20160 355281 0 337082 97197 1868880 0 12480 0 12480 (radio 0.70% / 0.63% tx 0.03% / 0.00% listen 0.66% / 0.63%)
+ 1620 P 8.0 26 2642990 50442628 6753 343636 0 337780 97189 1868888 0 12480 0 12480 (radio 0.66% / 0.63% tx 0.01% / 0.00% listen 0.64% / 0.63%)
+ 1620 P 2.0 26 2677959 50407659 19425 356107 0 337882 97198 1868879 0 12480 0 12480 (radio 0.70% / 0.63% tx 0.03% / 0.00% listen 0.67% / 0.63%)
+ 1620 P 1.0 26 1729499 51356114 16489 350971 0 336963 62634 1903443 0 12480 0 12480 (radio 0.69% / 0.63% tx 0.03% / 0.00% listen 0.66% / 0.63%)
+ 1620 P 3.0 26 2696916 50388702 28384 361209 0 336417 97198 1868879 0 12480 0 12480 (radio 0.73% / 0.63% tx 0.05% / 0.00% listen 0.68% / 0.63%)
+ 1620 P 7.0 26 2652053 50433565 9944 347174 0 337783 97189 1868888 0 12480 0 12480 (radio 0.67% / 0.63% tx 0.01% / 0.00% listen 0.65% / 0.63%)
+ 1620 P 9.0 26 2648174 50437444 9290 344604 0 336687 97188 1868889 0 12480 0 12480 (radio 0.66% / 0.63% tx 0.01% / 0.00% listen 0.64% / 0.63%)
+ 1620 P 10.0 26 2634228 50451390 3815 340536 0 337132 97190 1868887 0 12480 0 12480 (radio 0.64% / 0.63% tx 0.00% / 0.00% listen 0.64% / 0.63%)
+ 1680 P 6.0 27 2782332 52269366 25903 370265 0 349274 97206 1868871 0 12480 0 12480 (radio 0.71% / 0.63% tx 0.04% / 0.00% listen 0.67% / 0.63%)
+ 1680 P 5.0 27 2751607 52300091 8521 360368 0 351114 97196 1868881 0 12480 0 12480 (radio 0.67% / 0.63% tx 0.01% / 0.00% listen 0.65% / 0.63%)
+ 1680 P 4.0 27 2775492 52276206 20160 367761 0 349562 97205 1868872 0 12480 0 12480 (radio 0.70% / 0.63% tx 0.03% / 0.00% listen 0.66% / 0.63%)
+ 1680 P 8.0 27 2740189 52311509 6753 356116 0 350260 97196 1868881 0 12480 0 12480 (radio 0.65% / 0.63% tx 0.01% / 0.00% listen 0.64% / 0.63%)
+ 1680 P 2.0 27 2775168 52276530 19425 368587 0 350362 97206 1868871 0 12480 0 12480 (radio 0.70% / 0.63% tx 0.03% / 0.00% listen 0.66% / 0.63%)
+ 1680 P 1.0 27 1792144 53259549 16489 363451 0 349443 62642 1903435 0 12480 0 12480 (radio 0.69% / 0.63% tx 0.02% / 0.00% listen 0.66% / 0.63%)
+ 1680 P 3.0 27 2794125 52257573 28384 373689 0 348897 97206 1868871 0 12480 0 12480 (radio 0.73% / 0.63% tx 0.05% / 0.00% listen 0.67% / 0.63%)
+ 1680 P 7.0 27 2749252 52302446 9944 359654 0 350263 97196 1868881 0 12480 0 12480 (radio 0.67% / 0.63% tx 0.01% / 0.00% listen 0.65% / 0.63%)
+ 1680 P 9.0 27 2745373 52306325 9290 357084 0 349167 97196 1868881 0 12480 0 12480 (radio 0.66% / 0.63% tx 0.01% / 0.00% listen 0.64% / 0.63%)
+ 1680 P 10.0 27 2731429 52320269 3815 353016 0 349612 97198 1868879 0 12480 0 12480 (radio 0.64% / 0.63% tx 0.00% / 0.00% listen 0.64% / 0.63%)
+ 1740 P 6.0 28 2879577 54138201 25903 382745 0 361754 97242 1868835 0 12480 0 12480 (radio 0.71% / 0.63% tx 0.04% / 0.00% listen 0.67% / 0.63%)
+ 1740 P 5.0 28 2848843 54168935 8521 372848 0 363594 97233 1868844 0 12480 0 12480 (radio 0.66% / 0.63% tx 0.01% / 0.00% listen 0.65% / 0.63%)
+ 1740 P 4.0 28 2872737 54145041 20160 380241 0 362042 97242 1868835 0 12480 0 12480 (radio 0.70% / 0.63% tx 0.03% / 0.00% listen 0.66% / 0.63%)
+ 1740 P 8.0 28 2837424 54180354 6753 368596 0 362740 97232 1868845 0 12480 0 12480 (radio 0.65% / 0.63% tx 0.01% / 0.00% listen 0.64% / 0.63%)
+ 1740 P 2.0 28 2872413 54145365 19425 381067 0 362842 97242 1868835 0 12480 0 12480 (radio 0.70% / 0.63% tx 0.03% / 0.00% listen 0.66% / 0.63%)
+ 1740 P 1.0 28 1854797 55162976 16489 375931 0 361923 62650 1903427 0 12480 0 12480 (radio 0.68% / 0.63% tx 0.02% / 0.00% listen 0.65% / 0.63%)
+ 1740 P 3.0 28 2891370 54126408 28384 386169 0 361377 97242 1868835 0 12480 0 12480 (radio 0.72% / 0.63% tx 0.04% / 0.00% listen 0.67% / 0.63%)
+ 1740 P 7.0 28 2846487 54171291 9944 372134 0 362743 97232 1868845 0 12480 0 12480 (radio 0.67% / 0.63% tx 0.01% / 0.00% listen 0.65% / 0.63%)
+ 1740 P 9.0 28 2842608 54175170 9290 369564 0 361647 97232 1868845 0 12480 0 12480 (radio 0.66% / 0.63% tx 0.01% / 0.00% listen 0.64% / 0.63%)
+ 1740 P 10.0 28 2828666 54189112 3815 365496 0 362092 97234 1868843 0 12480 0 12480 (radio 0.64% / 0.63% tx 0.00% / 0.00% listen 0.64% / 0.63%)
+ 1800 P 6.0 29 2976863 56006995 25903 395225 0 374234 97283 1868794 0 12480 0 12480 (radio 0.71% / 0.63% tx 0.04% / 0.00% listen 0.67% / 0.63%)
+NET 1800 6 6 6 0 9 14 3 0 0 0
+ 1800 P 5.0 29 2946119 56037739 8521 385328 0 376074 97273 1868804 0 12480 0 12480 (radio 0.66% / 0.63% tx 0.01% / 0.00% listen 0.65% / 0.63%)
+flush urgent no data
+alloc app=3 ram=16
+alloc app=3 ram=32
+NET 1800 5 6 6 0 9 14 2 95 5 0
+flush urgent no data
+alloc app=3 ram=111
+PAIR 1800 6 emited 0 0 0306010002f40001
+alloc app=3 ram=127
+dealloc app=3 ram=16
+PAIR 1800 5 emited 0 0 0306010002900001
+NET 1800 6 6 6 0 10 15 3 16 1 0
+flush urgent no data
+dealloc app=3 ram=111
+fire!
+alloc app=2 ram=35
+alloc app=2 ram=54
+NET 1800 5 6 6 0 10 15 2 111 6 0
+flush urgent no data
+PAIR 1800 6 emited 0 0 02091e00f40001 01000101
+NET 1800 5 6 6 0 11 15 2 111 6 0
+dealloc app=2 ram=35
+flush urgent no data
+alloc app=1 ram=130
+NET 1800 6 6 6 0 11 16 3 35 2 0
+alloc app=1 ram=149
+flush urgent no data
+alloc app=1 ram=54
+alloc app=1 ram=73
+PAIR 1800 5 emited 0 0 01090100000001 01000101
+dealloc app=1 ram=130
+PAIR 1800 6 emited 0 0 01090100000001 01000101
+dealloc app=1 ram=54
+NET 1800 5 6 6 0 12 16 2 130 7 0
+flush urgent no data
+NET 1800 6 6 6 0 12 17 3 54 3 0
+flush urgent no data
+ 1800 P 4.0 29 2970022 56013836 20160 392721 0 374522 97282 1868795 0 12480 0 12480 (radio 0.69% / 0.63% tx 0.03% / 0.00% listen 0.66% / 0.63%)
+road!
+alloc app=4 ram=16
+alloc app=4 ram=32
+PAIR 1800 4 emited 1 0 04061e00022c0001
+dealloc app=4 ram=16
+NET 1800 4 8 6 0 9 14 3 16 1 1
+gather len=10
+( 4, 3) send urgent=1 len=12
+alloc app=3 ram=32
+alloc app=3 ram=48
+PAIR 1800 4 emited 0 0 03060100022c0001
+dealloc app=3 ram=32
+NET 1800 4 8 6 0 10 15 3 32 2 1
+flush urgent no medium
+NET 1800 4 8 6 0 11 15 3 32 2 1
+flush urgent no medium
+alloc app=1 ram=51
+alloc app=1 ram=70
+PAIR 1800 4 emited 0 0 01090100000001 01000101
+dealloc app=1 ram=51
+NET 1800 4 8 6 0 12 16 3 51 3 1
+flush urgent no medium
+ 1800 P 8.0 29 2934700 56049158 6753 381076 0 375220 97273 1868804 0 12480 0 12480 (radio 0.65% / 0.63% tx 0.01% / 0.00% listen 0.64% / 0.63%)
+ 1800 P 2.0 29 2969698 56014160 19425 393547 0 375322 97282 1868795 0 12480 0 12480 (radio 0.70% / 0.63% tx 0.03% / 0.00% listen 0.66% / 0.63%)
+NET 1800 8 3 3 0 9 9 3 0 0 0
+flush urgent no data
+alloc app=3 ram=16
+NET 1800 2 8 9 0 9 15 4 0 0 0
+alloc app=3 ram=32
+flush urgent no data
+alloc app=3 ram=16
+alloc app=3 ram=32
+PAIR 1800 8 emited 0 0 0306010002bc0001
+dealloc app=3 ram=16
+PAIR 1800 2 emited 0 0 0306010002640001
+dealloc app=3 ram=16
+NET 1800 8 3 3 0 10 10 3 16 1 0
+flush urgent no data
+NET 1800 2 8 9 0 10 16 4 16 1 0
+flush urgent no data
+NET 1800 8 3 3 0 11 10 3 16 1 0
+flush urgent no data
+alloc app=1 ram=35
+NET 1800 2 8 9 0 11 16 4 16 1 0
+alloc app=1 ram=54
+flush urgent no data
+alloc app=1 ram=35
+alloc app=1 ram=54
+PAIR 1800 8 emited 0 0 01090100000001 01000101
+dealloc app=1 ram=35
+PAIR 1800 2 emited 0 0 01090100000001 01000101
+dealloc app=1 ram=35
+NET 1800 8 3 3 0 12 11 3 35 2 0
+flush urgent no data
+NET 1800 2 8 9 0 12 17 4 35 2 0
+flush urgent no data
+( 4, 3) recv seqno=0 len=12
+gather urgent remaning=0
+gather urgent remaning=0
+gather urgent remaning=0
+received for_me=1 end=10
+alloc app=4 ram=16
+alloc app=4 ram=32
+PAIR 1799 3 emited 1 0 04061e00022c0001
+dealloc app=4 ram=16
+gather urgent remaning=1
+NET 1799 3 9 10 0 8 18 3 16 1 1
+gather len=10
+( 3, 2) send urgent=1 len=12
+( 3, 2) recv seqno=1 len=12
+gather urgent remaning=1
+gather urgent remaning=0
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=51
+alloc app=4 ram=67
+PAIR 1800 2 emited 1 0 04061e00022c0001
+dealloc app=4 ram=51
+( 4, 3) sent retx=1 len=0
+gather urgent remaning=1
+cleanup node=4 ram=51
+cleanup node=4 ram=51
+cleanup node=4 ram=51
+NET 1800 2 8 10 0 12 18 4 51 3 1
+dealloc app=4 ram=35
+gather len=10
+cleanup node=4 ram=35
+( 2, 1) send urgent=1 len=12
+ 1800 P 1.0 29 1917458 57066395 16489 388411 0 374403 62658 1903419 0 12480 0 12480 (radio 0.68% / 0.63% tx 0.02% / 0.00% listen 0.65% / 0.63%)
+ 1800 P 3.0 29 2992770 55991090 29738 399914 0 373805 101397 1864682 1354 13745 0 12428 (radio 0.00% / 0.76% tx 0.05% / 0.06% listen 0.67% / 0.69%)
+NET 1800 3 9 10 0 9 18 3 16 1 1
+flush urgent no medium
+alloc app=3 ram=32
+alloc app=3 ram=48
+PAIR 1800 3 emited 0 0 0306010002c80001
+dealloc app=3 ram=32
+NET 1800 3 9 10 0 10 19 3 32 2 1
+flush urgent no medium
+fire!
+alloc app=2 ram=51
+alloc app=2 ram=70
+PAIR 1800 3 emited 0 0 02091e00c80001 01000101
+dealloc app=2 ram=51
+NET 1800 3 9 10 0 11 20 3 51 3 1
+flush urgent no medium
+alloc app=1 ram=70
+alloc app=1 ram=89
+PAIR 1800 3 emited 0 0 01090100000001 01000101
+( 2, 1) recv seqno=0 len=12
+dealloc app=1 ram=70
+gather urgent remaning=0
+gather urgent remaning=0
+gather urgent remaning=0
+received for_me=1 end=10
+NET 1800 3 9 10 0 12 21 3 70 4 1
+alloc app=4 ram=16
+flush urgent no medium
+alloc app=4 ram=32
+( 3, 2) sent retx=1 len=0
+cleanup node=3 ram=70
+PAIR 1800 1 emited 1 0 04061e00022c0001
+cleanup node=3 ram=70
+dealloc app=4 ram=16
+cleanup node=3 ram=70
+gather urgent remaning=1
+dealloc app=4 ram=54
+cleanup node=3 ram=54
+NET 1800 1 0 10 0 0 12 0 16 1 1
+dealloc app=4 ram=0
+ 1800 P 7.0 29 2943763 56040095 9944 384614 0 375223 97273 1868804 0 12480 0 12480 (radio 0.66% / 0.63% tx 0.01% / 0.00% listen 0.65% / 0.63%)
+road!
+alloc app=4 ram=16
+alloc app=4 ram=32
+PAIR 1800 7 emited 1 0 04061e0002580001
+dealloc app=4 ram=16
+NET 1800 7 5 3 0 9 12 3 16 1 1
+gather len=10
+( 7, 6) send urgent=1 len=12
+alloc app=3 ram=32
+alloc app=3 ram=48
+PAIR 1800 7 emited 0 0 0306010002580001
+dealloc app=3 ram=32
+NET 1800 7 5 3 0 10 13 3 32 2 1
+flush urgent no medium
+NET 1800 7 5 3 0 11 13 3 32 2 1
+ 1800 P 9.0 29 2939884 56043974 9290 382044 0 374127 97273 1868804 0 12480 0 12480 (radio 0.66% / 0.63% tx 0.01% / 0.00% listen 0.64% / 0.63%)
+flush urgent no medium
+alloc app=1 ram=51
+alloc app=1 ram=70
+NET 1800 9 3 3 0 9 10 3 0 0 0
+flush urgent no data
+alloc app=3 ram=16
+alloc app=3 ram=32
+PAIR 1800 7 emited 0 0 01090100000001 01000101
+dealloc app=1 ram=51
+PAIR 1800 9 emited 0 0 0306010002200001
+dealloc app=3 ram=16
+NET 1800 7 5 3 0 12 14 3 51 3 1
+flush urgent no medium
+NET 1800 9 3 3 0 10 11 3 16 1 0
+flush urgent no data
+fire!
+alloc app=2 ram=35
+alloc app=2 ram=54
+PAIR 1800 9 emited 0 0 02091e00200001 01000101
+dealloc app=2 ram=35
+( 2, 1) sent retx=1 len=0
+cleanup node=2 ram=51
+NET 1800 9 3 3 0 11 12 3 35 2 0
+cleanup node=2 ram=51
+flush urgent no data
+cleanup node=2 ram=51
+alloc app=1 ram=54
+dealloc app=4 ram=35
+alloc app=1 ram=73
+cleanup node=2 ram=35
+PAIR 1800 9 emited 0 0 01090100000001 01000101
+dealloc app=1 ram=54
+NET 1800 9 3 3 0 12 13 3 54 3 0
+flush urgent no data
+( 7, 6) recv seqno=1 len=12
+gather urgent remaning=1
+gather urgent remaning=1
+gather urgent remaning=1
+ 1800 P 10.0 29 2925944 56057914 3815 377976 0 374572 97275 1868802 0 12480 0 12480 (radio 0.64% / 0.63% tx 0.00% / 0.00% listen 0.64% / 0.63%)
+received for_me=1 end=10
+road!
+alloc app=4 ram=70
+alloc app=4 ram=16
+alloc app=4 ram=86
+alloc app=4 ram=32
+PAIR 1800 6 emited 1 0 04061e0002580001
+PAIR 1800 10 emited 1 0 04061e0002840001
+dealloc app=4 ram=70
+dealloc app=4 ram=16
+gather urgent remaning=1
+NET 1800 10 3 0 0 9 7 2 16 1 1
+gather len=10
+NET 1800 6 6 7 0 12 18 3 70 4 1
+gather len=10
+(10, 9) send urgent=1 len=12
+( 6, 5) send urgent=1 len=12
+alloc app=3 ram=32
+alloc app=3 ram=48
+PAIR 1800 10 emited 0 0 0306010002840001
+dealloc app=3 ram=32
+NET 1800 10 3 0 0 10 8 2 32 2 1
+flush urgent no medium
+NET 1800 10 3 0 0 11 8 2 32 2 1
+flush urgent no medium
+alloc app=1 ram=51
+alloc app=1 ram=70
+PAIR 1800 10 emited 0 0 01090100000001 01000101
+dealloc app=1 ram=51
+NET 1800 10 3 0 0 12 9 2 51 3 1
+flush urgent no medium
+( 6, 5) recv seqno=2 len=12
+gather urgent remaning=2
+gather urgent remaning=4
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=146
+alloc app=4 ram=162
+PAIR 1801 5 emited 1 0 04061e0002580001
+dealloc app=4 ram=146
+gather urgent remaning=1
+NET 1801 5 6 7 0 12 17 2 146 8 1
+gather len=10
+( 5, 4) send urgent=1 len=12
+( 7, 6) sent retx=1 len=0
+cleanup node=7 ram=51
+cleanup node=7 ram=51
+cleanup node=7 ram=51
+dealloc app=4 ram=35
+cleanup node=7 ram=35
+( 5, 4) recv seqno=2 len=12
+gather urgent remaning=1
+gather urgent remaning=0
+gather urgent remaning=1
+received for_me=1 end=10
+(10, 9) recv seqno=3 len=12
+alloc app=4 ram=51
+gather urgent remaning=1
+alloc app=4 ram=67
+gather urgent remaning=1
+gather urgent remaning=1
+received for_me=1 end=10
+PAIR 1800 4 emited 1 0 04061e0002580001
+alloc app=4 ram=70
+dealloc app=4 ram=51
+alloc app=4 ram=86
+gather urgent remaning=1
+PAIR 1800 9 emited 1 0 04061e0002840001
+NET 1800 4 9 7 0 12 17 3 51 3 1
+gather len=10
+dealloc app=4 ram=70
+gather urgent remaning=1
+( 4, 3) send urgent=1 len=12
+NET 1800 9 3 4 0 12 14 3 70 4 1
+gather len=10
+( 9, 8) send urgent=1 len=12
+( 6, 5) sent retx=1 len=0
+cleanup node=6 ram=70
+cleanup node=6 ram=70
+cleanup node=6 ram=70
+dealloc app=4 ram=54
+cleanup node=6 ram=54
+( 9, 8) recv seqno=3 len=12
+gather urgent remaning=1
+gather urgent remaning=0
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=51
+alloc app=4 ram=67
+PAIR 1800 8 emited 1 0 04061e0002840001
+dealloc app=4 ram=51
+gather urgent remaning=1
+NET 1800 8 3 4 0 12 12 3 51 3 1
+(10, 9) sent retx=1 len=0
+gather len=10
+cleanup node=10 ram=51
+( 8, 7) send urgent=1 len=12
+cleanup node=10 ram=51
+cleanup node=10 ram=51
+dealloc app=4 ram=35
+cleanup node=10 ram=35
+( 8, 7) recv seqno=3 len=12
+gather urgent remaning=1
+gather urgent remaning=0
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=51
+alloc app=4 ram=67
+PAIR 1800 7 emited 1 0 04061e0002840001
+dealloc app=4 ram=51
+gather urgent remaning=1
+NET 1800 7 6 4 0 12 15 3 51 3 1
+gather len=10
+( 7, 6) send urgent=1 len=12
+( 4, 3) recv seqno=1 len=12
+gather urgent remaning=1
+gather urgent remaning=1
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=70
+( 9, 8) sent retx=1 len=0
+alloc app=4 ram=86
+cleanup node=9 ram=70
+cleanup node=9 ram=70
+cleanup node=9 ram=70
+dealloc app=4 ram=54
+PAIR 1800 3 emited 1 0 04061e0002580001
+cleanup node=9 ram=54
+dealloc app=4 ram=70
+gather urgent remaning=1
+NET 1800 3 10 11 0 12 22 3 70 4 1
+gather len=10
+( 3, 2) send urgent=1 len=12
+( 5, 4) sent retx=1 len=0
+cleanup node=5 ram=146
+cleanup node=5 ram=146
+cleanup node=5 ram=146
+dealloc app=4 ram=130
+cleanup node=5 ram=130
+( 8, 7) sent retx=1 len=0
+cleanup node=8 ram=51
+cleanup node=8 ram=51
+cleanup node=8 ram=51
+( 3, 2) recv seqno=2 len=12
+dealloc app=4 ram=35
+gather urgent remaning=1
+cleanup node=8 ram=35
+gather urgent remaning=0
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=51
+alloc app=4 ram=67
+PAIR 1801 2 emited 1 0 04061e0002580001
+( 4, 3) sent retx=1 len=0
+dealloc app=4 ram=51
+cleanup node=4 ram=51
+gather urgent remaning=1
+cleanup node=4 ram=51
+cleanup node=4 ram=51
+NET 1801 2 9 11 0 12 19 4 51 3 1
+dealloc app=4 ram=35
+gather len=10
+cleanup node=4 ram=35
+( 2, 1) send urgent=1 len=12
+( 7, 6) recv seqno=2 len=12
+gather urgent remaning=1
+gather urgent remaning=1
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=70
+alloc app=4 ram=86
+PAIR 1801 6 emited 1 0 04061e0002840001
+dealloc app=4 ram=70
+gather urgent remaning=1
+NET 1801 6 7 8 0 12 19 3 70 4 1
+gather len=10
+( 6, 5) send urgent=1 len=12
+( 2, 1) recv seqno=1 len=12
+gather urgent remaning=0
+gather urgent remaning=0
+gather urgent remaning=0
+received for_me=1 end=10
+alloc app=4 ram=16
+alloc app=4 ram=32
+( 3, 2) sent retx=1 len=0
+cleanup node=3 ram=70
+PAIR 1801 1 emited 1 0 04061e0002580001
+cleanup node=3 ram=70
+dealloc app=4 ram=16
+cleanup node=3 ram=70
+gather urgent remaning=1
+dealloc app=4 ram=54
+cleanup node=3 ram=54
+NET 1801 1 0 11 0 0 13 0 16 1 1
+dealloc app=4 ram=0
+( 6, 5) recv seqno=3 len=12
+gather urgent remaning=2
+gather urgent remaning=4
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=146
+alloc app=4 ram=162
+PAIR 1801 5 emited 1 0 04061e0002840001
+dealloc app=4 ram=146
+gather urgent remaning=1
+NET 1801 5 7 8 0 12 18 2 146 8 1
+gather len=10
+( 7, 6) sent retx=1 len=0
+( 5, 4) send urgent=1 len=12
+cleanup node=7 ram=51
+cleanup node=7 ram=51
+cleanup node=7 ram=51
+dealloc app=4 ram=35
+cleanup node=7 ram=35
+( 2, 1) sent retx=1 len=0
+cleanup node=2 ram=51
+cleanup node=2 ram=51
+cleanup node=2 ram=51
+dealloc app=4 ram=35
+cleanup node=2 ram=35
+( 5, 4) recv seqno=3 len=12
+gather urgent remaning=1
+gather urgent remaning=0
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=51
+alloc app=4 ram=67
+PAIR 1801 4 emited 1 0 04061e0002840001
+dealloc app=4 ram=51
+gather urgent remaning=1
+NET 1801 4 10 8 0 12 18 3 51 3 1
+gather len=10
+( 4, 3) send urgent=1 len=12
+( 6, 5) sent retx=1 len=0
+cleanup node=6 ram=70
+cleanup node=6 ram=70
+cleanup node=6 ram=70
+dealloc app=4 ram=54
+cleanup node=6 ram=54
+( 5, 4) sent retx=1 len=0
+cleanup node=5 ram=146
+cleanup node=5 ram=146
+cleanup node=5 ram=146
+dealloc app=4 ram=130
+cleanup node=5 ram=130
+( 4, 3) recv seqno=2 len=12
+gather urgent remaning=1
+gather urgent remaning=1
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=70
+alloc app=4 ram=86
+PAIR 1801 3 emited 1 0 04061e0002840001
+dealloc app=4 ram=70
+gather urgent remaning=1
+NET 1801 3 11 12 0 12 23 3 70 4 1
+gather len=10
+( 3, 2) send urgent=1 len=12
+( 3, 2) recv seqno=3 len=12
+gather urgent remaning=1
+gather urgent remaning=0
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=51
+alloc app=4 ram=67
+PAIR 1802 2 emited 1 0 04061e0002840001
+( 4, 3) sent retx=1 len=0
+dealloc app=4 ram=51
+cleanup node=4 ram=51
+gather urgent remaning=1
+cleanup node=4 ram=51
+cleanup node=4 ram=51
+NET 1802 2 10 12 0 12 20 4 51 3 1
+dealloc app=4 ram=35
+gather len=10
+cleanup node=4 ram=35
+( 2, 1) send urgent=1 len=12
+( 2, 1) recv seqno=2 len=12
+gather urgent remaning=0
+gather urgent remaning=0
+gather urgent remaning=0
+received for_me=1 end=10
+alloc app=4 ram=16
+alloc app=4 ram=32
+( 3, 2) sent retx=1 len=0
+cleanup node=3 ram=70
+PAIR 1802 1 emited 1 0 04061e0002840001
+cleanup node=3 ram=70
+dealloc app=4 ram=16
+cleanup node=3 ram=70
+gather urgent remaning=1
+dealloc app=4 ram=54
+cleanup node=3 ram=54
+NET 1802 1 0 12 0 0 14 0 16 1 1
+dealloc app=4 ram=0
+( 2, 1) sent retx=1 len=0
+cleanup node=2 ram=51
+cleanup node=2 ram=51
+cleanup node=2 ram=51
+dealloc app=4 ram=35
+cleanup node=2 ram=35
+ 1860 P 6.0 30 3087554 57862386 30012 411678 0 386748 110688 1855391 4109 16453 0 12514 (radio 0.02% / 1.04% tx 0.04% / 0.20% listen 0.67% / 0.83%)
+ 1860 P 5.0 30 3053849 57896091 10963 400640 0 388653 107727 1858352 2442 15312 0 12579 (radio 0.67% / 0.90% tx 0.01% / 0.12% listen 0.65% / 0.77%)
+ 1860 P 4.0 30 3083298 57866642 24898 409594 0 386887 113273 1852806 4738 16873 0 12365 (radio 0.00% / 1.09% tx 0.04% / 0.24% listen 0.67% / 0.85%)
+ 1860 P 8.0 30 3039134 57910806 8741 395378 0 387635 104431 1861648 1988 14302 0 12415 (radio 0.66% / 0.82% tx 0.01% / 0.10% listen 0.64% / 0.72%)
+ 1860 P 2.0 30 3084210 57865730 24710 411068 0 387594 114509 1851570 5285 17521 0 12272 (radio 0.01% / 1.15% tx 0.04% / 0.26% listen 0.67% / 0.89%)
+ 1860 P 1.0 30 1992002 58957931 21051 404818 0 386766 74541 1891536 4562 16407 0 12363 (radio 0.69% / 1.06% tx 0.03% / 0.23% listen 0.66% / 0.83%)
+ 1860 P 3.0 30 3102338 57847602 32666 415577 0 386194 109565 1856512 2928 15663 0 12389 (radio 0.03% / 0.94% tx 0.05% / 0.14% listen 0.68% / 0.79%)
+ 1860 P 7.0 30 3055130 57894810 15094 401452 0 387652 111364 1854715 5150 16838 0 12429 (radio 0.68% / 1.11% tx 0.02% / 0.26% listen 0.65% / 0.85%)
+ 1860 P 9.0 30 3043573 57906367 10555 395871 0 386568 103686 1862393 1265 13827 0 12441 (radio 0.66% / 0.76% tx 0.01% / 0.06% listen 0.64% / 0.70%)
+ 1860 P 10.0 30 3029902 57920038 6080 392220 0 387000 103955 1862124 2265 14244 0 12428 (radio 0.65% / 0.83% tx 0.00% / 0.11% listen 0.64% / 0.72%)
+ 1920 P 6.0 31 3184838 59731180 30012 424158 0 399228 97281 1868794 0 12480 0 12480 (radio 0.03% / 0.63% tx 0.04% / 0.00% listen 0.67% / 0.63%)
+ 1920 P 5.0 31 3151138 59764880 10963 413120 0 401133 97286 1868789 0 12480 0 12480 (radio 0.67% / 0.63% tx 0.01% / 0.00% listen 0.65% / 0.63%)
+ 1920 P 4.0 31 3180582 59735436 24898 422074 0 399367 97281 1868794 0 12480 0 12480 (radio 0.02% / 0.63% tx 0.03% / 0.00% listen 0.67% / 0.63%)
+ 1920 P 8.0 31 3136408 59779610 8741 407858 0 400115 97271 1868804 0 12480 0 12480 (radio 0.66% / 0.63% tx 0.01% / 0.00% listen 0.64% / 0.63%)
+ 1920 P 2.0 31 3181497 59734521 24710 423548 0 400074 97284 1868791 0 12480 0 12480 (radio 0.02% / 0.63% tx 0.03% / 0.00% listen 0.67% / 0.63%)
+ 1920 P 1.0 31 2054712 60861301 21051 417298 0 399246 62707 1903370 0 12480 0 12480 (radio 0.01% / 0.63% tx 0.03% / 0.00% listen 0.66% / 0.63%)
+ 1920 P 3.0 31 3199625 59716393 32666 428057 0 398674 97284 1868791 0 12480 0 12480 (radio 0.04% / 0.63% tx 0.05% / 0.00% listen 0.68% / 0.63%)
+ 1920 P 7.0 31 3152420 59763598 15094 413932 0 400132 97287 1868788 0 12480 0 12480 (radio 0.68% / 0.63% tx 0.02% / 0.00% listen 0.65% / 0.63%)
+ 1920 P 9.0 31 3140860 59775158 10555 408351 0 399048 97284 1868791 0 12480 0 12480 (radio 0.66% / 0.63% tx 0.01% / 0.00% listen 0.64% / 0.63%)
+ 1920 P 10.0 31 3127179 59788839 6080 404700 0 399480 97274 1868801 0 12480 0 12480 (radio 0.65% / 0.63% tx 0.00% / 0.00% listen 0.64% / 0.63%)
+ 1980 P 6.0 32 3282084 61600014 30012 436638 0 411708 97243 1868834 0 12480 0 12480 (radio 0.05% / 0.63% tx 0.04% / 0.00% listen 0.01% / 0.63%)
+ 1980 P 5.0 32 3248387 61633711 10963 425600 0 413613 97246 1868831 0 12480 0 12480 (radio 0.01% / 0.63% tx 0.01% / 0.00% listen 0.65% / 0.63%)
+ 1980 P 4.0 32 3277828 61604270 24898 434554 0 411847 97243 1868834 0 12480 0 12480 (radio 0.04% / 0.63% tx 0.03% / 0.00% listen 0.00% / 0.63%)
+ 1980 P 8.0 32 3233647 61648451 8741 420338 0 412595 97236 1868841 0 12480 0 12480 (radio 0.66% / 0.63% tx 0.01% / 0.00% listen 0.64% / 0.63%)
+ 1980 P 2.0 32 3278743 61603355 24710 436028 0 412554 97243 1868834 0 12480 0 12480 (radio 0.04% / 0.63% tx 0.03% / 0.00% listen 0.01% / 0.63%)
+ 1980 P 1.0 32 2117396 62764697 21051 429778 0 411726 62681 1903396 0 12480 0 12480 (radio 0.03% / 0.63% tx 0.03% / 0.00% listen 0.00% / 0.63%)
+ 1980 P 3.0 32 3296871 61585227 32666 440537 0 411154 97243 1868834 0 12480 0 12480 (radio 0.06% / 0.63% tx 0.05% / 0.00% listen 0.01% / 0.63%)
+ 1980 P 7.0 32 3249669 61632429 15094 426412 0 412612 97246 1868831 0 12480 0 12480 (radio 0.01% / 0.63% tx 0.02% / 0.00% listen 0.65% / 0.63%)
+ 1980 P 9.0 32 3238110 61643988 10555 420831 0 411528 97247 1868830 0 12480 0 12480 (radio 0.00% / 0.63% tx 0.01% / 0.00% listen 0.64% / 0.63%)
+ 1980 P 10.0 32 3224421 61657677 6080 417180 0 411960 97239 1868838 0 12480 0 12480 (radio 0.65% / 0.63% tx 0.00% / 0.00% listen 0.64% / 0.63%)
+ 2040 P 6.0 33 3379336 63468842 30012 449118 0 424188 97249 1868828 0 12480 0 12480 (radio 0.07% / 0.63% tx 0.04% / 0.00% listen 0.02% / 0.63%)
+ 2040 P 5.0 33 3345640 63502538 10963 438080 0 426093 97250 1868827 0 12480 0 12480 (radio 0.02% / 0.63% tx 0.01% / 0.00% listen 0.01% / 0.63%)
+ 2040 P 4.0 33 3375080 63473098 24898 447034 0 424327 97249 1868828 0 12480 0 12480 (radio 0.06% / 0.63% tx 0.03% / 0.00% listen 0.02% / 0.63%)
+ 2040 P 8.0 33 3330894 63517284 8741 432818 0 425075 97244 1868833 0 12480 0 12480 (radio 0.01% / 0.63% tx 0.01% / 0.00% listen 0.00% / 0.63%)
+ 2040 P 2.0 33 3375995 63472183 24710 448508 0 425034 97249 1868828 0 12480 0 12480 (radio 0.06% / 0.63% tx 0.03% / 0.00% listen 0.02% / 0.63%)
+ 2040 P 1.0 33 2180085 64668088 21051 442258 0 424206 62686 1903391 0 12480 0 12480 (radio 0.05% / 0.63% tx 0.03% / 0.00% listen 0.01% / 0.63%)
+ 2040 P 3.0 33 3394123 63454055 32666 453017 0 423634 97249 1868828 0 12480 0 12480 (radio 0.08% / 0.63% tx 0.04% / 0.00% listen 0.03% / 0.63%)
+ 2040 P 7.0 33 3346922 63501256 15094 438892 0 425092 97250 1868827 0 12480 0 12480 (radio 0.03% / 0.63% tx 0.02% / 0.00% listen 0.01% / 0.63%)
+ 2040 P 9.0 33 3335363 63512815 10555 433311 0 424008 97250 1868827 0 12480 0 12480 (radio 0.02% / 0.63% tx 0.01% / 0.00% listen 0.00% / 0.63%)
+ 2040 P 10.0 33 3321670 63526508 6080 429660 0 424440 97246 1868831 0 12480 0 12480 (radio 0.00% / 0.63% tx 0.00% / 0.00% listen 0.00% / 0.63%)
+ 2100 P 6.0 34 3476596 65337662 30012 461598 0 436668 97257 1868820 0 12480 0 12480 (radio 0.09% / 0.63% tx 0.04% / 0.00% listen 0.04% / 0.63%)
+ 2100 P 5.0 34 3442900 65371358 10963 450560 0 438573 97257 1868820 0 12480 0 12480 (radio 0.04% / 0.63% tx 0.01% / 0.00% listen 0.03% / 0.63%)
+ 2100 P 4.0 34 3472340 65341918 24898 459514 0 436807 97257 1868820 0 12480 0 12480 (radio 0.07% / 0.63% tx 0.03% / 0.00% listen 0.04% / 0.63%)
+ 2100 P 8.0 34 3428143 65386115 8741 445298 0 437555 97246 1868831 0 12480 0 12480 (radio 0.03% / 0.63% tx 0.01% / 0.00% listen 0.02% / 0.63%)
+ 2100 P 2.0 34 3473255 65341003 24710 460988 0 437514 97257 1868820 0 12480 0 12480 (radio 0.08% / 0.63% tx 0.03% / 0.00% listen 0.04% / 0.63%)
+ 2100 P 1.0 34 2242782 66571471 21051 454738 0 436686 62694 1903383 0 12480 0 12480 (radio 0.06% / 0.63% tx 0.03% / 0.00% listen 0.03% / 0.63%)
+ 2100 P 3.0 34 3491383 65322875 32666 465497 0 436114 97257 1868820 0 12480 0 12480 (radio 0.09% / 0.63% tx 0.04% / 0.00% listen 0.05% / 0.63%)
+ 2100 P 7.0 34 3444182 65370076 15094 451372 0 437572 97257 1868820 0 12480 0 12480 (radio 0.05% / 0.63% tx 0.02% / 0.00% listen 0.03% / 0.63%)
+ 2100 P 9.0 34 3432623 65381635 10555 445791 0 436488 97257 1868820 0 12480 0 12480 (radio 0.03% / 0.63% tx 0.01% / 0.00% listen 0.02% / 0.63%)
+ 2100 P 10.0 34 3418921 65395337 6080 442140 0 436920 97248 1868829 0 12480 0 12480 (radio 0.02% / 0.63% tx 0.00% / 0.00% listen 0.01% / 0.63%)
+ 2160 P 6.0 35 3573864 67206474 30012 474078 0 449148 97265 1868812 0 12480 0 12480 (radio 0.10% / 0.63% tx 0.04% / 0.00% listen 0.06% / 0.63%)
+ 2160 P 5.0 35 3540168 67240170 10963 463040 0 451053 97265 1868812 0 12480 0 12480 (radio 0.06% / 0.63% tx 0.01% / 0.00% listen 0.04% / 0.63%)
+ 2160 P 4.0 35 3569608 67210730 24898 471994 0 449287 97265 1868812 0 12480 0 12480 (radio 0.09% / 0.63% tx 0.03% / 0.00% listen 0.06% / 0.63%)
+ 2160 P 8.0 35 3525401 67254937 8741 457778 0 450035 97255 1868822 0 12480 0 12480 (radio 0.05% / 0.63% tx 0.01% / 0.00% listen 0.03% / 0.63%)
+ 2160 P 2.0 35 3570523 67209815 24710 473468 0 449994 97265 1868812 0 12480 0 12480 (radio 0.09% / 0.63% tx 0.03% / 0.00% listen 0.06% / 0.63%)
+ 2160 P 1.0 35 2305487 68474846 21051 467218 0 449166 62702 1903375 0 12480 0 12480 (radio 0.08% / 0.63% tx 0.02% / 0.00% listen 0.05% / 0.63%)
+ 2160 P 3.0 35 3588651 67191687 32666 477977 0 448594 97265 1868812 0 12480 0 12480 (radio 0.11% / 0.63% tx 0.04% / 0.00% listen 0.06% / 0.63%)
+ 2160 P 7.0 35 3541450 67238888 15094 463852 0 450052 97265 1868812 0 12480 0 12480 (radio 0.06% / 0.63% tx 0.02% / 0.00% listen 0.04% / 0.63%)
+ 2160 P 9.0 35 3529891 67250447 10555 458271 0 448968 97265 1868812 0 12480 0 12480 (radio 0.05% / 0.63% tx 0.01% / 0.00% listen 0.04% / 0.63%)
+ 2160 P 10.0 35 3516180 67264158 6080 454620 0 449400 97256 1868821 0 12480 0 12480 (radio 0.04% / 0.63% tx 0.00% / 0.00% listen 0.03% / 0.63%)
+ 2220 P 6.0 36 3671141 69075277 30012 486558 0 461628 97274 1868803 0 12480 0 12480 (radio 0.11% / 0.63% tx 0.04% / 0.00% listen 0.07% / 0.63%)
+ 2220 P 5.0 36 3637444 69108974 10963 475520 0 463533 97273 1868804 0 12480 0 12480 (radio 0.07% / 0.63% tx 0.01% / 0.00% listen 0.06% / 0.63%)
+ 2220 P 4.0 36 3666884 69079534 24898 484474 0 461767 97273 1868804 0 12480 0 12480 (radio 0.10% / 0.63% tx 0.03% / 0.00% listen 0.07% / 0.63%)
+ 2220 P 8.0 36 3622666 69123752 8741 470258 0 462515 97262 1868815 0 12480 0 12480 (radio 0.06% / 0.63% tx 0.01% / 0.00% listen 0.05% / 0.63%)
+ 2220 P 2.0 36 3667799 69078619 24710 485948 0 462474 97273 1868804 0 12480 0 12480 (radio 0.11% / 0.63% tx 0.03% / 0.00% listen 0.07% / 0.63%)
+ 2220 P 1.0 36 2368200 70378213 21051 479698 0 461646 62710 1903367 0 12480 0 12480 (radio 0.09% / 0.63% tx 0.02% / 0.00% listen 0.06% / 0.63%)
+ 2220 P 3.0 36 3685928 69060490 32666 490457 0 461074 97274 1868803 0 12480 0 12480 (radio 0.12% / 0.63% tx 0.04% / 0.00% listen 0.08% / 0.63%)
+ 2220 P 7.0 36 3638726 69107692 15094 476332 0 462532 97273 1868804 0 12480 0 12480 (radio 0.08% / 0.63% tx 0.02% / 0.00% listen 0.06% / 0.63%)
+ 2220 P 9.0 36 3627167 69119251 10555 470751 0 461448 97273 1868804 0 12480 0 12480 (radio 0.07% / 0.63% tx 0.01% / 0.00% listen 0.05% / 0.63%)
+ 2220 P 10.0 36 3613447 69132971 6080 467100 0 461880 97264 1868813 0 12480 0 12480 (radio 0.06% / 0.63% tx 0.00% / 0.00% listen 0.05% / 0.63%)
+ 2280 P 6.0 37 3768427 70944071 30012 499038 0 474108 97283 1868794 0 12480 0 12480 (radio 0.13% / 0.63% tx 0.04% / 0.00% listen 0.09% / 0.63%)
+ 2280 P 5.0 37 3734728 70977770 10963 488000 0 476013 97281 1868796 0 12480 0 12480 (radio 0.09% / 0.63% tx 0.01% / 0.00% listen 0.07% / 0.63%)
+ 2280 P 4.0 37 3764170 70948328 24898 496954 0 474247 97283 1868794 0 12480 0 12480 (radio 0.12% / 0.63% tx 0.03% / 0.00% listen 0.09% / 0.63%)
+ 2280 P 8.0 37 3719939 70992559 8741 482738 0 474995 97270 1868807 0 12480 0 12480 (radio 0.08% / 0.63% tx 0.01% / 0.00% listen 0.07% / 0.63%)
+ 2280 P 2.0 37 3765085 70947413 24710 498428 0 474954 97283 1868794 0 12480 0 12480 (radio 0.12% / 0.63% tx 0.03% / 0.00% listen 0.09% / 0.63%)
+ 2280 P 1.0 37 2430922 72281571 21051 492178 0 474126 62719 1903358 0 12480 0 12480 (radio 0.11% / 0.63% tx 0.02% / 0.00% listen 0.08% / 0.63%)
+ 2280 P 3.0 37 3783213 70929285 32666 502937 0 473554 97282 1868795 0 12480 0 12480 (radio 0.14% / 0.63% tx 0.04% / 0.00% listen 0.09% / 0.63%)
+ 2280 P 7.0 37 3736010 70976488 15094 488812 0 475012 97281 1868796 0 12480 0 12480 (radio 0.09% / 0.63% tx 0.02% / 0.00% listen 0.07% / 0.63%)
+ 2280 P 9.0 37 3724451 70988047 10555 483231 0 473928 97281 1868796 0 12480 0 12480 (radio 0.08% / 0.63% tx 0.01% / 0.00% listen 0.07% / 0.63%)
+ 2280 P 10.0 37 3710722 71001776 6080 479580 0 474360 97272 1868805 0 12480 0 12480 (radio 0.07% / 0.63% tx 0.00% / 0.00% listen 0.06% / 0.63%)
+ 2340 P 6.0 38 3865749 72812829 30012 511518 0 486588 97319 1868758 0 12480 0 12480 (radio 0.14% / 0.63% tx 0.03% / 0.00% listen 0.10% / 0.63%)
+ 2340 P 5.0 38 3832048 72846530 10963 500480 0 488493 97317 1868760 0 12480 0 12480 (radio 0.10% / 0.63% tx 0.01% / 0.00% listen 0.09% / 0.63%)
+ 2340 P 4.0 38 3861492 72817086 24898 509434 0 486727 97319 1868758 0 12480 0 12480 (radio 0.13% / 0.63% tx 0.03% / 0.00% listen 0.10% / 0.63%)
+ 2340 P 8.0 38 3817249 72861329 8741 495218 0 487475 97307 1868770 0 12480 0 12480 (radio 0.09% / 0.63% tx 0.01% / 0.00% listen 0.08% / 0.63%)
+ 2340 P 2.0 38 3862407 72816171 24710 510908 0 487434 97319 1868758 0 12480 0 12480 (radio 0.13% / 0.63% tx 0.03% / 0.00% listen 0.10% / 0.63%)
+ 2340 P 1.0 38 2493654 74184919 21051 504658 0 486606 62729 1903348 0 12480 0 12480 (radio 0.12% / 0.63% tx 0.02% / 0.00% listen 0.09% / 0.63%)
+ 2340 P 3.0 38 3880535 72798043 32666 515417 0 486034 97319 1868758 0 12480 0 12480 (radio 0.15% / 0.63% tx 0.04% / 0.00% listen 0.11% / 0.63%)
+ 2340 P 7.0 38 3833330 72845248 15094 501292 0 487492 97317 1868760 0 12480 0 12480 (radio 0.11% / 0.63% tx 0.01% / 0.00% listen 0.09% / 0.63%)
+ 2340 P 9.0 38 3821771 72856807 10555 495711 0 486408 97317 1868760 0 12480 0 12480 (radio 0.10% / 0.63% tx 0.01% / 0.00% listen 0.08% / 0.63%)
+ 2340 P 10.0 38 3808034 72870544 6080 492060 0 486840 97309 1868768 0 12480 0 12480 (radio 0.08% / 0.63% tx 0.00% / 0.00% listen 0.08% / 0.63%)
+ 2400 P 6.0 39 3963116 74681542 30012 523998 0 499068 97364 1868713 0 12480 0 12480 (radio 0.15% / 0.63% tx 0.03% / 0.00% listen 0.12% / 0.63%)
+alloc app=1 ram=73
+dealloc app=1 ram=54
+ 2400 P 5.0 39 3929411 74715247 10963 512960 0 500973 97360 1868717 0 12480 0 12480 (radio 0.12% / 0.63% tx 0.01% / 0.00% listen 0.10% / 0.63%)
+alloc app=1 ram=149
+NET 2400 6 8 8 0 13 20 4 54 3 0
+flush urgent no data
+dealloc app=1 ram=130
+fire!
+alloc app=2 ram=73
+alloc app=2 ram=92
+NET 2400 5 8 8 0 13 19 3 130 7 0
+flush urgent no data
+PAIR 2400 6 emited 0 0 02092800f40001 01000101
+NET 2400 5 8 8 0 14 19 3 130 7 0
+dealloc app=2 ram=73
+flush urgent no data
+alloc app=3 ram=146
+NET 2400 6 8 8 0 14 21 4 73 4 0
+dealloc app=3 ram=130
+flush urgent no data
+alloc app=3 ram=89
+NET 2400 5 8 8 0 15 20 4 130 7 0
+dealloc app=3 ram=73
+flush urgent no data
+NET 2400 6 8 8 0 15 22 5 73 4 0
+flush urgent no data
+NET 2400 5 8 8 0 16 20 4 130 7 0
+flush urgent no data
+NET 2400 6 8 8 0 16 22 5 73 4 0
+flush urgent no data
+ 2400 P 4.0 39 3958859 74685799 24898 521914 0 499207 97364 1868713 0 12480 0 12480 (radio 0.14% / 0.63% tx 0.03% / 0.00% listen 0.11% / 0.63%)
+alloc app=1 ram=54
+dealloc app=1 ram=35
+NET 2400 4 11 8 0 13 19 4 35 2 0
+flush urgent no data
+NET 2400 4 11 8 0 14 19 4 35 2 0
+flush urgent no data
+alloc app=3 ram=51
+dealloc app=3 ram=35
+NET 2400 4 11 8 0 15 20 5 35 2 0
+flush urgent no data
+road!
+alloc app=4 ram=51
+alloc app=4 ram=67
+PAIR 2400 4 emited 1 0 04062800022c0001
+dealloc app=4 ram=51
+NET 2400 4 11 8 0 16 21 5 51 3 1
+gather len=10
+( 4, 3) send urgent=1 len=12
+( 4, 3) recv seqno=3 len=12
+gather urgent remaning=1
+gather urgent remaning=1
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=70
+alloc app=4 ram=86
+PAIR 2399 3 emited 1 0 04062800022c0001
+dealloc app=4 ram=70
+gather urgent remaning=1
+NET 2399 3 12 13 0 12 24 3 70 4 1
+gather len=10
+( 3, 2) send urgent=1 len=12
+ 2400 P 8.0 39 3914600 74730058 8741 507698 0 499955 97348 1868729 0 12480 0 12480 (radio 0.11% / 0.63% tx 0.01% / 0.00% listen 0.09% / 0.63%)
+alloc app=1 ram=54
+ 2400 P 2.0 39 3959774 74684884 24710 523388 0 499914 97364 1868713 0 12480 0 12480 (radio 0.15% / 0.63% tx 0.03% / 0.00% listen 0.11% / 0.63%)
+dealloc app=1 ram=35
+alloc app=1 ram=54
+dealloc app=1 ram=35
+NET 2400 8 4 4 0 13 13 4 35 2 0
+flush urgent no data
+NET 2400 2 11 12 0 13 21 5 35 2 0
+flush urgent no data
+NET 2400 8 4 4 0 14 13 4 35 2 0
+flush urgent no data
+alloc app=3 ram=51
+NET 2400 2 11 12 0 14 21 5 35 2 0
+dealloc app=3 ram=35
+flush urgent no data
+alloc app=3 ram=51
+dealloc app=3 ram=35
+NET 2400 8 4 4 0 15 14 5 35 2 0
+flush urgent no data
+NET 2400 2 11 12 0 15 22 6 35 2 0
+flush urgent no data
+NET 2400 8 4 4 0 16 14 5 35 2 0
+flush urgent no data
+NET 2400 2 11 12 0 16 22 6 35 2 0
+flush urgent no data
+( 3, 2) recv seqno=0 len=12
+gather urgent remaning=1
+gather urgent remaning=0
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=51
+alloc app=4 ram=67
+PAIR 2400 2 emited 1 0 04062800022c0001
+dealloc app=4 ram=51
+( 4, 3) sent retx=1 len=0
+gather urgent remaning=1
+cleanup node=4 ram=51
+cleanup node=4 ram=51
+cleanup node=4 ram=51
+NET 2400 2 11 13 0 16 23 6 51 3 1
+dealloc app=4 ram=35
+gather len=10
+cleanup node=4 ram=35
+( 2, 1) send urgent=1 len=12
+( 2, 1) recv seqno=3 len=12
+gather urgent remaning=0
+gather urgent remaning=0
+gather urgent remaning=0
+received for_me=1 end=10
+alloc app=4 ram=16
+alloc app=4 ram=32
+( 3, 2) sent retx=1 len=0
+cleanup node=3 ram=70
+PAIR 2400 1 emited 1 0 04062800022c0001
+cleanup node=3 ram=70
+dealloc app=4 ram=16
+cleanup node=3 ram=70
+gather urgent remaning=1
+dealloc app=4 ram=54
+cleanup node=3 ram=54
+NET 2400 1 0 13 0 0 15 0 16 1 1
+dealloc app=4 ram=0
+ 2400 P 3.0 39 3982476 74662182 34019 529285 0 498436 101938 1864139 1353 13868 0 12402 (radio 0.17% / 0.77% tx 0.04% / 0.06% listen 0.12% / 0.70%)
+alloc app=1 ram=73
+dealloc app=1 ram=54
+NET 2400 3 13 13 0 13 25 4 54 3 0
+flush urgent no data
+fire!
+alloc app=2 ram=73
+alloc app=2 ram=92
+PAIR 2400 3 emited 0 0 02092800c80001 01000101
+dealloc app=2 ram=73
+NET 2400 3 13 13 0 14 26 4 73 4 0
+flush urgent no data
+alloc app=3 ram=89
+dealloc app=3 ram=73
+NET 2400 3 13 13 0 15 27 5 73 4 0
+flush urgent no data
+NET 2400 3 13 13 0 16 27 5 73 4 0
+( 2, 1) sent retx=1 len=0
+flush urgent no data
+cleanup node=2 ram=51
+cleanup node=2 ram=51
+cleanup node=2 ram=51
+dealloc app=4 ram=35
+cleanup node=2 ram=35
+ 2400 P 1.0 39 2560266 76087482 22584 518452 0 499086 66609 1902563 1533 13794 0 12480 (radio 0.14% / 0.77% tx 0.02% / 0.07% listen 0.11% / 0.70%)
+ 2400 P 7.0 39 3930693 74713965 15094 513772 0 499972 97360 1868717 0 12480 0 12480 (radio 0.12% / 0.63% tx 0.01% / 0.00% listen 0.10% / 0.63%)
+alloc app=1 ram=54
+dealloc app=1 ram=35
+NET 2400 7 7 4 0 13 16 4 35 2 0
+flush urgent no data
+NET 2400 7 7 4 0 14 16 4 35 2 0
+flush urgent no data
+alloc app=3 ram=51
+dealloc app=3 ram=35
+NET 2400 7 7 4 0 15 17 5 35 2 0
+flush urgent no data
+road!
+alloc app=4 ram=51
+alloc app=4 ram=67
+PAIR 2400 7 emited 1 0 0406280002580001
+dealloc app=4 ram=51
+NET 2400 7 7 4 0 16 18 5 51 3 1
+ 2400 P 9.0 39 3919134 74725524 10555 508191 0 498888 97360 1868717 0 12480 0 12480 (radio 0.11% / 0.63% tx 0.01% / 0.00% listen 0.10% / 0.63%)
+gather len=10
+( 7, 6) send urgent=1 len=12
+alloc app=1 ram=73
+dealloc app=1 ram=54
+NET 2400 9 4 4 0 13 15 4 54 3 0
+flush urgent no data
+fire!
+alloc app=2 ram=73
+alloc app=2 ram=92
+PAIR 2400 9 emited 0 0 02092800200001 01000101
+dealloc app=2 ram=73
+NET 2400 9 4 4 0 14 16 4 73 4 0
+flush urgent no data
+alloc app=3 ram=89
+dealloc app=3 ram=73
+NET 2400 9 4 4 0 15 17 5 73 4 0
+flush urgent no data
+NET 2400 9 4 4 0 16 17 5 73 4 0
+flush urgent no data
+( 7, 6) recv seqno=3 len=12
+gather urgent remaning=1
+gather urgent remaning=2
+gather urgent remaning=1
+ 2400 P 10.0 39 3905387 74739271 6080 504540 0 499320 97350 1868727 0 12480 0 12480 (radio 0.10% / 0.63% tx 0.00% / 0.00% listen 0.09% / 0.63%)
+received for_me=1 end=10
+alloc app=4 ram=89
+alloc app=1 ram=54
+alloc app=4 ram=105
+dealloc app=1 ram=35
+NET 2400 10 4 0 0 13 10 3 35 2 0
+PAIR 2400 6 emited 1 0 0406280002580001
+flush urgent no data
+dealloc app=4 ram=89
+gather urgent remaning=1
+NET 2400 10 4 0 0 14 10 3 35 2 0
+flush urgent no data
+NET 2400 6 8 9 0 16 23 5 89 5 1
+gather len=10
+alloc app=3 ram=51
+dealloc app=3 ram=35
+( 6, 5) send urgent=1 len=12
+NET 2400 10 4 0 0 15 11 4 35 2 0
+flush urgent no data
+road!
+alloc app=4 ram=51
+alloc app=4 ram=67
+PAIR 2400 10 emited 1 0 0406280002840001
+dealloc app=4 ram=51
+NET 2400 10 4 0 0 16 12 4 51 3 1
+gather len=10
+(10, 9) send urgent=1 len=12
+(10, 9) recv seqno=0 len=12
+gather urgent remaning=1
+gather urgent remaning=2
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=89
+alloc app=4 ram=105
+PAIR 2400 9 emited 1 0 0406280002840001
+dealloc app=4 ram=89
+gather urgent remaning=1
+NET 2400 9 4 5 0 16 18 5 89 5 1
+gather len=10
+( 9, 8) send urgent=1 len=12
+( 6, 5) recv seqno=0 len=12
+gather urgent remaning=2
+gather urgent remaning=4
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=146
+alloc app=4 ram=162
+PAIR 2401 5 emited 1 0 0406280002580001
+dealloc app=4 ram=146
+gather urgent remaning=1
+NET 2401 5 8 9 0 16 21 4 146 8 1
+gather len=10
+( 5, 4) send urgent=1 len=12
+(10, 9) sent retx=1 len=0
+cleanup node=10 ram=51
+cleanup node=10 ram=51
+cleanup node=10 ram=51
+dealloc app=4 ram=35
+cleanup node=10 ram=35
+( 5, 4) recv seqno=0 len=12
+gather urgent remaning=1
+gather urgent remaning=0
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=51
+alloc app=4 ram=67
+PAIR 2401 4 emited 1 0 0406280002580001
+dealloc app=4 ram=51
+gather urgent remaning=1
+NET 2401 4 12 9 0 16 22 5 51 3 1
+gather len=10
+( 4, 3) send urgent=1 len=12
+( 6, 5) sent retx=1 len=0
+cleanup node=6 ram=89
+cleanup node=6 ram=89
+cleanup node=6 ram=89
+dealloc app=4 ram=73
+cleanup node=6 ram=73
+( 9, 8) recv seqno=0 len=12
+gather urgent remaning=1
+gather urgent remaning=0
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=51
+alloc app=4 ram=67
+PAIR 2401 8 emited 1 0 0406280002840001
+dealloc app=4 ram=51
+gather urgent remaning=1
+NET 2401 8 4 5 0 16 15 5 51 3 1
+gather len=10
+( 8, 7) send urgent=1 len=12
+( 4, 3) recv seqno=0 len=12
+gather urgent remaning=1
+gather urgent remaning=2
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=89
+alloc app=4 ram=105
+PAIR 2401 3 emited 1 0 0406280002580001
+dealloc app=4 ram=89
+gather urgent remaning=1
+NET 2401 3 13 14 0 16 28 5 89 5 1
+gather len=10
+( 3, 2) send urgent=1 len=12
+( 5, 4) sent retx=1 len=0
+cleanup node=5 ram=146
+cleanup node=5 ram=146
+cleanup node=5 ram=146
+dealloc app=4 ram=130
+cleanup node=5 ram=130
+( 9, 8) sent retx=1 len=0
+cleanup node=9 ram=89
+cleanup node=9 ram=89
+cleanup node=9 ram=89
+dealloc app=4 ram=73
+cleanup node=9 ram=73
+( 4, 3) sent retx=1 len=0
+cleanup node=4 ram=51
+cleanup node=4 ram=51
+cleanup node=4 ram=51
+dealloc app=4 ram=35
+cleanup node=4 ram=35
+( 7, 6) recv seqno=3 len=12
+gather urgent remaning=1
+gather urgent remaning=2
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=89
+alloc app=4 ram=105
+PAIR 2401 6 emited 1 0 0406280002580001
+dealloc app=4 ram=89
+gather urgent remaning=1
+NET 2401 6 9 10 0 16 24 5 89 5 1
+gather len=10
+( 6, 5) send urgent=1 len=12
+( 3, 2) recv seqno=1 len=12
+gather urgent remaning=1
+gather urgent remaning=0
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=51
+alloc app=4 ram=67
+PAIR 2401 2 emited 1 0 0406280002580001
+dealloc app=4 ram=51
+gather urgent remaning=1
+NET 2401 2 12 14 0 16 24 6 51 3 1
+gather len=10
+( 2, 1) send urgent=1 len=12
+( 6, 5) recv seqno=1 len=12
+gather urgent remaning=2
+gather urgent remaning=4
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=146
+alloc app=4 ram=162
+PAIR 2402 5 emited 1 0 0406280002580001
+dealloc app=4 ram=146
+gather urgent remaning=1
+NET 2402 5 9 10 0 16 22 4 146 8 1
+gather len=10
+( 5, 4) send urgent=1 len=12
+( 2, 1) recv seqno=0 len=12
+gather urgent remaning=0
+gather urgent remaning=0
+gather urgent remaning=0
+received for_me=1 end=10
+alloc app=4 ram=16
+alloc app=4 ram=32
+( 3, 2) sent retx=1 len=0
+cleanup node=3 ram=89
+PAIR 2401 1 emited 1 0 0406280002580001
+cleanup node=3 ram=89
+dealloc app=4 ram=16
+cleanup node=3 ram=89
+gather urgent remaning=1
+dealloc app=4 ram=73
+cleanup node=3 ram=73
+NET 2401 1 0 14 0 0 16 0 16 1 1
+dealloc app=4 ram=0
+( 2, 1) sent retx=1 len=0
+cleanup node=2 ram=51
+cleanup node=2 ram=51
+cleanup node=2 ram=51
+dealloc app=4 ram=35
+cleanup node=2 ram=35
+( 5, 4) recv seqno=1 len=12
+gather urgent remaning=1
+gather urgent remaning=0
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=51
+alloc app=4 ram=67
+PAIR 2402 4 emited 1 0 0406280002580001
+dealloc app=4 ram=51
+gather urgent remaning=1
+NET 2402 4 13 10 0 16 23 5 51 3 1
+gather len=10
+( 4, 3) send urgent=1 len=12
+( 6, 5) sent retx=0 len=0
+cleanup node=6 ram=89
+cleanup node=6 ram=89
+cleanup node=6 ram=89
+dealloc app=4 ram=73
+cleanup node=6 ram=73
+( 7, 6) sent retx=2 len=0
+cleanup node=7 ram=51
+cleanup node=7 ram=51
+cleanup node=7 ram=51
+dealloc app=4 ram=35
+cleanup node=7 ram=35
+( 8, 7) recv seqno=0 len=12
+gather urgent remaning=1
+gather urgent remaning=0
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=51
+alloc app=4 ram=67
+PAIR 2401 7 emited 1 0 0406280002840001
+dealloc app=4 ram=51
+gather urgent remaning=1
+NET 2401 7 8 5 0 16 19 5 51 3 1
+gather len=10
+( 7, 6) send urgent=1 len=12
+( 4, 3) recv seqno=1 len=12
+gather urgent remaning=1
+gather urgent remaning=2
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=89
+alloc app=4 ram=105
+PAIR 2402 3 emited 1 0 0406280002580001
+dealloc app=4 ram=89
+gather urgent remaning=1
+NET 2402 3 14 15 0 16 29 5 89 5 1
+gather len=10
+( 3, 2) send urgent=1 len=12
+( 8, 7) sent retx=1 len=0
+cleanup node=8 ram=51
+( 3, 2) recv seqno=2 len=12
+cleanup node=8 ram=51
+gather urgent remaning=1
+cleanup node=8 ram=51
+gather urgent remaning=0
+dealloc app=4 ram=35
+gather urgent remaning=1
+cleanup node=8 ram=35
+received for_me=1 end=10
+alloc app=4 ram=51
+alloc app=4 ram=67
+PAIR 2402 2 emited 1 0 0406280002580001
+dealloc app=4 ram=51
+gather urgent remaning=1
+( 4, 3) sent retx=1 len=0
+cleanup node=4 ram=51
+cleanup node=4 ram=51
+NET 2402 2 13 15 0 16 25 6 51 3 1
+gather len=10
+cleanup node=4 ram=51
+dealloc app=4 ram=35
+( 2, 1) send urgent=1 len=12
+cleanup node=4 ram=35
+( 8, 7) recv seqno=0 len=12
+gather urgent remaning=1
+gather urgent remaning=0
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=67
+dealloc app=4 ram=51
+gather urgent remaning=1
+NET 2402 7 8 6 0 16 20 6 51 3 1
+flush urgent no medium
+( 2, 1) recv seqno=1 len=12
+gather urgent remaning=0
+gather urgent remaning=0
+gather urgent remaning=0
+received for_me=1 end=10
+alloc app=4 ram=16
+alloc app=4 ram=32
+( 3, 2) sent retx=1 len=0
+cleanup node=3 ram=89
+PAIR 2402 1 emited 1 0 0406280002580001
+cleanup node=3 ram=89
+dealloc app=4 ram=16
+cleanup node=3 ram=89
+gather urgent remaning=1
+dealloc app=4 ram=73
+cleanup node=3 ram=73
+NET 2402 1 0 15 0 0 17 0 16 1 1
+dealloc app=4 ram=0
+( 2, 1) sent retx=1 len=0
+cleanup node=2 ram=51
+cleanup node=2 ram=51
+cleanup node=2 ram=51
+dealloc app=4 ram=35
+cleanup node=2 ram=35
+( 5, 4) recv seqno=1 len=12
+gather urgent remaning=1
+gather urgent remaning=0
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=51
+alloc app=4 ram=67
+PAIR 2402 4 emited 1 0 0406280002580001
+dealloc app=4 ram=51
+gather urgent remaning=1
+NET 2402 4 14 11 0 16 24 5 51 3 1
+gather len=10
+( 4, 3) send urgent=1 len=12
+( 4, 3) recv seqno=2 len=12
+gather urgent remaning=1
+gather urgent remaning=2
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=89
+alloc app=4 ram=105
+PAIR 2402 3 emited 1 0 0406280002580001
+dealloc app=4 ram=89
+gather urgent remaning=1
+NET 2402 3 15 16 0 16 30 5 89 5 1
+gather len=10
+( 3, 2) send urgent=1 len=12
+( 3, 2) recv seqno=3 len=12
+gather urgent remaning=1
+gather urgent remaning=0
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=51
+alloc app=4 ram=67
+PAIR 2403 2 emited 1 0 0406280002580001
+dealloc app=4 ram=51
+gather urgent remaning=1
+NET 2403 2 14 16 0 16 26 6 51 3 1
+gather len=10
+( 2, 1) send urgent=1 len=12
+( 3, 2) sent retx=1 len=0
+cleanup node=3 ram=89
+cleanup node=3 ram=89
+cleanup node=3 ram=89
+dealloc app=4 ram=73
+cleanup node=3 ram=73
+( 7, 6) recv seqno=0 len=12
+gather urgent remaning=1
+gather urgent remaning=2
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=89
+alloc app=4 ram=105
+PAIR 2403 6 emited 1 0 0406280002840001
+dealloc app=4 ram=89
+gather urgent remaning=1
+NET 2403 6 10 11 0 16 25 5 89 5 1
+gather len=10
+( 6, 5) send urgent=1 len=12
+( 2, 1) recv seqno=2 len=12
+gather urgent remaning=0
+gather urgent remaning=0
+gather urgent remaning=0
+received for_me=1 end=10
+alloc app=4 ram=16
+alloc app=4 ram=32
+PAIR 2403 1 emited 1 0 0406280002580001
+dealloc app=4 ram=16
+gather urgent remaning=1
+NET 2403 1 0 16 0 0 18 0 16 1 1
+dealloc app=4 ram=0
+( 2, 1) sent retx=0 len=0
+cleanup node=2 ram=51
+cleanup node=2 ram=51
+cleanup node=2 ram=51
+dealloc app=4 ram=35
+cleanup node=2 ram=35
+( 5, 4) timedout retx=3
+( 5, 4) recv seqno=1 len=12
+gather urgent remaning=1
+gather urgent remaning=0
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=67
+dealloc app=4 ram=51
+gather urgent remaning=1
+NET 2403 4 14 12 0 16 25 6 51 3 1
+flush urgent no medium
+( 7, 6) sent retx=1 len=0
+cleanup node=7 ram=51
+cleanup node=7 ram=51
+cleanup node=7 ram=51
+dealloc app=4 ram=35
+cleanup node=7 ram=35
+( 4, 3) recv seqno=2 len=12
+gather urgent remaning=1
+gather urgent remaning=2
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=89
+alloc app=4 ram=105
+PAIR 2403 3 emited 1 0 0406280002580001
+dealloc app=4 ram=89
+gather urgent remaning=1
+NET 2403 3 16 17 0 16 31 5 89 5 1
+gather len=10
+( 3, 2) send urgent=1 len=12
+( 3, 2) recv seqno=0 len=12
+gather urgent remaning=1
+gather urgent remaning=0
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=51
+alloc app=4 ram=67
+PAIR 2404 2 emited 1 0 0406280002580001
+dealloc app=4 ram=51
+( 4, 3) sent retx=1 len=0
+gather urgent remaning=1
+cleanup node=4 ram=51
+cleanup node=4 ram=51
+cleanup node=4 ram=51
+NET 2404 2 15 17 0 16 27 6 51 3 1
+dealloc app=4 ram=35
+gather len=10
+cleanup node=4 ram=35
+( 2, 1) send urgent=1 len=12
+( 7, 6) recv seqno=0 len=12
+gather urgent remaning=1
+gather urgent remaning=2
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=105
+dealloc app=4 ram=89
+gather urgent remaning=1
+NET 2404 6 10 12 0 16 26 6 89 5 1
+flush urgent no medium
+( 2, 1) recv seqno=3 len=12
+gather urgent remaning=0
+gather urgent remaning=0
+gather urgent remaning=0
+received for_me=1 end=10
+alloc app=4 ram=16
+alloc app=4 ram=32
+PAIR 2404 1 emited 1 0 0406280002580001
+dealloc app=4 ram=16
+gather urgent remaning=1
+NET 2404 1 0 17 0 0 19 0 16 1 1
+dealloc app=4 ram=0
+( 3, 2) recv seqno=0 len=12
+gather urgent remaning=1
+gather urgent remaning=0
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=67
+dealloc app=4 ram=51
+gather urgent remaning=1
+NET 2405 2 15 18 0 16 28 7 51 3 1
+flush urgent no medium
+( 3, 2) sent retx=2 len=0
+cleanup node=3 ram=89
+cleanup node=3 ram=89
+cleanup node=3 ram=89
+dealloc app=4 ram=73
+cleanup node=3 ram=73
+( 6, 5) recv seqno=2 len=12
+gather urgent remaning=2
+gather urgent remaning=4
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=162
+alloc app=4 ram=178
+PAIR 2405 5 emited 1 0 0406280002840001
+dealloc app=4 ram=162
+gather urgent remaning=2
+NET 2405 5 9 11 1 16 23 4 162 9 2
+gather len=10
+gather len=18
+( 5, 4) send urgent=1 len=20
+( 2, 1) recv seqno=3 len=12
+gather urgent remaning=0
+gather urgent remaning=0
+gather urgent remaning=0
+received for_me=1 end=10
+alloc app=4 ram=16
+alloc app=4 ram=32
+PAIR 2405 1 emited 1 0 0406280002580001
+dealloc app=4 ram=16
+gather urgent remaning=1
+NET 2405 1 0 18 0 0 20 0 16 1 1
+dealloc app=4 ram=0
+( 2, 1) sent retx=2 len=0
+cleanup node=2 ram=51
+cleanup node=2 ram=51
+cleanup node=2 ram=51
+dealloc app=4 ram=35
+cleanup node=2 ram=35
+( 5, 4) recv seqno=2 len=20
+gather urgent remaning=1
+gather urgent remaning=0
+gather urgent remaning=1
+received for_me=1 end=18
+alloc app=4 ram=51
+alloc app=4 ram=67
+PAIR 2405 4 emited 1 0 0406280002840001
+dealloc app=4 ram=51
+alloc app=4 ram=67
+alloc app=4 ram=83
+PAIR 2405 4 emited 1 0 0406280002580001
+dealloc app=4 ram=67
+gather urgent remaning=2
+NET 2405 4 15 13 0 16 27 6 67 4 2
+gather len=10
+gather len=18
+( 4, 3) send urgent=1 len=20
+( 2, 1) timedout retx=3
+( 4, 3) recv seqno=3 len=20
+gather urgent remaning=1
+gather urgent remaning=2
+gather urgent remaning=1
+received for_me=1 end=18
+alloc app=4 ram=89
+alloc app=4 ram=105
+PAIR 2405 3 emited 1 0 0406280002580001
+dealloc app=4 ram=89
+alloc app=4 ram=105
+alloc app=4 ram=121
+PAIR 2405 3 emited 1 0 0406280002840001
+dealloc app=4 ram=105
+gather urgent remaning=2
+NET 2405 3 17 18 0 16 33 5 105 6 2
+gather len=10
+gather len=18
+( 3, 2) send urgent=1 len=20
+( 5, 4) sent retx=1 len=0
+cleanup node=5 ram=162
+cleanup node=5 ram=162
+cleanup node=5 ram=162
+dealloc app=4 ram=146
+dealloc app=4 ram=130
+cleanup node=5 ram=130
+( 6, 5) timedout retx=3
+( 6, 5) recv seqno=2 len=12
+gather urgent remaning=2
+gather urgent remaning=4
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=146
+alloc app=4 ram=162
+PAIR 2406 5 emited 1 0 0406280002840001
+dealloc app=4 ram=146
+gather urgent remaning=1
+NET 2406 5 10 12 1 16 24 4 146 8 1
+gather len=10
+( 5, 4) send urgent=1 len=12
+( 3, 2) recv seqno=1 len=20
+gather urgent remaning=1
+gather urgent remaning=0
+gather urgent remaning=1
+received for_me=1 end=18
+alloc app=4 ram=51
+alloc app=4 ram=67
+PAIR 2405 2 emited 1 0 0406280002840001
+dealloc app=4 ram=51
+alloc app=4 ram=67
+( 5, 4) recv seqno=3 len=12
+alloc app=4 ram=83
+gather urgent remaning=1
+gather urgent remaning=0
+gather urgent remaning=1
+PAIR 2405 2 emited 1 0 0406280002580001
+received for_me=1 end=10
+alloc app=4 ram=83
+dealloc app=4 ram=67
+dealloc app=4 ram=67
+gather urgent remaning=2
+gather urgent remaning=2
+NET 2405 2 16 19 1 16 30 7 67 4 2
+gather len=10
+NET 2405 4 15 14 0 16 28 7 67 4 2
+gather len=18
+flush urgent no medium
+( 2, 1) send urgent=1 len=20
+( 4, 3) sent retx=1 len=0
+cleanup node=4 ram=67
+cleanup node=4 ram=67
+cleanup node=4 ram=67
+dealloc app=4 ram=51
+dealloc app=4 ram=35
+cleanup node=4 ram=35
+( 3, 2) sent retx=1 len=0
+cleanup node=3 ram=105
+cleanup node=3 ram=105
+cleanup node=3 ram=105
+dealloc app=4 ram=89
+dealloc app=4 ram=73
+cleanup node=3 ram=73
+( 5, 4) sent retx=1 len=0
+cleanup node=5 ram=146
+cleanup node=5 ram=146
+cleanup node=5 ram=146
+dealloc app=4 ram=130
+cleanup node=5 ram=130
+( 2, 1) recv seqno=1 len=20
+gather urgent remaning=0
+gather urgent remaning=0
+gather urgent remaning=0
+received for_me=1 end=18
+alloc app=4 ram=16
+alloc app=4 ram=32
+PAIR 2406 1 emited 1 0 0406280002580001
+dealloc app=4 ram=16
+alloc app=4 ram=32
+alloc app=4 ram=48
+PAIR 2406 1 emited 1 0 0406280002840001
+dealloc app=4 ram=32
+gather urgent remaning=2
+NET 2406 1 0 19 0 0 22 0 32 2 2
+dealloc app=4 ram=16
+dealloc app=4 ram=0
+( 2, 1) sent retx=1 len=0
+cleanup node=2 ram=67
+cleanup node=2 ram=67
+cleanup node=2 ram=67
+dealloc app=4 ram=51
+dealloc app=4 ram=35
+cleanup node=2 ram=35
+sched flush period=1467
+NET 2429 10 5 0 0 16 12 4 35 2 0
+gather len=13
+gather len=10
+(10, 9) send urgent=0 len=25
+(10, 9) recv seqno=1 len=25
+received for_me=1 end=13
+alloc app=1 ram=92
+dealloc app=1 ram=73
+gather urgent remaning=1
+received for_me=0 end=10
+gather urgent remaning=2
+received for_me=1 end=10
+alloc app=3 ram=89
+alloc app=3 ram=105
+PAIR 2429 9 emited 0 0 0306010002840001
+dealloc app=3 ram=89
+gather urgent remaning=2
+gather urgent remaning=0
+NET 2429 9 5 6 0 16 20 6 89 5 0
+flush urgent no data
+(10, 9) sent retx=1 len=0
+dealloc app=1 ram=16
+cleanup node=10 ram=16
+cleanup node=10 ram=16
+dealloc app=3 ram=0
+cleanup node=10 ram=0
+cleanup node=10 ram=0
+ 2460 P 6.0 40 4131696 76479044 63686 563748 0 512083 168577 1797502 33674 39750 0 13015 (radio 0.24% / 3.73% tx 0.07% / 1.71% listen 0.16% / 2.02%)
+ 2460 P 5.0 40 4050717 76560023 17631 536930 0 517210 121303 1844776 6668 23970 0 16237 (radio 0.15% / 1.55% tx 0.02% / 0.33% listen 0.13% / 1.21%)
+ 2460 P 4.0 40 4126015 76484725 54898 559459 0 511305 167153 1798926 30000 37545 0 12098 (radio 0.22% / 3.43% tx 0.06% / 1.52% listen 0.16% / 1.90%)
+ 2460 P 8.0 40 4036153 76574587 20103 530651 0 513931 121550 1844529 11362 22953 0 13976 (radio 0.15% / 1.74% tx 0.02% / 0.57% listen 0.12% / 1.16%)
+ 2460 P 2.0 40 4122799 76487941 51950 559701 0 512535 163022 1803057 27240 36313 0 12621 (radio 0.22% / 3.23% tx 0.06% / 1.38% listen 0.16% / 1.84%)
+ 2460 P 1.0 40 2649185 77961548 32339 540477 0 512106 88916 1874066 9755 22025 0 13020 (radio 0.17% / 1.61% tx 0.04% / 0.49% listen 0.13% / 1.12%)
+ 2460 P 3.0 40 4120688 76490052 48764 556786 0 511698 138209 1827870 14745 27501 0 13262 (radio 0.21% / 2.14% tx 0.06% / 0.74% listen 0.15% / 1.39%)
+ 2460 P 7.0 40 4064310 76546430 31541 541448 0 514189 133614 1832465 16447 27676 0 14217 (radio 0.17% / 2.24% tx 0.03% / 0.83% listen 0.13% / 1.40%)
+ 2460 P 9.0 40 4033317 76577423 17154 526772 0 511985 114180 1851899 6599 18581 0 13097 (radio 0.14% / 1.28% tx 0.02% / 0.33% listen 0.12% / 0.94%)
+ 2460 P 10.0 40 4008771 76601970 7535 518642 0 511899 103381 1862699 1455 14102 0 12579 (radio 0.11% / 0.79% tx 0.00% / 0.07% listen 0.11% / 0.71%)
+ 2520 P 6.0 41 4229073 78347745 63686 576228 0 524563 97374 1868701 0 12480 0 12480 (radio 0.25% / 0.63% tx 0.07% / 0.00% listen 0.17% / 0.63%)
+ 2520 P 5.0 41 4148087 78428731 17631 549410 0 529690 97367 1868708 0 12480 0 12480 (radio 0.16% / 0.63% tx 0.02% / 0.00% listen 0.14% / 0.63%)
+ 2520 P 4.0 41 4223395 78353423 54898 571939 0 523785 97377 1868698 0 12480 0 12480 (radio 0.23% / 0.63% tx 0.06% / 0.00% listen 0.17% / 0.63%)
+ 2520 P 8.0 41 4133533 78443285 20103 543131 0 526411 97377 1868698 0 12480 0 12480 (radio 0.16% / 0.63% tx 0.02% / 0.00% listen 0.13% / 0.63%)
+ 2520 P 2.0 41 4220179 78356639 51950 572181 0 525015 97377 1868698 0 12480 0 12480 (radio 0.23% / 0.63% tx 0.06% / 0.00% listen 0.17% / 0.63%)
+ 2520 P 1.0 41 2711978 79864835 32339 552957 0 524586 62790 1903287 0 12480 0 12480 (radio 0.18% / 0.63% tx 0.03% / 0.00% listen 0.14% / 0.63%)
+ 2520 P 3.0 41 4218068 78358750 48764 569266 0 524178 97377 1868698 0 12480 0 12480 (radio 0.22% / 0.63% tx 0.05% / 0.00% listen 0.16% / 0.63%)
+ 2520 P 7.0 41 4161690 78415128 31541 553928 0 526669 97377 1868698 0 12480 0 12480 (radio 0.18% / 0.63% tx 0.03% / 0.00% listen 0.15% / 0.63%)
+ 2520 P 9.0 41 4130688 78446130 17154 539252 0 524465 97368 1868707 0 12480 0 12480 (radio 0.15% / 0.63% tx 0.02% / 0.00% listen 0.13% / 0.63%)
+ 2520 P 10.0 41 4106126 78470692 7535 531122 0 524379 97352 1868722 0 12480 0 12480 (radio 0.13% / 0.63% tx 0.00% / 0.00% listen 0.12% / 0.63%)
+sched flush period=1484
+NET 2569 5 11 12 1 16 24 4 130 7 0
+gather len=13
+gather len=24
+gather len=13
+gather len=24
+gather len=35
+gather len=46
+gather len=10
+( 5, 4) send urgent=0 len=82
+( 5, 4) recv seqno=0 len=82
+received for_me=1 end=24
+alloc app=1 ram=54
+dealloc app=1 ram=35
+alloc app=1 ram=54
+alloc app=1 ram=73
+PAIR 2569 4 emited 0 0 01090000000001 0a000a0a
+dealloc app=1 ram=54
+gather urgent remaning=2
+received for_me=1 end=46
+alloc app=2 ram=73
+alloc app=2 ram=92
+PAIR 2569 4 emited 0 0 02090a00f40001 01000101
+dealloc app=2 ram=73
+alloc app=2 ram=92
+alloc app=2 ram=111
+PAIR 2569 4 emited 0 0 02091400f40001 01000101
+dealloc app=2 ram=92
+alloc app=2 ram=111
+alloc app=2 ram=130
+PAIR 2569 4 emited 0 0 02091400200001 01000101
+dealloc app=2 ram=111
+alloc app=2 ram=130
+alloc app=2 ram=149
+PAIR 2569 4 emited 0 0 02090a00200001 01000101
+dealloc app=2 ram=130
+gather urgent remaning=4
+received for_me=0 end=24
+gather urgent remaning=1
+gather urgent remaning=0
+NET 2569 4 16 15 0 16 34 8 130 7 0
+flush urgent no data
+( 5, 4) sent retx=1 len=0
+dealloc app=1 ram=111
+dealloc app=1 ram=92
+cleanup node=5 ram=92
+dealloc app=2 ram=73
+dealloc app=2 ram=54
+dealloc app=2 ram=35
+dealloc app=2 ram=16
+cleanup node=5 ram=16
+dealloc app=3 ram=0
+cleanup node=5 ram=0
+cleanup node=5 ram=0
+ 2580 P 6.0 42 4326403 80216495 63686 588905 0 537240 97327 1868750 0 12677 0 12677 (radio 0.26% / 0.64% tx 0.07% / 0.00% listen 0.18% / 0.64%)
+ 2580 P 5.0 42 4251166 80291733 20736 563021 0 542118 103076 1863002 3105 13611 0 12428 (radio 0.18% / 0.85% tx 0.02% / 0.15% listen 0.15% / 0.69%)
+ 2580 P 4.0 42 4326539 80216359 56435 585865 0 536226 103141 1862936 1537 13926 0 12441 (radio 0.25% / 0.78% tx 0.06% / 0.07% listen 0.18% / 0.70%)
+ 2580 P 8.0 42 4230863 80312035 20103 555611 0 538891 97327 1868750 0 12480 0 12480 (radio 0.17% / 0.63% tx 0.02% / 0.00% listen 0.14% / 0.63%)
+ 2580 P 2.0 42 4317509 80225389 51950 584661 0 537495 97327 1868750 0 12480 0 12480 (radio 0.24% / 0.63% tx 0.06% / 0.00% listen 0.18% / 0.63%)
+ 2580 P 1.0 42 2774744 81768149 32339 565437 0 537066 62763 1903314 0 12480 0 12480 (radio 0.19% / 0.63% tx 0.03% / 0.00% listen 0.16% / 0.63%)
+ 2580 P 3.0 42 4315398 80227500 48764 581923 0 536835 97327 1868750 0 12657 0 12657 (radio 0.23% / 0.64% tx 0.05% / 0.00% listen 0.18% / 0.64%)
+ 2580 P 7.0 42 4259020 80283878 31541 566408 0 539149 97327 1868750 0 12480 0 12480 (radio 0.19% / 0.63% tx 0.03% / 0.00% listen 0.16% / 0.63%)
+ 2580 P 9.0 42 4228018 80314880 17154 551732 0 536945 97327 1868750 0 12480 0 12480 (radio 0.16% / 0.63% tx 0.02% / 0.00% listen 0.14% / 0.63%)
+ 2580 P 10.0 42 4203448 80339450 7535 543602 0 536859 97319 1868758 0 12480 0 12480 (radio 0.14% / 0.63% tx 0.00% / 0.00% listen 0.13% / 0.63%)
+ 2640 P 6.0 43 4423741 82085237 63686 601385 0 549720 97335 1868742 0 12480 0 12480 (radio 0.27% / 0.63% tx 0.07% / 0.00% listen 0.19% / 0.63%)
+ 2640 P 5.0 43 4348553 82160425 20736 575501 0 554598 97384 1868692 0 12480 0 12480 (radio 0.19% / 0.63% tx 0.02% / 0.00% listen 0.16% / 0.63%)
+ 2640 P 4.0 43 4423924 82085054 56435 598345 0 548706 97382 1868695 0 12480 0 12480 (radio 0.26% / 0.63% tx 0.06% / 0.00% listen 0.19% / 0.63%)
+ 2640 P 8.0 43 4328200 82180778 20103 568091 0 551371 97334 1868743 0 12480 0 12480 (radio 0.18% / 0.63% tx 0.02% / 0.00% listen 0.16% / 0.63%)
+ 2640 P 2.0 43 4414847 82094131 51950 597141 0 549975 97335 1868742 0 12480 0 12480 (radio 0.25% / 0.63% tx 0.06% / 0.00% listen 0.19% / 0.63%)
+ 2640 P 1.0 43 2837517 83671456 32339 577917 0 549546 62770 1903307 0 12480 0 12480 (radio 0.20% / 0.63% tx 0.03% / 0.00% listen 0.17% / 0.63%)
+ 2640 P 3.0 43 4412736 82096242 48764 594403 0 549315 97335 1868742 0 12480 0 12480 (radio 0.24% / 0.63% tx 0.05% / 0.00% listen 0.19% / 0.63%)
+ 2640 P 7.0 43 4356358 82152620 31541 578888 0 551629 97335 1868742 0 12480 0 12480 (radio 0.20% / 0.63% tx 0.03% / 0.00% listen 0.17% / 0.63%)
+ 2640 P 9.0 43 4325355 82183623 17154 564212 0 549425 97334 1868743 0 12480 0 12480 (radio 0.17% / 0.63% tx 0.01% / 0.00% listen 0.15% / 0.63%)
+sched flush period=1408
+NET 2640 9 5 6 0 16 20 6 89 5 0
+gather len=13
+gather len=13
+gather len=24
+gather len=10
+gather len=18
+( 9, 8) send urgent=0 len=57
+( 9, 8) recv seqno=1 len=57
+received for_me=1 end=13
+alloc app=1 ram=54
+dealloc app=1 ram=35
+gather urgent remaning=1
+received for_me=1 end=24
+alloc app=2 ram=54
+alloc app=2 ram=73
+PAIR 2640 8 emited 0 0 02092800200001 01000101
+dealloc app=2 ram=54
+alloc app=2 ram=73
+alloc app=2 ram=92
+PAIR 2640 8 emited 0 0 02091e00200001 01000101
+dealloc app=2 ram=73
+gather urgent remaning=2
+received for_me=0 end=13
+gather urgent remaning=1
+gather urgent remaning=0
+NET 2640 8 5 6 0 16 18 6 73 4 0
+flush urgent no data
+ 2640 P 10.0 43 4300778 82208200 7535 556082 0 549339 97327 1868750 0 12480 0 12480 (radio 0.15% / 0.63% tx 0.00% / 0.00% listen 0.14% / 0.63%)
+( 9, 8) sent retx=1 len=0
+dealloc app=1 ram=70
+cleanup node=9 ram=70
+dealloc app=2 ram=51
+dealloc app=2 ram=32
+cleanup node=9 ram=32
+dealloc app=3 ram=16
+dealloc app=3 ram=0
+cleanup node=9 ram=0
+cleanup node=9 ram=0
+sched flush period=1299
+NET 2681 3 18 18 0 16 33 5 73 4 0
+gather len=13
+gather len=13
+gather len=24
+gather len=10
+( 3, 2) send urgent=0 len=49
+( 3, 2) recv seqno=2 len=49
+received for_me=1 end=13
+alloc app=1 ram=54
+dealloc app=1 ram=35
+gather urgent remaning=1
+received for_me=1 end=24
+alloc app=2 ram=54
+alloc app=2 ram=73
+PAIR 2681 2 emited 0 0 02092800c80001 01000101
+dealloc app=2 ram=54
+alloc app=2 ram=73
+alloc app=2 ram=92
+PAIR 2681 2 emited 0 0 02091e00c80001 01000101
+dealloc app=2 ram=73
+gather urgent remaning=2
+received for_me=0 end=13
+gather urgent remaning=1
+gather urgent remaning=0
+NET 2681 2 17 20 1 16 33 8 73 4 0
+flush urgent no data
+( 3, 2) sent retx=1 len=0
+dealloc app=1 ram=54
+cleanup node=3 ram=54
+dealloc app=2 ram=35
+dealloc app=2 ram=16
+cleanup node=3 ram=16
+dealloc app=3 ram=0
+cleanup node=3 ram=0
+cleanup node=3 ram=0
+ 2700 P 6.0 44 4521087 83953971 63686 613865 0 562200 97343 1868734 0 12480 0 12480 (radio 0.28% / 0.63% tx 0.07% / 0.00% listen 0.20% / 0.63%)
+ 2700 P 5.0 44 4445898 84029160 20736 587981 0 567078 97342 1868735 0 12480 0 12480 (radio 0.20% / 0.63% tx 0.02% / 0.00% listen 0.17% / 0.63%)
+ 2700 P 4.0 44 4521270 83953788 56435 610825 0 561186 97343 1868734 0 12480 0 12480 (radio 0.26% / 0.63% tx 0.06% / 0.00% listen 0.20% / 0.63%)
+ 2700 P 8.0 44 4430619 84044439 21913 582141 0 563799 102416 1863661 1810 14050 0 12428 (radio 0.19% / 0.80% tx 0.02% / 0.09% listen 0.17% / 0.71%)
+ 2700 P 2.0 44 4516816 83958242 53485 610971 0 562416 101966 1864111 1535 13830 0 12441 (radio 0.26% / 0.78% tx 0.06% / 0.07% listen 0.20% / 0.70%)
+ 2700 P 1.0 44 2900298 85574755 32339 590594 0 562223 62778 1903299 0 12677 0 12677 (radio 0.21% / 0.64% tx 0.03% / 0.00% listen 0.18% / 0.64%)
+ 2700 P 3.0 44 4512784 83962275 49631 607470 0 561769 100045 1866033 867 13067 0 12454 (radio 0.25% / 0.70% tx 0.05% / 0.04% listen 0.20% / 0.66%)
+ 2700 P 7.0 44 4453704 84021354 31541 591545 0 564286 97343 1868734 0 12657 0 12657 (radio 0.21% / 0.64% tx 0.03% / 0.00% listen 0.18% / 0.64%)
+ 2700 P 9.0 44 4424450 84050609 17316 576998 0 561879 99092 1866986 162 12786 0 12454 (radio 0.18% / 0.65% tx 0.01% / 0.00% listen 0.16% / 0.65%)
+ 2700 P 10.0 44 4398116 84076942 7535 568562 0 561819 97335 1868742 0 12480 0 12480 (radio 0.16% / 0.63% tx 0.00% / 0.00% listen 0.15% / 0.63%)
+sched flush period=1335
+NET 2750 7 9 6 0 16 20 6 35 2 0
+gather len=13
+gather len=10
+( 7, 6) send urgent=0 len=25
+( 7, 6) recv seqno=1 len=25
+received for_me=1 end=13
+alloc app=1 ram=108
+dealloc app=1 ram=89
+gather urgent remaning=1
+received for_me=0 end=10
+gather urgent remaning=2
+received for_me=1 end=10
+alloc app=3 ram=105
+alloc app=3 ram=121
+PAIR 2750 6 emited 0 0 0306010002580001
+dealloc app=3 ram=105
+gather urgent remaning=2
+gather urgent remaning=1
+NET 2750 6 10 13 1 16 28 7 105 6 1
+gather len=10
+( 6, 5) send urgent=1 len=12
+( 6, 5) recv seqno=3 len=12
+gather urgent remaning=0
+gather urgent remaning=0
+gather urgent remaning=0
+received for_me=1 end=10
+alloc app=4 ram=16
+alloc app=4 ram=32
+PAIR 2750 5 emited 1 0 0406280002840001
+dealloc app=4 ram=16
+gather urgent remaning=1
+NET 2750 5 12 13 1 16 25 4 16 1 1
+gather len=10
+( 5, 4) send urgent=1 len=12
+( 7, 6) sent retx=1 len=0
+dealloc app=1 ram=16
+cleanup node=7 ram=16
+cleanup node=7 ram=16
+dealloc app=3 ram=0
+cleanup node=7 ram=0
+cleanup node=7 ram=0
+( 5, 4) recv seqno=1 len=12
+gather urgent remaning=2
+gather urgent remaning=4
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=146
+alloc app=4 ram=162
+PAIR 2750 4 emited 1 0 0406280002840001
+dealloc app=4 ram=146
+gather urgent remaning=1
+NET 2750 4 16 16 0 16 35 8 146 8 1
+gather len=10
+( 4, 3) send urgent=1 len=12
+( 6, 5) sent retx=1 len=0
+cleanup node=6 ram=105
+cleanup node=6 ram=105
+cleanup node=6 ram=105
+dealloc app=4 ram=89
+cleanup node=6 ram=89
+( 5, 4) sent retx=1 len=0
+cleanup node=5 ram=16
+cleanup node=5 ram=16
+cleanup node=5 ram=16
+dealloc app=4 ram=0
+cleanup node=5 ram=0
+( 4, 3) recv seqno=0 len=12
+gather urgent remaning=0
+gather urgent remaning=0
+gather urgent remaning=0
+received for_me=1 end=10
+alloc app=4 ram=16
+alloc app=4 ram=32
+PAIR 2750 3 emited 1 0 0406280002840001
+dealloc app=4 ram=16
+gather urgent remaning=1
+NET 2750 3 19 19 0 16 34 5 16 1 1
+gather len=10
+( 3, 2) send urgent=1 len=12
+( 3, 2) recv seqno=3 len=12
+gather urgent remaning=1
+gather urgent remaning=2
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=89
+alloc app=4 ram=105
+PAIR 2751 2 emited 1 0 0406280002840001
+( 4, 3) sent retx=1 len=0
+dealloc app=4 ram=89
+gather urgent remaning=1
+cleanup node=4 ram=146
+cleanup node=4 ram=146
+cleanup node=4 ram=146
+NET 2751 2 17 21 1 16 34 8 89 5 1
+dealloc app=4 ram=130
+gather len=10
+cleanup node=4 ram=130
+( 2, 1) send urgent=1 len=12
+( 2, 1) recv seqno=2 len=12
+gather urgent remaning=0
+gather urgent remaning=0
+gather urgent remaning=0
+received for_me=1 end=10
+alloc app=4 ram=16
+alloc app=4 ram=32
+( 3, 2) sent retx=1 len=0
+cleanup node=3 ram=16
+PAIR 2750 1 emited 1 0 0406280002840001
+cleanup node=3 ram=16
+dealloc app=4 ram=16
+cleanup node=3 ram=16
+gather urgent remaning=1
+dealloc app=4 ram=0
+cleanup node=3 ram=0
+NET 2750 1 0 20 0 0 23 0 16 1 1
+dealloc app=4 ram=0
+( 2, 1) sent retx=1 len=0
+cleanup node=2 ram=89
+cleanup node=2 ram=89
+cleanup node=2 ram=89
+dealloc app=4 ram=73
+cleanup node=2 ram=73
+ 2760 P 6.0 45 4624179 85816959 65585 628145 0 574615 103089 1862988 1899 14280 0 12415 (radio 0.29% / 0.82% tx 0.07% / 0.09% listen 0.21% / 0.72%)
+ 2760 P 5.0 45 4547669 85893469 22000 601786 0 579506 101768 1864309 1264 13805 0 12428 (radio 0.21% / 0.76% tx 0.02% / 0.06% listen 0.19% / 0.70%)
+ 2760 P 4.0 45 4621961 85819177 56887 624091 0 573627 100688 1865389 452 13266 0 12441 (radio 0.27% / 0.69% tx 0.06% / 0.02% listen 0.21% / 0.67%)
+ 2760 P 8.0 45 4528020 85913118 21913 594621 0 576279 97398 1868679 0 12480 0 12480 (radio 0.20% / 0.63% tx 0.02% / 0.00% listen 0.18% / 0.63%)
+ 2760 P 2.0 45 4619372 85821766 55199 625126 0 574818 102553 1863524 1714 14155 0 12402 (radio 0.27% / 0.80% tx 0.06% / 0.08% listen 0.21% / 0.71%)
+ 2760 P 1.0 45 2967101 87474032 33871 604365 0 574677 66800 1899277 1532 13771 0 12454 (radio 0.23% / 0.77% tx 0.03% / 0.07% listen 0.19% / 0.70%)
+ 2760 P 3.0 45 4614718 85826420 50986 621351 0 574171 101931 1864145 1355 13881 0 12402 (radio 0.26% / 0.77% tx 0.05% / 0.06% listen 0.21% / 0.70%)
+ 2760 P 7.0 45 4553019 85888120 31968 604550 0 576740 99312 1866766 427 13005 0 12454 (radio 0.22% / 0.68% tx 0.03% / 0.02% listen 0.19% / 0.66%)
+ 2760 P 9.0 45 4521825 85919313 17316 589478 0 574359 97372 1868704 0 12480 0 12480 (radio 0.19% / 0.63% tx 0.01% / 0.00% listen 0.17% / 0.63%)
+ 2760 P 10.0 45 4495462 85945676 7535 581042 0 574299 97343 1868734 0 12480 0 12480 (radio 0.17% / 0.63% tx 0.00% / 0.00% listen 0.16% / 0.63%)
+sched flush period=1289
+NET 2789 8 5 6 0 16 18 6 73 4 0
+gather len=13
+gather len=13
+gather len=24
+gather len=10
+( 8, 7) send urgent=0 len=49
+( 8, 7) recv seqno=1 len=49
+received for_me=1 end=13
+alloc app=1 ram=19
+alloc app=1 ram=38
+PAIR 2788 7 emited 0 0 01090100000001 06000606
+dealloc app=1 ram=19
+gather urgent remaning=1
+received for_me=1 end=24
+alloc app=2 ram=38
+alloc app=2 ram=57
+PAIR 2788 7 emited 0 0 02091e00200001 01000101
+dealloc app=2 ram=38
+alloc app=2 ram=57
+alloc app=2 ram=76
+PAIR 2788 7 emited 0 0 02092800200001 01000101
+dealloc app=2 ram=57
+gather urgent remaning=2
+received for_me=0 end=13
+gather urgent remaning=0
+gather urgent remaning=0
+NET 2788 7 10 7 0 16 23 6 57 3 0
+flush urgent no data
+( 8, 7) sent retx=1 len=0
+dealloc app=1 ram=54
+cleanup node=8 ram=54
+dealloc app=2 ram=35
+dealloc app=2 ram=16
+cleanup node=8 ram=16
+dealloc app=3 ram=0
+cleanup node=8 ram=0
+cleanup node=8 ram=0
+sched flush period=1374
+NET 2795 4 17 16 0 16 35 8 130 7 0
+gather len=13
+gather len=24
+gather len=13
+gather len=24
+gather len=35
+gather len=46
+gather len=10
+( 4, 3) send urgent=0 len=82
+( 4, 3) recv seqno=1 len=82
+received for_me=1 end=24
+alloc app=1 ram=19
+alloc app=1 ram=38
+PAIR 2794 3 emited 0 0 01090000000001 0a000a0a
+dealloc app=1 ram=19
+alloc app=1 ram=38
+alloc app=1 ram=57
+PAIR 2794 3 emited 0 0 01090100000001 04000404
+dealloc app=1 ram=38
+gather urgent remaning=2
+received for_me=1 end=46
+alloc app=2 ram=57
+alloc app=2 ram=76
+PAIR 2794 3 emited 0 0 02090a00200001 01000101
+dealloc app=2 ram=57
+alloc app=2 ram=76
+alloc app=2 ram=95
+PAIR 2794 3 emited 0 0 02091400200001 01000101
+dealloc app=2 ram=76
+alloc app=2 ram=95
+alloc app=2 ram=114
+PAIR 2794 3 emited 0 0 02091400f40001 01000101
+dealloc app=2 ram=95
+alloc app=2 ram=114
+alloc app=2 ram=133
+PAIR 2794 3 emited 0 0 02090a00f40001 01000101
+dealloc app=2 ram=114
+gather urgent remaning=4
+received for_me=0 end=24
+gather urgent remaning=0
+gather urgent remaning=0
+NET 2794 3 20 20 0 16 40 5 114 6 0
+flush urgent no data
+( 4, 3) sent retx=1 len=0
+dealloc app=1 ram=111
+dealloc app=1 ram=92
+cleanup node=4 ram=92
+dealloc app=2 ram=73
+dealloc app=2 ram=54
+dealloc app=2 ram=35
+dealloc app=2 ram=16
+cleanup node=4 ram=16
+dealloc app=3 ram=0
+cleanup node=4 ram=0
+cleanup node=4 ram=0
+ 2820 P 6.0 46 4721588 87685630 65585 640802 0 587272 97406 1868671 0 12657 0 12657 (radio 0.29% / 0.64% tx 0.07% / 0.00% listen 0.22% / 0.64%)
+ 2820 P 5.0 46 4645077 87762141 22000 614266 0 591986 97405 1868672 0 12480 0 12480 (radio 0.22% / 0.63% tx 0.02% / 0.00% listen 0.19% / 0.63%)
+ 2820 P 4.0 46 4722884 87684335 58278 637208 0 586068 100920 1865158 1391 13117 0 12441 (radio 0.28% / 0.73% tx 0.06% / 0.07% listen 0.22% / 0.66%)
+ 2820 P 8.0 46 4628260 87778959 22926 607796 0 588746 100237 1865841 1013 13175 0 12467 (radio 0.21% / 0.72% tx 0.02% / 0.05% listen 0.19% / 0.67%)
+ 2820 P 2.0 46 4716781 87690437 55199 637606 0 587298 97406 1868671 0 12480 0 12480 (radio 0.28% / 0.63% tx 0.05% / 0.00% listen 0.22% / 0.63%)
+ 2820 P 1.0 46 3029932 89377281 33871 616845 0 587157 62828 1903249 0 12480 0 12480 (radio 0.23% / 0.63% tx 0.03% / 0.00% listen 0.20% / 0.63%)
+ 2820 P 3.0 46 4716129 87691089 51303 634441 0 586599 101408 1864669 317 13090 0 12428 (radio 0.27% / 0.68% tx 0.05% / 0.01% listen 0.22% / 0.66%)
+ 2820 P 7.0 46 4654909 87752309 33276 618185 0 589168 101887 1864189 1308 13635 0 12428 (radio 0.24% / 0.76% tx 0.03% / 0.06% listen 0.20% / 0.69%)
+ 2820 P 9.0 46 4619187 87788031 17316 601958 0 586839 97359 1868718 0 12480 0 12480 (radio 0.20% / 0.63% tx 0.01% / 0.00% listen 0.18% / 0.63%)
+ 2820 P 10.0 46 4592816 87814402 7535 593522 0 586779 97351 1868726 0 12480 0 12480 (radio 0.18% / 0.63% tx 0.00% / 0.00% listen 0.17% / 0.63%)
+sched flush period=1368
+NET 2830 6 11 13 1 16 28 7 89 5 0
+gather len=13
+gather len=13
+gather len=24
+gather len=10
+gather len=18
+( 6, 5) send urgent=0 len=57
+( 6, 5) recv seqno=0 len=57
+received for_me=1 end=13
+alloc app=1 ram=19
+alloc app=1 ram=38
+PAIR 2830 5 emited 0 0 01090100000001 04000404
+dealloc app=1 ram=19
+gather urgent remaning=1
+received for_me=1 end=24
+alloc app=2 ram=38
+alloc app=2 ram=57
+PAIR 2830 5 emited 0 0 02092800f40001 01000101
+dealloc app=2 ram=38
+alloc app=2 ram=57
+alloc app=2 ram=76
+PAIR 2830 5 emited 0 0 02091e00f40001 01000101
+dealloc app=2 ram=57
+gather urgent remaning=2
+received for_me=0 end=13
+gather urgent remaning=0
+gather urgent remaning=0
+NET 2830 5 13 14 1 16 28 4 57 3 0
+flush urgent no data
+( 6, 5) sent retx=1 len=0
+dealloc app=1 ram=70
+cleanup node=6 ram=70
+dealloc app=2 ram=51
+dealloc app=2 ram=32
+cleanup node=6 ram=32
+dealloc app=3 ram=16
+dealloc app=3 ram=0
+cleanup node=6 ram=0
+cleanup node=6 ram=0
+ 2880 P 6.0 47 4822514 89550785 67042 654051 0 599700 100923 1865155 1457 13249 0 12428 (radio 0.30% / 0.74% tx 0.07% / 0.07% listen 0.23% / 0.67%)
+ 2880 P 5.0 47 4746335 89626963 22901 627688 0 604643 101255 1864822 901 13422 0 12657 (radio 0.23% / 0.72% tx 0.02% / 0.04% listen 0.21% / 0.68%)
+ 2880 P 4.0 47 4820301 89552997 58278 649688 0 598548 97414 1868662 0 12480 0 12480 (radio 0.29% / 0.63% tx 0.06% / 0.00% listen 0.23% / 0.63%)
+ 2880 P 8.0 47 4725677 89647621 22926 620276 0 601226 97414 1868662 0 12480 0 12480 (radio 0.22% / 0.63% tx 0.02% / 0.00% listen 0.20% / 0.63%)
+ 2880 P 2.0 47 4814152 89559146 55199 650086 0 599778 97368 1868709 0 12480 0 12480 (radio 0.29% / 0.63% tx 0.05% / 0.00% listen 0.23% / 0.63%)
+ 2880 P 1.0 47 3092737 91280556 33871 629325 0 599637 62802 1903275 0 12480 0 12480 (radio 0.24% / 0.63% tx 0.03% / 0.00% listen 0.21% / 0.63%)
+ 2880 P 3.0 47 4813530 89559768 51303 646921 0 599079 97398 1868679 0 12480 0 12480 (radio 0.28% / 0.63% tx 0.05% / 0.00% listen 0.23% / 0.63%)
+ 2880 P 7.0 47 4752326 89620972 33276 630665 0 601648 97414 1868663 0 12480 0 12480 (radio 0.24% / 0.63% tx 0.03% / 0.00% listen 0.21% / 0.63%)
+ 2880 P 9.0 47 4716557 89656741 17316 614438 0 599319 97367 1868710 0 12480 0 12480 (radio 0.21% / 0.63% tx 0.01% / 0.00% listen 0.19% / 0.63%)
+ 2880 P 10.0 47 4690178 89683120 7535 606002 0 599259 97359 1868718 0 12480 0 12480 (radio 0.19% / 0.63% tx 0.00% / 0.00% listen 0.18% / 0.63%)
+sched flush period=1407
+NET 2885 2 18 21 1 16 34 8 73 4 0
+gather len=13
+gather len=13
+gather len=24
+gather len=10
+( 2, 1) send urgent=0 len=49
+( 2, 1) recv seqno=3 len=49
+received for_me=1 end=13
+alloc app=1 ram=19
+alloc app=1 ram=38
+PAIR 2884 1 emited 0 0 01090100000001 04000404
+dealloc app=1 ram=19
+gather urgent remaning=1
+received for_me=1 end=24
+alloc app=2 ram=38
+alloc app=2 ram=57
+PAIR 2884 1 emited 0 0 02091e00c80001 01000101
+dealloc app=2 ram=38
+alloc app=2 ram=57
+alloc app=2 ram=76
+PAIR 2884 1 emited 0 0 02092800c80001 01000101
+dealloc app=2 ram=57
+gather urgent remaning=2
+received for_me=0 end=13
+gather urgent remaning=0
+gather urgent remaning=0
+NET 2884 1 0 21 0 0 26 0 57 3 0
+dealloc app=1 ram=38
+dealloc app=2 ram=19
+dealloc app=2 ram=0
+( 2, 1) sent retx=1 len=0
+dealloc app=1 ram=54
+cleanup node=2 ram=54
+dealloc app=2 ram=35
+dealloc app=2 ram=16
+cleanup node=2 ram=16
+dealloc app=3 ram=0
+cleanup node=2 ram=0
+cleanup node=2 ram=0
+ 2940 P 6.0 48 4919967 91419411 67042 666531 0 612180 97450 1868626 0 12480 0 12480 (radio 0.31% / 0.63% tx 0.06% / 0.00% listen 0.24% / 0.63%)
+ 2940 P 5.0 48 4843772 91495606 22901 640168 0 617123 97434 1868643 0 12480 0 12480 (radio 0.24% / 0.63% tx 0.02% / 0.00% listen 0.21% / 0.63%)
+ 2940 P 4.0 48 4917707 91421671 58278 662168 0 611028 97403 1868674 0 12480 0 12480 (radio 0.30% / 0.63% tx 0.06% / 0.00% listen 0.24% / 0.63%)
+ 2940 P 8.0 48 4823083 91516295 22926 632756 0 613706 97403 1868674 0 12480 0 12480 (radio 0.23% / 0.63% tx 0.02% / 0.00% listen 0.21% / 0.63%)
+ 2940 P 2.0 48 4915078 91424301 56644 663397 0 612206 100923 1865155 1445 13311 0 12428 (radio 0.30% / 0.75% tx 0.05% / 0.07% listen 0.24% / 0.67%)
+ 2940 P 1.0 48 3159445 93179928 34721 642711 0 612104 66705 1899372 850 13386 0 12467 (radio 0.25% / 0.72% tx 0.03% / 0.04% listen 0.22% / 0.68%)
+ 2940 P 3.0 48 4910936 91428442 51303 659401 0 611559 97403 1868674 0 12480 0 12480 (radio 0.29% / 0.63% tx 0.05% / 0.00% listen 0.23% / 0.63%)
+ 2940 P 7.0 48 4849731 91489647 33276 643145 0 614128 97402 1868675 0 12480 0 12480 (radio 0.25% / 0.63% tx 0.03% / 0.00% listen 0.22% / 0.63%)
+ 2940 P 9.0 48 4813962 91525416 17316 626918 0 611799 97402 1868675 0 12480 0 12480 (radio 0.22% / 0.63% tx 0.01% / 0.00% listen 0.20% / 0.63%)
+ 2940 P 10.0 48 4787576 91551802 7535 618482 0 611739 97395 1868682 0 12480 0 12480 (radio 0.20% / 0.63% tx 0.00% / 0.00% listen 0.19% / 0.63%)
+ 3000 P 6.0 49 5017414 93288044 67042 679011 0 624660 97444 1868633 0 12480 0 12480 (radio 0.32% / 0.63% tx 0.06% / 0.00% listen 0.25% / 0.63%)
+NET 3000 6 12 13 1 17 28 7 0 0 0
+ 3000 P 5.0 49 4941218 93364240 22901 652648 0 629603 97443 1868634 0 12480 0 12480 (radio 0.25% / 0.63% tx 0.02% / 0.00% listen 0.22% / 0.63%)
+flush urgent no data
+alloc app=3 ram=16
+alloc app=3 ram=32
+NET 3000 5 13 14 1 17 28 4 57 3 0
+flush urgent no data
+alloc app=3 ram=73
+PAIR 3000 6 emited 0 0 0306010002f40001
+alloc app=3 ram=89
+dealloc app=3 ram=16
+PAIR 3000 5 emited 0 0 0306010002900001
+NET 3000 6 12 13 1 18 29 7 16 1 0
+dealloc app=3 ram=73
+flush urgent no data
+fire!
+alloc app=2 ram=35
+alloc app=2 ram=54
+NET 3000 5 13 14 1 18 29 4 73 4 0
+flush urgent no data
+PAIR 3000 6 emited 0 0 02093200f40001 01000101
+NET 3000 5 13 14 1 19 29 4 73 4 0
+dealloc app=2 ram=35
+flush urgent no data
+alloc app=1 ram=92
+dealloc app=1 ram=73
+NET 3000 6 12 13 1 19 30 7 35 2 0
+flush urgent no data
+alloc app=1 ram=54
+NET 3000 5 13 14 1 20 30 5 73 4 0
+alloc app=1 ram=73
+flush urgent no data
+PAIR 3000 6 emited 0 0 01090100000001 01000101
+dealloc app=1 ram=54
+NET 3000 6 12 13 1 20 31 7 54 3 0
+flush urgent no data
+ 3000 P 4.0 49 5015155 93290303 58278 674648 0 623508 97445 1868632 0 12480 0 12480 (radio 0.30% / 0.63% tx 0.05% / 0.00% listen 0.24% / 0.63%)
+road!
+alloc app=4 ram=16
+alloc app=4 ram=32
+PAIR 3000 4 emited 1 0 04063200022c0001
+dealloc app=4 ram=16
+NET 3000 4 18 16 0 17 36 8 16 1 1
+gather len=10
+( 4, 3) send urgent=1 len=12
+alloc app=3 ram=32
+alloc app=3 ram=48
+PAIR 3000 4 emited 0 0 03060100022c0001
+dealloc app=3 ram=32
+NET 3000 4 18 16 0 18 37 8 32 2 1
+flush urgent no medium
+NET 3000 4 18 16 0 19 37 8 32 2 1
+flush urgent no medium
+alloc app=1 ram=51
+alloc app=1 ram=70
+PAIR 3000 4 emited 0 0 01090100000001 01000101
+dealloc app=1 ram=51
+NET 3000 4 18 16 0 20 38 8 51 3 1
+flush urgent no medium
+ 3000 P 8.0 49 4920533 93384925 22926 645236 0 626186 97447 1868630 0 12480 0 12480 (radio 0.24% / 0.63% tx 0.02% / 0.00% listen 0.21% / 0.63%)
+ 3000 P 2.0 49 5012571 93292887 56644 675877 0 624686 97490 1868586 0 12480 0 12480 (radio 0.30% / 0.63% tx 0.05% / 0.00% listen 0.25% / 0.63%)
+NET 3000 8 6 6 0 17 18 6 0 0 0
+flush urgent no data
+alloc app=3 ram=16
+NET 3000 2 19 21 1 17 34 8 0 0 0
+alloc app=3 ram=32
+flush urgent no data
+alloc app=3 ram=16
+alloc app=3 ram=32
+PAIR 3000 8 emited 0 0 0306010002bc0001
+dealloc app=3 ram=16
+PAIR 3000 2 emited 0 0 0306010002640001
+dealloc app=3 ram=16
+NET 3000 8 6 6 0 18 19 6 16 1 0
+flush urgent no data
+NET 3000 2 19 21 1 18 35 8 16 1 0
+flush urgent no data
+NET 3000 8 6 6 0 19 19 6 16 1 0
+flush urgent no data
+alloc app=1 ram=35
+NET 3000 2 19 21 1 19 35 8 16 1 0
+alloc app=1 ram=54
+flush urgent no data
+alloc app=1 ram=35
+alloc app=1 ram=54
+PAIR 3000 8 emited 0 0 01090100000001 01000101
+dealloc app=1 ram=35
+PAIR 3000 2 emited 0 0 01090100000001 01000101
+dealloc app=1 ram=35
+NET 3000 8 6 6 0 20 20 6 35 2 0
+flush urgent no data
+NET 3000 2 19 21 1 20 36 8 35 2 0
+flush urgent no data
+( 4, 3) recv seqno=2 len=12
+gather urgent remaning=2
+gather urgent remaning=4
+gather urgent remaning=0
+received for_me=1 end=10
+alloc app=4 ram=130
+alloc app=4 ram=146
+PAIR 2999 3 emited 1 0 04063200022c0001
+dealloc app=4 ram=130
+gather urgent remaning=1
+NET 2999 3 20 21 0 16 41 5 130 7 1
+gather len=10
+( 3, 2) send urgent=1 len=12
+( 3, 2) recv seqno=0 len=12
+gather urgent remaning=1
+gather urgent remaning=0
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=51
+alloc app=4 ram=67
+PAIR 3000 2 emited 1 0 04063200022c0001
+dealloc app=4 ram=51
+gather urgent remaning=1
+( 4, 3) sent retx=1 len=0
+cleanup node=4 ram=51
+cleanup node=4 ram=51
+NET 3000 2 19 22 1 20 37 8 51 3 1
+cleanup node=4 ram=51
+gather len=10
+dealloc app=4 ram=35
+( 2, 1) send urgent=1 len=12
+cleanup node=4 ram=35
+ 3000 P 1.0 49 3222292 95083161 34721 655191 0 624584 62844 1903233 0 12480 0 12480 (radio 0.26% / 0.63% tx 0.03% / 0.00% listen 0.22% / 0.63%)
+ 3000 P 3.0 49 5012522 93292938 52652 673167 0 624000 101583 1864496 1349 13766 0 12441 (radio 0.30% / 0.76% tx 0.05% / 0.06% listen 0.24% / 0.70%)
+NET 3000 3 20 21 0 17 41 5 130 7 1
+flush urgent no medium
+alloc app=3 ram=146
+alloc app=3 ram=162
+PAIR 3000 3 emited 0 0 0306010002c80001
+dealloc app=3 ram=146
+NET 3000 3 20 21 0 18 42 5 146 8 1
+flush urgent no medium
+fire!
+alloc app=2 ram=165
+alloc app=2 ram=184
+PAIR 3000 3 emited 0 0 02093200c80001 01000101
+dealloc app=2 ram=165
+NET 3000 3 20 21 0 19 43 5 165 9 1
+flush urgent no medium
+alloc app=1 ram=184
+dealloc app=1 ram=165
+( 2, 1) recv seqno=0 len=12
+NET 3000 3 20 21 0 20 44 6 165 9 1
+gather urgent remaning=0
+flush urgent no medium
+gather urgent remaning=0
+gather urgent remaning=0
+received for_me=1 end=10
+alloc app=4 ram=16
+alloc app=4 ram=32
+( 3, 2) sent retx=1 len=0
+cleanup node=3 ram=165
+PAIR 3000 1 emited 1 0 04063200022c0001
+cleanup node=3 ram=165
+dealloc app=4 ram=16
+cleanup node=3 ram=165
+gather urgent remaning=1
+dealloc app=4 ram=149
+cleanup node=3 ram=149
+NET 3000 1 0 22 0 0 27 0 16 1 1
+dealloc app=4 ram=0
+ 3000 P 7.0 49 4947179 93358279 33276 655625 0 626608 97445 1868632 0 12480 0 12480 (radio 0.26% / 0.63% tx 0.03% / 0.00% listen 0.23% / 0.63%)
+road!
+alloc app=4 ram=73
+alloc app=4 ram=89
+PAIR 3000 7 emited 1 0 0406320002580001
+dealloc app=4 ram=73
+NET 3000 7 10 7 0 17 24 6 73 4 1
+gather len=10
+( 7, 6) send urgent=1 len=12
+alloc app=3 ram=89
+alloc app=3 ram=105
+PAIR 3000 7 emited 0 0 0306010002580001
+dealloc app=3 ram=89
+NET 3000 7 10 7 0 18 25 6 89 5 1
+flush urgent no medium
+ 3000 P 9.0 49 4911409 93394049 17316 639398 0 624279 97444 1868633 0 12480 0 12480 (radio 0.23% / 0.63% tx 0.01% / 0.00% listen 0.21% / 0.63%)
+NET 3000 7 10 7 0 19 25 6 89 5 1
+flush urgent no medium
+alloc app=1 ram=108
+NET 3000 9 6 6 0 17 20 6 0 0 0
+dealloc app=1 ram=89
+flush urgent no data
+alloc app=3 ram=16
+NET 3000 7 10 7 0 20 26 7 89 5 1
+alloc app=3 ram=32
+flush urgent no medium
+PAIR 3000 9 emited 0 0 0306010002200001
+dealloc app=3 ram=16
+NET 3000 9 6 6 0 18 21 6 16 1 0
+flush urgent no data
+fire!
+alloc app=2 ram=35
+alloc app=2 ram=54
+PAIR 3000 9 emited 0 0 02093200200001 01000101
+dealloc app=2 ram=35
+( 2, 1) sent retx=1 len=0
+cleanup node=2 ram=51
+NET 3000 9 6 6 0 19 22 6 35 2 0
+cleanup node=2 ram=51
+flush urgent no data
+cleanup node=2 ram=51
+alloc app=1 ram=54
+dealloc app=4 ram=35
+cleanup node=2 ram=35
+alloc app=1 ram=73
+PAIR 3000 9 emited 0 0 01090100000001 01000101
+dealloc app=1 ram=54
+NET 3000 9 6 6 0 20 23 6 54 3 0
+flush urgent no data
+( 7, 6) recv seqno=2 len=12
+gather urgent remaning=1
+gather urgent remaning=1
+ 3000 P 10.0 49 4885016 93420442 7535 630962 0 624219 97437 1868640 0 12480 0 12480 (radio 0.21% / 0.63% tx 0.00% / 0.00% listen 0.20% / 0.63%)
+gather urgent remaning=1
+road!
+received for_me=1 end=10
+alloc app=4 ram=16
+alloc app=4 ram=70
+alloc app=4 ram=32
+alloc app=4 ram=86
+PAIR 3000 10 emited 1 0 0406320002840001
+PAIR 3000 6 emited 1 0 0406320002580001
+dealloc app=4 ram=16
+dealloc app=4 ram=70
+gather urgent remaning=1
+NET 3000 10 6 0 0 17 13 4 16 1 1
+gather len=10
+NET 3000 6 12 14 1 20 32 7 70 4 1
+gather len=10
+(10, 9) send urgent=1 len=12
+( 6, 5) send urgent=1 len=12
+alloc app=3 ram=32
+alloc app=3 ram=48
+PAIR 3000 10 emited 0 0 0306010002840001
+dealloc app=3 ram=32
+NET 3000 10 6 0 0 18 14 4 32 2 1
+flush urgent no medium
+NET 3000 10 6 0 0 19 14 4 32 2 1
+flush urgent no medium
+alloc app=1 ram=51
+alloc app=1 ram=70
+PAIR 3000 10 emited 0 0 01090100000001 01000101
+dealloc app=1 ram=51
+NET 3000 10 6 0 0 20 15 4 51 3 1
+flush urgent no medium
+( 6, 5) recv seqno=1 len=12
+gather urgent remaning=1
+gather urgent remaning=2
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=89
+alloc app=4 ram=105
+PAIR 3001 5 emited 1 0 0406320002580001
+dealloc app=4 ram=89
+gather urgent remaning=1
+NET 3001 5 13 15 1 20 31 5 89 5 1
+gather len=10
+( 5, 4) send urgent=1 len=12
+( 7, 6) sent retx=1 len=0
+cleanup node=7 ram=89
+cleanup node=7 ram=89
+cleanup node=7 ram=89
+dealloc app=4 ram=73
+cleanup node=7 ram=73
+( 5, 4) recv seqno=2 len=12
+gather urgent remaning=1
+gather urgent remaning=0
+gather urgent remaning=1
+received for_me=1 end=10
+(10, 9) recv seqno=2 len=12
+alloc app=4 ram=51
+gather urgent remaning=1
+alloc app=4 ram=67
+gather urgent remaning=1
+gather urgent remaning=1
+received for_me=1 end=10
+PAIR 3000 4 emited 1 0 0406320002580001
+alloc app=4 ram=70
+alloc app=4 ram=86
+dealloc app=4 ram=51
+gather urgent remaning=1
+PAIR 3000 9 emited 1 0 0406320002840001
+NET 3000 4 19 17 0 20 39 8 51 3 1
+dealloc app=4 ram=70
+gather len=10
+gather urgent remaning=1
+( 4, 3) send urgent=1 len=12
+NET 3000 9 6 7 0 20 24 6 70 4 1
+gather len=10
+( 9, 8) send urgent=1 len=12
+( 6, 5) sent retx=1 len=0
+cleanup node=6 ram=70
+cleanup node=6 ram=70
+cleanup node=6 ram=70
+dealloc app=4 ram=54
+cleanup node=6 ram=54
+( 9, 8) recv seqno=2 len=12
+gather urgent remaning=1
+gather urgent remaning=0
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=51
+alloc app=4 ram=67
+PAIR 3000 8 emited 1 0 0406320002840001
+dealloc app=4 ram=51
+gather urgent remaning=1
+NET 3000 8 6 7 0 20 21 6 51 3 1
+gather len=10
+(10, 9) sent retx=1 len=0
+( 8, 7) send urgent=1 len=12
+cleanup node=10 ram=51
+cleanup node=10 ram=51
+cleanup node=10 ram=51
+dealloc app=4 ram=35
+cleanup node=10 ram=35
+( 8, 7) recv seqno=2 len=12
+gather urgent remaning=1
+gather urgent remaning=2
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=89
+alloc app=4 ram=105
+PAIR 3000 7 emited 1 0 0406320002840001
+dealloc app=4 ram=89
+gather urgent remaning=1
+NET 3000 7 11 8 0 20 27 7 89 5 1
+gather len=10
+( 7, 6) send urgent=1 len=12
+( 9, 8) sent retx=1 len=0
+cleanup node=9 ram=70
+cleanup node=9 ram=70
+cleanup node=9 ram=70
+dealloc app=4 ram=54
+cleanup node=9 ram=54
+( 8, 7) sent retx=1 len=0
+cleanup node=8 ram=51
+cleanup node=8 ram=51
+cleanup node=8 ram=51
+dealloc app=4 ram=35
+cleanup node=8 ram=35
+( 4, 3) recv seqno=3 len=12
+gather urgent remaning=2
+gather urgent remaning=5
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=165
+alloc app=4 ram=181
+PAIR 3000 3 emited 1 0 0406320002580001
+dealloc app=4 ram=165
+gather urgent remaning=1
+NET 3000 3 21 22 0 20 45 6 165 9 1
+gather len=10
+( 3, 2) send urgent=1 len=12
+( 7, 6) recv seqno=3 len=12
+gather urgent remaning=1
+gather urgent remaning=1
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=70
+alloc app=4 ram=86
+PAIR 3001 6 emited 1 0 0406320002840001
+dealloc app=4 ram=70
+gather urgent remaning=1
+NET 3001 6 13 15 1 20 33 7 70 4 1
+gather len=10
+( 6, 5) send urgent=1 len=12
+( 3, 2) recv seqno=1 len=12
+gather urgent remaning=1
+gather urgent remaning=0
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=51
+alloc app=4 ram=67
+PAIR 3001 2 emited 1 0 0406320002580001
+dealloc app=4 ram=51
+gather urgent remaning=1
+NET 3001 2 20 23 1 20 38 8 51 3 1
+gather len=10
+( 2, 1) send urgent=1 len=12
+( 7, 6) sent retx=1 len=0
+cleanup node=7 ram=89
+cleanup node=7 ram=89
+cleanup node=7 ram=89
+dealloc app=4 ram=73
+cleanup node=7 ram=73
+( 5, 4) sent retx=1 len=0
+cleanup node=5 ram=89
+cleanup node=5 ram=89
+cleanup node=5 ram=89
+dealloc app=4 ram=73
+cleanup node=5 ram=73
+( 2, 1) recv seqno=1 len=12
+gather urgent remaning=0
+gather urgent remaning=0
+gather urgent remaning=0
+received for_me=1 end=10
+alloc app=4 ram=16
+alloc app=4 ram=32
+PAIR 3001 1 emited 1 0 0406320002580001
+dealloc app=4 ram=16
+gather urgent remaning=1
+NET 3001 1 0 23 0 0 28 0 16 1 1
+dealloc app=4 ram=0
+( 2, 1) sent retx=1 len=0
+cleanup node=2 ram=51
+cleanup node=2 ram=51
+cleanup node=2 ram=51
+dealloc app=4 ram=35
+cleanup node=2 ram=35
+( 6, 5) recv seqno=2 len=12
+gather urgent remaning=1
+gather urgent remaning=2
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=89
+alloc app=4 ram=105
+PAIR 3002 5 emited 1 0 0406320002840001
+dealloc app=4 ram=89
+gather urgent remaning=1
+NET 3002 5 14 16 1 20 32 5 89 5 1
+gather len=10
+( 5, 4) send urgent=1 len=12
+( 5, 4) recv seqno=3 len=12
+gather urgent remaning=1
+gather urgent remaning=0
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=67
+alloc app=4 ram=83
+PAIR 3002 4 emited 1 0 0406320002840001
+dealloc app=4 ram=67
+gather urgent remaning=2
+NET 3002 4 19 18 0 20 40 8 67 4 2
+flush urgent no medium
+( 6, 5) sent retx=1 len=0
+cleanup node=6 ram=70
+cleanup node=6 ram=70
+cleanup node=6 ram=70
+dealloc app=4 ram=54
+cleanup node=6 ram=54
+( 3, 2) recv seqno=1 len=12
+gather urgent remaning=1
+gather urgent remaning=0
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=51
+alloc app=4 ram=67
+PAIR 3002 2 emited 1 0 0406320002580001
+dealloc app=4 ram=51
+gather urgent remaning=1
+( 4, 3) sent retx=1 len=0
+cleanup node=4 ram=67
+cleanup node=4 ram=67
+NET 3002 2 21 24 1 20 39 8 51 3 1
+cleanup node=4 ram=67
+gather len=10
+dealloc app=4 ram=51
+( 2, 1) send urgent=1 len=12
+cleanup node=4 ram=51
+( 2, 1) recv seqno=2 len=12
+gather urgent remaning=0
+gather urgent remaning=0
+gather urgent remaning=0
+received for_me=1 end=10
+alloc app=4 ram=16
+alloc app=4 ram=32
+PAIR 3002 1 emited 1 0 0406320002580001
+dealloc app=4 ram=16
+gather urgent remaning=1
+NET 3002 1 0 24 0 0 29 0 16 1 1
+dealloc app=4 ram=0
+( 5, 4) sent retx=1 len=0
+cleanup node=5 ram=89
+cleanup node=5 ram=89
+cleanup node=5 ram=89
+dealloc app=4 ram=73
+cleanup node=5 ram=73
+( 3, 2) sent retx=2 len=0
+cleanup node=3 ram=165
+cleanup node=3 ram=165
+cleanup node=3 ram=165
+dealloc app=4 ram=149
+cleanup node=3 ram=149
+( 2, 1) sent retx=1 len=0
+cleanup node=2 ram=51
+cleanup node=2 ram=51
+cleanup node=2 ram=51
+dealloc app=4 ram=35
+cleanup node=2 ram=35
+( 4, 3) recv seqno=3 len=12
+gather urgent remaning=2
+gather urgent remaning=5
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=165
+alloc app=4 ram=181
+PAIR 3002 3 emited 1 0 0406320002580001
+dealloc app=4 ram=165
+gather urgent remaning=1
+NET 3002 3 22 23 0 20 46 6 165 9 1
+gather len=10
+( 3, 2) send urgent=1 len=12
+( 3, 2) recv seqno=2 len=12
+gather urgent remaning=1
+gather urgent remaning=0
+gather urgent remaning=1
+received for_me=1 end=10
+alloc app=4 ram=51
+alloc app=4 ram=67
+PAIR 3003 2 emited 1 0 0406320002580001
+dealloc app=4 ram=51
+gather urgent remaning=1
+NET 3003 2 22 25 1 20 40 8 51 3 1
+gather len=10
+( 2, 1) send urgent=1 len=12
+( 2, 1) recv seqno=3 len=12
+gather urgent remaning=0
+gather urgent remaning=0
+gather urgent remaning=0
+received for_me=1 end=10
+alloc app=4 ram=16
+alloc app=4 ram=32
+( 3, 2) sent retx=1 len=0
+cleanup node=3 ram=165
+PAIR 3003 1 emited 1 0 0406320002580001
+cleanup node=3 ram=165
+dealloc app=4 ram=16
+cleanup node=3 ram=165
+gather urgent remaning=1
+dealloc app=4 ram=149
+cleanup node=3 ram=149
+NET 3003 1 0 25 0 0 30 0 16 1 1
+dealloc app=4 ram=0
+( 2, 1) sent retx=1 len=0
+cleanup node=2 ram=51
+cleanup node=2 ram=51
+cleanup node=2 ram=51
+dealloc app=4 ram=35
+cleanup node=2 ram=35
+ 3060 P 6.0 50 5142697 95128843 79021 766559 0 636893 125280 1840799 11979 87548 0 12233 (radio 0.41% / 5.06% tx 0.07% / 0.60% listen 0.33% / 4.45%)
+ 3060 P 5.0 50 5050964 95220576 26200 669930 0 643270 109743 1856336 3299 17282 0 13667 (radio 0.26% / 1.04% tx 0.02% / 0.16% listen 0.23% / 0.87%)
+ 3060 P 4.0 50 5151154 95120386 75743 701041 0 635973 135996 1830083 17465 26393 0 12465 (radio 0.34% / 2.23% tx 0.07% / 0.88% listen 0.27% / 1.34%)
+ 3060 P 8.0 50 5025109 95246431 24916 659705 0 638778 104573 1861506 1990 14469 0 12592 (radio 0.25% / 0.83% tx 0.02% / 0.10% listen 0.22% / 0.73%)
+ 3060 P 2.0 50 5149629 95121911 73063 702117 0 637169 137055 1829024 16419 26240 0 12483 (radio 0.34% / 2.16% tx 0.07% / 0.83% listen 0.27% / 1.33%)
+ 3060 P 1.0 50 3302750 96968783 41629 674301 0 637656 80455 1885622 6908 19110 0 13072 (radio 0.28% / 1.32% tx 0.04% / 0.35% listen 0.24% / 0.97%)
+ 3060 P 3.0 50 5133650 95137890 61678 694033 0 637179 121125 1844952 9026 20866 0 13179 (radio 0.32% / 1.52% tx 0.06% / 0.45% listen 0.26% / 1.06%)
+ 3060 P 7.0 50 5055712 95215828 36842 671816 0 639299 108530 1857549 3566 16191 0 12691 (radio 0.27% / 1.00% tx 0.03% / 0.18% listen 0.24% / 0.82%)
+ 3060 P 9.0 50 5015253 95256287 18584 653199 0 636681 103841 1862238 1268 13801 0 12402 (radio 0.24% / 0.76% tx 0.01% / 0.06% listen 0.22% / 0.70%)
+ 3060 P 10.0 50 4989142 95282398 9797 645236 0 636647 104123 1861956 2262 14274 0 12428 (radio 0.22% / 0.84% tx 0.00% / 0.11% listen 0.21% / 0.72%)
+ 3120 P 6.0 51 5240156 96997462 79021 779039 0 649373 97456 1868619 0 12480 0 12480 (radio 0.41% / 0.63% tx 0.07% / 0.00% listen 0.34% / 0.63%)
+ 3120 P 5.0 51 5148410 97089208 26200 682410 0 655750 97443 1868632 0 12480 0 12480 (radio 0.27% / 0.63% tx 0.02% / 0.00% listen 0.24% / 0.63%)
+ 3120 P 4.0 51 5248615 96989003 75743 713521 0 648453 97458 1868617 0 12480 0 12480 (radio 0.35% / 0.63% tx 0.07% / 0.00% listen 0.27% / 0.63%)
+ 3120 P 8.0 51 5122559 97115059 24916 672185 0 651258 97447 1868628 0 12480 0 12480 (radio 0.26% / 0.63% tx 0.02% / 0.00% listen 0.23% / 0.63%)
+ 3120 P 2.0 51 5247089 96990529 73063 714597 0 649649 97457 1868618 0 12480 0 12480 (radio 0.35% / 0.63% tx 0.07% / 0.00% listen 0.27% / 0.63%)
+ 3120 P 1.0 51 3365624 98871989 41629 686781 0 650136 62871 1903206 0 12480 0 12480 (radio 0.29% / 0.63% tx 0.04% / 0.00% listen 0.25% / 0.63%)
+ 3120 P 3.0 51 5231097 97006521 61678 706513 0 649659 97444 1868631 0 12480 0 12480 (radio 0.33% / 0.63% tx 0.06% / 0.00% listen 0.27% / 0.63%)
+ 3120 P 7.0 51 5153160 97084458 36842 684296 0 651779 97445 1868630 0 12480 0 12480 (radio 0.28% / 0.63% tx 0.03% / 0.00% listen 0.24% / 0.63%)
+ 3120 P 9.0 51 5112700 97124918 18584 665679 0 649161 97444 1868631 0 12480 0 12480 (radio 0.24% / 0.63% tx 0.01% / 0.00% listen 0.23% / 0.63%)
+ 3120 P 10.0 51 5086579 97151039 9797 657716 0 649127 97434 1868641 0 12480 0 12480 (radio 0.23% / 0.63% tx 0.00% / 0.00% listen 0.22% / 0.63%)
+ 3180 P 6.0 52 5337569 98866129 79021 791519 0 661853 97410 1868667 0 12480 0 12480 (radio 0.01% / 0.63% tx 0.07% / 0.00% listen 0.34% / 0.63%)
+ 3180 P 5.0 52 5245819 98957879 26200 694890 0 668230 97406 1868671 0 12480 0 12480 (radio 0.27% / 0.63% tx 0.02% / 0.00% listen 0.25% / 0.63%)
+ 3180 P 4.0 52 5346026 98857672 75743 726001 0 660933 97408 1868669 0 12480 0 12480 (radio 0.35% / 0.63% tx 0.07% / 0.00% listen 0.28% / 0.63%)
+ 3180 P 8.0 52 5219969 98983729 24916 684665 0 663738 97407 1868670 0 12480 0 12480 (radio 0.26% / 0.63% tx 0.02% / 0.00% listen 0.24% / 0.63%)
+ 3180 P 2.0 52 5344500 98859198 73063 727077 0 662129 97408 1868669 0 12480 0 12480 (radio 0.35% / 0.63% tx 0.07% / 0.00% listen 0.28% / 0.63%)
+ 3180 P 1.0 52 3428469 100775224 41629 699261 0 662616 62842 1903235 0 12480 0 12480 (radio 0.29% / 0.63% tx 0.03% / 0.00% listen 0.25% / 0.63%)
+ 3180 P 3.0 52 5328508 98875190 61678 718993 0 662139 97408 1868669 0 12480 0 12480 (radio 0.33% / 0.63% tx 0.05% / 0.00% listen 0.27% / 0.63%)
+ 3180 P 7.0 52 5250570 98953128 36842 696776 0 664259 97407 1868670 0 12480 0 12480 (radio 0.29% / 0.63% tx 0.03% / 0.00% listen 0.25% / 0.63%)
+ 3180 P 9.0 52 5210110 98993588 18584 678159 0 661641 97407 1868670 0 12480 0 12480 (radio 0.25% / 0.63% tx 0.01% / 0.00% listen 0.23% / 0.63%)
+ 3180 P 10.0 52 5183982 99019716 9797 670196 0 661607 97400 1868677 0 12480 0 12480 (radio 0.24% / 0.63% tx 0.00% / 0.00% listen 0.23% / 0.63%)
+ 3240 P 6.0 53 5434983 100734795 79021 803999 0 674333 97411 1868666 0 12480 0 12480 (radio 0.02% / 0.63% tx 0.07% / 0.00% listen 0.35% / 0.63%)
+ 3240 P 5.0 53 5343236 100826542 26200 707370 0 680710 97414 1868663 0 12480 0 12480 (radio 0.28% / 0.63% tx 0.02% / 0.00% listen 0.26% / 0.63%)
+ 3240 P 4.0 53 5443443 100726335 75743 738481 0 673413 97414 1868663 0 12480 0 12480 (radio 0.36% / 0.63% tx 0.07% / 0.00% listen 0.29% / 0.63%)
+ 3240 P 8.0 53 5317386 100852392 24916 697145 0 676218 97414 1868663 0 12480 0 12480 (radio 0.27% / 0.63% tx 0.02% / 0.00% listen 0.25% / 0.63%)
+ 3240 P 2.0 53 5441917 100727861 73063 739557 0 674609 97414 1868663 0 12480 0 12480 (radio 0.36% / 0.63% tx 0.06% / 0.00% listen 0.29% / 0.63%)
+ 3240 P 1.0 53 3491336 102678437 41629 711741 0 675096 62864 1903213 0 12480 0 12480 (radio 0.30% / 0.63% tx 0.03% / 0.00% listen 0.26% / 0.63%)
+ 3240 P 3.0 53 5425925 100743853 61678 731473 0 674619 97414 1868663 0 12480 0 12480 (radio 0.34% / 0.63% tx 0.05% / 0.00% listen 0.28% / 0.63%)
+ 3240 P 7.0 53 5347987 100821791 36842 709256 0 676739 97414 1868663 0 12480 0 12480 (radio 0.29% / 0.63% tx 0.03% / 0.00% listen 0.26% / 0.63%)
+ 3240 P 9.0 53 5307527 100862251 18584 690639 0 674121 97414 1868663 0 12480 0 12480 (radio 0.26% / 0.63% tx 0.01% / 0.00% listen 0.24% / 0.63%)
+ 3240 P 10.0 53 5281392 100888386 9797 682676 0 674087 97407 1868670 0 12480 0 12480 (radio 0.24% / 0.63% tx 0.00% / 0.00% listen 0.23% / 0.63%)
+ 3300 P 6.0 54 5532419 102603439 79021 816479 0 686813 97433 1868644 0 12480 0 12480 (radio 0.03% / 0.63% tx 0.07% / 0.00% listen 0.35% / 0.63%)
+ 3300 P 5.0 54 5440674 102695184 26200 719850 0 693190 97435 1868642 0 12480 0 12480 (radio 0.29% / 0.63% tx 0.02% / 0.00% listen 0.26% / 0.63%)
+ 3300 P 4.0 54 5540881 102594977 75743 750961 0 685893 97435 1868642 0 12480 0 12480 (radio 0.36% / 0.63% tx 0.07% / 0.00% listen 0.29% / 0.63%)
+ 3300 P 8.0 54 5414824 102721034 24916 709625 0 688698 97435 1868642 0 12480 0 12480 (radio 0.28% / 0.63% tx 0.02% / 0.00% listen 0.25% / 0.63%)
+ 3300 P 2.0 54 5539355 102596503 73063 752037 0 687089 97435 1868642 0 12480 0 12480 (radio 0.36% / 0.63% tx 0.06% / 0.00% listen 0.29% / 0.63%)
+ 3300 P 1.0 54 3554211 104581642 41629 724221 0 687576 62872 1903205 0 12480 0 12480 (radio 0.31% / 0.63% tx 0.03% / 0.00% listen 0.27% / 0.63%)
+ 3300 P 3.0 54 5523364 102612494 61678 743953 0 687099 97436 1868641 0 12480 0 12480 (radio 0.34% / 0.63% tx 0.05% / 0.00% listen 0.29% / 0.63%)
+ 3300 P 7.0 54 5445425 102690433 36842 721736 0 689219 97435 1868642 0 12480 0 12480 (radio 0.30% / 0.63% tx 0.03% / 0.00% listen 0.27% / 0.63%)
+ 3300 P 9.0 54 5404965 102730893 18584 703119 0 686601 97435 1868642 0 12480 0 12480 (radio 0.27% / 0.63% tx 0.01% / 0.00% listen 0.25% / 0.63%)
+ 3300 P 10.0 54 5378820 102757038 9797 695156 0 686567 97425 1868652 0 12480 0 12480 (radio 0.25% / 0.63% tx 0.00% / 0.00% listen 0.24% / 0.63%)
+ 3360 P 6.0 55 5629864 104472074 79021 828959 0 699293 97442 1868635 0 12480 0 12480 (radio 0.04% / 0.63% tx 0.07% / 0.00% listen 0.36% / 0.63%)
+ 3360 P 5.0 55 5538121 104563817 26200 732330 0 705670 97444 1868633 0 12480 0 12480 (radio 0.29% / 0.63% tx 0.02% / 0.00% listen 0.27% / 0.63%)
+ 3360 P 4.0 55 5638328 104463610 75743 763441 0 698373 97444 1868633 0 12480 0 12480 (radio 0.37% / 0.63% tx 0.06% / 0.00% listen 0.30% / 0.63%)
+ 3360 P 8.0 55 5512271 104589667 24916 722105 0 701178 97444 1868633 0 12480 0 12480 (radio 0.28% / 0.63% tx 0.02% / 0.00% listen 0.26% / 0.63%)
+ 3360 P 2.0 55 5636802 104465136 73063 764517 0 699569 97444 1868633 0 12480 0 12480 (radio 0.37% / 0.63% tx 0.06% / 0.00% listen 0.30% / 0.63%)
+ 3360 P 1.0 55 3617094 106484839 41629 736701 0 700056 62880 1903197 0 12480 0 12480 (radio 0.31% / 0.63% tx 0.03% / 0.00% listen 0.27% / 0.63%)
+ 3360 P 3.0 55 5620811 104481127 61678 756433 0 699579 97444 1868633 0 12480 0 12480 (radio 0.35% / 0.63% tx 0.05% / 0.00% listen 0.29% / 0.63%)
+ 3360 P 7.0 55 5542872 104559066 36842 734216 0 701699 97444 1868633 0 12480 0 12480 (radio 0.31% / 0.63% tx 0.03% / 0.00% listen 0.27% / 0.63%)
+ 3360 P 9.0 55 5502412 104599526 18584 715599 0 699081 97444 1868633 0 12480 0 12480 (radio 0.27% / 0.63% tx 0.01% / 0.00% listen 0.25% / 0.63%)
+ 3360 P 10.0 55 5476257 104625681 9797 707636 0 699047 97434 1868643 0 12480 0 12480 (radio 0.26% / 0.63% tx 0.00% / 0.00% listen 0.25% / 0.63%)
+ 3420 P 6.0 56 5727315 106340703 79021 841439 0 711773 97448 1868629 0 12480 0 12480 (radio 0.05% / 0.63% tx 0.07% / 0.00% listen 0.36% / 0.63%)
+ 3420 P 5.0 56 5635574 106432444 26200 744810 0 718150 97450 1868627 0 12480 0 12480 (radio 0.30% / 0.63% tx 0.02% / 0.00% listen 0.28% / 0.63%)
+ 3420 P 4.0 56 5735782 106332236 75743 775921 0 710853 97451 1868626 0 12480 0 12480 (radio 0.37% / 0.63% tx 0.06% / 0.00% listen 0.30% / 0.63%)
+ 3420 P 8.0 56 5609724 106458294 24916 734585 0 713658 97450 1868627 0 12480 0 12480 (radio 0.29% / 0.63% tx 0.02% / 0.00% listen 0.27% / 0.63%)
+ 3420 P 2.0 56 5734255 106333763 73063 776997 0 712049 97450 1868627 0 12480 0 12480 (radio 0.37% / 0.63% tx 0.06% / 0.00% listen 0.31% / 0.63%)
+ 3420 P 1.0 56 3679985 108388028 41629 749181 0 712536 62888 1903189 0 12480 0 12480 (radio 0.32% / 0.63% tx 0.03% / 0.00% listen 0.28% / 0.63%)
+ 3420 P 3.0 56 5718264 106349754 61678 768913 0 712059 97450 1868627 0 12480 0 12480 (radio 0.35% / 0.63% tx 0.05% / 0.00% listen 0.30% / 0.63%)
+ 3420 P 7.0 56 5640326 106427692 36842 746696 0 714179 97451 1868626 0 12480 0 12480 (radio 0.31% / 0.63% tx 0.03% / 0.00% listen 0.28% / 0.63%)
+ 3420 P 9.0 56 5599866 106468152 18584 728079 0 711561 97451 1868626 0 12480 0 12480 (radio 0.28% / 0.63% tx 0.01% / 0.00% listen 0.26% / 0.63%)
+ 3420 P 10.0 56 5573703 106494315 9797 720116 0 711527 97443 1868634 0 12480 0 12480 (radio 0.26% / 0.63% tx 0.00% / 0.00% listen 0.25% / 0.63%)
+ 3480 P 6.0 57 5824775 108209323 79021 853919 0 724253 97457 1868620 0 12480 0 12480 (radio 0.06% / 0.63% tx 0.06% / 0.00% listen 0.37% / 0.63%)
+ 3480 P 5.0 57 5733036 108301062 26200 757290 0 730630 97459 1868618 0 12480 0 12480 (radio 0.31% / 0.63% tx 0.02% / 0.00% listen 0.28% / 0.63%)
+ 3480 P 4.0 57 5833245 108200853 75743 788401 0 723333 97460 1868617 0 12480 0 12480 (radio 0.00% / 0.63% tx 0.06% / 0.00% listen 0.31% / 0.63%)
+ 3480 P 8.0 57 5707186 108326912 24916 747065 0 726138 97459 1868618 0 12480 0 12480 (radio 0.30% / 0.63% tx 0.02% / 0.00% listen 0.27% / 0.63%)
+ 3480 P 2.0 57 5831718 108202380 73063 789477 0 724529 97460 1868617 0 12480 0 12480 (radio 0.00% / 0.63% tx 0.06% / 0.00% listen 0.31% / 0.63%)
+ 3480 P 1.0 57 3742885 110291208 41629 761661 0 725016 62897 1903180 0 12480 0 12480 (radio 0.32% / 0.63% tx 0.03% / 0.00% listen 0.29% / 0.63%)
+ 3480 P 3.0 57 5815728 108218370 61678 781393 0 724539 97461 1868616 0 12480 0 12480 (radio 0.36% / 0.63% tx 0.05% / 0.00% listen 0.30% / 0.63%)
+ 3480 P 7.0 57 5737788 108296310 36842 759176 0 726659 97459 1868618 0 12480 0 12480 (radio 0.32% / 0.63% tx 0.03% / 0.00% listen 0.28% / 0.63%)
+ 3480 P 9.0 57 5697329 108336769 18584 740559 0 724041 97460 1868617 0 12480 0 12480 (radio 0.28% / 0.63% tx 0.01% / 0.00% listen 0.27% / 0.63%)
+ 3480 P 10.0 57 5671158 108362940 9797 732596 0 724007 97452 1868625 0 12480 0 12480 (radio 0.27% / 0.63% tx 0.00% / 0.00% listen 0.26% / 0.63%)
+ 3540 P 6.0 58 5922270 110077908 79021 866399 0 736733 97492 1868585 0 12480 0 12480 (radio 0.07% / 0.63% tx 0.06% / 0.00% listen 0.00% / 0.63%)
+ 3540 P 5.0 58 5830535 110169643 26200 769770 0 743110 97496 1868581 0 12480 0 12480 (radio 0.31% / 0.63% tx 0.02% / 0.00% listen 0.29% / 0.63%)
+ 3540 P 4.0 58 5930740 110069438 75743 800881 0 735813 97492 1868585 0 12480 0 12480 (radio 0.01% / 0.63% tx 0.06% / 0.00% listen 0.32% / 0.63%)
+ 3540 P 8.0 58 5804685 110195493 24916 759545 0 738618 97496 1868581 0 12480 0 12480 (radio 0.30% / 0.63% tx 0.02% / 0.00% listen 0.28% / 0.63%)
+ 3540 P 2.0 58 5929213 110070965 73063 801957 0 737009 97492 1868585 0 12480 0 12480 (radio 0.01% / 0.63% tx 0.06% / 0.00% listen 0.32% / 0.63%)
+ 3540 P 1.0 58 3805792 112194381 41629 774141 0 737496 62904 1903173 0 12480 0 12480 (radio 0.33% / 0.63% tx 0.03% / 0.00% listen 0.29% / 0.63%)
+ 3540 P 3.0 58 5913228 110086950 61678 793873 0 737019 97497 1868580 0 12480 0 12480 (radio 0.36% / 0.63% tx 0.05% / 0.00% listen 0.31% / 0.63%)
+ 3540 P 7.0 58 5835286 110164892 36842 771656 0 739139 97495 1868582 0 12480 0 12480 (radio 0.32% / 0.63% tx 0.03% / 0.00% listen 0.29% / 0.63%)
+ 3540 P 9.0 58 5794827 110205351 18584 753039 0 736521 97495 1868582 0 12480 0 12480 (radio 0.29% / 0.63% tx 0.01% / 0.00% listen 0.27% / 0.63%)
+ 3540 P 10.0 58 5768648 110231530 9797 745076 0 736487 97487 1868590 0 12480 0 12480 (radio 0.28% / 0.63% tx 0.00% / 0.00% listen 0.27% / 0.63%)
