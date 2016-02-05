@@ -174,7 +174,7 @@ brass_app_init(struct brass_app * app) {
 	if (app->sow_period == 0 || (app->net && app->net->hops == 0)) return;
 	
 	PRINTF("sched sow app=%d period=%u\n", app->id, app->sow_period);
-	ctimer_set(&app->sow_timer, app->sow_period, sow_timer_callback, app);
+	ctimer_set(&app->sow_timer, app->sow_period * CLOCK_SECOND, sow_timer_callback, app);
 }
 
 void
